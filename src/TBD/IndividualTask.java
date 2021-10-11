@@ -1,4 +1,7 @@
-import java.util.ArrayList;
+package TBD;
+
+import TBD.Category;
+
 
 public class IndividualTask {
     public ArrayList<Category> categories = new ArrayList<Category>();
