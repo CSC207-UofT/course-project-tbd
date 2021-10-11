@@ -1,10 +1,14 @@
+package TBD;
+
+import TBD.Category;
+
 import java.util.ArrayList;
 
 public class NormalUser extends User{
 
     public String username;
     public String password;
-    // What is the Group?
+    // What is the TBD.Group?
 
     // Two Arraylists of Categories ??? Another one in individualTask
     public ArrayList<Category> myCategories = new ArrayList<Category>();
