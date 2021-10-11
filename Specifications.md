@@ -19,7 +19,7 @@ Some cool features:
       -The login system
       -Interaction between two peers account including add and message
       -Self-assigned categories and tasks. You can also access your task with date and category
-      -Join/leave/manage the group and Group-assigned work 
+      -Join/leave/manage the group and TBD.Group-assigned work 
       -Confirmation System in Notification allows you to make confirmation (Ask Leo later)
 
 
@@ -125,6 +125,7 @@ Attributes:  TaskCategoryManager T;  // This is use case (Check the TaskCatefory
 
 
 Class Group				// Manages groups
+
 Attributes: TBD.User Leader: <TBD.User> // Leader of the group
 	     Arraylist <TBD.User> editorAcess // The users who can add tasks to the group
 	     Arraylist <TBD.User> groupMembers // 
@@ -137,7 +138,7 @@ Class TBD.User(Super)				//TBD.User info - TBD.User can be admin or normal user.
 Class TBD.NormalUser extends TBD.User    	// Regular user of app.
 Attributes: password, 
      Username,
-     Arraylist <Group> myGroups // Contains the groups the user is in
+     Arraylist <TBD.Group> myGroups // Contains the groups the user is in
      Individual myPersonalTask  // This is users individual task thingy. 
 
 
@@ -161,6 +162,7 @@ Methods: addCategory - adds a category from the arraylist
 Class TBD.UserManager		// Does user stuff
 Class TBD.TaskManager		// Edits task and sets clock, notif etc
 Class TBD.GroupTaskManager  // Manages groups
+
 Class NotificationManager
 Class CalendarManager
 Class StatisticsManager
@@ -177,5 +179,5 @@ TBD.User has option to either an individual task manager or grp task manager.
 Individual task manager:
 	Ability to make different task categories. 
 	
-Group task manager:
+TBD.Group task manager:
 	For groups to work together. The creator/admin can assign tasks to different individuals (We can have multiple categories for each user and the head admin can fill up those tasks). 
