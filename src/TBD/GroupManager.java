@@ -34,7 +34,7 @@ public class GroupManager extends TaskManager{
      * the wanted group
      */
     public void deleteGroup(Group group) {
-        for (User i: group.getUsers) {
+        for (User i: group.getUsers()) {
             ArrayList<Group> groups = this.maps.get(i);
             groups.remove(group);
         }

@@ -53,7 +53,7 @@ public class Group {
     }
 
     public String getgroupName() {
-        return this.groupname;
+        return this.groupName;
     }
 
     public ArrayList<Features> getFeatures() {
