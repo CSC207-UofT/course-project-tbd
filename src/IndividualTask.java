@@ -9,17 +9,24 @@ public class IndividualTask {
      */
     public void addNewCategory(Category newCategory) {
         this.categories.add(newCategory);
-    };
+    }
 
-    /** A method that takes the parameter (target) and removes it from the ArrayList
+    ;
+
+    /**
+     * A method that takes the parameter (target) and removes it from the ArrayList
      */
     public void deleteCategory(Category target) {
         this.categories.remove(target);
-    };
+    }
+
+    ;
 
     /* @Overloaded method where tasks are added to an ALLTASKS page
      * and then create Categories. complete Tasks
      */
-    public void addTaskToCategory(Task newtask) {
+    public void addTaskToCategory(Category cat, Task newtask) {
+        cat.add(newtask);
+
     }
 }
