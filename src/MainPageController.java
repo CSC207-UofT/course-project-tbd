@@ -15,7 +15,8 @@ public class MainPageController {
         String input = reader.readLine();
         while (!input.equals("2")){
             if (input.equals("0")){
-                System.out.println("No way!");
+                UserLoginController ulc = new UserLoginController();
+                ulc.run();
             }
             else if (input.equals("1")){
                 NewUserController nuc = new NewUserController();
@@ -24,6 +25,7 @@ public class MainPageController {
             else {
                 System.out.println("Invalid input!");
             }
+            mpp.mainPageInstruction();
             mpp.decisionAsk();
             input = reader.readLine();
         }
