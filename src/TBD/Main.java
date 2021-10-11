@@ -1,7 +1,7 @@
 package TBD;
 
 import TBD.Category;
-import TBD.IndividualTask;
+import TBD.NormalUser;
 
 public class Main {
     public static void main(String[] args) {

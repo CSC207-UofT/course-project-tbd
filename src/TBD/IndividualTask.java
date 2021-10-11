@@ -1,7 +1,3 @@
-package TBD;
-
-import TBD.Category;
-
 import java.util.ArrayList;
 
 public class IndividualTask {
