@@ -6,6 +6,8 @@ import java.util.Scanner;
 
 
 public class MainPageController {
+    UserManager um;
+    MainPageController(UserManager um){this.um = um;};
     private final MainPagePresenter mpp = new MainPagePresenter();
     public void run() throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -15,11 +17,11 @@ public class MainPageController {
         String input = reader.readLine();
         while (!input.equals("2")){
             if (input.equals("0")){
-                UserLoginController ulc = new UserLoginController();
+                UserLoginController ulc = new UserLoginController(um);
                 ulc.run();
             }
             else if (input.equals("1")){
-                NewUserController nuc = new NewUserController();
+                NewUserController nuc = new NewUserController(um);
                 nuc.run();
             }
             else {

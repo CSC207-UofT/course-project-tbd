@@ -4,10 +4,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Scanner;
 public class UserLoginController {
+    UserManager um;
+    UserLoginController(UserManager um){ this.um = um;};
     public final UserLoginPresenter nlp = new UserLoginPresenter();
     public void run(){BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         nlp.welcomePage();
-        UserManager um = new UserManager();
         try{
             nlp.typeUserId();
             String userId = reader.readLine();

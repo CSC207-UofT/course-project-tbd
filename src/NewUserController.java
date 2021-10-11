@@ -4,10 +4,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Scanner;
 public class NewUserController {
+    UserManager um;
+    NewUserController(UserManager um){this.um = um};
     public final NewUserPresenter nup = new NewUserPresenter();
     public void run(){BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         nup.Intro();
-        UserManager um = new UserManager();
         try{
             String userId = reader.readLine();
             while (!um.checkIfValid(userId)) {
