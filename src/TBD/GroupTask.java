@@ -1,6 +1,9 @@
+package TBD;
+
 import java.util.ArrayList;
 
-public class IndividualTask {
+public class GroupTask {
+
     public ArrayList<Category> categories = new ArrayList<Category>();
 
     /**
