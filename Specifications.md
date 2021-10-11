@@ -124,7 +124,8 @@ Attributes:  TaskCategoryManager T;  // This is use case (Check the TaskCatefory
 	      
 
 
-Class TBD.Group				// Manages groups
+Class Group				// Manages groups
+
 Attributes: TBD.User Leader: <TBD.User> // Leader of the group
 	     Arraylist <TBD.User> editorAcess // The users who can add tasks to the group
 	     Arraylist <TBD.User> groupMembers // 
@@ -160,7 +161,8 @@ Methods: addCategory - adds a category from the arraylist
 
 Class TBD.UserManager		// Does user stuff
 Class TBD.TaskManager		// Edits task and sets clock, notif etc
-Class TBD.GroupManager  // Manages groups
+Class TBD.GroupTaskManager  // Manages groups
+
 Class NotificationManager
 Class CalendarManager
 Class StatisticsManager
