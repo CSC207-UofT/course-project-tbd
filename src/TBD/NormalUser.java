@@ -6,7 +6,6 @@ public class NormalUser extends User{
 
     public String username;
     public String password;
-    // What is the TBD.Group?
 
     // Two Arraylists of Categories ??? Another one in individualTask
     public ArrayList<Category> myCategories = new ArrayList<Category>();

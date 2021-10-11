@@ -22,13 +22,16 @@ public class Group {
     /**
      * A method that takes the parameter (newCategory) and adds it to the ArrayList
      */
+
     public void addNewFeature(Features target) {
         this.features.add(target);
     }
 
+
     /**
      * A method that takes the parameter (target) and removes it from the ArrayList
      */
+
     public void deleteFeature(Features target) {
         this.features.remove(target);
     }
@@ -56,5 +59,4 @@ public class Group {
     public ArrayList<Features> getFeatures() {
         return this.features;
     }
-
 }

@@ -1,9 +1,9 @@
 package TBD;
 
-import TBD.Category;
+import java.util.ArrayList;
 
+public class GroupTask {
 
-public class IndividualTask {
     public ArrayList<Category> categories = new ArrayList<Category>();
 
     /**
