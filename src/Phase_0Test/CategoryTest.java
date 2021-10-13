@@ -11,12 +11,14 @@ public class CategoryTest {
     Task a;
     Task b;
     Task c;
+    Task d;
 
     @Before
     public void setUp() {
         a = new Task("homework");
         b = new Task("study");
         c = new Task("read");
+        d = new Task("Sleep");
 
         cy = new Category("University");
         cy.addTask(a);
@@ -30,8 +32,9 @@ public class CategoryTest {
     }
 
     @Test(timeout = 100)
-    public void TestaddTask(){
+    public void TestgetTask(){
         assertEquals(3, cy.getTasks().size());
     }
+
 
 }
