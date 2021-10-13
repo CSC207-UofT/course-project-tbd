@@ -20,8 +20,9 @@ public class UserLoginController {
             while (!stop) {
                 if (um.login(userId, password)){
                     nlp.success(userId);
-                    UerPageController upc = new UserPageController(um, um.getUserById(userId));
+                    UserPageController upc = new UserPageController(um, um.getUserById(userId));
                     upc.run();
+                    break;
                 }
                 else
                 {nlp.fail();

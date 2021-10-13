@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class UserManager {
-    public ArrayList<NormalUser> allUsers = new ArrayList<NormalUser>();
+    public ArrayList<NormalUser> allUsers = new ArrayList<>();
 
     public void createUser() {
     };
@@ -36,5 +36,17 @@ public class UserManager {
                 return true;
             }
         } return false;
+    }
+
+    /**
+     * Returns the user when given its username or null if not found
+     */
+    public NormalUser getUserById(String ID) {
+        for (NormalUser user : allUsers) {
+            if (user.username.equals(ID)) {
+                return user;
+            }
+        }
+        return null;
     }
 }
