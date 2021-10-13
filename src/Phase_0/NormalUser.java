@@ -20,8 +20,12 @@ public class NormalUser extends User{
     /**
      * A method that returns username and password. PS someone please change the format to make it look better
      */
-    public String displayUserDetail() {
-        return (this.username + " " + this.password);
+    public String displayMyCategories() {
+        StringBuilder s = new StringBuilder();
+        for (Category c : myCategories) {
+            s.append(c.toString()).append("\n");
+        }
+        return s.toString();
     }
 
     /**
