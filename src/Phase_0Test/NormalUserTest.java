@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import java.util.List;
 import Phase_0.NormalUser;
+import Phase_0.Category;
 import static org.junit.Assert.*;
 
 public class NormalUserTest {

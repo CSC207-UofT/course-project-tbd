@@ -26,21 +26,21 @@ public class UserLoginController {
                 }
                 else
                 {nlp.fail();
-                nlp.again();
-                String s = reader.readLine();
-                if (!s.equals("0")){
-                    stop = true;
+                    nlp.again();
+                    String s = reader.readLine();
+                    if (!s.equals("0")){
+                        stop = true;
+                    }
+                    else {
+                        nlp.typeUserId();
+                        userId = reader.readLine();
+                        nlp.typePassword();
+                        password = reader.readLine();
+                    }
                 }
-                else {
-                    nlp.typeUserId();
-                    userId = reader.readLine();
-                    nlp.typePassword();
-                    password = reader.readLine();
-                }
-            }
 
-        }} catch (IOException e){
+            }} catch (IOException e){
             System.out.println("Please type a valid number");
         }
 
-}}
+    }}
