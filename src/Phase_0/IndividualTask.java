@@ -1,4 +1,7 @@
+package Phase_0;
+
 import java.util.ArrayList;
+
 
 public class IndividualTask {
     public ArrayList<Category> categories = new ArrayList<>();

@@ -1,10 +1,10 @@
 Specification:
-    Main features:
+    Phase_0.Main features:
       -Recording tasks 
       -Tomato Clock
       -Categorizing Tasks (See video (1:16)) 
       -Login system
-      -Notification system (User inputted)
+      -Notification system (Phase_0.User inputted)
       -Future improvements
       -Google cloud support 
       -How much time spent per task (tied into the tomato clock)
@@ -19,44 +19,44 @@ Some cool features:
       -The login system
       -Interaction between two peers account including add and message
       -Self-assigned categories and tasks. You can also access your task with date and category
-      -Join/leave/manage the group and Group-assigned work 
+      -Join/leave/manage the group and Phase_0.Group-assigned work 
       -Confirmation System in Notification allows you to make confirmation (Ask Leo later)
 
 
 
 Instruction for our productivity app
 
-Firstly, we should login ----- then we may have different types of Users, we can add AdminUser who manages NormalUser Account later, and also we can create a demo User as a tutorial account which tell people how to use our app, but now let’s just have NormalUser
+Firstly, we should login ----- then we may have different types of Users, we can add Phase_0.AdminUser who manages Phase_0.NormalUser Account later, and also we can create a demo Phase_0.User as a tutorial account which tell people how to use our app, but now let’s just have Phase_0.NormalUser
 
 
--Branch 1: NormalUser 
+-Branch 1: Phase_0.NormalUser 
 
-*Calendar - when entering the calendar, User would receive tasks that is due in the future (basically system.out.println format: Top line date, the line under the date is the task (before GUI)), and User after that can have two options:
+*Calendar - when entering the calendar, Phase_0.User would receive tasks that is due in the future (basically system.out.println format: Top line date, the line under the date is the task (before GUI)), and Phase_0.User after that can have two options:
 
 	*Check task with no due date
 	*Search task with due date (can be a specific date or a single month), also return task related
 
-*MyTask - User then have 3 options:
+*MyTask - Phase_0.User then have 3 options:
 
-	*CheckExistedTask - if User choose that option:
+	*CheckExistedTask - if Phase_0.User choose that option:
 -Firstly there will be a default folder in it called Default, which is an  
  arraylist stores tasks. And if the user chooses Default, it will return tasks that are stored in it.
--Also, later on there would be more folders (User can create it with option CreateNewCategory) and they will function the same
+-Also, later on there would be more folders (Phase_0.User can create it with option CreateNewCategory) and they will function the same
 (We can make each task in it editable if TA think it is too less work)
--User can also delete folders as long as there is still a folder remains (>= 1)
+-Phase_0.User can also delete folders as long as there is still a folder remains (>= 1)
 
-	*CreateNewCategory - if User choose that option:
--User can now create categories of task, basically set name of the category they want and then it will become a folder in CheckExistedTask
+	*CreateNewCategory - if Phase_0.User choose that option:
+-Phase_0.User can now create categories of task, basically set name of the category they want and then it will become a folder in CheckExistedTask
 
-	*CreateTask -  if User choose that option:
--User can create task with due date with some specification, and have option to put it under a category(folder) that has been created
+	*CreateTask -  if Phase_0.User choose that option:
+-Phase_0.User can create task with due date with some specification, and have option to put it under a category(folder) that has been created
 
 *MyPeer - basically user has two options, add peers and text peers that has been added before (For social extension, that is an extra work since we are 8 people group)
 
 	(when you send a request to a peer, she/he has to confirm it in Notification)
 
 
-*MyGroup - User here has four options:
+*MyGroup - Phase_0.User here has four options:
 *Create 
 Create a group, set names balabala, after that, creator will be the leader of the group, and a folder with the name of the group will appear in the CheckExistedTask.
  Also, that group cannot be deleted in CheckExistedTask (plan: to add an boolean attribute to the group called protected.)
@@ -72,12 +72,12 @@ Leader or admin can also set new admin in the group they are in charge of and se
 Leader or admin can invite and kick members (implemented same as LeaveGroup)
 
 	 *LeaveGroup
- -     User can type in the name of the group he wants to leave and if that group has this user in it, he will receive a notification which needs this user’s final confirmation to leave this group (or we can do it right away if the group exists and has this user, buy it would be less cooler lol)
+ -     Phase_0.User can type in the name of the group he wants to leave and if that group has this user in it, he will receive a notification which needs this user’s final confirmation to leave this group (or we can do it right away if the group exists and has this user, buy it would be less cooler lol)
 
 
 *Notification - challenging part, but can be extended to have a lottttt of functionalities
 	*CheckMyMailBox
- 		 -     From there User can receive two kinds of notification:
+ 		 -     From there Phase_0.User can receive two kinds of notification:
 			- ConfirmationMail      Like peer request, the user has to confirm it
 			- NormalMail          can be message from other peer, from the group, 					        or the due date reminder
 		
@@ -103,41 +103,43 @@ Leader or admin can invite and kick members (implemented same as LeaveGroup)
 Entity Class
 
 Class TaskCategory       // Represents a single folder/category. Contains a list of Tasks. 
-Attributes: Arraylist<Task>
+Attributes: Arraylist<Phase_0.Task>
 
-Class Task(Super)					// Abstract
+Class Phase_0.Task(Super)					// Abstract
 Attributes: Name, Clock (Not sure about the attributes here.)
 
 
-Class DefaultTaskTemplate extends Task  // We will  add more templates later
+Class DefaultTaskTemplate extends Phase_0.Task  // We will  add more templates later
 
  
-#Class WorkoutTask_Preset extends Task   		//Special task templates	
-#Class SchoolworkTask_ extends Task)             
+#Class WorkoutTask_Preset extends Phase_0.Task   		//Special task templates	
+#Class SchoolworkTask_ extends Phase_0.Task)             
 ”””
-(Save specific Task template for extension in Phase 2  , it takes a lot of time to implement GUI for each task template.
+(Save specific Phase_0.Task template for extension in Phase 2  , it takes a lot of time to implement GUI for each task template.
 ”””     	
-Class IndividualTaskManager 	 // This is the class representing an individuals task manager. 
+Class Phase_0.IndividualTaskManager 	 // This is the class representing an individuals task manager. 
 Attributes:  TaskCategoryManager T;  // This is use case (Check the TaskCateforyManager class in Usecases). It creates task categories and overlooks task page.
 	     
 	     Calendar c   // The calendar for the individuals task manager. All the tasks and their due dates will be shown here.
 	      
 
 
-Class Group				// Manages groups
-Attributes: User Leader: <User> // Leader of the group
-	     Arraylist <User> editorAcess // The users who can add tasks to the group
-	     Arraylist <User> groupMembers // 
+
+Class Phase_0.Group				// Manages groups
+
+Attributes: Phase_0.User Leader: <Phase_0.User> // Leader of the group
+	     Arraylist <Phase_0.User> editorAcess // The users who can add tasks to the group
+	     Arraylist <Phase_0.User> groupMembers // 
 	     Calender groupCalender // This calender represents the groups calender. Shows all tasks and due dates for group.
 	     TaskCategoryManager T // This will contain the MAIN task category where all tasks are added to initially and also later we will extend it to create folders for each user and add tasks to each folder. (Check the use cases section.)
 	     
 
-Class User(Super)				//User info - User can be admin or normal user. Idk what admin is but they are the creators of the app I guess.
+Class Phase_0.User(Super)				//Phase_0.User info - Phase_0.User can be admin or normal user. Idk what admin is but they are the creators of the app I guess.
 
-Class NormalUser extends User    	// Regular user of app.
+Class Phase_0.NormalUser extends Phase_0.User    	// Regular user of app.
 Attributes: password, 
      Username,
-     Arraylist <Group> myGroups // Contains the groups the user is in
+     Arraylist <Phase_0.Group> myGroups // Contains the groups the user is in
      Individual myPersonalTask  // This is users individual task thingy. 
 
 
@@ -158,24 +160,25 @@ Methods: addCategory - adds a category from the arraylist
 	    deleteCategory - deletes a category from the arraylist
 	    
 
-Class UserManager		// Does user stuff
-Class TaskManager		// Edits task and sets clock, notif etc
-Class GroupTaskManager  // Manages groups
+Class Phase_0.UserManager		// Does user stuff
+Class Phase_0.TaskManager		// Edits task and sets clock, notif etc
+Class Phase_0.GroupTaskManager  // Manages groups
+
 Class NotificationManager
 Class CalendarManager
 Class StatisticsManager
 
 Controller
-Class Main  // The main controller that initializes everything. Initializes GUI as well.
+Class Phase_0.Main  // The main controller that initializes everything. Initializes GUI as well.
 
 
 Class Gui
 
-User logs in.
-User creates account
-User has option to either an individual task manager or grp task manager.
+Phase_0.User logs in.
+Phase_0.User creates account
+Phase_0.User has option to either an individual task manager or grp task manager.
 Individual task manager:
 	Ability to make different task categories. 
 	
-Group task manager:
+Phase_0.Group task manager:
 	For groups to work together. The creator/admin can assign tasks to different individuals (We can have multiple categories for each user and the head admin can fill up those tasks). 
