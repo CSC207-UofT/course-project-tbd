@@ -7,10 +7,10 @@ public class NewUserPresenter {
                 "Please type your preferred UserName");
     }
     public void invalidUserName(String u){
-        System.out.println("Sorry, UserName " + u + "has been taken");
+        System.out.println("Sorry, UserName " + u + " has been taken");
     }
     public void askPassword(String u){
-        System.out.println("Congrats! UserName" + u + " is valid \n" +
+        System.out.println("Congrats! UserName " + u + " is valid \n" +
                 "Please type in your password: ");
     }
     public void completed(){

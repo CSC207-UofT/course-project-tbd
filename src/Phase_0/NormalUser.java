@@ -27,8 +27,13 @@ public class NormalUser extends User{
 
     public String displayMyCategories() {
         StringBuilder s = new StringBuilder();
-        for (Category c : myCategories) {
-            s.append(c.toString()).append("\n");
+        int size = this.myCategories.size();
+        for (Category c : this.myCategories) {
+            s.append(c.getCategoryName());
+            size -= 1;
+            if (size != 0) {
+                s.append("\n");
+            }
         }
         return s.toString();
     }
@@ -38,12 +43,12 @@ public class NormalUser extends User{
      */
     public void addNewCategory(Category newCategory) {
         this.myCategories.add(newCategory);
-    };
+    }
 
     /**
      * A method that takes the parameter (target) and removes it from the ArrayList
      */
     public void deleteCategory(Category target) {
         this.myCategories.remove(target);
-    };
+    }
 }
