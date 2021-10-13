@@ -1,4 +1,4 @@
-package Phase_0Tests;
+package Phase_0Test;
 import Phase_0.Category;
 import org.junit.Before;
 import org.junit.Test;
@@ -26,12 +26,11 @@ public class NormalUserTest {
         nm.addNewCategory(c);
         nm.deleteCategory(b);
     }
-    @Test(timeout = 50)
+    @Test(timeout = 100)
     public void TestdisplayMyCategories(){
-//        assertEquals("music" + "\n" + "study", nm.displayMyCategories());
+        assertEquals("music" + "\n" + "study", nm.displayMyCategories());
         assertEquals("Username: " + "cat" + "\n"
                 + "Password: " + "abcd", nm.displayUserDetail());
-        assertEquals(2, nm.myCategories.size());
     }
 
 

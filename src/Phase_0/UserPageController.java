@@ -19,8 +19,8 @@ public class UserPageController {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         upp.userProfilePage();
         System.out.print("1, Sign out\n" +
-                "2. Exit\n" +
-                "Your answer here: ");
+                         "2. Exit\n" +
+                         "Your answer here: ");
         String input = reader.readLine();
         if(input.equals("2")){
             System.exit(0);
