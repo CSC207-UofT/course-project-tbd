@@ -28,8 +28,8 @@ public class IndividualTask {
     /* @Overloaded method where tasks are added to an ALLTASKS page
      * and then create Categories. complete Tasks
      */
-    public void addTaskToCategory(Category cat, Task newtask) {
-        cat.add(newtask);
-
-    }
+//    public void addTaskToCategory(Category cat, Task newtask) {
+//        cat.add(newtask);
+//
+//    }
 }

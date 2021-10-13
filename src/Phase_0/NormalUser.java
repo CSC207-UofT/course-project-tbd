@@ -20,13 +20,27 @@ public class NormalUser extends User{
     /**
      * A method that returns username and password. PS someone please change the format to make it look better
      */
+    public String displayUserDetail() {
+        return ("Username: " + this.username + "\n"
+                + "Password: " + this.password);
+    }
+
+    /**
+     * A method that returns username and password. PS someone please change the format to make it look better
+     */
     public String displayMyCategories() {
         StringBuilder s = new StringBuilder();
-        for (Category c : myCategories) {
-            s.append(c.toString()).append("\n");
+        int size = this.myCategories.size();
+        for (Category c : this.myCategories) {
+            s.append(c.getCategoryName());
+            size -= 1;
+            if (size != 0) {
+                s.append("\n");
+            }
         }
         return s.toString();
     }
+
 
     /**
      * A method that takes the parameter (newCategory) and adds it to the ArrayList
@@ -42,3 +56,4 @@ public class NormalUser extends User{
         this.myCategories.remove(target);
     };
 }
+
