@@ -41,4 +41,9 @@ public class NormalUser extends User{
     public void deleteCategory(Category target) {
         this.myCategories.remove(target);
     };
+
+    public String displayUserDetail() {
+        return ("Username: " + this.username + "\n"
+                + "Password: " + this.password);
+    }
 }
