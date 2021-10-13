@@ -12,7 +12,7 @@ public class UserLoginPresenter {
         System.out.println("Password: ");
     }
     public void success(String u){
-        System.out.println("Welcome" + u + " \nlong time no see" +
+        System.out.println("Welcome " + u + " \nlong time no see" +
                 "!");
     }
     public void fail(){

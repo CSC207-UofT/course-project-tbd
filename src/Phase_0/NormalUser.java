@@ -10,7 +10,7 @@ public class NormalUser extends User{
 
     //    public ArrayList<GroupTask> myGroups = new ArrayList<GroupTask>();
 
-    public ArrayList<Category> myCategories = new ArrayList<Category>();
+    public ArrayList<Category> myCategories = new ArrayList<>();
 
     public NormalUser(String username, String password) {
         this.username = username;
@@ -20,10 +20,20 @@ public class NormalUser extends User{
     /**
      * A method that returns username and password. PS someone please change the format to make it look better
      */
+    public String displayUserDetail() {
+        return ("Username: " + this.username + "\n"
+                + "Password: " + this.password);
+    }
+
     public String displayMyCategories() {
         StringBuilder s = new StringBuilder();
-        for (Category c : myCategories) {
-            s.append(c.toString()).append("\n");
+        int size = this.myCategories.size();
+        for (Category c : this.myCategories) {
+            s.append(c.getCategoryName());
+            size -= 1;
+            if (size != 0) {
+                s.append("\n");
+            }
         }
         return s.toString();
     }
@@ -33,17 +43,12 @@ public class NormalUser extends User{
      */
     public void addNewCategory(Category newCategory) {
         this.myCategories.add(newCategory);
-    };
+    }
 
     /**
      * A method that takes the parameter (target) and removes it from the ArrayList
      */
     public void deleteCategory(Category target) {
         this.myCategories.remove(target);
-    };
-
-    public String displayUserDetail() {
-        return ("Username: " + this.username + "\n"
-                + "Password: " + this.password);
     }
 }
