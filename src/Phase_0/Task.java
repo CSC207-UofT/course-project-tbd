@@ -4,7 +4,7 @@ public class Task {
 
     public String information;
 
-    public void Task(String info){
+    public Task(String info){
         this.information = info;
     }
 }

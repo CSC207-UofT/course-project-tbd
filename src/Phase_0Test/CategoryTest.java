@@ -19,7 +19,7 @@ public class CategoryTest {
 
     @Test(timeout = 50)
     public void TestaddTask(){
-        Task t = new Task();
+        Task t = new Task("Task1");
         cy.addTask(t);
 
     }
