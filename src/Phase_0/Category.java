@@ -6,8 +6,7 @@ public class Category extends Features{
     private String categoryName;    // This is the name of the category/folder
     private ArrayList<Task> tasks;  // These are all the tasks contained in that category
 
-    public Category (String name) {
-        String categoryName = "";
+    public Category (String name) {this.categoryName = name;
     }
 
     public void addTask(Task t){
@@ -22,4 +21,7 @@ public class Category extends Features{
     public ArrayList<Task> getTasks() {
         return tasks;
     }
+
+
+
 }
