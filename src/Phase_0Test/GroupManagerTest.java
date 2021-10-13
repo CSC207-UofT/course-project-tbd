@@ -1,4 +1,4 @@
-package Phase_0Tests;
+package Phase_0Test;
 
 import Phase_0.GroupManager;
 import Phase_0.User;
