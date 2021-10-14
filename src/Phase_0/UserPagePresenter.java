@@ -18,6 +18,7 @@ public class UserPagePresenter {
         showMyAccount();
         System.out.println("\nCategories:");
         displayCategory();
+        System.out.println("\n \n \n");
     }
 
     public void showMyAccount() {
