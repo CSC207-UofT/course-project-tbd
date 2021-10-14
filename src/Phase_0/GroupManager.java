@@ -4,17 +4,17 @@ import java.util.ArrayList;
 
 import java.util.HashMap;
 
+import static org.junit.Assert.assertEquals;
+
 public class GroupManager extends TaskManager{
     public HashMap<User, ArrayList<Group>> maps;
 
     /**
      * Construct a TBD.Group, giving them the given category,
      * users, groups and maps
-     *
-     * @param maps All the users inside the program and their groups
      */
-    public GroupManager(HashMap<User, ArrayList<Group>> maps) {
-        this.maps = maps;
+    public GroupManager() {
+        this.maps = new HashMap<>();
     }
 
     /**
@@ -29,13 +29,14 @@ public class GroupManager extends TaskManager{
     }
 
     /**
-     * This is the method to delete a group given a name of
-     * the wanted group
+     * This is the method to delete a group given
+     * the wanted group object
      */
     public void deleteGroup(Group group) {
-        for (User i: group.getUsers()) {
-            ArrayList<Group> groups = this.maps.get(i);
-            groups.remove(group);
+        ArrayList<User> users = group.getUsers();
+        users.add(group.getgroupLeader());
+        for (User i: users) {
+            this.maps.get(i).remove(group);
         }
     }
 }

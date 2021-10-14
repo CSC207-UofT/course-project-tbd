@@ -7,6 +7,5 @@ public class Main {
         UserManager um = new UserManager();
         MainPageController mp = new MainPageController(um);
         mp.run();
-
     }
 }

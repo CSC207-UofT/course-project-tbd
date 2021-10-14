@@ -32,6 +32,4 @@ public class NormalUserTest {
         assertEquals("Username: " + "cat" + "\n"
                 + "Password: " + "abcd", nm.displayUserDetail());
     }
-
-
 }
