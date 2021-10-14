@@ -30,7 +30,7 @@ public class GroupManagerTest {
         assertEquals("Group 1", result);
     }
 
-    @Test
+    @Test(timeout=50)
     public void testDeleteManager() {
         ArrayList<Group> empty = new ArrayList<>();
         GroupManager expected = new GroupManager();
