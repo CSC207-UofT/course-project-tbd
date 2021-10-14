@@ -7,15 +7,15 @@ import java.util.HashMap;
 public class GroupManager extends TaskManager{
     public HashMap<User, ArrayList<Group>> maps;
 
-    /**
-     * Construct a TBD.Group, giving them the given category,
-     * users, groups and maps
-     *
-     * @param maps All the users inside the program and their groups
-     */
-    public GroupManager(HashMap<User, ArrayList<Group>> maps) {
-        this.maps = maps;
-    }
+//    /**
+//     * Construct a TBD.Group, giving them the given category,
+//     * users, groups and maps
+//     *
+//     * @param maps All the users inside the program and their groups
+//     */
+//    public GroupManager(HashMap<User, ArrayList<Group>> maps) {
+//        this.maps = maps;
+//    }
 
     /**
      * This is the method to create a new group given a user
