@@ -5,8 +5,8 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) throws IOException {
         UserManager um = new UserManager();
-        MainPageController mp = new MainPageController(um);
+        GroupManager gm = new GroupManager();
+        MainPageController mp = new MainPageController(um, gm);
         mp.run();
-
     }
 }

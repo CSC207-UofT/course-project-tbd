@@ -15,6 +15,8 @@ public class NormalUser extends User{
     public NormalUser(String username, String password) {
         this.username = username;
         this.password = password;
+        Category all = new Category("All Tasks");
+        this.addNewCategory(all);
     }
 
     /**

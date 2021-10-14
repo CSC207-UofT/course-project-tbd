@@ -13,6 +13,7 @@ public class Group {
     public Group(User groupLead, String groupname) {
         this.groupLeader = groupLead;
         this.groupName = groupname;
+        this.users.add(groupLead);
     }
 
     /**
@@ -55,4 +56,6 @@ public class Group {
     public ArrayList<Features> getFeatures() {
         return this.features;
     }
+
+    //TODO: implement a function to remove a member from the given group.
 }

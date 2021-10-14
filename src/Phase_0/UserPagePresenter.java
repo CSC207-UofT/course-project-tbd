@@ -3,9 +3,9 @@ package Phase_0;
 import java.util.function.DoubleToIntFunction;
 
 public class UserPagePresenter {
-    User user;
+    private NormalUser user;
 
-    public UserPagePresenter(User user){
+    public UserPagePresenter(NormalUser user){
         this.user = user;
     }
 
@@ -14,19 +14,22 @@ public class UserPagePresenter {
 //    }
 
     public void userProfilePage(){
+        System.out.println("---------------------");
         System.out.println("Your User Profile:");
         showMyAccount();
-        System.out.println("\nCategories:");
-        displayCategory();
+        System.out.println("---------------------");
     }
 
     public void showMyAccount() {
-        if(this.user instanceof NormalUser){
-            System.out.println(((NormalUser) this.user).displayUserDetail());
-        }
+        System.out.println(this.user.displayUserDetail());
     }
 
-    public void displayCategory(){
-        System.out.println(((NormalUser) this.user).displayMyCategories());
+    public void availableOptions(){
+        System.out.print("Your Options:\n"+
+                "1, My Tasks\n" +
+                "2. Sign Out\n" +
+                "3. Exit\n" +
+                "Your answer here: ");
     }
+
 }
