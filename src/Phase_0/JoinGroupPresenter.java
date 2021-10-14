@@ -1,6 +1,6 @@
 package Phase_0;
 
-public class joinGroupPresenter {
+public class JoinGroupPresenter {
     public void askGroupName(){
         System.out.println("Please enter the group name");
     }

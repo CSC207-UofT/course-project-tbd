@@ -6,15 +6,15 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Objects;
 
-public class joinGroupController {
+public class JoinGroupController {
     // Controller for adding user to a group
 
     private UserManager um;
     private GroupManager gm;
     private User currentUser;
-    private final joinGroupPresenter jgp = new joinGroupPresenter();
+    private final JoinGroupPresenter jgp = new JoinGroupPresenter();
 
-    public joinGroupController(UserManager um, GroupManager gm, User currentUser){
+    public JoinGroupController(UserManager um, GroupManager gm, User currentUser){
         this.um = um;
         this.gm = gm;
         this.currentUser = currentUser;
