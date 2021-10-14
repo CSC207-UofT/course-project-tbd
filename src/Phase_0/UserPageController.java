@@ -3,27 +3,36 @@ package Phase_0;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
+import java.util.Objects;
 
 public class UserPageController {
-    User user;
-    public final UserPagePresenter upp;
-    public UserManager um;
+    private NormalUser user;
+    private final UserPagePresenter upp;
+    private UserManager um;
+    private TaskPageController tpp;
 
-    public UserPageController(UserManager um, User user){
+    public UserPageController(UserManager um, NormalUser user) {
         this.user = user;
         this.upp = new UserPagePresenter(user);
         this.um = um;
+        this.tpp = new TaskPageController(user);
     }
 
     public void run() throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        upp.userProfilePage();
-        System.out.print("1, Sign out\n" +
-                         "2. Exit\n" +
-                         "Your answer here: ");
-        String input = reader.readLine();
-        if(input.equals("2")){
-            System.exit(0);
+        String input = null;
+
+        while (!Objects.equals(input, "2")) {
+            upp.userProfilePage();
+            upp.availableOptions();
+            input = reader.readLine();
+
+            if (input.equals("3")) {      // Exits Program
+                System.exit(0);
+            }
+            if (input.equals("1")) {      // My Tasks
+                tpp.run();
+            }
         }
 
     }
