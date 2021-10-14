@@ -25,7 +25,7 @@ public class GroupManagerTest {
     @Test(timeout=50)
     public void testCreateGroup() {
         HashMap<User, ArrayList<Group>> manager = new HashMap<>();
-        GroupManager expected = new GroupManager(manager);
+        GroupManager expected = new GroupManager();
         expected.createGroup(user, "Group 1");
         String result = expected.maps.get(user).get(0).getgroupName();
         assertEquals("Group 1", result);
@@ -34,7 +34,7 @@ public class GroupManagerTest {
     @Test
     public void testDeleteManager() {
         HashMap<User, ArrayList<Group>> empty = new HashMap<>();
-        GroupManager expected = new GroupManager(empty);
+        GroupManager expected = new GroupManager();
         expected.createGroup(user, "Group 1");
         expected.deleteGroup(group);
         assertEquals(empty, expected.maps);

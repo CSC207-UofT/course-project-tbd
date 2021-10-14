@@ -17,6 +17,10 @@ public class GroupManager extends TaskManager{
 //        this.maps = maps;
 //    }
 
+        public GroupManager() {
+        this.maps = new HashMap<>();
+    }
+
     /**
      * This is the method to create a new group given a user
      * and the name of the group
