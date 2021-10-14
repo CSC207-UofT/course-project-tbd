@@ -8,9 +8,12 @@ import java.io.InputStreamReader;
 
 public class MainPageController {
     UserManager um;
-    MainPageController(UserManager um){this.um = um;};
+    GroupManager gm;
+    MainPageController(UserManager um, GroupManager gm){
+        this.um = um;
+        this.gm = gm;};
     private final MainPagePresenter mpp = new MainPagePresenter();
-    public void run() throws IOException {
+    public void run() {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         mpp.mainPageInstruction();
         mpp.decisionAsk();
@@ -18,7 +21,7 @@ public class MainPageController {
         String input = reader.readLine();
         while (!input.equals("2")){
             if (input.equals("0")){
-                UserLoginController ulc = new UserLoginController(um);
+                UserLoginController ulc = new UserLoginController(um, gm);
                 ulc.run();
             }
             else if (input.equals("1")){

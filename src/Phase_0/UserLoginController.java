@@ -7,7 +7,10 @@ import java.io.InputStreamReader;
 
 public class UserLoginController {
     UserManager um;
-    UserLoginController(UserManager um){ this.um = um;};
+    GroupManager gm;
+    UserLoginController(UserManager um, GroupManager gm){
+        this.um = um;
+        this.gm = gm;};
     public final UserLoginPresenter nlp = new UserLoginPresenter();
     public void run(){BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         nlp.welcomePage();
