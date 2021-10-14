@@ -13,6 +13,7 @@ public class Group {
     public Group(User groupLead, String groupname) {
         this.groupLeader = groupLead;
         this.groupName = groupname;
+        this.users.add(groupLead);
     }
 
     /**
