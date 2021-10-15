@@ -27,7 +27,7 @@ public class JoinGroupController {
             while(Objects.equals(option, "1")){
                 jgp.askGroupName();
                 String groupName = reader.readLine();
-                if(!gm.checkGroupName(groupName)){ // Check whether group name exists if not:-
+                if(!gm.checkGroupName(groupName, this.currentUser)){ // Check whether group name exists if not:-
                     jgp.groupNameNotInMap();
                     option = reader.readLine();
                 }
