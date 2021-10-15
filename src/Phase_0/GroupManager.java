@@ -33,39 +33,57 @@ public class GroupManager extends TaskManager{
      * This is the method to delete a group given
      * the wanted group object
      */
-    public void deleteGroup(Group group) {
-        ArrayList<User> users = group.getUsers();
-        users.add(group.getgroupLeader());
-        for (User i: users) {
-            this.maps.get(i).remove(group);
-        }
+//    public void deleteGroup(Group group) {
+//        ArrayList<User> users = group.getUsers();
+//        for (User i: users) {
+//            this.maps.get(i).remove(group);
+//        }
+//    }
+        public void deleteGroup(String groupname, User user) {
+            for (Group g: this.maps.get(user)) {
+                if (g.getgroupName().equals(groupname)) {
+                    ArrayList<User> users = g.getUsers();
+                    for (User i: users) {
+                        this.maps.get(i).remove(g);
+                    }
+                }
+            }
     }
+
 
     /**
      * This method returns a List of User in a given group name
      * @param group the wanted group
      * @return List of User in the wanted group
      */
-    public ArrayList memberList(Group group) {
+    public ArrayList<User> memberList(Group group) {
         return group.getUsers();
     }
 
     /**
      * This method checks whether the given name
      * has been taken
-     * @param group the wanted group
+     * @param groupname the wanted group
      * @return true if there exists a group with
      * the same name and false otherwise
      */
-    public boolean checkGroupName(Group group) {
-        for (User i: this.maps.keySet()) {
-            for (Group j: this.maps.get(i)) {
-                if (group.getgroupName().equals(j.getgroupName())) {
+    public boolean checkGroupName(String groupname, User user) {
+            for (Group j: this.maps.get(user)) {
+                if (groupname.equals(j.getgroupName())) {
                     return true;
                 }
             }
-        }
         return false;
+    }
+
+    public boolean checkIfLeader(String groupname, User user) {
+        for (Group j: this.maps.get(user)) {
+            if (groupname.equals(j.getgroupName())) {
+                return j.getgroupLeader().equals(user);
+            }
+        }
+        return false; //Redundant return statement because the if statement will always be executed but kept for code
+                      //writing etiquette
     }
 
     /**
@@ -82,12 +100,15 @@ public class GroupManager extends TaskManager{
 
     /**
      * This method removes a user from the given group
-     * @param group the given group
+     * @param groupname the given group
      * @param user the member that is removed from group
-     * @return true if successfully remove the member and
-     * false otherwise
      */
-    public boolean removeMember(Group group, User user) {
-        return this.maps.get(user).remove(group);
+    public void removeMember(String groupname, User user) {
+        for (Group j: this.maps.get(user)) {
+            if (groupname.equals(j.getgroupName())) {
+                this.maps.get(user).remove(j);
+                return;
+            }
+        }
     }
 }
