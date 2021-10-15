@@ -17,7 +17,7 @@ public class LeaveGroupController {
         lgp.askForName();
         try{
             String input = reader.readLine();
-            if (gm.checkGroupName(input, this.user)){
+            if (gm.checkIfIn(input, this.user)){
                 if (gm.checkIfLeader(input, this.user)){
                     gm.deleteGroup(input, this.user);
                 }

@@ -29,14 +29,14 @@ public class GroupManagerTest {
         String result = expected.maps.get(user).get(0).getgroupName();
         assertEquals("Group 1", result);
     }
-
-    @Test(timeout=50)
-    public void testDeleteManager() {
-        ArrayList<Group> empty = new ArrayList<>();
-        GroupManager expected = new GroupManager();
-        expected.createGroup(user, "Group 1");
-        Group wanted = expected.maps.get(user).get(0);
-        expected.deleteGroup(wanted);
-        assertEquals(empty, expected.maps.get(user));
-    }
+//
+//    @Test(timeout=50)
+//    public void testDeleteManager() {
+//        ArrayList<Group> empty = new ArrayList<>();
+//        GroupManager expected = new GroupManager();
+//        expected.createGroup(user, "Group 1");
+//        Group wanted = expected.maps.get(user).get(0);
+//        expected.deleteGroup(wanted);
+//        assertEquals(empty, expected.maps.get(user));
+//    }
 }

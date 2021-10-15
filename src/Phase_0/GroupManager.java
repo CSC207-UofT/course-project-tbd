@@ -67,12 +67,22 @@ public class GroupManager extends TaskManager{
      * @return true if there exists a group with
      * the same name and false otherwise
      */
-    public boolean checkGroupName(String groupname, User user) {
+    public boolean checkIfIn(String groupname, User user) {
             for (Group j: this.maps.get(user)) {
                 if (groupname.equals(j.getgroupName())) {
                     return true;
                 }
             }
+        return false;
+    }
+
+    public boolean checkGroupExists(String groupname) {
+        for (User user: this.maps.keySet())
+        for (Group j: this.maps.get(user)) {
+            if (groupname.equals(j.getgroupName())) {
+                return true;
+            }
+        }
         return false;
     }
 
@@ -89,13 +99,17 @@ public class GroupManager extends TaskManager{
     /**
      * This method checks add a given group to the user's
      * group list
-     * @param group the group that we want to add
+     * @param groupname the group that we want to add
      * @param user given user
-     * @return true if the group is added and false
      * otherwise
      */
-    public boolean addGroup(Group group, User user) {
-        return this.maps.get(user).add(group);
+    public void addUserToGroup(String groupname, User user) {
+        for (User u : this.maps.keySet())
+            for (Group j : this.maps.get(u)) {
+                if (groupname.equals(j.getgroupName())) {
+                    this.maps.get(user).add(j);
+                }
+            }
     }
 
     /**
