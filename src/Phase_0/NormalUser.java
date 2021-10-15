@@ -11,6 +11,7 @@ public class NormalUser extends User{
     //    public ArrayList<GroupTask> myGroups = new ArrayList<GroupTask>();
 
     public ArrayList<Category> myCategories = new ArrayList<>();
+    public ArrayList<Task> myTasks = new ArrayList<>();
 
     public NormalUser(String username, String password) {
         this.username = username;

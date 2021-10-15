@@ -33,13 +33,7 @@ public class GroupManager extends TaskManager{
      * This is the method to delete a group given
      * the wanted group object
      */
-//    public void deleteGroup(Group group) {
-//        ArrayList<User> users = group.getUsers();
-//        for (User i: users) {
-//            this.maps.get(i).remove(group);
-//        }
-//    }
-        public void deleteGroup(String groupname, User user) {
+     public void deleteGroup(String groupname, User user) {
             for (Group g: this.maps.get(user)) {
                 if (g.getgroupName().equals(groupname)) {
                     ArrayList<User> users = g.getUsers();
@@ -77,10 +71,11 @@ public class GroupManager extends TaskManager{
     }
 
     public boolean checkGroupExists(String groupname) {
-        for (User user: this.maps.keySet())
-        for (Group j: this.maps.get(user)) {
-            if (groupname.equals(j.getgroupName())) {
-                return true;
+        for (User user: this.maps.keySet()) {
+            for (Group j : this.maps.get(user)) {
+                if (groupname.equals(j.getgroupName())) {
+                    return true;
+                }
             }
         }
         return false;
@@ -104,13 +99,13 @@ public class GroupManager extends TaskManager{
      * otherwise
      */
     public void addUserToGroup(String groupname, User user) {
-        for (User u : this.maps.keySet())
+        for (User u : this.maps.keySet()) {
             for (Group j : this.maps.get(u)) {
                 if (groupname.equals(j.getgroupName())) {
                     this.maps.get(user).add(j);
                 }
             }
-    }
+    }}
 
     /**
      * This method removes a user from the given group

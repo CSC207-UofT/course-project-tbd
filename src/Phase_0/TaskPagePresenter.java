@@ -22,4 +22,8 @@ public class TaskPagePresenter {
                 "4. View Category\n" +
                 "Your answer here: ");
     }
+    public void giveNewTaskName(){
+        System.out.println("--------------------");
+        System.out.print("Enter Task Name:\n");
+    }
 }
