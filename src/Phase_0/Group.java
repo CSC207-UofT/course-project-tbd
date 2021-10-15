@@ -41,6 +41,10 @@ public class Group {
         this.users.addAll(users);
     }
 
+    public boolean removeUser(User u1) {
+        return users.remove(u1);
+    }
+
     public ArrayList<User> getUsers() {
         return this.users;
     }
@@ -56,6 +60,8 @@ public class Group {
     public ArrayList<Features> getFeatures() {
         return this.features;
     }
+
+
 
     //TODO: implement a function to remove a member from the given group.
 }

@@ -23,10 +23,12 @@ public class GroupPageController {
                     break;
                 }
                 else if (input.equals("1")){
-                    break;
+                    JoinGroupController jgc = new JoinGroupController(um, gm, user);
+                    jgc.run();
                 }
                 else if (input.equals("2")){
-                    break;
+                    LeaveGroupController lgc = new LeaveGroupController(user, um, gm);
+                    lgc.run();
                 }
                 else {
                     input = reader.readLine();
