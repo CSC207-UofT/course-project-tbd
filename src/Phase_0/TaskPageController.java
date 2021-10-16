@@ -21,7 +21,15 @@ public class TaskPageController {
         if (input.equals("2")){
             tpp.giveNewTaskName();
             BufferedReader reader1 = new BufferedReader(new InputStreamReader(System.in));
-            String input1 = reader1.readLine();
+            String taskTitle = reader1.readLine();
+
+            tpp.giveTaskDetail();
+            BufferedReader reader2 = new BufferedReader(new InputStreamReader(System.in));
+            String taskDetail = reader2.readLine();
+            Task task = new Task(taskTitle, taskDetail);
+            user.getMyCategories().get(0).addTask(task);
+        }else if(input.equals("3")){
+            System.out.println(user.getMyCategories().get(0).toString());
         }
     }
 }

@@ -8,7 +8,7 @@ public class NormalUser extends User{
     public String username;
     public String password;
 
-    public ArrayList<Group> myGroups = new ArrayList<Group>();
+    public ArrayList<Group> myGroups = new ArrayList<>();
 
     public ArrayList<Category> myCategories = new ArrayList<>();
     public ArrayList<Task> myTasks = new ArrayList<>();
@@ -53,5 +53,9 @@ public class NormalUser extends User{
      */
     public void deleteCategory(Category target) {
         this.myCategories.remove(target);
+    }
+
+    public ArrayList<Category> getMyCategories(){
+        return this.myCategories;
     }
 }
