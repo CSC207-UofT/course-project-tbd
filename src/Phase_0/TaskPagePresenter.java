@@ -24,6 +24,11 @@ public class TaskPagePresenter {
     }
     public void giveNewTaskName(){
         System.out.println("--------------------");
-        System.out.print("Enter Task Name:\n");
+        System.out.print("Enter Task Title:\n");
+    }
+
+    public void giveTaskDetail(){
+        System.out.println("--------------------");
+        System.out.println("Enter Task Detail:");
     }
 }
