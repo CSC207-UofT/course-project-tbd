@@ -14,6 +14,7 @@ public class TaskPagePresenter {
                 "1, Back\n" +
                 "2. Add Tasks:\n" +       // Can Create a Task which can either take in a String for Title, or with an optional Category parameter
                 "3. finish Task\n" +
+                "4. View Tasks \n" +
                 "Your answer here: ");
     }
     public void giveNewTaskName(){
@@ -36,5 +37,9 @@ public class TaskPagePresenter {
 
     public void taskNotPresent(){
         System.out.println("Sorry, the task is not there in our database");
+    }
+
+    public void displayTasks(){
+        System.out.println("The tasks are :-");
     }
 }

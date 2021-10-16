@@ -16,9 +16,12 @@ public class Task {
         this.status = false;
     }
 
+    public void setStatus(Boolean status){this.status = status;}
+
     public boolean getStatus(){
         return this.status;
     }
+
 
     public String getTaskName(){
         return this.title;
