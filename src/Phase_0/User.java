@@ -11,6 +11,7 @@ public abstract  class User {
 //    public ArrayList<Category> myCategories = new ArrayList<>();
     public ArrayList<Task> myTasks = new ArrayList<>();
 
+
     //    public String displayMyCategories() {
     //        StringBuilder s = new StringBuilder();
     //        int size = this.myCategories.size();
@@ -44,4 +45,5 @@ public abstract  class User {
         public abstract void addGroup(Group group);
         public abstract void removeGroup(Group group);
         public abstract String getUsername();
-}
+        public abstract void addTask(Task task);
+    }
