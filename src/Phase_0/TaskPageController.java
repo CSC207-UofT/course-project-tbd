@@ -14,6 +14,7 @@ public class TaskPageController {
         this.user = user;
         this.tpp = new TaskPagePresenter(user);
         this.um = um;
+        this.itm = new IndividualTaskManager();
     }
     public void run() throws IOException{
         tpp.availableOptions();
@@ -31,23 +32,35 @@ public class TaskPageController {
                 tpp.taskAdd();
                 tpp.availableOptions();
                 input = reader.readLine();
-            }else if(input.equals("3")){
+            }
+            else if(input.equals("3")){
                 // To mark the task complete.
                 tpp.enterTaskToComplete();
                 String taskToComplete = reader.readLine();
                 Task task = um.getTaskByName(user, taskToComplete);
                 if(um.checkTask(user, task)){
                     // If task is present in user, mark it done
+                    System.out.println("break");
                     itm.completeTask(task);
-                    input = reader.readLine();
                 }
                 else{
                     tpp.taskNotPresent();
-                    input = reader.readLine();
                 }
+                tpp.availableOptions();
+                input = reader.readLine();
 
 
 
             }
+            else if(input.equals("4")){
+
+                tpp.displayTasks();
+                um.displayTask(user);
+                tpp.availableOptions();
+                input = reader.readLine();
+            }
+
+
         }}
+
 }
