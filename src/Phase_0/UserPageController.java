@@ -16,7 +16,7 @@ public class UserPageController {
         this.user = user;
         this.upp = new UserPagePresenter(user);
         this.um = um;
-        this.tpp = new TaskPageController(user);
+        this.tpp = new TaskPageController(user, um);
         this.gpc = new GroupPageController(user, um, gm);
     }
 
