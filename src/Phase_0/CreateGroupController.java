@@ -3,7 +3,7 @@ package Phase_0;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
+
 
 public class CreateGroupController {
     NormalUser normalUser;
@@ -22,7 +22,8 @@ public class CreateGroupController {
 
         try{
             String GroupName = reader.readLine();
-            while (!groupManager.checkGroupExists(GroupName)) {
+            while (groupManager.checkGroupExists(GroupName)) {
+
                 cgp.InvalidGroupName(GroupName);
                 GroupName = reader.readLine();
             }
