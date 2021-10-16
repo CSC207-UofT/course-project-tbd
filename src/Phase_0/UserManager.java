@@ -32,7 +32,8 @@ public class UserManager {
 
 
     /**
-     * Checks if the attempted username and password is in the user pool, if yes then return true, otherwise return false.
+     * Checks if the attempted username and password is in the user pool,
+     * if yes then return true, otherwise return false.
      */
     public boolean login(String ausername, String apassword) {
         for (NormalUser user : allUsers) {
@@ -66,12 +67,12 @@ public class UserManager {
 //        }
 //        return unfinished;
 //    }
-    public void removeGroup(NormalUser user, Group group)
+    public void removeGroup(User user, Group group)
     {
         user.removeGroup(group);
     }
 
-    public void addGroup(NormalUser user, Group group){
+    public void addGroup(User user, Group group){
         user.addGroup(group);
     }
 

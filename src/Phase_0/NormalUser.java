@@ -59,6 +59,7 @@ public class NormalUser extends User{
 //    public ArrayList<Category> getMyCategories(){
 //        return this.myCategories;
 //    }
+    @Override
     public void addGroup(Group group){
         this.myGroups.add(group);
 

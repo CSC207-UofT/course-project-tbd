@@ -64,7 +64,7 @@ public class GroupManager extends TaskManager{
     public boolean checkIfIn(String groupname, User user) {
         Group group = this.maps.get(groupname);
         for (User i: group.getUsers()) {
-            if (i.Username.equals(user.Username)) {
+            if (i.username.equals(user.username)) {
                 return true;
             }
         }
@@ -97,8 +97,8 @@ public class GroupManager extends TaskManager{
      */
     public boolean checkIfLeader(String groupname, User user) {
         Group group = this.maps.get(groupname);
-        String leader = group.getgroupLeader().Username;
-        return user.Username.equals(leader);
+        String leader = group.getgroupLeader().username;
+        return user.username.equals(leader);
     }
 
     /**
