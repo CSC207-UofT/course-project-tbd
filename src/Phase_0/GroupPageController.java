@@ -17,9 +17,11 @@ public class GroupPageController {
         GroupPagePresenter gpp = new GroupPagePresenter();
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         try {
+            gpp.welcomeLine();
             String input = reader.readLine();
             while (!input.equals( "3")){
                 if (input.equals("0")){
+
                     break;
                 }
                 else if (input.equals("1")){
@@ -31,6 +33,7 @@ public class GroupPageController {
                     lgc.run();
                 }
                 else {
+                    gpp.welcomeLine();
                     input = reader.readLine();
                 }
 
