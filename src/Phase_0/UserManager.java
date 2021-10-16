@@ -5,6 +5,7 @@ import java.util.Objects;
 
 public class UserManager {
     public ArrayList<NormalUser> allUsers = new ArrayList<>();
+    IndividualTaskManager itm = new IndividualTaskManager();
 
     public void createUser() {
     }
@@ -81,5 +82,22 @@ public class UserManager {
     }
     public ArrayList<Task> displayTask(NormalUser user){
         return user.getMyTasks();
+    }
+    public boolean checkTask(NormalUser user, Task t) {
+        if (user.getMyTasks().contains(t)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public Task getTaskByName(NormalUser user, String taskName) {
+        for (Task t: user.getMyTasks()){
+            if (itm.checkTaskByName(t, taskName)){
+                return t;
+            }
+
+        }
+        return null;
     }
 }
