@@ -41,6 +41,7 @@ public class JoinGroupController {
                     gm.addUserToGroup(groupName, currentUser);
                    // um.addGroupToUser(currentUser, gm.getGroupByName(groupName));
                     jgp.joinSuccess(groupName);
+                    option = "2";
                 }
             }
         } catch (IOException e){
