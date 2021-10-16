@@ -11,7 +11,10 @@ Kevin: co-writer of CRC model, edited Scenario-walkthrough and specification.
 
 Peter:
 
-Owen:
+Owen: Helped edit CRC model.
+Coding: Created and wrote UserPageController, UsePagePresenter, TaskPageController, TaskPagePresenter
+        also implemented related functionalities in Class Task and NormalUser such as the toString and display methods.
+
 
 Sana: Helped edit CRC model.
 Coding: Created IndividualTaskManager, Task, CategoryTest.
