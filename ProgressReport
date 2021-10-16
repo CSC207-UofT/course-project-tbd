@@ -5,7 +5,8 @@ Coding: Main, MainPageController, MainPagePresenter, UserLoginController, UserLo
 LeavePagePresenter, NewUserController, NewUserPresenter
 
 Kevin: co-writer of CRC model, edited Scenario-walkthrough and specification.
-       Coding: Created GroupTest, Category, Features, JoinGroupController, JoinGroupPresenter.
+       Coding: Created GroupTest, Category, Features, JoinGroupController, JoinGroupPresenter, TaskPageController,
+       TaskPagePresenter
        Helped edit Group, GroupManager, TaskPageController
 
 Peter:
