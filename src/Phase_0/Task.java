@@ -34,7 +34,12 @@ public class Task {
     @Override
     public String toString() {
         String s = "Title: " + this.title + "\n";
-        s += "TODO: " + this.information;
+        s += "TODO: " + this.information + "\n";
+        if(this.status){
+            s += "Status: " + "Completed";
+        }else{
+            s += "Status: " + "In Progress";
+        }
         return s;
     }
 }

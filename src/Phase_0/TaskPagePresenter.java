@@ -12,7 +12,7 @@ public class TaskPagePresenter {
         System.out.println("--------------------");
         System.out.print("Your options:\n" +
                 "1, Back\n" +
-                "2. Add Tasks:\n" +       // Can Create a Task which can either take in a String for Title, or with an optional Category parameter
+                "2. Add Tasks:\n" +
                 "3. finish Task\n" +
                 "4. View Tasks \n" +
                 "Your answer here: ");
@@ -40,6 +40,6 @@ public class TaskPagePresenter {
     }
 
     public void displayTasks(){
-        System.out.println("The tasks are :-");
+        System.out.println("The tasks are :");
     }
 }

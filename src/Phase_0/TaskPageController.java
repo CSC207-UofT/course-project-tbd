@@ -17,50 +17,47 @@ public class TaskPageController {
         this.itm = new IndividualTaskManager();
     }
     public void run() throws IOException{
-        tpp.availableOptions();
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        um.displayTask(user);
-        String input = reader.readLine();
+        tpp.displayTasks();
+        String input = "";
         while (!input.equals("1")){
+            tpp.availableOptions();
+            input = reader.readLine();
             if (input.equals("2")){
-                tpp.giveNewTaskName();
-                String taskTitle = reader.readLine();
-                tpp.giveTaskDetail();
-                String taskDetail = reader.readLine();
-                Task task = new Task(taskTitle, taskDetail); // task name must be unique
-                um.addTask(user, task);
-                tpp.taskAdd();
-                tpp.availableOptions();
-                input = reader.readLine();
+                addTask(reader);
             }
             else if(input.equals("3")){
                 // To mark the task complete.
-                tpp.enterTaskToComplete();
-                String taskToComplete = reader.readLine();
-                Task task = um.getTaskByName(user, taskToComplete);
-                if(um.checkTask(user, task)){
-                    // If task is present in user, mark it done
-                    System.out.println("break");
-                    itm.completeTask(task);
-                }
-                else{
-                    tpp.taskNotPresent();
-                }
-                tpp.availableOptions();
-                input = reader.readLine();
-
-
-
+                finishTask(reader);
             }
             else if(input.equals("4")){
-
                 tpp.displayTasks();
-                um.displayTask(user);
-                tpp.availableOptions();
-                input = reader.readLine();
+                System.out.println(um.displayTask(user));
             }
+        }
+    }
 
+    private void finishTask(BufferedReader reader) throws IOException {
+        tpp.enterTaskToComplete();
+        String taskToComplete = reader.readLine();
+        Task task = um.getTaskByName(user, taskToComplete);
+        if(um.checkTask(user, task)){
+            // If task is present in user, mark it done
+            itm.completeTask(task);
+            System.out.println("Task finished");
+        }
+        else{
+            tpp.taskNotPresent();
+        }
+    }
 
-        }}
-
+    private void addTask(BufferedReader reader) throws IOException {
+        tpp.giveNewTaskName();
+        String taskTitle = reader.readLine();
+        tpp.giveTaskDetail();
+        String taskDetail = reader.readLine();
+        Task task = new Task(taskTitle, taskDetail); // task name must be unique
+        um.addTask(user, task);
+        tpp.taskAdd();
+    }
 }
