@@ -20,7 +20,8 @@ public class GroupPageController {
             String input = reader.readLine();
             while (!input.equals( "3")){
                 if (input.equals("0")){
-                    break;
+                    CreateGroupController cgc = new CreateGroupController(user, um, gm);
+                    cgc.run();
                 }
                 else if (input.equals("1")){
                     JoinGroupController jgc = new JoinGroupController(um, gm, user);
