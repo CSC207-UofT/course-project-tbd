@@ -17,7 +17,7 @@ public class TaskPageController {
     public void run() throws IOException{
         tpp.availableOptions();
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println(um.displayTask(user));
+        um.displayTask(user);
         String input = reader.readLine();
         while (!input.equals("1")){
         if (input.equals("2")){
@@ -25,7 +25,7 @@ public class TaskPageController {
             String taskTitle = reader.readLine();
             tpp.giveTaskDetail();
             String taskDetail = reader.readLine();
-            Task task = new Task(taskTitle, taskDetail);
+            Task task = new Task(taskTitle, taskDetail); // task name must be unique
             um.addTask(user, task);
             tpp.taskAdd();
             tpp.availableOptions();

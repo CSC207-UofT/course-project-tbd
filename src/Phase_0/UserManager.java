@@ -5,6 +5,7 @@ import java.util.Objects;
 
 public class UserManager {
     public ArrayList<NormalUser> allUsers = new ArrayList<>();
+    public IndividualTaskManager itm = new IndividualTaskManager();
 
     public void createUser() {
     }
@@ -55,7 +56,7 @@ public class UserManager {
         return null;
     }
 
-//    public ArrayList<Task> unfinishedTaskList(NormalUser user) {
+    //    public ArrayList<Task> unfinishedTaskList(NormalUser user) {
 //        ArrayList<Task> unfinished  = new ArrayList<>();
 //        for (Category category : user.myCategories) {
 //            for (Task task : category.getTasks()) {
@@ -66,19 +67,41 @@ public class UserManager {
 //        }
 //        return unfinished;
 //    }
-    public void removeGroup(NormalUser user, Group group)
-    {
+    public void removeGroup(NormalUser user, Group group) {
         user.removeGroup(group);
     }
 
-    public void addGroup(NormalUser user, Group group){
+    public void addGroup(NormalUser user, Group group) {
         user.addGroup(group);
     }
 
-    public void addTask(NormalUser user, Task task){
+    public void addTask(NormalUser user, Task task) {
         user.addTask(task);
     }
-    public ArrayList<Task> displayTask(NormalUser user){
-        return user.getMyTasks();
+
+    public void displayTask(NormalUser user) {
+        for (Task task : user.getMyTasks()) {
+            if (!itm.checkIfFinished(task)) {
+                System.out.println(task);
+            }
+        }
+    }
+
+    public boolean checkTask(NormalUser user, Task t) {
+        if (user.getMyTasks().contains(t)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public Task getTaskByName(NormalUser user, String taskName) {
+        for (Task t: user.getMyTasks()){
+            if (itm.checkTaskByName(t, taskName)){
+                return t;
+            }
+
+        }
+        return null;
     }
 }

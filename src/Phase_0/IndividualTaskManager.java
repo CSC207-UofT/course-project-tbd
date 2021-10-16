@@ -13,4 +13,13 @@ public class IndividualTaskManager extends TaskManager{
     public boolean checkIfFinished(Task task){
         return task.status;
     }
+
+    public boolean checkTaskByName(Task task, String taskName){
+        if (task.getTaskName().equals(taskName)){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 }
