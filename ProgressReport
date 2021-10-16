@@ -12,7 +12,9 @@ Peter:
 
 Owen:
 
-Sana:
+Sana: Helped edit CRC model.
+Coding: Created IndividualTaskManager, Task, CategoryTest.
+Started on the other Phase_0 Tests files (GroupManagerTest, UserManagerTest).
 
 Fariha:
 
@@ -52,7 +54,7 @@ Extension of the group in the phase 1:
 
     GUI
 
-    If still have time:
+    If we still have time:
          Social System: users can add other users as friends and have a special chat box with each of them
          AdminUser: would be a build-in account that can do what normal user do, and can also manager users' account
 
