@@ -23,14 +23,17 @@ public class GroupPageController {
                 if (input.equals("0")){
                     CreateGroupController cgp = new CreateGroupController(user, um, gm);
                     cgp.run();
+                    gpp.welcomeLine();
                 }
                 else if (input.equals("1")){
                     JoinGroupController jgc = new JoinGroupController(um, gm, user);
                     jgc.run();
+                    gpp.welcomeLine();
                 }
                 else if (input.equals("2")){
                     LeaveGroupController lgc = new LeaveGroupController(user, um, gm);
                     lgc.run();
+                    gpp.welcomeLine();
                 }
                 else {
                     gpp.welcomeLine();
