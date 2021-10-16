@@ -12,7 +12,7 @@ public class TaskPageController {
 
     public TaskPageController(NormalUser user, UserManager um){
         this.user = user;
-        this.tpp = new TaskPagePresenter(user);
+        this.tpp = new TaskPagePresenter();
         this.um = um;
         this.itm = new IndividualTaskManager();
     }
