@@ -18,5 +18,10 @@ public class TaskPageController {
         tpp.displayCategory();
         tpp.availableOptions();
         String input = reader.readLine();
+        if (input.equals("2")){
+            tpp.giveNewTaskName();
+            BufferedReader reader1 = new BufferedReader(new InputStreamReader(System.in));
+            String input1 = reader1.readLine();
+        }
     }
 }
