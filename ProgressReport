@@ -4,13 +4,15 @@ co-writer of Scenario-WalkThrough, ProgressReport and specification
 Coding: Main, MainPageController, MainPagePresenter, UserLoginController, UserLoginPresenter, LeavePageController,
 LeavePagePresenter, NewUserController, NewUserPresenter
 
-Kevin:
+Kevin: co-writer of CRC model, edited Scenario-walkthrough and specification.
+       Coding: Created GroupTest, Category, Features, JoinGroupController, JoinGroupPresenter.
+       Helped edit Group, GroupManager.
 
 Peter:
 
 Owen:
 
-Sena:
+Sana:
 
 Fariha:
 
