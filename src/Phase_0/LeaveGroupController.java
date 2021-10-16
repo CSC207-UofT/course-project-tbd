@@ -24,6 +24,7 @@ public class LeaveGroupController {
             else if (gm.checkIfIn(input, this.user)){
                 if (gm.checkIfLeader(input, this.user)){
                     gm.deleteGroup(input, this.user);
+                    lgp.leaveSuccess(input);
                 }
                 else {
                     gm.removeMember(input, this.user);
