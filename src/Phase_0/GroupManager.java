@@ -71,12 +71,6 @@ public class GroupManager extends TaskManager{
         }
         return false;
     }
-    public static void main(String[] args) {
-        User user = new NormalUser("harry", "1");
-        GroupManager groups = new GroupManager();
-        groups.createGroup(user, "harry");
-        System.out.println(groups.checkIfIn("harry", user));
-    }
 
     /**
      * This method checks whether the given group name
