@@ -30,6 +30,7 @@ public class TaskPageController {
                 um.addTask(user, task);
                 tpp.taskAdd();
                 tpp.availableOptions();
+                input = reader.readLine();
             }else if(input.equals("3")){
                 // To mark the task complete.
                 tpp.enterTaskToComplete();
@@ -38,12 +39,12 @@ public class TaskPageController {
                 if(um.checkTask(user, task)){
                     // If task is present in user, mark it done
                     itm.completeTask(task);
+                    input = reader.readLine();
                 }
                 else{
                     tpp.taskNotPresent();
+                    input = reader.readLine();
                 }
-
-                break;
 
 
 
