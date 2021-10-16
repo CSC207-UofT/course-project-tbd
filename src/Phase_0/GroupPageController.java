@@ -44,6 +44,7 @@ public class GroupPageController {
                 }
 
             }
+            gpp.lines();
         }
         catch (IOException e){System.out.println("Please type a valid number");
     }

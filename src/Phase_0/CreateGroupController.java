@@ -30,6 +30,7 @@ public class CreateGroupController {
             groupManager.createGroup(normalUser, groupName);
             normalUser.myGroups.add(new Group(normalUser, groupName));
             cgp.CreateSuccess(groupName);
+            cgp.lines();
         } catch (IOException e){
             System.out.println("Please type a valid number");
         }

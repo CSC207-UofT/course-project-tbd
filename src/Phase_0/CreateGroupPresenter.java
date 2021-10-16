@@ -11,4 +11,7 @@ public class CreateGroupPresenter {
     public void CreateSuccess(String groupName){
         System.out.println("Congrats, group " + groupName + " is now created!");
     }
+    public void lines(){
+        System.out.println("---------------------");
+    }
 }

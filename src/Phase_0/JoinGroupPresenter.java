@@ -19,4 +19,7 @@ public class JoinGroupPresenter {
     public void joinSuccess(String groupName){
         System.out.println("Congrats, you joined group " + groupName);
     }
+    public void lines(){
+        System.out.println("---------------------");
+    }
 }

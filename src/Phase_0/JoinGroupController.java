@@ -44,6 +44,7 @@ public class JoinGroupController {
                     option = "2";
                 }
             }
+            jgp.lines();
         } catch (IOException e){
             System.out.println("Please type a valid number");
         }
