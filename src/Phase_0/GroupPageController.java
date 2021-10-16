@@ -17,11 +17,12 @@ public class GroupPageController {
         GroupPagePresenter gpp = new GroupPagePresenter();
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         try {
+            gpp.welcomeLine();
             String input = reader.readLine();
             while (!input.equals( "3")){
                 if (input.equals("0")){
-                    CreateGroupController cgc = new CreateGroupController(user, um, gm);
-                    cgc.run();
+
+                    break;
                 }
                 else if (input.equals("1")){
                     JoinGroupController jgc = new JoinGroupController(um, gm, user);
@@ -32,6 +33,7 @@ public class GroupPageController {
                     lgc.run();
                 }
                 else {
+                    gpp.welcomeLine();
                     input = reader.readLine();
                 }
 
