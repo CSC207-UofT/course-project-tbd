@@ -74,4 +74,11 @@ public class UserManager {
     public void addGroup(NormalUser user, Group group){
         user.addGroup(group);
     }
+
+    public void addTask(NormalUser user, Task task){
+        user.addTask(task);
+    }
+    public ArrayList<Task> displayTask(NormalUser user){
+        return user.getMyTasks();
+    }
 }

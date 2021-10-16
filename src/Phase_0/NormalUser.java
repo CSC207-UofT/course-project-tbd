@@ -1,6 +1,7 @@
 package Phase_0;
 
 
+import java.net.PortUnreachableException;
 import java.util.ArrayList;
 
 public class NormalUser extends User{
@@ -64,5 +65,12 @@ public class NormalUser extends User{
     }
     public void removeGroup(Group group){
         this.myGroups.remove(group);
+    }
+
+    public void addTask(Task task){
+        this.myTasks.add(task);
+    }
+    public ArrayList<Task> getMyTasks(){
+        return myTasks;
     }
 }

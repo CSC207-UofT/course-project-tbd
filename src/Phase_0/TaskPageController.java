@@ -7,29 +7,33 @@ import java.io.IOException;
 public class TaskPageController {
     private NormalUser user;
     private TaskPagePresenter tpp;
+    UserManager um;
 
-    public TaskPageController(NormalUser user){
+    public TaskPageController(NormalUser user, UserManager um){
         this.user = user;
         this.tpp = new TaskPagePresenter(user);
+        this.um = um;
     }
     public void run() throws IOException{
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-
-        tpp.displayCategory();
         tpp.availableOptions();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println(um.displayTask(user));
         String input = reader.readLine();
+        while (!input.equals("1")){
         if (input.equals("2")){
             tpp.giveNewTaskName();
-            BufferedReader reader1 = new BufferedReader(new InputStreamReader(System.in));
-            String taskTitle = reader1.readLine();
-
+            String taskTitle = reader.readLine();
             tpp.giveTaskDetail();
-            BufferedReader reader2 = new BufferedReader(new InputStreamReader(System.in));
-            String taskDetail = reader2.readLine();
+            String taskDetail = reader.readLine();
             Task task = new Task(taskTitle, taskDetail);
-            user.getMyCategories().get(0).addTask(task);
+            um.addTask(user, task);
+            tpp.taskAdd();
+            tpp.availableOptions();
         }else if(input.equals("3")){
-            System.out.println(user.getMyCategories().get(0).toString());
+            break;
+
+
+
         }
-    }
+    }}
 }
