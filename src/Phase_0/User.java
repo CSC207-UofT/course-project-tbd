@@ -43,4 +43,5 @@ public abstract  class User {
     //    }
         public abstract void addGroup(Group group);
         public abstract void removeGroup(Group group);
+        public abstract String getUsername();
 }

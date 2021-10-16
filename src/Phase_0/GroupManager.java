@@ -8,6 +8,7 @@ import java.util.HashMap;
 
 public class GroupManager extends TaskManager{
     public HashMap<String, Group> maps;
+    public UserManager um = new UserManager();
 
     /**
      * Construct a TBD.GroupManager, giving them the given maps
@@ -64,11 +65,17 @@ public class GroupManager extends TaskManager{
     public boolean checkIfIn(String groupname, User user) {
         Group group = this.maps.get(groupname);
         for (User i: group.getUsers()) {
-            if (i.username.equals(user.username)) {
+            if (um.getUserName((NormalUser) i).equals(um.getUserName((NormalUser) user))) {
                 return true;
             }
         }
         return false;
+    }
+    public static void main(String[] args) {
+        User user = new NormalUser("harry", "1");
+        GroupManager groups = new GroupManager();
+        groups.createGroup(user, "harry");
+        System.out.println(groups.checkIfIn("harry", user));
     }
 
     /**
@@ -97,8 +104,9 @@ public class GroupManager extends TaskManager{
      */
     public boolean checkIfLeader(String groupname, User user) {
         Group group = this.maps.get(groupname);
-        String leader = group.getgroupLeader().username;
-        return user.username.equals(leader);
+        User leader = group.getgroupLeader();
+        String name = leader.getUsername();
+        return um.getUserName((NormalUser) user).equals(name);
     }
 
     /**
@@ -122,5 +130,6 @@ public class GroupManager extends TaskManager{
     public void removeMember(String groupname, User user) {
         Group group = this.maps.get(groupname);
         group.removeUser(user);
+        um.removeGroup(user, group);
     }
 }
