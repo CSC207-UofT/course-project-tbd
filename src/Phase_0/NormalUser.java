@@ -64,6 +64,7 @@ public class NormalUser extends User{
         this.myGroups.add(group);
 
     }
+    @Override
     public void removeGroup(Group group){
         this.myGroups.remove(group);
     }
