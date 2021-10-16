@@ -126,12 +126,12 @@ public class GroupManager extends TaskManager{
 
     /**
      * This method removes a user from the given group
-     * @param groupname the given group
+     * @param groupName the name of given group
      * @param user the member that is removed from group
      */
-    public void removeMember(String groupname, User user) {
+    public void removeMember(String groupName, User user) {
         for (Group j: this.maps.get(user)) {
-            if (groupname.equals(j.getgroupName())) {
+            if (groupName.equals(j.getgroupName())) {
                 this.maps.get(user).remove(j);
                 return;
             }

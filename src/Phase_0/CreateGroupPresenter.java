@@ -8,4 +8,7 @@ public class CreateGroupPresenter {
     public void InvalidGroupName(String groupName){
         System.out.println("Sorry! The group name " + groupName + " is taken. Please try another group name!");
     }
+    public void CreateSuccess(String groupName){
+        System.out.println("Congrats, group " + groupName + " is now created!");
+    }
 }

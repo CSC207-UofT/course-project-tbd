@@ -16,4 +16,7 @@ public class JoinGroupPresenter {
                 "Enter 1 to enter a new group name \n " +
                 "Enter any other number to go back");
     }
+    public void joinSuccess(String groupName){
+        System.out.println("Congrats, group " + groupName + " is created");
+    }
 }
