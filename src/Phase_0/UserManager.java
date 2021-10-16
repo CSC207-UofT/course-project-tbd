@@ -54,4 +54,17 @@ public class UserManager {
         }
         return null;
     }
+
+    public ArrayList<Task> unfinishedTaskList(NormalUser user) {
+        ArrayList<Task> unfinished  = new ArrayList<>();
+        for (Category category : user.myCategories) {
+            for (Task task : category.getTasks()) {
+                if (!task.status) {
+                    unfinished.add(task);
+                }
+            }
+        }
+        return unfinished;
+    }
+    
 }
