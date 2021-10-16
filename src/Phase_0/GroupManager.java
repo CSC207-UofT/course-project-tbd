@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 //import static org.junit.Assert.assertEquals;
 
-public class GroupManager extends TaskManager{
+public class GroupManager{
     public HashMap<String, Group> maps;
     public UserManager um = new UserManager();
 
