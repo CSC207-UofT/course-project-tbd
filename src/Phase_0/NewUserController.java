@@ -20,6 +20,7 @@ public class NewUserController {
             nup.askPassword(userId);
             String password = reader.readLine();
             um.createNormalUser(userId, password);
+            nup.completed();
         } catch (IOException e){
             System.out.println("Please type a valid number");
         }

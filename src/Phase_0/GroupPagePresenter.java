@@ -8,7 +8,7 @@ public class GroupPagePresenter {
                 "Type 2 leave a group \n" +
                 "Type 3 to leave this page");
     }
-    public void noGroup(){
-        System.out.println("It seems that you didn't join any group yep :(");
+    public void lines(){
+        System.out.println("---------------------");
     }
 }

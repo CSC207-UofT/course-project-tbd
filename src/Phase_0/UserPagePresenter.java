@@ -26,9 +26,9 @@ public class UserPagePresenter {
 
     public void availableOptions(){
         System.out.print("Your Options:\n"+
-                "1, My Tasks\n" +
-                "2. Sign Out\n" +
-                "3. Exit\n" +
+                "1. My Group\n" +
+                "2, My Tasks\n" +
+                "3. Sign Out\n" +
                 "Your answer here: ");
     }
 

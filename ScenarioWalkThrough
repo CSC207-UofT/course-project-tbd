@@ -1,0 +1,35 @@
+When the program runs, the user has two options:
+    -1. Log in an account, then user also has two options
+        -To Group Page
+            -User can create a group by:
+                -Type group name
+                -Then the group will be created and record the creator user as leader
+                -This newly created group will be stored in a hashmap with its name as key in GroupManager
+            -User can join a group by:
+                -Type an created group name, which this user must not be the member of
+                -Then the group with this name will have a new member
+            -User can leave a group by:
+                -Type a name of the group he joined
+                -Then two situations will occur:
+                    1. if the user is the creator of the group:
+                        Then the group will be dismissed, which means it will be removed from GroupManager and
+                        each member of this group will leave the group automatically
+                    2. if the user is not the creator of the group:
+                        Then the member list stored in the Group object will remove this user
+                        And user's group list which record the groups he joined will also be updated
+        -To Task Page
+            -User can have his unfinished task printed on the terminal with two options
+            -User can create a task by:
+                -type the name of this task
+                -then the system will generate this task with "unfinished" status and store it in User's task list
+            -User can mark the task finished by:
+                -type the number which is referred to the unfinished task shown on the terminal
+                -Then the status of the task will be changed and it will not printed on the terminal when open the
+                task page
+
+    -2. Create an account
+        -To create an account, the user has to:
+            -type username which has to be unique in the system
+            -type password bounded with the username
+            -Then a brand new account will be created and UserManager will store this account
+

@@ -20,16 +20,16 @@ public class NormalUserTest {
         b = new Category("sport");
         c = new Category("study");
 
-        nm = new NormalUser("cat", "abcd");
-        nm.addNewCategory(a);
-        nm.addNewCategory(b);
-        nm.addNewCategory(c);
-        nm.deleteCategory(b);
-    }
-    @Test(timeout = 100)
-    public void TestdisplayMyCategories(){
-        assertEquals("music" + "\n" + "study", nm.displayMyCategories());
-        assertEquals("Username: " + "cat" + "\n"
-                + "Password: " + "abcd", nm.displayUserDetail());
+//        nm = new NormalUser("cat", "abcd");
+//        nm.addNewCategory(a);
+//        nm.addNewCategory(b);
+//        nm.addNewCategory(c);
+//        nm.deleteCategory(b);
+//    }
+//    @Test(timeout = 100)
+//    public void TestdisplayMyCategories(){
+//        assertEquals("music" + "\n" + "study", nm.displayMyCategories());
+//        assertEquals("Username: " + "cat" + "\n"
+//                + "Password: " + "abcd", nm.displayUserDetail());
     }
 }
