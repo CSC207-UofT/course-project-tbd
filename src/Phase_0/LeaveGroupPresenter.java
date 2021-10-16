@@ -10,5 +10,7 @@ public class LeaveGroupPresenter {
     public void leaveSuccess(String name){
         System.out.println("You left group " + name + " successfully");
     }
-
+    public void goBack() {
+        System.out.println("you will be redirected to Group Page");
+    }
 }
