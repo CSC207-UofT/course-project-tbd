@@ -5,7 +5,7 @@ import java.util.Objects;
 
 public class UserManager {
     public ArrayList<NormalUser> allUsers = new ArrayList<>();
-
+    public ArrayList<Group> myGroups = new ArrayList<>();
     public void createUser() {
     }
 
@@ -66,5 +66,12 @@ public class UserManager {
         }
         return unfinished;
     }
-    
+
+    public void addGroupToUser(NormalUser user, String group_name) {
+        this.myGroups.add(new Group(user, group_name));
+    }
+
+    public void leaveGroup(NormalUser user, String group_name) {
+        this.myGroups.remove(new Group(user, group_name));
+    }
 }
