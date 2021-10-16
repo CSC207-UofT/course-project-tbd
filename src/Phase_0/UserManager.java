@@ -68,6 +68,9 @@ public class UserManager {
 //        }
 //        return unfinished;
 //    }
+    public String getUserName(NormalUser user){
+        return user.getUsername();
+    }
     public void removeGroup(User user, Group group)
     {
         user.removeGroup(group);

@@ -74,4 +74,7 @@ public class NormalUser extends User{
     public ArrayList<Task> getMyTasks(){
         return myTasks;
     }
+    public String getUsername(){
+        return username;
+    }
 }
