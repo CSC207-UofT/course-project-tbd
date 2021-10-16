@@ -1,15 +1,26 @@
 Contribution list:
 Qiyi Zhang(AKA Leo):
+co-writer of Scenario-WalkThrough, ProgressReport and specification
+Coding: Main, MainPageController, MainPagePresenter, UserLoginController, UserLoginPresenter, LeavePageController,
+LeavePagePresenter, NewUserController, NewUserPresenter
+
 Kevin:
+
 Peter:
+
 Owen:
+
 Sena:
+
 Fariha:
+
 Aryan:
+
 Harry:
 
 Phase 0 summary:
-Now the user can only create/join/leave group
+user can create and login an account
+the user can create/join/leave group
 and add/finish task
 
 
@@ -24,24 +35,24 @@ Extension of the group in the phase 1:
         member or reject him.
 
     Task:
-    1. User can add due date of the task, and will receive a notification when the task is about to due. After due date,
-    the task will be automatically assigned "finished" in status.
-    2. will add some special task templates: like StudyTask, WorkoutTask, CountDownTask. And those special task will
-    have extended functionality differed from normal task
-    - CountDownTask will implement a tomatoClock template to count down the time when the user choose this task
+        1. User can add due date of the task, and will receive a notification when the task is about to due. After due
+        date, nthe task will be automatically assigned "finished" in status.
+        2. will add some special task templates: like StudyTask, WorkoutTask, CountDownTask. And those special task will
+        have extended functionality differed from normal task
+        - CountDownTask will implement a tomatoClock template to count down the time when the user choose this task
 
 
     Notification Box:
-    1. will receive a message when a task, which has due date, is about to due
-    2. will receive the private message from the group member
-    3. will be able to make decision like accept or reject the request from a user who wants to join the group
+        1. will receive a message when a task, which has due date, is about to due
+        2. will receive the private message from the group member
+        3. will be able to make decision like accept or reject the request from a user who wants to join the group
 
 
     GUI
 
     If still have time:
-    Social System: users can add other users as friends and have a special chat box with each of them
-    AdminUser: would be a build-in account that can do what normal user do, and can also manager users' account
+         Social System: users can add other users as friends and have a special chat box with each of them
+         AdminUser: would be a build-in account that can do what normal user do, and can also manager users' account
 
 
 
