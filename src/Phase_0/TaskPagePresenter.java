@@ -29,4 +29,12 @@ public class TaskPagePresenter {
     public void taskAdd(){
         System.out.println("Your task has been created and added");
     }
+
+    public void enterTaskToComplete(){
+        System.out.println("Enter name of task to complete");
+    }
+
+    public void taskNotPresent(){
+        System.out.println("Sorry, the task is not there in our database");
+    }
 }
