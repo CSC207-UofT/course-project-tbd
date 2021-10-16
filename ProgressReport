@@ -6,7 +6,7 @@ LeavePagePresenter, NewUserController, NewUserPresenter
 
 Kevin: co-writer of CRC model, edited Scenario-walkthrough and specification.
        Coding: Created GroupTest, Category, Features, JoinGroupController, JoinGroupPresenter.
-       Helped edit Group, GroupManager.
+       Helped edit Group, GroupManager, TaskPageController
 
 Peter:
 
@@ -16,7 +16,9 @@ Sana:
 
 Fariha:
 
-Aryan:
+Aryan: co writer of CRC model, editor of specification.
+       Coding: Worked on NormalUserTest, Group, GroupManager, NormalUser,
+       Helped edit JoinGroupController, LeaveGroupController, TaskPageController, TaskPagePresenter
 
 Harry:
 

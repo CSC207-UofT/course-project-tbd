@@ -23,16 +23,15 @@ public class TaskPageController {
         while (!input.equals("1")){
             tpp.availableOptions();
             input = reader.readLine();
-            if (input.equals("2")){
-                addTask(reader);
-            }
-            else if(input.equals("3")){
-                // To mark the task complete.
-                finishTask(reader);
-            }
-            else if(input.equals("4")){
-                tpp.displayTasks();
-                System.out.println(um.displayTask(user));
+            switch (input) {
+                case "2" -> addTask(reader);
+                case "3" ->
+                        // To mark the task complete.
+                        finishTask(reader);
+                case "4" -> {
+                    tpp.displayTasks();
+                    System.out.println(um.displayTask(user));
+                }
             }
         }
     }
