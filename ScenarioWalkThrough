@@ -1,0 +1,12 @@
+When the program runs, the user has two options:
+    -1. Log in an account, then user also has two options
+        -To Group Page
+            -User can create a group by:
+                -Type group name
+                -Then
+    -2. Create an account
+        -To create an account, the user has to:
+            -type username which has to be unique in the system
+            -type password bounded with the username
+            -Then a brand new account will be created and UserManager will store this account
+
