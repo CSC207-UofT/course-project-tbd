@@ -1,6 +1,7 @@
 Contribution list:
 Qiyi Zhang(AKA Leo):
-co-writer of Scenario-WalkThrough, ProgressReport and specification
+co-writer of Scenario-WalkThrough, CRC-card, ProgressReport and specification
+helped finalize the program in phase 0
 Coding: Main, MainPageController, MainPagePresenter, UserLoginController, UserLoginPresenter, LeavePageController,
 LeavePagePresenter, NewUserController, NewUserPresenter
 
@@ -63,7 +64,7 @@ Extension of the group in the phase 1:
         3. will be able to make decision like accept or reject the request from a user who wants to join the group
 
 
-    GUI
+    GUI - will use scene builder for graphic user interface
 
     If still have time:
          Social System: users can add other users as friends and have a special chat box with each of them
