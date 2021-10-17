@@ -40,8 +40,11 @@ public class JoinGroupController {
                     // Else if group name exists and user is not in the group. Add to group.
                     gm.addUserToGroup(groupName, currentUser);
                    // um.addGroupToUser(currentUser, gm.getGroupByName(groupName));
+                    jgp.joinSuccess(groupName);
+                    option = "2";
                 }
             }
+            jgp.lines();
         } catch (IOException e){
             System.out.println("Please type a valid number");
         }

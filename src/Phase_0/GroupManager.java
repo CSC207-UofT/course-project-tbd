@@ -6,8 +6,9 @@ import java.util.HashMap;
 
 //import static org.junit.Assert.assertEquals;
 
-public class GroupManager extends TaskManager{
-    public HashMap<User, ArrayList<Group>> maps;
+public class GroupManager{
+    public HashMap<String, Group> maps;
+    public UserManager um = new UserManager();
 
     /**
      * Construct a TBD.GroupManager, giving them the given maps
@@ -21,37 +22,35 @@ public class GroupManager extends TaskManager{
     /**
      * This is the method to create a new group given a user
      * and the name of the group
+     * @param user the leader of the group
+     * @param name name of the group
      */
     public void createGroup(User user, String name) {
         Group group = new Group(user, name);
-        ArrayList<Group> groups = new ArrayList<>();
-        groups.add(group);
-        this.maps.put(user, groups);
+        this.maps.put(name, group);
+        UserManager manager = new UserManager();
+        manager.addGroup(user, group);
     }
 
     /**
      * This is the method to delete a group given
      * the wanted group object
-     * @param groupname the
-     * @param user
+     * @param groupname name of the wanted to delete group
+     * @param leader leader of the group
      */
-        public void deleteGroup(String groupname, User user) {
-            for (Group g: this.maps.get(user)) {
-                if (g.getgroupName().equals(groupname)) {
-                    ArrayList<User> users = g.getUsers();
-                    for (User i: users) {
-                        this.maps.get(i).remove(g);
-                    }
-                }
-            }
+    public void deleteGroup(String groupname, User leader) {
+        UserManager manager = new UserManager();
+        manager.removeGroup(leader, this.maps.get(groupname));
+        this.maps.remove(groupname);
     }
 
     /**
      * This method returns a List of User in a given group name
-     * @param group the wanted group
+     * @param name name of the wanted group
      * @return List of User in the wanted group
      */
-    public ArrayList<User> memberList(Group group) {
+    public ArrayList<User> memberList(String name) {
+        Group group = this.maps.get(name);
         return group.getUsers();
     }
 
@@ -64,11 +63,12 @@ public class GroupManager extends TaskManager{
      * given name and false otherwise
      */
     public boolean checkIfIn(String groupname, User user) {
-            for (Group j: this.maps.get(user)) {
-                if (groupname.equals(j.getgroupName())) {
-                    return true;
-                }
+        Group group = this.maps.get(groupname);
+        for (User i: group.getUsers()) {
+            if (um.getUserName((NormalUser) i).equals(um.getUserName((NormalUser) user))) {
+                return true;
             }
+        }
         return false;
     }
 
@@ -80,11 +80,9 @@ public class GroupManager extends TaskManager{
      * the same name and false otherwise
      */
     public boolean checkGroupExists(String groupname) {
-        for (User user: this.maps.keySet()) {
-            for (Group j : this.maps.get(user)) {
-                if (groupname.equals(j.getgroupName())) {
-                    return true;
-                }
+        for (String name: this.maps.keySet()) {
+            if (groupname.equals(name)) {
+                return true;
             }
         }
         return false;
@@ -99,29 +97,23 @@ public class GroupManager extends TaskManager{
      *  the group with the given name and false otherwise
      */
     public boolean checkIfLeader(String groupname, User user) {
-        for (Group j: this.maps.get(user)) {
-            if (groupname.equals(j.getgroupName())) {
-                return j.getgroupLeader().equals(user);
-            }
-        }
-        return false;
+        Group group = this.maps.get(groupname);
+        User leader = group.getgroupLeader();
+        String name = leader.getUsername();
+        return um.getUserName((NormalUser) user).equals(name);
     }
 
     /**
-     * This method checks add a given group to the user's
+     * This method adds a given group to the user's
      * group list
      * @param groupname the group that we want to add
      * @param user given user
-     * otherwise
      */
     public void addUserToGroup(String groupname, User user) {
-        for (User u : this.maps.keySet()) {
-            for (Group j : this.maps.get(u)) {
-                if (groupname.equals(j.getgroupName())) {
-                    this.maps.get(user).add(j);
-                }
-            }
-        }
+        Group group = this.maps.get(groupname);
+        ArrayList<User> users = new ArrayList<>();
+        users.add(user);
+        group.addUsers(users);
     }
 
     /**
@@ -130,11 +122,8 @@ public class GroupManager extends TaskManager{
      * @param user the member that is removed from group
      */
     public void removeMember(String groupname, User user) {
-        for (Group j: this.maps.get(user)) {
-            if (groupname.equals(j.getgroupName())) {
-                this.maps.get(user).remove(j);
-                return;
-            }
-        }
+        Group group = this.maps.get(groupname);
+        group.removeUser(user);
+        um.removeGroup(user, group);
     }
 }

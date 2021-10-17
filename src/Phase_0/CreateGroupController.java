@@ -21,13 +21,16 @@ public class CreateGroupController {
         cgp.Intro();
 
         try{
-            String GroupName = reader.readLine();
-            while (groupManager.checkGroupExists(GroupName)) {
-                cgp.InvalidGroupName(GroupName);
-                GroupName = reader.readLine();
+            String groupName = reader.readLine();
+            while (groupManager.checkGroupExists(groupName)) {
+
+                cgp.InvalidGroupName(groupName);
+                groupName = reader.readLine();
             }
-            groupManager.createGroup(normalUser, GroupName);
-            userManager.addGroupToUser(normalUser, GroupName);
+            groupManager.createGroup(normalUser, groupName);
+            normalUser.myGroups.add(new Group(normalUser, groupName));
+            cgp.CreateSuccess(groupName);
+            cgp.lines();
         } catch (IOException e){
             System.out.println("Please type a valid number");
         }

@@ -7,10 +7,14 @@ public class IndividualTaskManager extends TaskManager{
     }
 
     public void completeTask(Task task){
-        task.status = true;
+        task.setStatus(true);
     }
 
     public boolean checkIfFinished(Task task){
         return task.status;
+    }
+
+    public boolean checkTaskByName(Task task, String taskName){
+        return task.getTaskName().equals(taskName);
     }
 }

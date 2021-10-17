@@ -16,12 +16,8 @@ public class UserPagePresenter {
     public void userProfilePage(){
         System.out.println("---------------------");
         System.out.println("Your User Profile:");
-        showMyAccount();
-        System.out.println("---------------------");
-    }
-
-    public void showMyAccount() {
         System.out.println(this.user.displayUserDetail());
+        System.out.println("---------------------");
     }
 
     public void availableOptions(){

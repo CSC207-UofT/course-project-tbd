@@ -17,20 +17,29 @@ public class LeaveGroupController {
         lgp.askForName();
         try{
             String input = reader.readLine();
-            if (gm.checkIfIn(input, this.user)){
+            if(!gm.checkGroupExists(input)){
+                lgp.noGroupFound();
+                lgp.goBack();
+                lgp.lines();
+            }
+            else if (gm.checkIfIn(input, this.user)){
                 if (gm.checkIfLeader(input, this.user)){
                     gm.deleteGroup(input, this.user);
+                    lgp.leaveSuccess(input);
+                    lgp.lines();
                 }
                 else {
                     gm.removeMember(input, this.user);
-                   // um.leaveGroup(this.user, input);
+//                    um.leaveGroup(this.user, input);
                     lgp.leaveSuccess(input);
+                    lgp.lines();
                 }
 
 
             }
             else {
                 lgp.noGroupFound();
+                lgp.lines();
             }
 
         }

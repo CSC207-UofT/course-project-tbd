@@ -25,6 +25,14 @@ public class Category extends Features{
         return this.tasks;
     }
 
-
-
+    @Override
+    public String toString() {
+        StringBuilder s = new StringBuilder();
+        s.append(this.categoryName).append("\n");
+        for (Task t: this.tasks){
+            s.append(t.getTaskName()).append("\n");
+        }
+        s.delete(s.length()-1,s.length());
+        return s.toString();
+    }
 }
