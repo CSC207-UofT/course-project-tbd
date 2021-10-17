@@ -15,11 +15,6 @@ public class IndividualTaskManager extends TaskManager{
     }
 
     public boolean checkTaskByName(Task task, String taskName){
-        if (task.getTaskName().equals(taskName)){
-            return true;
-        }
-        else {
-            return false;
-        }
+        return task.getTaskName().equals(taskName);
     }
 }

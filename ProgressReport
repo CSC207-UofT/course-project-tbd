@@ -1,26 +1,38 @@
 Contribution list:
 Qiyi Zhang(AKA Leo):
-co-writer of Scenario-WalkThrough, ProgressReport and specification
+co-writer of Scenario-WalkThrough, CRC-card, ProgressReport and specification
+helped finalize the program in phase 0
 Coding: Main, MainPageController, MainPagePresenter, UserLoginController, UserLoginPresenter, LeavePageController,
 LeavePagePresenter, NewUserController, NewUserPresenter
 
 Kevin: co-writer of CRC model, edited Scenario-walkthrough and specification.
-       Coding: Created GroupTest, Category, Features, JoinGroupController, JoinGroupPresenter.
-       Helped edit Group, GroupManager.
+       Coding: Created GroupTest, Category, Features, JoinGroupController, JoinGroupPresenter, TaskPageController,
+       TaskPagePresenter
+       Helped edit Group, GroupManager, TaskPageController
 
-Peter:
+Peter: Helped with the development of the CRC model.
+       Coding: Finished Class: NormalUser, UserManager, User, CreateGroupController, CreateGroupPresenter, helped with
+       some of the controller that Leo worked on.
 
-Owen:
+Owen: Helped edit CRC model.
+Coding: Created and wrote UserPageController, UsePagePresenter, TaskPageController, TaskPagePresenter
+        also implemented related functionalities in Class Task and NormalUser such as the toString and display methods.
+
 
 Sana: Helped edit CRC model.
 Coding: Created IndividualTaskManager, Task, CategoryTest.
 Started on the other Phase_0 Tests files (GroupManagerTest, UserManagerTest).
 
-Fariha:
+Fariha: Coding: Helped edit IndividualTaskManager, Task, NormalUserTest.
+Started on the other Phase_0 Tests files.
 
-Aryan:
+Aryan: co writer of CRC model, editor of specification.
+       Coding: Worked on NormalUserTest, Group, GroupManager, NormalUser,
+       Helped edit JoinGroupController, LeaveGroupController, TaskPageController, TaskPagePresenter
 
-Harry:
+Harry: co-writer and edit the CRC model. Helped edit specification.
+       Coding: Created and modify GroupManager, implemented GroupManagerTest
+       Help edit with LeaveGroupController, TaskPageController, Group, NormalUser, User
 
 Phase 0 summary:
 user can create and login an account
@@ -52,9 +64,9 @@ Extension of the group in the phase 1:
         3. will be able to make decision like accept or reject the request from a user who wants to join the group
 
 
-    GUI
+    GUI - will use scene builder for graphic user interface
 
-    If we still have time:
+    If still have time:
          Social System: users can add other users as friends and have a special chat box with each of them
          AdminUser: would be a build-in account that can do what normal user do, and can also manager users' account
 
