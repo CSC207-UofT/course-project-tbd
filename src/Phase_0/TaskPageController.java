@@ -12,7 +12,7 @@ public class TaskPageController {
 
     public TaskPageController(NormalUser user, UserManager um){
         this.user = user;
-        this.tpp = new TaskPagePresenter(user);
+        this.tpp = new TaskPagePresenter();
         this.um = um;
         this.itm = new IndividualTaskManager();
     }
@@ -23,15 +23,16 @@ public class TaskPageController {
         while (!input.equals("1")){
             tpp.availableOptions();
             input = reader.readLine();
-            switch (input) {
-                case "2" -> addTask(reader);
-                case "3" ->
-                        // To mark the task complete.
-                        finishTask(reader);
-                case "4" -> {
-                    tpp.displayTasks();
-                    System.out.println(um.displayTask(user));
-                }
+            if (input.equals("2")){
+                addTask(reader);
+            }
+            else if(input.equals("3")){
+                // To mark the task complete.
+                finishTask(reader);
+            }
+            else if(input.equals("4")){
+                tpp.displayTasks();
+                System.out.println(um.displayTask(user));
             }
         }
     }

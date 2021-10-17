@@ -1,10 +1,8 @@
 package Phase_0;
 
 public class TaskPagePresenter {
-    private NormalUser user;
 
-    public TaskPagePresenter(NormalUser user){
-        this.user = user;
+    public TaskPagePresenter(){
     }
 
 
