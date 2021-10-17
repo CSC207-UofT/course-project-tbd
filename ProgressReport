@@ -25,7 +25,7 @@ Aryan: co writer of CRC model, editor of specification.
        Coding: Worked on NormalUserTest, Group, GroupManager, NormalUser,
        Helped edit JoinGroupController, LeaveGroupController, TaskPageController, TaskPagePresenter
 
-Harry: co-writer and edit the CRC model.
+Harry: co-writer and edit the CRC model. Helped edit specification.
        Coding: Created and modify GroupManager, implemented GroupManagerTest
        Help edit with LeaveGroupController, TaskPageController, Group, NormalUser, User
 
