@@ -9,7 +9,9 @@ Kevin: co-writer of CRC model, edited Scenario-walkthrough and specification.
        TaskPagePresenter
        Helped edit Group, GroupManager, TaskPageController
 
-Peter:
+Peter: Helped with the development of the CRC model.
+       Coding: Finished Class: NormalUser, UserManager, User, CreateGroupController, CreateGroupPresenter, helped with
+       some of the controller that Leo worked on.
 
 Owen: Helped edit CRC model.
 Coding: Created and wrote UserPageController, UsePagePresenter, TaskPageController, TaskPagePresenter
