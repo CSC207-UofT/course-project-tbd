@@ -27,7 +27,7 @@ public class JoinGroupController {
             while(Objects.equals(option, "1")){
                 jgp.askGroupName();
                 String groupName = reader.readLine();
-                if(!gm.checkGroupName(groupName)){ // Check whether group name exists if not:-
+                if(!gm.checkGroupExists(groupName)){ // Check whether group name exists if not:-
                     jgp.groupNameNotInMap();
                     option = reader.readLine();
                 }
@@ -39,9 +39,12 @@ public class JoinGroupController {
                 else{
                     // Else if group name exists and user is not in the group. Add to group.
                     gm.addUserToGroup(groupName, currentUser);
-                    um.addGroupToUser(currentUser, gm.getGroupByName(groupName));
+                   // um.addGroupToUser(currentUser, gm.getGroupByName(groupName));
+                    jgp.joinSuccess(groupName);
+                    option = "2";
                 }
             }
+            jgp.lines();
         } catch (IOException e){
             System.out.println("Please type a valid number");
         }

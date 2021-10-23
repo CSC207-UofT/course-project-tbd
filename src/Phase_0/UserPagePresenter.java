@@ -16,19 +16,15 @@ public class UserPagePresenter {
     public void userProfilePage(){
         System.out.println("---------------------");
         System.out.println("Your User Profile:");
-        showMyAccount();
-        System.out.println("---------------------");
-    }
-
-    public void showMyAccount() {
         System.out.println(this.user.displayUserDetail());
+        System.out.println("---------------------");
     }
 
     public void availableOptions(){
         System.out.print("Your Options:\n"+
-                "1, My Tasks\n" +
-                "2. Sign Out\n" +
-                "3. Exit\n" +
+                "1. My Group\n" +
+                "2, My Tasks\n" +
+                "3. Sign Out\n" +
                 "Your answer here: ");
     }
 

@@ -60,8 +60,4 @@ public class Group {
     public ArrayList<Features> getFeatures() {
         return this.features;
     }
-
-
-
-    //TODO: implement a function to remove a member from the given group.
 }
