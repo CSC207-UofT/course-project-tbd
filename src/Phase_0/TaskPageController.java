@@ -7,14 +7,14 @@ import java.io.IOException;
 public class TaskPageController {
     private NormalUser user;
     private TaskPagePresenter tpp;
-    private IndividualTaskManager itm;
+    private TaskManager itm;
     UserManager um;
 
     public TaskPageController(NormalUser user, UserManager um){
         this.user = user;
         this.tpp = new TaskPagePresenter();
         this.um = um;
-        this.itm = new IndividualTaskManager();
+        this.itm = new TaskManager();
     }
     public void run() throws IOException{
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));

@@ -5,7 +5,7 @@ import java.util.Objects;
 
 public class UserManager {
     public ArrayList<NormalUser> allUsers = new ArrayList<>();
-    IndividualTaskManager itm = new IndividualTaskManager();
+    TaskManager itm = new TaskManager();
 
     public void createUser() {
     }
