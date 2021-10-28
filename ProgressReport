@@ -42,6 +42,7 @@ and add/finish task
 
 Extension of the group in the phase 1:
     Group: will be joined with more features.
+        Group Now can have duplicated name
         1. the leader of group can assign tasks individually to other members.
         2. Discussion board, where each members of the group can post stuff
         3. private message: each member can leave a message to others in this group to Notification Box (will show up in
@@ -64,7 +65,7 @@ Extension of the group in the phase 1:
         3. will be able to make decision like accept or reject the request from a user who wants to join the group
 
 
-    GUI - will use scene builder for graphic user interface
+    GUI - will use scene builder for graphic user interface - phase 2
 
     If still have time:
          Social System: users can add other users as friends and have a special chat box with each of them
