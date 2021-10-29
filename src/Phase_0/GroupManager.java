@@ -8,15 +8,15 @@ import java.util.HashMap;
 
 public class GroupManager{
     public HashMap<String, Group> maps;
-    public UserManager um = new UserManager();
+    UserGroupManager ugm = new UserGroupManager();
 
     /**
      * Construct a TBD.GroupManager, giving them the given maps
      * attribute with User as keys and ArrayList contains Group as
      * values
      */
-    public GroupManager() {
-        this.maps = new HashMap<>();
+    public GroupManager(HashMap<String, Group> maps) {
+        this.maps = maps;
     }
 
     /**
@@ -28,20 +28,21 @@ public class GroupManager{
     public void createGroup(User user, String name) {
         Group group = new Group(user, name);
         this.maps.put(name, group);
-        UserManager manager = new UserManager();
-        manager.addGroup(user, group);
+        ugm.addGroup(user, group);
     }
 
     /**
      * This is the method to delete a group given
      * the wanted group object
-     * @param groupname name of the wanted to delete group
+     * @param groupName name of the wanted to delete group
      * @param leader leader of the group
      */
-    public void deleteGroup(String groupname, User leader) {
-        UserManager manager = new UserManager();
-        manager.removeGroup(leader, this.maps.get(groupname));
-        this.maps.remove(groupname);
+    public void deleteGroup(String groupName, User leader) {
+        ugm.removeGroup(leader, this.maps.get(groupName));
+        for (User user: this.maps.get(groupName).getUsers()){
+            ugm.removeGroup(user, this.maps.get(groupName));
+        }
+        this.maps.remove(groupName);
     }
 
     /**
@@ -65,7 +66,7 @@ public class GroupManager{
     public boolean checkIfIn(String groupname, User user) {
         Group group = this.maps.get(groupname);
         for (User i: group.getUsers()) {
-            if (um.getUserName((NormalUser) i).equals(um.getUserName((NormalUser) user))) {
+            if (i.equals(user)) {
                 return true;
             }
         }
@@ -99,8 +100,7 @@ public class GroupManager{
     public boolean checkIfLeader(String groupname, User user) {
         Group group = this.maps.get(groupname);
         User leader = group.getgroupLeader();
-        String name = leader.getUsername();
-        return um.getUserName((NormalUser) user).equals(name);
+        return user.equals(leader);
     }
 
     /**
@@ -124,6 +124,6 @@ public class GroupManager{
     public void removeMember(String groupname, User user) {
         Group group = this.maps.get(groupname);
         group.removeUser(user);
-        um.removeGroup(user, group);
+        ugm.removeGroup(user, group);
     }
 }

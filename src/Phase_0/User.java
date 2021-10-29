@@ -1,8 +1,9 @@
 package Phase_0;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public abstract  class User {
+public abstract  class User implements Serializable {
     public String username;
     public String password;
 
@@ -46,4 +47,7 @@ public abstract  class User {
         public abstract void removeGroup(Group group);
         public abstract String getUsername();
         public abstract void addTask(Task task);
+        public abstract String getPassword();
+
+    ;
     }

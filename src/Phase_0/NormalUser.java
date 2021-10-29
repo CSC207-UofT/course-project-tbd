@@ -1,10 +1,11 @@
 package Phase_0;
 
 
+import java.io.Serializable;
 import java.net.PortUnreachableException;
 import java.util.ArrayList;
 
-public class NormalUser extends User{
+public class NormalUser extends User implements Serializable {
 
     public String username;
     public String password;
@@ -78,4 +79,5 @@ public class NormalUser extends User{
     public String getUsername(){
         return username;
     }
+    public String getPassword(){return password;}
 }

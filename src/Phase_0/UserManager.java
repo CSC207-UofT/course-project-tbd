@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class UserManager {
-    public ArrayList<NormalUser> allUsers = new ArrayList<>();
+    public ArrayList<User> allUsers;
     IndividualTaskManager itm = new IndividualTaskManager();
 
-    public void createUser() {
+    public UserManager(ArrayList<User> user_list) {
+        this.allUsers = user_list;
     }
 
 
@@ -23,8 +24,8 @@ public class UserManager {
      * Check if the attempted username is not in the pool of all usernames.
      */
     public boolean checkIfValid(String UserId) {
-        for (NormalUser user : allUsers) {
-            if (user.username.equals(UserId)) {
+        for (User user : allUsers) {
+            if (user.getUsername().equals(UserId)) {
                 return false;
             }
         }
@@ -37,8 +38,8 @@ public class UserManager {
      * if yes then return true, otherwise return false.
      */
     public boolean login(String ausername, String apassword) {
-        for (NormalUser user : allUsers) {
-            if (Objects.equals(user.username, ausername) && Objects.equals(user.password, apassword)) {
+        for (User user : allUsers) {
+            if (Objects.equals(user.getUsername(), ausername) && Objects.equals(user.getPassword(), apassword)) {
                 return true;
             }
         }
@@ -48,9 +49,9 @@ public class UserManager {
     /**
      * Returns the user when given its username or null if not found
      */
-    public NormalUser getUserById(String ID) {
-        for (NormalUser user : allUsers) {
-            if (user.username.equals(ID)) {
+    public User getUserById(String ID) {
+        for (User user : allUsers) {
+            if (user.getUsername().equals(ID)) {
                 return user;
             }
         }
