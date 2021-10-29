@@ -3,18 +3,21 @@ package Phase_0;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 public class TaskPageController {
     private NormalUser user;
     private TaskPagePresenter tpp;
-    private IndividualTaskManager itm;
+    private TaskManager itm;
     UserManager um;
 
     public TaskPageController(NormalUser user, UserManager um){
         this.user = user;
         this.tpp = new TaskPagePresenter();
         this.um = um;
-        this.itm = new IndividualTaskManager();
+        this.itm = new TaskManager();
     }
     public void run() throws IOException{
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -23,16 +26,15 @@ public class TaskPageController {
         while (!input.equals("1")){
             tpp.availableOptions();
             input = reader.readLine();
-            if (input.equals("2")){
-                addTask(reader);
-            }
-            else if(input.equals("3")){
-                // To mark the task complete.
-                finishTask(reader);
-            }
-            else if(input.equals("4")){
-                tpp.displayTasks();
-                System.out.println(um.displayTask(user));
+            switch (input) {
+                case "2" -> addTask(reader);
+                case "3" ->
+                        // To mark the task complete.
+                        finishTask(reader);
+                case "4" -> {
+                    tpp.displayTasks();
+                    System.out.println(um.displayTask(user));
+                }
             }
         }
     }
@@ -56,7 +58,10 @@ public class TaskPageController {
         String taskTitle = reader.readLine();
         tpp.giveTaskDetail();
         String taskDetail = reader.readLine();
-        Task task = new Task(taskTitle, taskDetail); // task name must be unique
+        tpp.giveNewTaskDate();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy", Locale.ENGLISH);
+        LocalDate taskDate = LocalDate.parse(reader.readLine(), formatter);
+        Task task = new Task(taskTitle, taskDetail, taskDate); // task name must be unique
         um.addTask(user, task);
         tpp.taskAdd();
     }
