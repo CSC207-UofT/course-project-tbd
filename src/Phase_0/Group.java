@@ -9,12 +9,14 @@ public class Group implements Serializable {
     private String groupName;
     private ArrayList<User> users = new ArrayList<>();
     private ArrayList<Features> features = new ArrayList<>();
+    private ArrayList<Folder> folders = new ArrayList<>();
 
 
     public Group(User groupLead, String groupname) {
         this.groupLeader = groupLead;
         this.groupName = groupname;
         this.users.add(groupLead);
+        this.folders.add(new Folder(groupLead.getUsername()));
     }
 
     /**
