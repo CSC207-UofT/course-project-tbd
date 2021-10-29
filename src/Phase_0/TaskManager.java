@@ -1,6 +1,6 @@
 package Phase_0;
 
-public class TaskManager { //fixing sth sth
+public class TaskManager {
 
     public void createTask(String description){
         new Task(description);

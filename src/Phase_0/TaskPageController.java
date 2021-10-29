@@ -3,6 +3,7 @@ package Phase_0;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
+import java.util.Date;
 
 public class TaskPageController {
     private NormalUser user;
@@ -56,7 +57,9 @@ public class TaskPageController {
         String taskTitle = reader.readLine();
         tpp.giveTaskDetail();
         String taskDetail = reader.readLine();
-        Task task = new Task(taskTitle, taskDetail); // task name must be unique
+        tpp.giveNewTaskDate();
+        Date taskDate = reader.readLine();
+        Task task = new Task(taskTitle, taskDetail, taskDate); // task name must be unique
         um.addTask(user, task);
         tpp.taskAdd();
     }
