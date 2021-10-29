@@ -24,6 +24,7 @@ public class CategoryTest {
         cy.addTask(a);
         cy.addTask(b);
         cy.addTask(c);
+        cy.addTask(d);
     }
 
     @Test(timeout = 100)

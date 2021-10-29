@@ -1,9 +1,10 @@
 package Phase_0;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Group {
+public class Group implements Serializable {
     private User groupLeader;
     private String groupName;
     private ArrayList<User> users = new ArrayList<>();
