@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class UserManager {
-    public ArrayList<NormalUser> allUsers = new ArrayList<>();
+    public ArrayList<NormalUser> allUsers;
     IndividualTaskManager itm = new IndividualTaskManager();
 
-    public void createUser() {
+    public UserManager(ArrayList<NormalUser> user_list) {
+        this.allUsers = user_list;
     }
 
 
