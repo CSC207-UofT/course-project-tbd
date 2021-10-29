@@ -47,4 +47,7 @@ public abstract  class User implements Serializable {
         public abstract void removeGroup(Group group);
         public abstract String getUsername();
         public abstract void addTask(Task task);
+        public abstract String getPassword();
+
+    ;
     }
