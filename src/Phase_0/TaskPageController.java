@@ -3,7 +3,9 @@ package Phase_0;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 public class TaskPageController {
     private NormalUser user;
@@ -58,7 +60,8 @@ public class TaskPageController {
         tpp.giveTaskDetail();
         String taskDetail = reader.readLine();
         tpp.giveNewTaskDate();
-        Date taskDate = reader.readLine();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy", Locale.ENGLISH);
+        LocalDate taskDate = LocalDate.parse(reader.readLine(), formatter);
         Task task = new Task(taskTitle, taskDetail, taskDate); // task name must be unique
         um.addTask(user, task);
         tpp.taskAdd();

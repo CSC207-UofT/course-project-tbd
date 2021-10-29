@@ -26,7 +26,7 @@ public class TaskPagePresenter {
     }
      public void giveNewTaskDate(){
         System.out.println("--------------------");
-        System.out.println("Enter Task Due Date:");
+        System.out.println("Enter Task Due Date(example October 29, 2020) :");
      }
 
     public void taskAdd(){
@@ -44,4 +44,6 @@ public class TaskPagePresenter {
     public void displayTasks(){
         System.out.println("The tasks are :");
     }
+
+
 }

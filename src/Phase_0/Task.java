@@ -1,8 +1,6 @@
 package Phase_0;
-//import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
+import java.time.LocalDate;
+
 
 /**
  * This class creates task, with its title, information, deadline to finish each task and a sets it
@@ -12,7 +10,7 @@ import java.util.Date;
 public class Task {
     public String title;
     public String information;
-    public Date date;
+    public LocalDate date;
     public boolean status;
 
     public Task(String title){
@@ -20,7 +18,7 @@ public class Task {
         this.status = false;
     }
 
-    public Task(String title, String information, Date date){
+    public Task(String title, String information, LocalDate date){
         this.title = title;
         this.information = information;
         this.date = date;
@@ -46,14 +44,23 @@ public class Task {
         return this.title;
     }
 
+    /**
+     * This method sets task status from incomplete to complete.
+     */
+
     public void completeTask(){
         this.status = true;
     }
+
+    /**
+     * @return This method represents the information and status of the task in the form of string.
+     */
 
     @Override
     public String toString() {
         String s = "Title: " + this.title + "\n";
         s += "TODO: " + this.information + "\n";
+        s += "DUE DATE: " + this.date + "\n";
         if(this.status){
             s += "Status: " + "Completed";
         }else{
