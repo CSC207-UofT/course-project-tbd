@@ -19,6 +19,7 @@ public class TaskPageController {
         this.um = um;
         this.itm = new TaskManager();
     }
+
     public void run() throws IOException{
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         tpp.displayTasks();
