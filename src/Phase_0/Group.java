@@ -10,6 +10,7 @@ public class Group implements Serializable {
     private ArrayList<User> users = new ArrayList<>();
     private ArrayList<Features> features = new ArrayList<>();
     private ArrayList<Folder> folders = new ArrayList<>();
+    private GroupChat groupChat;
 
 
     public Group(User groupLead, String groupname) {
@@ -17,6 +18,7 @@ public class Group implements Serializable {
         this.groupName = groupname;
         this.users.add(groupLead);
         this.folders.add(new Folder(groupLead.getUsername()));
+        this.groupChat = new GroupChat(groupname);
     }
 
     /**
