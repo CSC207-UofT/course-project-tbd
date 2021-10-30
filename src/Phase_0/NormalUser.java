@@ -80,4 +80,8 @@ public class NormalUser extends User implements Serializable {
         return username;
     }
     public String getPassword(){return password;}
+
+    public ArrayList<Group> getMyGroups() {
+        return myGroups;
+    }
 }
