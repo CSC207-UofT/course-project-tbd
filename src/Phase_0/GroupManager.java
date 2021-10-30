@@ -14,6 +14,8 @@ public class GroupManager{
      * Construct a TBD.GroupManager, giving them the given maps
      * attribute with User as keys and ArrayList contains Group as
      * values
+     * @param maps the HasMap that contains all the groups in the system
+     *             and their names
      */
     public GroupManager(HashMap<String, Group> maps) {
         this.maps = maps;
@@ -114,6 +116,7 @@ public class GroupManager{
         ArrayList<User> users = new ArrayList<>();
         users.add(user);
         group.addUsers(users);
+        group.addFolder(user.getUsername());
     }
 
     /**
