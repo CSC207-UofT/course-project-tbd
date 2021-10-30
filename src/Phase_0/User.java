@@ -48,6 +48,7 @@ public abstract  class User implements Serializable {
         public abstract String getUsername();
         public abstract void addTask(Task task);
         public abstract String getPassword();
+//        public abstract void addCategory(Category c);
 
-    ;
+
     }

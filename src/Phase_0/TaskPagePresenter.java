@@ -24,10 +24,15 @@ public class TaskPagePresenter {
         System.out.println("--------------------");
         System.out.println("Enter Task Detail:");
     }
+//    public void giveCategoryName(){
+//        System.out.println("--------------------");
+//        System.out.println("Enter Category Title:");
+//    }
      public void giveNewTaskDate(){
         System.out.println("--------------------");
         System.out.println("Enter Task Due Date(example October 29, 2020) :");
      }
+
 
     public void taskAdd(){
         System.out.println("Your task has been created and added");
