@@ -36,6 +36,10 @@ public class Group implements Serializable {
         this.features.remove(target);
     }
 
+    public void addFolder(String name) {
+        this.folders.add(new Folder(name));
+    }
+
     public void addTasktoCategory(Task t, Category c) {
         c.addTask(t);
     }

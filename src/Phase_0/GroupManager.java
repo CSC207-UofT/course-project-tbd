@@ -114,6 +114,7 @@ public class GroupManager{
         ArrayList<User> users = new ArrayList<>();
         users.add(user);
         group.addUsers(users);
+        group.addFolder(user.getUsername());
     }
 
     /**
