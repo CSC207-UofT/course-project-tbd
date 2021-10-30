@@ -9,14 +9,14 @@ public class Group implements Serializable {
     private String groupName;
     private ArrayList<User> users = new ArrayList<>();
     private ArrayList<Features> features = new ArrayList<>();
-    private GroupChat groupChat;
+    private ArrayList<Folder> folders = new ArrayList<>();
 
 
     public Group(User groupLead, String groupname) {
         this.groupLeader = groupLead;
         this.groupName = groupname;
         this.users.add(groupLead);
-        this.groupChat  = new GroupChat(groupname);
+        this.folders.add(new Folder(groupLead.getUsername()));
     }
 
     /**
@@ -34,6 +34,10 @@ public class Group implements Serializable {
 
     public void deleteFeature(Features target) {
         this.features.remove(target);
+    }
+
+    public void addFolder(String name) {
+        this.folders.add(new Folder(name));
     }
 
     public void addTasktoCategory(Task t, Category c) {
