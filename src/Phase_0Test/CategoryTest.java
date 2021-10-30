@@ -27,6 +27,9 @@ public class CategoryTest {
         cy.addTask(b);
         cy.addTask(c);
         cy.addTask(d);
+        for(Task t: cy){
+            System.out.println(t);
+        }
     }
 
     @Test(timeout = 100)
