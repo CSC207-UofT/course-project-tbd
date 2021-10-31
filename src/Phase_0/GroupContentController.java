@@ -11,13 +11,14 @@ public class GroupContentController {
     private UserManager um;
     private GroupManager gm;
     private Group group;
-    private User user;
+    private NormalUser user;
     private GroupContentPresenter gcp = new GroupContentPresenter();
 
-    public GroupContentController(UserManager um, GroupManager gm, Group group) {
+    public GroupContentController(UserManager um, GroupManager gm, Group group, NormalUser user) {
         this.gm = gm;
         this.um = um;
         this.group = group;
+        this.user = user;
     }
 
     public void run() {
@@ -33,14 +34,28 @@ public class GroupContentController {
                         System.out.println("HomePage class");
                         break;
                     case "2":
-                        // TODO Access to Task Page
+                        if (gm.checkIfLeader(group.getgroupName(), user)){
+                            StringBuilder s = new StringBuilder();
+                            for (Folder f: group.getFolders()){
+                                s.append(f.getFolderName()).append("\n");
+                            }
+                            s.delete(s.length()-1,s.length());
+                            System.out.println(s);
+                    }
+                        else {
+                            for (Folder f: group.getFolders()){
+                                if (f.getFolderName().equals(user.getUsername())) {
+                                    f.toString();
+                                }
+                            }
+                        }
                         break;
                     case "3":
-                        GroupChatController gcc = new GroupChatController(group.getGroupChat(), gm, user);
+                        GroupChatController gcc = new GroupChatController(group.getGroupChat(), user);
                         gcc.run();
                         break;
                     case "4":
-                        ViewGroupController vgc = new ViewGroupController(this.um, this.gm);
+                        ViewGroupController vgc = new ViewGroupController(um, gm, user);
                         vgc.run();
                         break;
                 }

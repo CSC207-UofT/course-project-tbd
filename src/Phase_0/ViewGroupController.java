@@ -13,12 +13,13 @@ public class ViewGroupController {
 
     private UserManager um;
     private GroupManager gm;
-    private User currentUser;
+    private NormalUser currentUser;
     // private final ViewGroupPresenter vgp= new ViewGroupPresenter;
 
-    public ViewGroupController(UserManager um, GroupManager gm) {
+    public ViewGroupController(UserManager um, GroupManager gm, NormalUser user) {
         this.gm = gm;
         this.um = um;
+        this.currentUser = user;
     }
 
     public void run() {
@@ -47,7 +48,9 @@ public class ViewGroupController {
                 }
                 else{
                     // We call the controller for the corresponding group.
-                    // TODO: Call Aryans method here
+                    int x = Integer.parseInt(option);
+                    GroupContentController gcc = new GroupContentController(um, gm, groups.get(x), currentUser);
+                    gcc.run();
                 }
             }
         } catch (IOException e) {

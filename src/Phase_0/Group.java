@@ -73,4 +73,9 @@ public class Group implements Serializable {
     public ArrayList<Features> getFeatures() {
         return this.features;
     }
+
+    public ArrayList<Folder> getFolders() {
+        return this.folders;
+    }
+
 }

@@ -10,7 +10,4 @@ public class GroupContentPresenter {
                 Type 4 to go back\s
                 Type 0 to exit""");
     }
-    public void askMessage() {
-        System.out.println("Please enter a message");
-    }
 }

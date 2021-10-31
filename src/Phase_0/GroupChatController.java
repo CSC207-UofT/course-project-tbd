@@ -8,12 +8,11 @@ public class GroupChatController {
     private GroupChat chat;
     private Group group;
     private GroupManager gm;
-    private User user;
+    private NormalUser user;
     private final GroupChatPresenter gcp = new GroupChatPresenter();
 
-    public GroupChatController(GroupChat chat, GroupManager gm, User user) {
+    public GroupChatController(GroupChat chat, NormalUser user) {
         this.chat = chat;
-        this.gm = gm;
         this.user = user;
     }
 
