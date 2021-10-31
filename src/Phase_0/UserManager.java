@@ -84,29 +84,10 @@ public class UserManager {
 //    public void addCategory(NormalUser user, Category c){
 //        user.addCategory(c);
 //    }
-    public void addTask(NormalUser user, Task task){
-        user.addTask(task);
-    }
+//    public void addTask(NormalUser user, Task task){
+//        user.addTask(task);
+//    }
+//
+//
 
-
-    public String displayTask(NormalUser user){
-        StringBuilder s = new StringBuilder();
-        for(Task t: user.getMyTasks()){
-            s.append(t.toString()).append("\n");
-        }
-        return s.toString();
-    }
-    public boolean checkTask(NormalUser user, Task t) {
-        return user.getMyTasks().contains(t);
-    }
-
-    public Task getTaskByName(NormalUser user, String taskName) {
-        for (Task t: user.getMyTasks()){
-            if (itm.checkTaskByName(t, taskName)){
-                return t;
-            }
-
-        }
-        return null;
-    }
 }
