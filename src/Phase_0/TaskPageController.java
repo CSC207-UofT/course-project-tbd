@@ -96,7 +96,6 @@ public class TaskPageController {
             itm.addTask(user, task);
         }
         cpc.run();
-        tpp.taskAdd();
 
     }
 }

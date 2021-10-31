@@ -30,6 +30,10 @@ public class CategoryPagePresenter {
         System.out.println("Your Category has been created and added");
     }
 
+    public void enterCategoryToAdd(){
+        System.out.println("Enter name of category to add task to:");
+    }
+
     public void CategoryNotPresent(){
         System.out.println("Sorry, the Category is not there in our database");
     }
@@ -37,4 +41,5 @@ public class CategoryPagePresenter {
     public void displayCategory(){
         System.out.println("The Categories are :");
     }
+
 }

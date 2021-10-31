@@ -13,6 +13,9 @@ public class CategoryPageController {
     private TaskManager itm;
     private UserManager um;
     private CategoryPagePresenter cpp;
+    private CategoryManager cm;
+    private TaskPageController tpc;
+
 
     public CategoryPageController(NormalUser user, UserManager um){
         this.user = user;
@@ -20,6 +23,8 @@ public class CategoryPageController {
         this.um = um;
         this.itm = new TaskManager();
         this.cpp = new CategoryPagePresenter();
+        this.cm = new CategoryManager();
+        this.tpc = new TaskPageController(user, um);
 
     }
 
@@ -37,7 +42,7 @@ public class CategoryPageController {
             }
             else if(input.equals("3")){
                 // Add to existing Category
-                tpp.availableOptions();
+                cpp.availableOptions();
             }
             else if(input.equals("4")){
                 // display categories
@@ -51,10 +56,26 @@ public class CategoryPageController {
         cpp.giveNewCategoryName();
         String CategoryTitle = reader.readLine();
 
+        // Add category
         Category category = new Category(CategoryTitle);
         um.addCategory(user, category);
+        // Add task to category
+        // category.addTask();
+        // Confirmation that category & task has been added
         cpp.CategoryAdd();
+        tpp.taskAdd();
     }
+
+    private void taskToCategory(BufferedReader reader) throws IOException{
+        cpp.enterCategoryToAdd();
+        String categoryToAdd = reader.readLine();
+        Category category = cm.getCategoryByName(user, categoryToAdd);
+        if (cm.checkCategory(user, category)){
+            // Add task to category
+            tpp.taskAdd();
+        }
+    }
+
 
 
 }
