@@ -4,10 +4,12 @@ import java.io.InputStreamReader;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Locale;
 
 public class NotificationPageController {
     private NormalUser user;
+    public ArrayList<String> mailbox;
 
     private final NotificationPagePresenter npp = new NotificationPagePresenter();
 
@@ -22,6 +24,10 @@ public class NotificationPageController {
                 deleteNotification(reader);
             }
         }
+    }
+
+    public void addnotification(String notificaition){
+        mailbox.add(notificaition);
     }
 
 
