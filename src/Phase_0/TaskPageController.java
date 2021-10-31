@@ -47,7 +47,7 @@ public class TaskPageController {
             }
             else if(input.equals("4")){
                 tpp.displayTasks();
-                System.out.println(um.displayTask(user));
+                System.out.println(itm.displayTask(user));
             }
         }
     }
@@ -55,8 +55,8 @@ public class TaskPageController {
     private void finishTask(BufferedReader reader) throws IOException {
         tpp.enterTaskToComplete();
         String taskToComplete = reader.readLine();
-        Task task = um.getTaskByName(user, taskToComplete);
-        if(um.checkTask(user, task)){
+        Task task = itm.getTaskByName(user, taskToComplete);
+        if(itm.checkTask(user, task)){
             // If task is present in user, mark it done
             itm.completeTask(task);
             System.out.println("Task finished");
@@ -89,11 +89,11 @@ public class TaskPageController {
 
             TaskWithDueDate task = new TaskWithDueDate(taskTitle, taskDetail, year, month, day,hour, minute);
             nm.addTaskWithDueDate(task);
-            um.addTask(user, task);
+            itm.addTask(user, task);
         }else{
             //add task without a due date
             Task task = new Task(taskTitle, taskDetail); // task name must be unique
-            um.addTask(user, task);
+            itm.addTask(user, task);
         }
         cpc.run();
         tpp.taskAdd();
