@@ -1,5 +1,6 @@
 package Phase_0;
-import java.time.LocalDate;
+
+import java.time.LocalDateTime;
 
 
 /**
@@ -10,7 +11,7 @@ import java.time.LocalDate;
 public class Task {
     public String title;
     public String information;
-    public LocalDate date;
+    public LocalDateTime dueDate = null;
     public boolean status;
 
     public Task(String title){
@@ -18,11 +19,19 @@ public class Task {
         this.status = false;
     }
 
-    public Task(String title, String information, LocalDate date){
+    public Task(String title, String information){
         this.title = title;
         this.information = information;
-        this.date = date;
         this.status = false;
+    }
+
+    public Task(String title, String information, int year, int month, int day, int hour, int minute){
+        this.title = title;
+        this.information = information;
+        this.status = false;
+        this.dueDate = LocalDateTime.of(year, month, day, hour, minute);
+        // 2021/12/07/24/40
+        // YYYY/MM/DD/hh/mm
     }
 
     /**
@@ -48,6 +57,10 @@ public class Task {
      * This method sets task status from incomplete to complete.
      */
 
+    public LocalDateTime getDueDate(){
+        return this.dueDate;
+    }
+
     public void completeTask(){
         this.status = true;
     }
@@ -71,7 +84,6 @@ public class Task {
     public String toString() {
         String s = "Title: " + this.title + "\n";
         s += "TODO: " + this.information + "\n";
-        s += "DUE DATE: " + this.date + "\n";
         if(this.status){
             s += "Status: " + "Completed";
         }else{
