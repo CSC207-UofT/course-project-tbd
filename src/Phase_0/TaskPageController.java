@@ -62,9 +62,13 @@ public class TaskPageController {
         String taskDetail = reader.readLine();
         tpp.giveNewTaskDate();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy", Locale.ENGLISH);
+//        tpp.giveCategoryName();
+//        String categoryTitle = reader.readLine();
         LocalDate taskDate = LocalDate.parse(reader.readLine(), formatter);
         Task task = new Task(taskTitle, taskDetail, taskDate); // task name must be unique
+//        Category c = new Category(categoryTitle);
         um.addTask(user, task);
+//        um.addCategory(c);
         tpp.taskAdd();
     }
 }
