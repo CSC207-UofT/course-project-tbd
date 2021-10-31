@@ -81,9 +81,13 @@ public class UserManager {
         user.addGroup(group);
     }
 
+//    public void addCategory(NormalUser user, Category c){
+//        user.addCategory(c);
+//    }
     public void addTask(NormalUser user, Task task){
         user.addTask(task);
     }
+
 
     public String displayTask(NormalUser user){
         StringBuilder s = new StringBuilder();
