@@ -66,6 +66,10 @@ public class Group implements Serializable {
         return this.groupName;
     }
 
+    public GroupChat getGroupChat() {
+        return this.groupChat;
+    }
+
     public ArrayList<Features> getFeatures() {
         return this.features;
     }

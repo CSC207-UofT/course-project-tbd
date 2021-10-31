@@ -11,9 +11,8 @@ public class GroupChatController {
     private User user;
     private final GroupChatPresenter gcp = new GroupChatPresenter();
 
-    public GroupChatController(GroupChat chat, Group group, GroupManager gm, User user) {
+    public GroupChatController(GroupChat chat, GroupManager gm, User user) {
         this.chat = chat;
-        this.group = group;
         this.gm = gm;
         this.user = user;
     }
