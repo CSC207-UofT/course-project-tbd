@@ -2,10 +2,7 @@ package Phase_0;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class NotificationPageController {
     private NormalUser user;
@@ -26,7 +23,7 @@ public class NotificationPageController {
         }
     }
 
-    public void addnotification(String notificaition){
+    public void addNotification(String notificaition){
         mailbox.add(notificaition);
     }
 

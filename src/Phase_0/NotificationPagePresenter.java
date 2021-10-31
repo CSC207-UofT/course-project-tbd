@@ -9,6 +9,7 @@ public class NotificationPagePresenter {
                 "1, Back\n" +
                 "2. Delete notification:\n");
     }
+
 //    public void decisionAsk(){
 //        System.out.println("I choose: ");
 //    }
