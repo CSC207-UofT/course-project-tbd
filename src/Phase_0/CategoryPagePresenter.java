@@ -11,9 +11,11 @@ public class CategoryPagePresenter {
         System.out.print("Your options:\n" +
                 "1, Back\n" +
                 "2. Add Category:\n" +
-                "3. View Category \n" +
+                "3. Add Task to Category:\n" +
+                "4. View Category \n" +
                 "Your answer here: ");
     }
+
     public void giveNewCategoryName(){
         System.out.println("--------------------");
         System.out.print("Enter Category Title:\n");

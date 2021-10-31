@@ -38,10 +38,12 @@ public class Category implements Iterable<Task>{
         s.delete(s.length()-1,s.length());
         return s.toString();
     }
+
     @Override
     public Iterator<Task> iterator() {
         return new CategoryIterator();
     }
+
     private class CategoryIterator implements Iterator<Task> {
         private int current = 0;
 

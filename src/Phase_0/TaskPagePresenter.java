@@ -15,6 +15,7 @@ public class TaskPagePresenter {
                 "4. View Tasks \n" +
                 "Your answer here: ");
     }
+
     public void giveNewTaskName(){
         System.out.println("--------------------");
         System.out.print("Enter Task Title:\n");
@@ -24,10 +25,12 @@ public class TaskPagePresenter {
         System.out.println("--------------------");
         System.out.println("Enter Task Detail:");
     }
+
 //    public void giveCategoryName(){
 //        System.out.println("--------------------");
 //        System.out.println("Enter Category Title:");
 //    }
+
      public void giveNewTaskDate(){
         System.out.println("--------------------");
         System.out.println("Enter Task Due Date(example October 29, 2020) :");
