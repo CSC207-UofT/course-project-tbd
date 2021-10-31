@@ -26,10 +26,6 @@ public class TaskPagePresenter {
         System.out.println("Enter Task Detail:");
     }
 
-//    public void giveCategoryName(){
-//        System.out.println("--------------------");
-//        System.out.println("Enter Category Title:");
-//    }
 
      public void giveNewTaskDate(){
         System.out.println("--------------------");

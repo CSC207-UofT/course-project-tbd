@@ -10,9 +10,9 @@ public class CategoryPagePresenter {
         System.out.println("--------------------");
         System.out.print("Your options:\n" +
                 "1, Back\n" +
-                "2. Add Category:\n" +
-                "3. Add Task to Category:\n" +
-                "4. View Category \n" +
+                "2. Add Task to new Category:\n" +
+                "3. Add Task to existing Category:\n" +
+                "4. View Categories \n" +
                 "Your answer here: ");
     }
 
@@ -35,6 +35,6 @@ public class CategoryPagePresenter {
     }
 
     public void displayCategory(){
-        System.out.println("The Category are :");
+        System.out.println("The Categories are :");
     }
 }

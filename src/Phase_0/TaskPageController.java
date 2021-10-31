@@ -16,12 +16,14 @@ public class TaskPageController {
     private TaskManager itm;
     NotificationManager nm;
     UserManager um;
+    private CategoryPageController cpc;
 
     public TaskPageController(NormalUser user, UserManager um){
         this.user = user;
         this.tpp = new TaskPagePresenter();
         this.um = um;
         this.itm = new TaskManager();
+        this.cpc = new CategoryPageController(user, um);
 
         this.nm = new NotificationManager();
         nm.setAlarmMenu(new AlarmStarter());
@@ -93,13 +95,8 @@ public class TaskPageController {
             Task task = new Task(taskTitle, taskDetail); // task name must be unique
             um.addTask(user, task);
         }
+        cpc.run();
         tpp.taskAdd();
 
-//        tpp.giveCategoryName();
-//        String categoryTitle = reader.readLine();
-
-//        Category c = new Category(categoryTitle);
-
-//        um.addCategory(c);
     }
 }

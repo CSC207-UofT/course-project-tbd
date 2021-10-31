@@ -11,6 +11,7 @@ public class UserPageController {
     private UserManager um;
     private TaskPageController tpp;
     private GroupPageController gpc;
+    private CategoryPageController cpc;
 
     public UserPageController(UserManager um, NormalUser user, GroupManager gm) {
         this.user = user;
@@ -18,6 +19,7 @@ public class UserPageController {
         this.um = um;
         this.tpp = new TaskPageController(user, um);
         this.gpc = new GroupPageController(user, um, gm);
+        this.cpc = new CategoryPageController(user, um);
     }
 
     public void run() throws IOException {
@@ -32,7 +34,7 @@ public class UserPageController {
             if (input.equals("1")) {      // My Group
                 gpc.run();
             }
-            if (input.equals("2")) {      // My Tasks
+            if (input.equals("2")) {      // My Task
                 tpp.run();
             }
         }
