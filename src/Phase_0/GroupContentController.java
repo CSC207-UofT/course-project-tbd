@@ -51,7 +51,7 @@ public class GroupContentController {
                         }
                         break;
                     case "3":
-                        GroupChatController gcc = new GroupChatController(group.getGroupChat(), user);
+                        GroupChatController gcc = new GroupChatController(group, user);
                         gcc.run();
                         break;
                     case "4":
