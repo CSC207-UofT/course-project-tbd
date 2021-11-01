@@ -64,13 +64,13 @@ public class GroupChat {
         this.messages.add(input);
     }
 
-    public static void main(String[] args) {
-        NormalUser user = new NormalUser("harry", "1");
-        Group group = new Group(user, "harry");
-        GroupChat groupChat = group.getGroupChat();
-        groupChat.insertMessage(user, "hello");
-        System.out.println(groupChat.getMessages());
-    }
+//    public static void main(String[] args) {
+//        NormalUser user = new NormalUser("harry", "1");
+//        Group group = new Group(user, "harry");
+//        GroupChat groupChat = group.getGroupChat();
+//        groupChat.insertMessage(user, "hello");
+//        System.out.println(groupChat.getMessages());
+//    }
 
     /**
      * This method prints out all the messages in this GroupChat
@@ -84,7 +84,9 @@ public class GroupChat {
         for (String text : this.messages){
             s.append(text).append("\n");
         }
-        // s.delete(s.length()-1,s.length());
+        if (this.messages.size() != 0) {
+            s.delete(s.length()-1,s.length());
+        }
         return s.toString();
     }
 }

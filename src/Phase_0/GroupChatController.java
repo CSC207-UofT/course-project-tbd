@@ -17,17 +17,21 @@ public class GroupChatController {
 
     public void run() {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        gcp.instructions();
         try {
-            String input = reader.readLine();
+            boolean flag = true;
+            String input;
 
-            while (!input.equals("0")) {
+            while (flag) {
+                gcp.instructions();
+                input = reader.readLine();
                 if (input.equals("1")) {
                     System.out.println(group.getGroupChat().toString());
                 } else if (input.equals("2")) {
                     gcp.askMessage();
                     String message = reader.readLine();
                     group.getGroupChat().insertMessage(user, message);
+                } else {
+                    flag = false;
                 }
             }
         } catch (IOException e){
