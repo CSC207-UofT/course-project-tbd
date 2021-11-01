@@ -58,7 +58,7 @@ public class GroupChat {
      * @param user the user who inputs the message
      * @param message the message that is sent
      */
-    public void insertMessage(User user, String message) {
+    public void insertMessage(NormalUser user, String message) {
         String input = message + "/" + user.getUsername();
         this.messages.add(input);
     }

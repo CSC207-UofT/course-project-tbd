@@ -24,7 +24,7 @@ public class GroupChatController {
 
             while (!input.equals("0")) {
                 if (input.equals("1")) {
-                    chat.toString();
+                    System.out.println(chat.toString());
                 } else if (input.equals("2"))
                     gcp.askMessage();
                     String message = reader.readLine();
