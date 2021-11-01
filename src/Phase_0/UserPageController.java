@@ -12,12 +12,13 @@ public class UserPageController {
     private TaskPageController tpc;
     private GroupPageController gpc;
     private CategoryPageController cpc;
+    private NotificationPageController npc;
 
     public UserPageController(UserManager um, NormalUser user, GroupManager gm) {
         this.user = user;
         this.upp = new UserPagePresenter(user);
         this.um = um;
-        this.tpc = new TaskPageController(user, um);
+        this.tpc = new TaskPageController(user, um, npc);
         this.gpc = new GroupPageController(user, um, gm);
         this.cpc = new CategoryPageController(user, um);
     }

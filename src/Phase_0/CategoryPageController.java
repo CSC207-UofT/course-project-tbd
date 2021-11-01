@@ -13,6 +13,7 @@ public class CategoryPageController {
     private CategoryPagePresenter cpp;
     private CategoryManager cm;
     private TaskPageController tpc;
+    private NotificationPageController npc;
 
 
     public CategoryPageController(NormalUser user, UserManager um){
@@ -22,7 +23,7 @@ public class CategoryPageController {
         this.itm = new TaskManager();
         this.cpp = new CategoryPagePresenter();
         this.cm = new CategoryManager();
-        this.tpc = new TaskPageController(user, um);
+        this.tpc = new TaskPageController(user, um, npc);
     }
 
     public void run() throws IOException{
