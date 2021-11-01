@@ -3,6 +3,8 @@ import Phase_0.Category;
 import Phase_0.Task;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.time.LocalDate;
 import java.util.List;
 import static org.junit.Assert.*;
 
@@ -25,6 +27,9 @@ public class CategoryTest {
         cy.addTask(b);
         cy.addTask(c);
         cy.addTask(d);
+        for(Task t: cy){
+            System.out.println(t);
+        }
     }
 
     @Test(timeout = 100)
@@ -34,7 +39,7 @@ public class CategoryTest {
 
     @Test(timeout = 100)
     public void TestgetTask(){
-        assertEquals(3, cy.getTasks().size());
+        assertEquals(4, cy.getTasks().size());
     }
 
 
