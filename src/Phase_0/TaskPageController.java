@@ -18,14 +18,14 @@ public class TaskPageController {
     UserManager um;
     private CategoryPageController cpc;
 
-    public TaskPageController(NormalUser user, UserManager um){
+    public TaskPageController(NormalUser user, UserManager um, NotificationPageController npc){
         this.user = user;
         this.tpp = new TaskPagePresenter();
         this.um = um;
         this.itm = new TaskManager();
         this.cpc = new CategoryPageController(user, um);
 
-        this.nm = new NotificationManager();
+        this.nm = new NotificationManager(npc);
         nm.setAlarmMenu(new AlarmStarter());
         Thread notificationSystem = new Thread(nm);
         notificationSystem.start();
@@ -38,14 +38,12 @@ public class TaskPageController {
         while (!input.equals("1")){
             tpp.availableOptions();
             input = reader.readLine();
-            if (input.equals("2")){
+            // To mark the task complete.
+            if ("2".equals(input)) {
                 addTask(reader);
-            }
-            else if(input.equals("3")){
-                // To mark the task complete.
+            } else if ("3".equals(input)) {
                 finishTask(reader);
-            }
-            else if(input.equals("4")){
+            } else if ("4".equals(input)) {
                 tpp.displayTasks();
                 System.out.println(itm.displayTask(user));
             }

@@ -6,15 +6,15 @@ import java.util.ArrayList;
 
 public class NotificationPageController {
     private NormalUser user;
-    public ArrayList<String> mailbox;
+    public ArrayList<String> mailbox = new ArrayList<>();
 
     private final NotificationPagePresenter npp = new NotificationPagePresenter();
 
     public void run() throws IOException{
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        npp.displayNotifications();
         String input = "";
         while (!input.equals("1")){
+            npp.displayNotifications(mailbox);
             npp.availableOptions();
             input = reader.readLine();
             if (input.equals("2")) {
@@ -23,8 +23,8 @@ public class NotificationPageController {
         }
     }
 
-    public void addNotification(String notificaition){
-        mailbox.add(notificaition);
+    public void addNotification(String notification){
+        mailbox.add(notification);
     }
 
 

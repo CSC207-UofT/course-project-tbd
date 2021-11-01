@@ -12,12 +12,13 @@ public class UserPageController {
     private TaskPageController tpp;
     private GroupPageController gpc;
     private CategoryPageController cpc;
+    private NotificationPageController npc = new NotificationPageController();
 
     public UserPageController(UserManager um, NormalUser user, GroupManager gm) {
         this.user = user;
         this.upp = new UserPagePresenter(user);
         this.um = um;
-        this.tpp = new TaskPageController(user, um);
+        this.tpp = new TaskPageController(user, um, npc);
         this.gpc = new GroupPageController(user, um, gm);
         this.cpc = new CategoryPageController(user, um);
     }
@@ -26,7 +27,7 @@ public class UserPageController {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String input = null;
 
-        while (!Objects.equals(input, "3")) {
+        while (!Objects.equals(input, "4")) {
             upp.userProfilePage();
             upp.availableOptions();
             input = reader.readLine();
@@ -36,6 +37,9 @@ public class UserPageController {
             }
             if (input.equals("2")) {      // My Task
                 tpp.run();
+            }
+            if (input.equals("3")) {      // My Notification
+                npc.run();
             }
         }
 

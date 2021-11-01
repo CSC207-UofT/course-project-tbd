@@ -1,6 +1,8 @@
 package Phase_0;
 
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.PriorityQueue;
 import Alarm.*;
 import Phase_0.TaskWithDueDate;
@@ -10,13 +12,15 @@ import javax.swing.*;
 public class NotificationManager implements Runnable {
 
     public PriorityQueue<TaskWithDueDate> taskWithDueDates;
+    public NotificationPageController npc;
     private AlarmMenu alarmMenu;
     public void setAlarmMenu(AlarmMenu alarmMenu){
         this.alarmMenu = alarmMenu;
     }
 
-    public NotificationManager(){
+    public NotificationManager(NotificationPageController npc){
         taskWithDueDates  = new PriorityQueue<>();
+        this.npc = npc;
     }
 
     public boolean addTaskWithDueDate(TaskWithDueDate t){
@@ -26,8 +30,18 @@ public class NotificationManager implements Runnable {
 
     public class NotificationBox implements Runnable{
 
+        private TaskWithDueDate task;
+
+        NotificationBox(TaskWithDueDate task){
+            this.task = task;
+        }
+
         @Override
         public void run() {
+            DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+            String note = task.getDueDate().format(format) + "\nDUE DATE ALERT! \nTask: <" + task.getTaskName() + ">";
+            npc.addNotification(note);
+
             final JFrame alert = new JFrame();
             JButton button = new JButton();
 
@@ -37,12 +51,7 @@ public class NotificationManager implements Runnable {
             alert.setSize(500,500);
             alert.setVisible(true);
 
-            button.addActionListener(new java.awt.event.ActionListener() {
-                @Override
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    alert.dispose();
-                }
-            });
+            button.addActionListener(evt -> alert.dispose());
         }
     }
 
@@ -58,7 +67,7 @@ public class NotificationManager implements Runnable {
                 TaskWithDueDate t =  this.taskWithDueDates.poll();
                 Alarm alarm = this.alarmMenu.createAlarm(t.getDueDate());
                 try {
-                    this.alarmMenu.startAlarm(alarm, new NotificationBox());
+                    this.alarmMenu.startAlarm(alarm, new NotificationBox(t));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
