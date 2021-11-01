@@ -24,7 +24,8 @@ public class UserPagePresenter {
         System.out.print("Your Options:\n"+
                 "1. My Group\n" +
                 "2, My Tasks\n" +
-                "3. Sign Out\n" +
+                "3. My Notification\n" +
+                "4. Sign Out\n" +
                 "Your answer here: ");
     }
 
