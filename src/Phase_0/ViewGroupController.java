@@ -51,7 +51,9 @@ public class ViewGroupController {
                     int x = Integer.parseInt(option);
                     GroupContentController gcc = new GroupContentController(um, gm, groups.get(x), currentUser);
                     gcc.run();
+
                 }
+                break;
             }
         } catch (IOException e) {
             System.out.println("Please type a valid number");

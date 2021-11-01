@@ -28,7 +28,6 @@ public class CreateGroupController {
                 groupName = reader.readLine();
             }
             groupManager.createGroup(normalUser, groupName);
-            normalUser.myGroups.add(new Group(normalUser, groupName));
             cgp.CreateSuccess(groupName);
             cgp.lines();
         } catch (IOException e){

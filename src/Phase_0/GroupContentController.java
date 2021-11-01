@@ -26,44 +26,40 @@ public class GroupContentController {
         gcp.instructions();
         try {
             String input = reader.readLine();
-
-            while (!input.equals("0")) {
+            while(!input.equals("4")) {
                 switch (input) {
-                    case "1":
-                        // TODO Access to Home Page
-                        System.out.println("HomePage class");
-                        break;
-                    case "2":
-                        if (gm.checkIfLeader(group.getgroupName(), user)){
+                    case "1" ->
+                            // TODO Access to Home Page
+                            System.out.println("HomePage class");
+                    case "2" -> {
+                        if (gm.checkIfLeader(group.getgroupName(), user)) {
                             StringBuilder s = new StringBuilder();
-                            for (Folder f: group.getFolders()){
+                            for (Folder f : group.getFolders()) {
                                 s.append(f.getFolderName()).append("\n");
                             }
-                            s.delete(s.length()-1,s.length());
+                            s.delete(s.length() - 1, s.length());
                             System.out.println(s);
-                    }
-                        else {
-                            for (Folder f: group.getFolders()){
+                        } else {
+                            for (Folder f : group.getFolders()) {
                                 if (f.getFolderName().equals(user.getUsername())) {
                                     f.toString();
                                 }
                             }
                         }
-                        break;
-                    case "3":
+                        gcp.instructions();
+                        input = reader.readLine();
+                    }
+                    case "3" -> {
                         GroupChatController gcc = new GroupChatController(group.getGroupChat(), user);
                         gcc.run();
-                        break;
-                    case "4":
-                        ViewGroupController vgc = new ViewGroupController(um, gm, user);
-                        vgc.run();
-                        break;
+                    }
+                    case "0" -> System.exit(0);
                 }
             }
-
             } catch(IOException e){
                 System.out.println("Please type a valid number");
             }
         }
+
     }
 
