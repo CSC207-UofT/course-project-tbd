@@ -4,8 +4,6 @@ package Phase_0;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
-import java.util.List;
-import java.util.Locale;
 
 public class CategoryPageController {
     private NormalUser user;
@@ -15,6 +13,7 @@ public class CategoryPageController {
     private CategoryPagePresenter cpp;
     private CategoryManager cm;
     private TaskPageController tpc;
+    private NotificationPageController npc;
 
 
     public CategoryPageController(NormalUser user, UserManager um){
@@ -24,7 +23,7 @@ public class CategoryPageController {
         this.itm = new TaskManager();
         this.cpp = new CategoryPagePresenter();
         this.cm = new CategoryManager();
-
+        this.tpc = new TaskPageController(user, um, npc);
     }
 
     public void run() throws IOException{
@@ -40,13 +39,10 @@ public class CategoryPageController {
                 addCategory(reader);
             }
             else if(input.equals("3")){
-                // Add to existing Category
-                cpp.availableOptions();
-            }
-            else if(input.equals("4")){
                 // display categories
                 cpp.displayCategory();
                 System.out.println(um.displayCategories(user));
+                tpc.run();
             }
         }
     }
@@ -62,7 +58,6 @@ public class CategoryPageController {
         // category.addTask();
         // Confirmation that category & task has been added
         cpp.CategoryAdd();
-        tpp.taskAdd();
     }
 
     private void taskToCategory(BufferedReader reader) throws IOException{

@@ -9,10 +9,9 @@ public class CategoryPagePresenter {
     public void availableOptions(){
         System.out.println("--------------------");
         System.out.print("Your options:\n" +
-                "1, Back\n" +
-                "2. Add Task to new Category:\n" +
-                "3. Add Task to existing Category:\n" +
-                "4. View Categories \n" +
+                "1. Back\n" +
+                "2. Add Category:\n" +
+                "3. View Categories \n" +
                 "Your answer here: ");
     }
 

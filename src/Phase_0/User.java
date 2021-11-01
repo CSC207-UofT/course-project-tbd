@@ -50,6 +50,7 @@ public abstract  class User implements Serializable {
         public abstract void addTask(Task task);
         public abstract void addNewCategory(Category category);
         public abstract String getPassword();
+        public abstract ArrayList<Group> getMyGroups();
 
 
     }

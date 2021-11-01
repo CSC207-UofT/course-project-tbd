@@ -1,5 +1,6 @@
 package Phase_0;
 
+import javax.swing.text.View;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -43,6 +44,13 @@ public class GroupPageController {
                     LeaveGroupController();
                     gpp.welcomeLine();
                     input = reader.readLine();
+                }
+                else if (input.equals("4")){
+                    ViewGroupController vgc = new ViewGroupController(um, gm, user);
+                    vgc.run();
+                    gpp.welcomeLine();
+                    input = reader.readLine();
+
                 }
                 else {
                     gpp.welcomeLine();
