@@ -24,7 +24,6 @@ public class CategoryPageController {
         this.itm = new TaskManager();
         this.cpp = new CategoryPagePresenter();
         this.cm = new CategoryManager();
-        this.tpc = new TaskPageController(user, um);
 
     }
 
