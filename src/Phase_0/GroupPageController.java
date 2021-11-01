@@ -33,28 +33,16 @@ public class GroupPageController {
                     CreateGroupController();
                     gpp.welcomeLine();
                     input = reader.readLine();
-//                    CreateGroupController cgp = new CreateGroupController(user, um, gm);
-//                    cgp.run();
-//                    gpp.welcomeLine();
-//                    input = reader.readLine();
                 }
                 else if (input.equals("1")){
                     JoinGroupController();
                     gpp.welcomeLine();
                     input = reader.readLine();
-//                    JoinGroupController jgc = new JoinGroupController(um, gm, user);
-//                    jgc.run();
-//                    gpp.welcomeLine();
-//                    input = reader.readLine();
                 }
                 else if (input.equals("2")){
                     LeaveGroupController();
                     gpp.welcomeLine();
                     input = reader.readLine();
-//                    LeaveGroupController lgc = new LeaveGroupController(user, um, gm);
-//                    lgc.run();
-//                    gpp.welcomeLine();
-//                    input = reader.readLine();
                 }
                 else {
                     gpp.welcomeLine();
