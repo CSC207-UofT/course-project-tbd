@@ -36,6 +36,7 @@ public class ViewGroupController {
         try {
             while (flag) {
                 System.out.println(s); // Gets input from user
+                System.out.println(currentUser.getMyGroups());
                 String option = reader.readLine();
                 if (Objects.equals(option, "x")) {
                     // If the user enters x, we terminate and go back to previous page.
