@@ -1,11 +1,13 @@
 package Phase_0;
 
+import Phase_0.*;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Objects;
 
-public class GroupPageController {
+public class GroupFunctionsController {
     UserManager um;
     NormalUser user;
     GroupManager gm;
@@ -14,7 +16,7 @@ public class GroupPageController {
     private User currentUser;
     private final JoinGroupPresenter jgp = new JoinGroupPresenter();
 
-    public GroupPageController(NormalUser user, UserManager um, GroupManager gm){
+    public GroupFunctionsController(NormalUser user, UserManager um, GroupManager gm) {
         this.um = um;
         this.user = user;
         this.gm = gm;
@@ -22,40 +24,8 @@ public class GroupPageController {
         this.itm = new TaskManager();
         this.currentUser = currentUser;
     }
-    public void run(){
-        GroupPagePresenter gpp = new GroupPagePresenter();
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        try {
-            gpp.welcomeLine();
-            String input = reader.readLine();
-            while (!input.equals( "3")){
-                if (input.equals("0")){
-                    CreateGroupController();
-                    gpp.welcomeLine();
-                    input = reader.readLine();
-                }
-                else if (input.equals("1")){
-                    JoinGroupController();
-                    gpp.welcomeLine();
-                    input = reader.readLine();
-                }
-                else if (input.equals("2")){
-                    LeaveGroupController();
-                    gpp.welcomeLine();
-                    input = reader.readLine();
-                }
-                else {
-                    gpp.welcomeLine();
-                    input = reader.readLine();
-                }
 
-                }
-            gpp.lines();
-            }
-        catch (IOException e){System.out.println("Please type a valid number");
-        }
-    }
-    private void CreateGroupController() {
+    public void CreateGroupController() {
         CreateGroupPresenter cgp = new CreateGroupPresenter();
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         cgp.Intro();
@@ -75,7 +45,8 @@ public class GroupPageController {
             System.out.println("Please type a valid number");
         }
     }
-    private void LeaveGroupController() {
+
+    public void LeaveGroupController() {
         LeaveGroupPresenter lgp = new LeaveGroupPresenter();
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         lgp.askForName();
@@ -112,7 +83,8 @@ public class GroupPageController {
         }
 
     }
-    private void JoinGroupController() {
+
+    public void JoinGroupController() {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         try{
             String option = "1";
@@ -144,3 +116,5 @@ public class GroupPageController {
 
     }
 }
+
+
