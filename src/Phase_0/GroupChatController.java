@@ -5,30 +5,34 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class GroupChatController {
-    private GroupChat chat;
     private Group group;
     private GroupManager gm;
     private NormalUser user;
     private final GroupChatPresenter gcp = new GroupChatPresenter();
 
-    public GroupChatController(GroupChat chat, NormalUser user) {
-        this.chat = chat;
+    public GroupChatController(Group group, NormalUser user) {
+        this.group = group;
         this.user = user;
     }
 
     public void run() {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        gcp.instructions();
         try {
-            String input = reader.readLine();
+            boolean flag = true;
+            String input;
 
-            while (!input.equals("0")) {
+            while (flag) {
+                gcp.instructions();
+                input = reader.readLine();
                 if (input.equals("1")) {
-                    chat.toString();
-                } else if (input.equals("2"))
+                    System.out.println(group.getGroupChat().toString());
+                } else if (input.equals("2")) {
                     gcp.askMessage();
                     String message = reader.readLine();
-                    chat.insertMessage(user, message);
+                    group.getGroupChat().insertMessage(user, message);
+                } else {
+                    flag = false;
+                }
             }
         } catch (IOException e){
             System.out.println("Please type a valid number");

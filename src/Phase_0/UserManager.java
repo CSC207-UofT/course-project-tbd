@@ -58,7 +58,7 @@ public class UserManager {
         return null;
     }
 
-//    public ArrayList<Task> unfinishedTaskList(NormalUser user) {
+    //    public ArrayList<Task> unfinishedTaskList(NormalUser user) {
 //        ArrayList<Task> unfinished  = new ArrayList<>();
 //        for (Category category : user.myCategories) {
 //            for (Task task : category.getTasks()) {
@@ -69,40 +69,54 @@ public class UserManager {
 //        }
 //        return unfinished;
 //    }
-    public String getUserName(NormalUser user){
+    public String getUserName(NormalUser user) {
         return user.getUsername();
     }
-    public void removeGroup(User user, Group group)
-    {
+
+    public void removeGroup(User user, Group group) {
         user.removeGroup(group);
     }
 
-    public void addGroup(User user, Group group){
+    public void addGroup(User user, Group group) {
         user.addGroup(group);
     }
 
-    public void addTask(NormalUser user, Task task){
+    public void addCategory(NormalUser user, Category c) {
+        user.addNewCategory(c);
+    }
+
+    public void addTask(NormalUser user, Task task) {
         user.addTask(task);
     }
 
-    public String displayTask(NormalUser user){
+
+    public String displayTask(NormalUser user) {
         StringBuilder s = new StringBuilder();
-        for(Task t: user.getMyTasks()){
+        for (Task t : user.getMyTasks()) {
             s.append(t.toString()).append("\n");
         }
         return s.toString();
     }
+
     public boolean checkTask(NormalUser user, Task t) {
         return user.getMyTasks().contains(t);
     }
 
     public Task getTaskByName(NormalUser user, String taskName) {
-        for (Task t: user.getMyTasks()){
-            if (itm.checkTaskByName(t, taskName)){
+        for (Task t : user.getMyTasks()) {
+            if (itm.checkTaskByName(t, taskName)) {
                 return t;
             }
 
         }
         return null;
+    }
+
+        public String displayCategories(NormalUser user) {
+        StringBuilder s = new StringBuilder();
+        for (Category c : user.getMyCategories()) {
+            s.append(c.toString()).append("\n");
+            }
+        return s.toString();
     }
 }

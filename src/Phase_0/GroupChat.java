@@ -14,6 +14,7 @@ public class GroupChat {
      */
     public GroupChat(String name) {
         this.name = name;
+        this.messages = new ArrayList<>();
     }
 
     /**
@@ -58,10 +59,18 @@ public class GroupChat {
      * @param user the user who inputs the message
      * @param message the message that is sent
      */
-    public void insertMessage(User user, String message) {
+    public void insertMessage(NormalUser user, String message) {
         String input = message + "/" + user.getUsername();
         this.messages.add(input);
     }
+
+//    public static void main(String[] args) {
+//        NormalUser user = new NormalUser("harry", "1");
+//        Group group = new Group(user, "harry");
+//        GroupChat groupChat = group.getGroupChat();
+//        groupChat.insertMessage(user, "hello");
+//        System.out.println(groupChat.getMessages());
+//    }
 
     /**
      * This method prints out all the messages in this GroupChat
@@ -72,10 +81,12 @@ public class GroupChat {
     public String toString() {
         StringBuilder s = new StringBuilder();
 
-        for (String text: this.messages){
+        for (String text : this.messages){
             s.append(text).append("\n");
         }
-        s.delete(s.length()-1,s.length());
+        if (this.messages.size() != 0) {
+            s.delete(s.length()-1,s.length());
+        }
         return s.toString();
     }
 }

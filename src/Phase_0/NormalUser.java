@@ -11,15 +11,15 @@ public class NormalUser extends User implements Serializable {
     public String password;
 
     public ArrayList<Group> myGroups = new ArrayList<>();
-//
-//    public ArrayList<Category> myCategories = new ArrayList<>();
+
+    public ArrayList<Category> myCategories = new ArrayList<>();
     public ArrayList<Task> myTasks = new ArrayList<>();
 
     public NormalUser(String username, String password) {
         this.username = username;
         this.password = password;
         Category all = new Category("All Tasks");
-//        this.addNewCategory(all);
+        this.addNewCategory(all);
     }
 
     /**
@@ -73,6 +73,9 @@ public class NormalUser extends User implements Serializable {
     public void addTask(Task task){
         this.myTasks.add(task);
     }
+    public void addNewCategory(Category newCategory){
+        this.myCategories.add(newCategory);
+    }
     public ArrayList<Task> getMyTasks(){
         return myTasks;
     }
@@ -81,7 +84,12 @@ public class NormalUser extends User implements Serializable {
     }
     public String getPassword(){return password;}
 
+    @Override
     public ArrayList<Group> getMyGroups() {
         return myGroups;
+    }
+
+    public ArrayList<Category> getMyCategories(){
+        return myCategories;
     }
 }

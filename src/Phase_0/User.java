@@ -8,8 +8,8 @@ public abstract  class User implements Serializable {
     public String password;
 
     public ArrayList<Group> myGroups = new ArrayList<>();
-    //
-//    public ArrayList<Category> myCategories = new ArrayList<>();
+
+    public ArrayList<Category> myCategories = new ArrayList<>();
     public ArrayList<Task> myTasks = new ArrayList<>();
 
 
@@ -43,12 +43,14 @@ public abstract  class User implements Serializable {
     //    public ArrayList<Category> getMyCategories(){
     //        return this.myCategories;
     //    }
+
         public abstract void addGroup(Group group);
         public abstract void removeGroup(Group group);
         public abstract String getUsername();
         public abstract void addTask(Task task);
+        public abstract void addNewCategory(Category category);
         public abstract String getPassword();
         public abstract ArrayList<Group> getMyGroups();
 
-    ;
+
     }
