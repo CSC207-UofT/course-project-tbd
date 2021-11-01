@@ -83,6 +83,12 @@ public class NormalUser extends User implements Serializable {
         return username;
     }
     public String getPassword(){return password;}
+
+    @Override
+    public ArrayList<Group> getMyGroups() {
+        return myGroups;
+    }
+
     public ArrayList<Category> getMyCategories(){
         return myCategories;
     }
