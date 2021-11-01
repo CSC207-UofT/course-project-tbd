@@ -14,6 +14,7 @@ public class GroupChat {
      */
     public GroupChat(String name) {
         this.name = name;
+        this.messages = new ArrayList<>();
     }
 
     /**
