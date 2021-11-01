@@ -42,6 +42,8 @@ public class GroupPageController {
                 else if (input.equals("4")){
                     ViewGroupController vgc = new ViewGroupController(um, gm, user);
                     vgc.run();
+                    gpp.welcomeLine();
+                    input = reader.readLine();
 
                 }
                 else {
