@@ -23,8 +23,8 @@ public class NotificationPageController {
         }
     }
 
-    public void addNotification(String notificaition){
-        mailbox.add(notificaition);
+    public void addNotification(String notification){
+        mailbox.add(notification);
     }
 
 

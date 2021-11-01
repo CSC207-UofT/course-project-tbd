@@ -23,7 +23,6 @@ public class TaskPageController {
         this.tpp = new TaskPagePresenter();
         this.um = um;
         this.itm = new TaskManager();
-        this.cpc = new CategoryPageController(user, um);
 
         this.nm = new NotificationManager();
         nm.setAlarmMenu(new AlarmStarter());
@@ -95,7 +94,6 @@ public class TaskPageController {
             Task task = new Task(taskTitle, taskDetail); // task name must be unique
             itm.addTask(user, task);
         }
-        cpc.run();
-
+        tpp.taskAdd();
     }
 }
