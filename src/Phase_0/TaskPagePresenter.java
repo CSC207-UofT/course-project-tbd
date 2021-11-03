@@ -9,12 +9,13 @@ public class TaskPagePresenter {
     public void availableOptions(){
         System.out.println("--------------------");
         System.out.print("Your options:\n" +
-                "1, Back\n" +
+                "1. Back\n" +
                 "2. Add Tasks:\n" +
                 "3. finish Task\n" +
                 "4. View Tasks \n" +
                 "Your answer here: ");
     }
+
     public void giveNewTaskName(){
         System.out.println("--------------------");
         System.out.print("Enter Task Title:\n");
@@ -24,10 +25,8 @@ public class TaskPagePresenter {
         System.out.println("--------------------");
         System.out.println("Enter Task Detail:");
     }
-//    public void giveCategoryName(){
-//        System.out.println("--------------------");
-//        System.out.println("Enter Category Title:");
-//    }
+
+
      public void giveNewTaskDate(){
         System.out.println("--------------------");
         System.out.println("Enter Task Due Date(example October 29, 2020) :");

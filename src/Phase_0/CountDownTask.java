@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class CountDownTask extends Task{
+public class CountDownTask extends Task implements TomatoClock{
     private int WorkTime;
     private int BreakTime;
 

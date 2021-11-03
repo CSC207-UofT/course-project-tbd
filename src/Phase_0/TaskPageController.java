@@ -16,14 +16,15 @@ public class TaskPageController {
     private TaskManager itm;
     NotificationManager nm;
     UserManager um;
+    private CategoryPageController cpc;
 
-    public TaskPageController(NormalUser user, UserManager um){
+    public TaskPageController(NormalUser user, UserManager um, NotificationPageController npc){
         this.user = user;
         this.tpp = new TaskPagePresenter();
         this.um = um;
         this.itm = new TaskManager();
 
-        this.nm = new NotificationManager();
+        this.nm = new NotificationManager(npc);
         nm.setAlarmMenu(new AlarmStarter());
         Thread notificationSystem = new Thread(nm);
         notificationSystem.start();
@@ -36,16 +37,14 @@ public class TaskPageController {
         while (!input.equals("1")){
             tpp.availableOptions();
             input = reader.readLine();
-            if (input.equals("2")){
+            // To mark the task complete.
+            if ("2".equals(input)) {
                 addTask(reader);
-            }
-            else if(input.equals("3")){
-                // To mark the task complete.
+            } else if ("3".equals(input)) {
                 finishTask(reader);
-            }
-            else if(input.equals("4")){
+            } else if ("4".equals(input)) {
                 tpp.displayTasks();
-                System.out.println(um.displayTask(user));
+                System.out.println(itm.displayTask(user));
             }
         }
     }
@@ -53,8 +52,8 @@ public class TaskPageController {
     private void finishTask(BufferedReader reader) throws IOException {
         tpp.enterTaskToComplete();
         String taskToComplete = reader.readLine();
-        Task task = um.getTaskByName(user, taskToComplete);
-        if(um.checkTask(user, task)){
+        Task task = itm.getTaskByName(user, taskToComplete);
+        if(itm.checkTask(user, task)){
             // If task is present in user, mark it done
             itm.completeTask(task);
             System.out.println("Task finished");
@@ -87,19 +86,12 @@ public class TaskPageController {
 
             TaskWithDueDate task = new TaskWithDueDate(taskTitle, taskDetail, year, month, day,hour, minute);
             nm.addTaskWithDueDate(task);
-            um.addTask(user, task);
+            itm.addTask(user, task);
         }else{
             //add task without a due date
             Task task = new Task(taskTitle, taskDetail); // task name must be unique
-            um.addTask(user, task);
+            itm.addTask(user, task);
         }
         tpp.taskAdd();
-
-//        tpp.giveCategoryName();
-//        String categoryTitle = reader.readLine();
-
-//        Category c = new Category(categoryTitle);
-
-//        um.addCategory(c);
     }
 }
