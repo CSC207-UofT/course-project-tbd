@@ -15,14 +15,14 @@ public class GroupContentController {
     private UserManager um;
     private GroupManager gm;
     private Group group;
-    private NormalUser user;
+    private String userId;
     private GroupContentPresenter gcp = new GroupContentPresenter();
 
-    public GroupContentController(UserManager um, GroupManager gm, Group group, NormalUser user) {
+    public GroupContentController(UserManager um, GroupManager gm, Group group, String userId) {
         this.gm = gm;
         this.um = um;
         this.group = group;
-        this.user = user;
+        this.userId = userId;
     }
 
     public void run() {
@@ -37,7 +37,7 @@ public class GroupContentController {
                             System.out.println("HomePage class");
                             break;
                     case "2": {
-                        if (gm.checkIfLeader(group.getgroupName(), user)) {
+                        if (gm.checkIfLeader(group.getgroupName(), um.getUserById(userId))) {
                             StringBuilder s = new StringBuilder();
                             for (Folder f : group.getFolders()) {
                                 s.append(f.getFolderName()).append("\n");
@@ -46,7 +46,7 @@ public class GroupContentController {
                             System.out.println(s);
                         } else {
                             for (Folder f : group.getFolders()) {
-                                if (f.getFolderName().equals(user.getUsername())) {
+                                if (f.getFolderName().equals(um.getUserById(userId).getUsername())) {
                                     f.toString();
                                 }
                             }
@@ -56,7 +56,7 @@ public class GroupContentController {
                         break;
                     }
                     case "3": {
-                        GroupChatController gcc = new GroupChatController(group, user);
+                        GroupChatController gcc = new GroupChatController(group, userId, um);
                         gcc.run();
                         gcp.instructions();
                         input = reader.readLine();

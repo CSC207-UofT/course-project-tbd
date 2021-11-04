@@ -12,7 +12,7 @@ import java.io.InputStreamReader;
 import java.io.IOException;
 
 public class CategoryPageController {
-    private NormalUser user;
+    private String userId;
     private TaskPagePresenter tpp;
     private TaskManager itm;
     private UserManager um;
@@ -22,14 +22,14 @@ public class CategoryPageController {
     private NotificationPageController npc;
 
 
-    public CategoryPageController(NormalUser user, UserManager um){
-        this.user = user;
+    public CategoryPageController(String userId, UserManager um){
+        this.userId = userId;
         this.tpp = new TaskPagePresenter();
         this.um = um;
         this.itm = new TaskManager();
         this.cpp = new CategoryPagePresenter();
         this.cm = new CategoryManager();
-        this.tpc = new TaskPageController(user, um, npc);
+        this.tpc = new TaskPageController(userId, um, npc);
     }
 
     public void run() throws IOException{
@@ -47,7 +47,7 @@ public class CategoryPageController {
             else if(input.equals("3")){
                 // display categories
                 cpp.displayCategory();
-                System.out.println(um.displayCategories(user));
+                System.out.println(um.displayCategories(um.getUserById(userId)));
                 tpc.run();
             }
         }
@@ -59,7 +59,7 @@ public class CategoryPageController {
 
         // Add category
         Category category = new Category(CategoryTitle);
-        um.addCategory(user, category);
+        um.addCategory(um.getUserById(userId), category);
         // Add task to category
         // category.addTask();
         // Confirmation that category & task has been added
@@ -69,8 +69,8 @@ public class CategoryPageController {
     private void taskToCategory(BufferedReader reader) throws IOException{
         cpp.enterCategoryToAdd();
         String categoryToAdd = reader.readLine();
-        Category category = cm.getCategoryByName(user, categoryToAdd);
-        if (cm.checkCategory(user, category)){
+        Category category = cm.getCategoryByName(um.getUserById(userId), categoryToAdd);
+        if (cm.checkCategory(um.getUserById(userId), category)){
             // Add task to category
             tpp.taskAdd();
         }

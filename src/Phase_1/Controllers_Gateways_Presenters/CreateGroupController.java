@@ -10,11 +10,11 @@ import java.io.InputStreamReader;
 
 
 public class CreateGroupController {
-    NormalUser normalUser;
+    String userId;
     UserManager userManager;
     GroupManager groupManager;
-    public CreateGroupController(NormalUser normalUser, UserManager userManager, GroupManager groupManager){
-        this.normalUser = normalUser;
+    public CreateGroupController(String userId, UserManager userManager, GroupManager groupManager){
+        this.userId = userId;
         this.userManager = userManager;
         this.groupManager = groupManager;
     }
@@ -31,7 +31,7 @@ public class CreateGroupController {
                 cgp.InvalidGroupName(groupName);
                 groupName = reader.readLine();
             }
-            groupManager.createGroup(normalUser, groupName);
+            groupManager.createGroup(userManager.getUserById(userId), groupName);
             cgp.CreateSuccess(groupName);
             cgp.lines();
         } catch (IOException e){

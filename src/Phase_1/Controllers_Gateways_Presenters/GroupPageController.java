@@ -2,7 +2,6 @@ package Phase_1.Controllers_Gateways_Presenters;
 
 import Phase_1.Entity.Group;
 import Phase_1.Entity.NormalUser;
-import Phase_1.Entity.User;
 import Phase_1.UseCaseClass.GroupManager;
 import Phase_1.UseCaseClass.TaskManager;
 import Phase_1.UseCaseClass.UserManager;
@@ -14,20 +13,18 @@ import java.util.Objects;
 
 public class GroupPageController {
     UserManager um;
-    NormalUser user;
+    String userId;
     GroupManager gm;
     private TaskPagePresenter tpp;
     private TaskManager itm;
-    private User currentUser;
     private final JoinGroupPresenter jgp = new JoinGroupPresenter();
 
-    public GroupPageController(NormalUser user, UserManager um, GroupManager gm){
+    public GroupPageController(String userId, UserManager um, GroupManager gm){
         this.um = um;
-        this.user = user;
+        this.userId = userId;
         this.gm = gm;
         this.tpp = new TaskPagePresenter();
         this.itm = new TaskManager();
-        this.currentUser = currentUser;
     }
     public void run(){
         GroupPagePresenter gpp = new GroupPagePresenter();
@@ -37,31 +34,30 @@ public class GroupPageController {
             String input = reader.readLine();
             while (!input.equals( "3")){
                 if (input.equals("0")){
-                    CreateGroupController();
-                    gpp.welcomeLine();
-                    input = reader.readLine();
-                }
+                        CreateGroupController();
+                        gpp.welcomeLine();
+                        input = reader.readLine();
+                    }
                 else if (input.equals("1")){
-                    JoinGroupController();
-                    gpp.welcomeLine();
-                    input = reader.readLine();
-                }
+                        JoinGroupController();
+                        gpp.welcomeLine();
+                        input = reader.readLine();
+                    }
                 else if (input.equals("2")){
-                    LeaveGroupController();
-                    gpp.welcomeLine();
-                    input = reader.readLine();
-                }
+                        LeaveGroupController();
+                        gpp.welcomeLine();
+                        input = reader.readLine();
+                    }
                 else if (input.equals("4")){
-                    ViewGroupController vgc = new ViewGroupController(um, gm, user);
-                    vgc.run();
-                    gpp.welcomeLine();
-                    input = reader.readLine();
-
-                }
+                    ViewGroupController vgc = new ViewGroupController(um, gm, userId);
+                        vgc.run();
+                        gpp.welcomeLine();
+                        input = reader.readLine();
+                    }
                 else {
-                    gpp.welcomeLine();
-                    input = reader.readLine();
-                }
+                        gpp.welcomeLine();
+                        input = reader.readLine();
+                    }
 
                 }
             gpp.lines();
@@ -81,8 +77,8 @@ public class GroupPageController {
                 cgp.InvalidGroupName(groupName);
                 groupName = reader.readLine();
             }
-            gm.createGroup(user, groupName);
-            user.myGroups.add(new Group(user, groupName));
+            gm.createGroup(um.getUserById(userId), groupName);
+            um.getUserById(userId).myGroups.add(new Group(um.getUserById(userId), groupName));
             cgp.CreateSuccess(groupName);
             cgp.lines();
         } catch (IOException e) {
@@ -100,14 +96,14 @@ public class GroupPageController {
                 lgp.goBack();
                 lgp.lines();
             }
-            else if (gm.checkIfIn(input, this.user)){
-                if (gm.checkIfLeader(input, this.user)){
-                    gm.deleteGroup(input, this.user);
+            else if (gm.checkIfIn(input, this.um.getUserById(userId))){
+                if (gm.checkIfLeader(input, this.um.getUserById(userId))){
+                    gm.deleteGroup(input, this.um.getUserById(userId));
                     lgp.leaveSuccess(input);
                     lgp.lines();
                 }
                 else {
-                    gm.removeMember(input, this.user);
+                    gm.removeMember(input, this.um.getUserById(userId));
 //                    um.leaveGroup(this.user, input);
                     lgp.leaveSuccess(input);
                     lgp.lines();
@@ -137,14 +133,14 @@ public class GroupPageController {
                     jgp.groupNameNotInMap();
                     option = reader.readLine();
                 }
-                else if(gm.checkIfIn(groupName, currentUser)){
+                else if(gm.checkIfIn(groupName, um.getUserById(userId))){
                     // If group name exists and user in group already
                     jgp.alreadyInGroup(groupName);
                     option = reader.readLine();
                 }
                 else{
                     // Else if group name exists and user is not in the group. Add to group.
-                    gm.addUserToGroup(groupName, currentUser);
+                    gm.addUserToGroup(groupName, um.getUserById(userId));
                     // um.addGroupToUser(currentUser, gm.getGroupByName(groupName));
                     jgp.joinSuccess(groupName);
                     option = "2";

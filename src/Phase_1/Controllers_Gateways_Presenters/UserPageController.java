@@ -10,21 +10,19 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class UserPageController {
-    private NormalUser user;
+    private String userId;
     private final UserPagePresenter upp;
     private UserManager um;
-    private TaskPageController tpc;
     private GroupPageController gpc;
     private CategoryPageController cpc;
     private NotificationPageController npc;
 
-    public UserPageController(UserManager um, NormalUser user, GroupManager gm) {
-        this.user = user;
-        this.upp = new UserPagePresenter(user);
+    public UserPageController(UserManager um, String userId, GroupManager gm) {
+        this.userId = userId;
+        this.upp = new UserPagePresenter(um.displayUserDetail(um.getUserById(userId)));
         this.um = um;
-        this.tpc = new TaskPageController(user, um, npc);
-        this.gpc = new GroupPageController(user, um, gm);
-        this.cpc = new CategoryPageController(user, um);
+        this.gpc = new GroupPageController(userId, um, gm);
+        this.cpc = new CategoryPageController(userId, um);
     }
 
     public void run() throws IOException {

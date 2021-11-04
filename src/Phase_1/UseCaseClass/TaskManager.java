@@ -1,6 +1,6 @@
 package Phase_1.UseCaseClass;
 
-import Phase_1.Entity.NormalUser;
+import Phase_1.Entity.User;
 import Phase_1.Entity.Task;
 
 public class TaskManager {
@@ -23,23 +23,23 @@ public class TaskManager {
     public void checkTaskUnique(Task task){
     }
 
-    public void addTask(NormalUser user, Task task){
+    public void addTask(User user, Task task){
         user.addTask(task);
     }
 
 
-    public String displayTask(NormalUser user){
+    public String displayTask(User user){
         StringBuilder s = new StringBuilder();
         for(Task t: user.getMyTasks()){
             s.append(t.toString()).append("\n");
         }
         return s.toString();
     }
-    public boolean checkTask(NormalUser user, Task t) {
+    public boolean checkTask(User user, Task t) {
         return user.getMyTasks().contains(t);
     }
 
-    public Task getTaskByName(NormalUser user, String taskName) {
+    public Task getTaskByName(User user, String taskName) {
         for (Task t: user.getMyTasks()){
             if (this.checkTaskByName(t, taskName)){
                 return t;

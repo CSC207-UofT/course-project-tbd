@@ -18,20 +18,20 @@ public class ViewGroupController {
 
     private UserManager um;
     private GroupManager gm;
-    private NormalUser currentUser;
+    private String userId;
     // private final ViewGroupPresenter vgp= new ViewGroupPresenter;
 
-    public ViewGroupController(UserManager um, GroupManager gm, NormalUser user) {
+    public ViewGroupController(UserManager um, GroupManager gm, String userId) {
         this.gm = gm;
         this.um = um;
-        this.currentUser = user;
+        this.userId = userId;
     }
 
     public void run() {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         ArrayList<Group> groups;
         StringBuilder s = new StringBuilder();
-        groups = currentUser.getMyGroups();
+        groups = um.getUserById(userId).getMyGroups();
         for (int i = 0; i < groups.size(); ++i) {
             // Creates a string showing all the groups the user has and options to click on them.
             s.append(i).append(" ").append(groups.get(i).getgroupName()).append("\n");
@@ -54,7 +54,8 @@ public class ViewGroupController {
                 else{
                     // We call the controller for the corresponding group.
                     int x = Integer.parseInt(option);
-                    GroupContentController gcc = new GroupContentController(um, gm, groups.get(x), currentUser);
+                    GroupContentController gcc = new GroupContentController(um, gm, groups.get(x),
+                            userId);
                     gcc.run();
 
                 }

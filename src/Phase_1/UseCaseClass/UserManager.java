@@ -13,6 +13,11 @@ public class UserManager {
         this.allUsers = user_list;
     }
 
+    public String displayUserDetail(User user) {
+        return ("Username: " + user.getUsername() + "\n"
+                + "Password: " + user.getPassword());
+    }
+
 
     /**
      * Creates a normal user and add it to the arraylist of all the users.
@@ -71,7 +76,7 @@ public class UserManager {
 //        }
 //        return unfinished;
 //    }
-    public String getUserName(NormalUser user) {
+    public String getUserName(User user) {
         return user.getUsername();
     }
 
@@ -83,16 +88,16 @@ public class UserManager {
         user.addGroup(group);
     }
 
-    public void addCategory(NormalUser user, Category c) {
+    public void addCategory(User user, Category c) {
         user.addNewCategory(c);
     }
 
-    public void addTask(NormalUser user, Task task) {
+    public void addTask(User user, Task task) {
         user.addTask(task);
     }
 
 
-    public String displayTask(NormalUser user) {
+    public String displayTask(User user) {
         StringBuilder s = new StringBuilder();
         for (Task t : user.getMyTasks()) {
             s.append(t.toString()).append("\n");
@@ -100,11 +105,11 @@ public class UserManager {
         return s.toString();
     }
 
-    public boolean checkTask(NormalUser user, Task t) {
+    public boolean checkTask(User user, Task t) {
         return user.getMyTasks().contains(t);
     }
 
-    public Task getTaskByName(NormalUser user, String taskName) {
+    public Task getTaskByName(User user, String taskName) {
         for (Task t : user.getMyTasks()) {
             if (itm.checkTaskByName(t, taskName)) {
                 return t;
@@ -114,7 +119,7 @@ public class UserManager {
         return null;
     }
 
-        public String displayCategories(NormalUser user) {
+        public String displayCategories(User user) {
         StringBuilder s = new StringBuilder();
         for (Category c : user.getMyCategories()) {
             s.append(c.toString()).append("\n");
