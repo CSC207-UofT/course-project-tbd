@@ -2,6 +2,7 @@ package Phase_1.UseCaseClass;
 
 
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.PriorityQueue;
 import Phase_1.Alarm.*;
 import Phase_1.Controllers_Gateways_Presenters.NotificationPageController;
@@ -12,20 +13,23 @@ import javax.swing.*;
 public class NotificationManager implements Runnable {
 
     public PriorityQueue<TaskWithDueDate> taskWithDueDates;
-    public NotificationPageController npc;
     private AlarmMenu alarmMenu;
     public void setAlarmMenu(AlarmMenu alarmMenu){
         this.alarmMenu = alarmMenu;
     }
+    public ArrayList<String> mailbox = new ArrayList<>();
 
-    public NotificationManager(NotificationPageController npc){
+    public NotificationManager(){
         taskWithDueDates  = new PriorityQueue<>();
-        this.npc = npc;
     }
 
     public boolean addTaskWithDueDate(TaskWithDueDate t){
         this.taskWithDueDates.add(t);
         return true;
+    }
+
+    public ArrayList<String> getMailbox(){
+        return mailbox;
     }
 
     public class NotificationBox implements Runnable{
@@ -40,7 +44,7 @@ public class NotificationManager implements Runnable {
         public void run() {
             DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
             String note = task.getDueDate().format(format) + "\nDUE DATE ALERT! \nTask: <" + task.getTaskName() + ">";
-            npc.addNotification(note);
+            mailbox.add(note);
 
             final JFrame alert = new JFrame();
             JButton button = new JButton();
