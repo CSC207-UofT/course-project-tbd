@@ -53,4 +53,9 @@ public abstract  class User implements Serializable {
         public abstract ArrayList<Group> getMyGroups();
 
 
-    }
+
+    public abstract ArrayList<Task> getMyTasks();
+
+
+    public abstract ArrayList<Category> getMyCategories();
+}

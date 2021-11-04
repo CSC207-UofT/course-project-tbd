@@ -14,15 +14,15 @@ import java.io.IOException;
 import java.util.List;
 
 public class TaskPageController {
-    private NormalUser user;
+    private String userId;
     private TaskPagePresenter tpp;
     private TaskManager itm;
     NotificationManager nm;
     UserManager um;
     private CategoryPageController cpc;
 
-    public TaskPageController(NormalUser user, UserManager um, NotificationPageController npc){
-        this.user = user;
+    public TaskPageController(String userId, UserManager um, NotificationPageController npc){
+        this.userId = userId;
         this.tpp = new TaskPagePresenter();
         this.um = um;
         this.itm = new TaskManager();
@@ -47,7 +47,7 @@ public class TaskPageController {
                 finishTask(reader);
             } else if ("4".equals(input)) {
                 tpp.displayTasks();
-                System.out.println(itm.displayTask(user));
+                System.out.println(itm.displayTask(um.getUserById(userId)));
             }
         }
     }
@@ -55,8 +55,8 @@ public class TaskPageController {
     private void finishTask(BufferedReader reader) throws IOException {
         tpp.enterTaskToComplete();
         String taskToComplete = reader.readLine();
-        Task task = itm.getTaskByName(user, taskToComplete);
-        if(itm.checkTask(user, task)){
+        Task task = itm.getTaskByName(um.getUserById(userId), taskToComplete);
+        if(itm.checkTask(um.getUserById(userId), task)){
             // If task is present in user, mark it done
             itm.completeTask(task);
             System.out.println("Task finished");
@@ -89,11 +89,11 @@ public class TaskPageController {
 
             TaskWithDueDate task = new TaskWithDueDate(taskTitle, taskDetail, year, month, day,hour, minute);
             nm.addTaskWithDueDate(task);
-            itm.addTask(user, task);
+            itm.addTask(um.getUserById(userId), task);
         }else{
             //add task without a due date
             Task task = new Task(taskTitle, taskDetail); // task name must be unique
-            itm.addTask(user, task);
+            itm.addTask(um.getUserById(userId), task);
         }
         tpp.taskAdd();
     }

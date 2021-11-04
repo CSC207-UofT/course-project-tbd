@@ -3,10 +3,10 @@ package Phase_1.Controllers_Gateways_Presenters;
 import Phase_1.Entity.NormalUser;
 
 public class UserPagePresenter {
-    private NormalUser user;
+    private String userDetail;
 
-    public UserPagePresenter(NormalUser user){
-        this.user = user;
+    public UserPagePresenter(String userDetail){
+        this.userDetail = userDetail;
     }
 
 //    public void welcomeMsg(){
@@ -16,7 +16,7 @@ public class UserPagePresenter {
     public void userProfilePage(){
         System.out.println("---------------------");
         System.out.println("Your User Profile:");
-        System.out.println(this.user.displayUserDetail());
+        System.out.println(userDetail);
         System.out.println("---------------------");
     }
 
