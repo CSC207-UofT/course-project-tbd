@@ -21,16 +21,12 @@ public class TaskPageController {
     UserManager um;
     private CategoryPageController cpc;
 
-    public TaskPageController(String userId, UserManager um, NotificationPageController npc){
+    public TaskPageController(String userId, UserManager um, NotificationManager nm){
         this.userId = userId;
         this.tpp = new TaskPagePresenter();
         this.um = um;
         this.itm = new TaskManager();
-
-        this.nm = new NotificationManager(npc);
-        nm.setAlarmMenu(new AlarmStarter());
-        Thread notificationSystem = new Thread(nm);
-        notificationSystem.start();
+        this.nm = nm;
     }
 
     public void run() throws IOException{

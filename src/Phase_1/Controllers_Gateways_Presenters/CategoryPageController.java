@@ -4,6 +4,7 @@ package Phase_1.Controllers_Gateways_Presenters;
 import Phase_1.Entity.Category;
 import Phase_1.Entity.NormalUser;
 import Phase_1.UseCaseClass.CategoryManager;
+import Phase_1.UseCaseClass.NotificationManager;
 import Phase_1.UseCaseClass.TaskManager;
 import Phase_1.UseCaseClass.UserManager;
 
@@ -19,17 +20,16 @@ public class CategoryPageController {
     private CategoryPagePresenter cpp;
     private CategoryManager cm;
     private TaskPageController tpc;
-    private NotificationPageController npc;
 
 
-    public CategoryPageController(String userId, UserManager um){
+    public CategoryPageController(String userId, UserManager um, NotificationManager nm){
         this.userId = userId;
         this.tpp = new TaskPagePresenter();
         this.um = um;
         this.itm = new TaskManager();
         this.cpp = new CategoryPagePresenter();
         this.cm = new CategoryManager();
-        this.tpc = new TaskPageController(userId, um, npc);
+        this.tpc = new TaskPageController(userId, um, nm);
     }
 
     public void run() throws IOException{
