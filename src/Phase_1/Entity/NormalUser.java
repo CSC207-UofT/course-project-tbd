@@ -3,13 +3,14 @@ package Phase_1.Entity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class NormalUser extends User implements Serializable {
 
     public String username;
     public String password;
 
-    public ArrayList<Group> myGroups = new ArrayList<>();
+    public HashMap<String, Group> myGroups = new HashMap<>();
 
     public ArrayList<Category> myCategories = new ArrayList<>();
     public ArrayList<Task> myTasks = new ArrayList<>();
@@ -60,8 +61,8 @@ public class NormalUser extends User implements Serializable {
 //        return this.myCategories;
 //    }
     @Override
-    public void addGroup(Group group){
-        this.myGroups.add(group);
+    public void addGroup(Group group, String groupId){
+        this.myGroups.put(groupId, group);
 
     }
     @Override
@@ -84,7 +85,7 @@ public class NormalUser extends User implements Serializable {
     public String getPassword(){return password;}
 
     @Override
-    public ArrayList<Group> getMyGroups() {
+    public HashMap<String, Group> getMyGroups() {
         return myGroups;
     }
 

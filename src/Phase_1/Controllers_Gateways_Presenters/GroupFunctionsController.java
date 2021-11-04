@@ -5,6 +5,7 @@ import Phase_1.Entity.NormalUser;
 import Phase_1.Entity.User;
 import Phase_1.UseCaseClass.GroupManager;
 import Phase_1.UseCaseClass.TaskManager;
+import Phase_1.UseCaseClass.UserGroupManager;
 import Phase_1.UseCaseClass.UserManager;
 
 import java.io.BufferedReader;
@@ -16,6 +17,7 @@ public class GroupFunctionsController {
     UserManager um;
     NormalUser user;
     GroupManager gm;
+    UserGroupManager ugm;
     private TaskPagePresenter tpp;
     private TaskManager itm;
     private User currentUser;
@@ -28,6 +30,7 @@ public class GroupFunctionsController {
         this.tpp = new TaskPagePresenter();
         this.itm = new TaskManager();
         this.currentUser = currentUser;
+        this.ugm = new UserGroupManager();
     }
 
     public void CreateGroupController() {
@@ -43,7 +46,7 @@ public class GroupFunctionsController {
                 groupName = reader.readLine();
             }
             gm.createGroup(user, groupName);
-            user.myGroups.add(new Group(user, groupName));
+            ugm.addGroup(user, new Group(user, groupName));
             cgp.CreateSuccess(groupName);
             cgp.lines();
         } catch (IOException e) {

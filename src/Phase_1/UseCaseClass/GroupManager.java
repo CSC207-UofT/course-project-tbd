@@ -31,8 +31,9 @@ public class GroupManager{
      * @param name name of the group
      */
     public void createGroup(User user, String name) {
-        Group group = new Group(user, name);
-        this.maps.put(name, group);
+        String groupId =  "#" + (maps.keySet().size());
+        Group group = new Group(user, name + groupId);
+        this.maps.put(name+groupId, group);
         ugm.addGroup(user, group);
     }
 
