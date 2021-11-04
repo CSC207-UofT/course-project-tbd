@@ -12,4 +12,8 @@ public class UserGroupManager {
     public void addGroup(User user, Group group){
         user.addGroup(group);
     }
+
+    public Group getGroup(User user, String groupID){
+        return user.myGroups.get(groupID);
+    }
 }

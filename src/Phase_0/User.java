@@ -2,12 +2,13 @@ package Phase_0;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public abstract  class User implements Serializable {
     public String username;
     public String password;
 
-    public ArrayList<Group> myGroups = new ArrayList<>();
+    HashMap<String, Group> myGroups = new HashMap<String, Group>();
 
     public ArrayList<Category> myCategories = new ArrayList<>();
     public ArrayList<Task> myTasks = new ArrayList<>();
