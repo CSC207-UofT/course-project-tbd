@@ -3,6 +3,7 @@ package Phase_1.UseCaseClass;
 import Phase_1.Entity.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Objects;
 
 public class UserManager {
@@ -84,9 +85,6 @@ public class UserManager {
         user.removeGroup(group);
     }
 
-    public void addGroup(User user, Group group) {
-        user.addGroup(group);
-    }
 
     public void addCategory(User user, Category c) {
         user.addNewCategory(c);
@@ -126,4 +124,8 @@ public class UserManager {
             }
         return s.toString();
     }
+    public HashMap<String, Group> getMyGroups(User user){
+        return user.getMyGroups();
+    }
+
 }
