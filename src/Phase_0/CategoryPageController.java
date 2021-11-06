@@ -43,7 +43,7 @@ public class CategoryPageController {
                 cpp.displayCategory();
                 System.out.println(um.displayCategories(user));
                 // chose category by name
-                cpp.availableCategoryOptions();
+                choseCategory(reader);
             }
         }
     }
@@ -66,14 +66,25 @@ public class CategoryPageController {
         String categoryToAdd = reader.readLine();
         Category category = cm.getCategoryByName(user, categoryToAdd);
         if (cm.checkCategory(user, category)){
-            // If category is present in user,
+            // If category is present in user, run task
             tpc.run();
         } else {
             cpp.CategoryNotPresent();
         }
     }
 
+    private void choseCategory(BufferedReader reader) throws IOException{
+        String input = "";
+        while (!input.equals("1")){
+            // Go back to Options
+            cpp.availableCategoryOptions();
+            input = reader.readLine();
+            if (input.equals("2")){
+                // chose Category by name
+                taskToCategory(reader);
+            }
+    }
 
 
 
-}
+} }

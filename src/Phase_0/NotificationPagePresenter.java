@@ -7,7 +7,7 @@ public class NotificationPagePresenter {
     public void availableOptions(){
         System.out.println("--------------------");
         System.out.print("Your options:\n" +
-                "1, Back\n" +
+                "1. Back\n" +
                 "2. Delete notification:\n");
     }
 
