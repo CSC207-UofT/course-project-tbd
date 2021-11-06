@@ -1,0 +1,31 @@
+package Phase_1Test;
+import Phase_1.Entity.Category;
+import org.junit.Before;
+import Phase_1.Entity.NormalUser;
+
+public class NormalUserTest {
+    NormalUser nm;
+    Category a;
+    Category b;
+    Category c;
+
+    @Before
+    public void setUp() {
+        String abcd = "abcd";
+        a = new Category("music");
+        b = new Category("sport");
+        c = new Category("study");
+
+//        nm = new NormalUser("cat", "abcd");
+//        nm.addNewCategory(a);
+//        nm.addNewCategory(b);
+//        nm.addNewCategory(c);
+//        nm.deleteCategory(b);
+//    }
+//    @Test(timeout = 100)
+//    public void TestdisplayMyCategories(){
+//        assertEquals("music" + "\n" + "study", nm.displayMyCategories());
+//        assertEquals("Username: " + "cat" + "\n"
+//                + "Password: " + "abcd", nm.displayUserDetail());
+    }
+}
