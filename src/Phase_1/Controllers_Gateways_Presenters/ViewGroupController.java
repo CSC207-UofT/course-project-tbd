@@ -33,9 +33,9 @@ public class ViewGroupController {
 
     public void run() {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        HashMap<String, Group> groups;
+        ArrayList<String> groups;
         StringBuilder s = new StringBuilder();
-        groups = um.getMyGroups(um.getUserById(userId));
+        groups = ugm.getMyGroups(um.getUserById(userId));
         HashMap<Integer, String> groupIdRecord = new HashMap<Integer, String>();
         for (String groupId: ugm.getGroupIds(um.getUserById(userId))) {
             // Creates a string showing all the groups the user has and options to click on them.
@@ -59,7 +59,7 @@ public class ViewGroupController {
                     // enter again.
                     String groupId = groupIdRecord.get(Integer.parseInt(option));
                     GroupContentController gcc = new GroupContentController(um, gm,
-                            groups.get(groupId),
+                            gm.getGroupById(groupId),
                             userId);
                     gcc.run();
                 }

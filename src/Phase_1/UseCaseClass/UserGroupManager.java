@@ -22,4 +22,8 @@ public class UserGroupManager {
     public ArrayList<String> getGroupIds(User user){
         return user.getMyGroups();
     }
+
+    public ArrayList<String> getMyGroups(User user){
+        return user.getMyGroups();
+    }
 }
