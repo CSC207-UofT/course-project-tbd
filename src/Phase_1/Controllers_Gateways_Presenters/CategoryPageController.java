@@ -20,9 +20,11 @@ public class CategoryPageController {
     private CategoryPagePresenter cpp;
     private CategoryManager cm;
     private TaskPageController tpc;
+    private NotificationPageController npc;
+    private NotificationManager nm;
 
 
-    public CategoryPageController(String userId, UserManager um, NotificationManager nm){
+    public CategoryPageController(String userId, UserManager um){
         this.userId = userId;
         this.tpp = new TaskPagePresenter();
         this.um = um;
@@ -48,7 +50,8 @@ public class CategoryPageController {
                 // display categories
                 cpp.displayCategory();
                 System.out.println(um.displayCategories(um.getUserById(userId)));
-                tpc.run();
+                // chose category by name
+                choseCategory(reader);
             }
         }
     }
@@ -71,11 +74,25 @@ public class CategoryPageController {
         String categoryToAdd = reader.readLine();
         Category category = cm.getCategoryByName(um.getUserById(userId), categoryToAdd);
         if (cm.checkCategory(um.getUserById(userId), category)){
-            // Add task to category
-            tpp.taskAdd();
+            // If category is present in user, run task
+            tpc.run(category);
+        } else {
+            cpp.CategoryNotPresent();
         }
     }
 
+    private void choseCategory(BufferedReader reader) throws IOException{
+        String input = "";
+        while (!input.equals("1")){
+            // Go back to Options
+            cpp.availableCategoryOptions();
+            input = reader.readLine();
+            if (input.equals("2")){
+                // chose Category by name
+                taskToCategory(reader);
+            }
+        }
+    }
 
 
 }
