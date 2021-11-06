@@ -10,7 +10,7 @@ public class NormalUser extends User implements Serializable {
     public String username;
     public String password;
 
-    public HashMap<String, Group> myGroups = new HashMap<>();
+    ArrayList<String> myGroups = new ArrayList<>();
 
     public ArrayList<Category> myCategories = new ArrayList<>();
     public ArrayList<Task> myTasks = new ArrayList<>();
@@ -61,12 +61,12 @@ public class NormalUser extends User implements Serializable {
 //        return this.myCategories;
 //    }
     @Override
-    public void addGroup(Group group, String groupId){
-        this.myGroups.put(groupId, group);
+    public void addGroup(String groupId){
+        this.myGroups.add(groupId);
 
     }
     @Override
-    public void removeGroup(Group group){
+    public void removeGroup(String group){
         this.myGroups.remove(group);
     }
 
@@ -85,7 +85,7 @@ public class NormalUser extends User implements Serializable {
     public String getPassword(){return password;}
 
     @Override
-    public HashMap<String, Group> getMyGroups() {
+    public ArrayList<String> getMyGroups() {
         return myGroups;
     }
 
