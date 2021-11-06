@@ -10,16 +10,17 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class GroupChatController {
-    private Group group;
+    private String groupId;
     private GroupManager gm;
     private String userId;
     private final GroupChatPresenter gcp = new GroupChatPresenter();
     private UserManager um;
 
-    public GroupChatController(Group group, String userId, UserManager um) {
-        this.group = group;
+    public GroupChatController(String groupId, String userId, UserManager um, GroupManager gm) {
+        this.groupId = groupId;
         this.userId = userId;
         this.um = um;
+        this.gm = gm;
     }
 
     public void run() {
@@ -27,7 +28,7 @@ public class GroupChatController {
         try {
             boolean flag = true;
             String input;
-
+            Group group = gm.getGroupById(groupId);
             while (flag) {
                 gcp.instructions();
                 input = reader.readLine();

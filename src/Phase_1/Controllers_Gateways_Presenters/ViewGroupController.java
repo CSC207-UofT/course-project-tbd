@@ -58,9 +58,7 @@ public class ViewGroupController {
                     // If the user enters a number greater than the no of groups user is in, we ask user to
                     // enter again.
                     String groupId = groupIdRecord.get(Integer.parseInt(option));
-                    GroupContentController gcc = new GroupContentController(um, gm,
-                            gm.getGroupById(groupId),
-                            userId);
+                    GroupContentController gcc = new GroupContentController(um, gm, groupId, userId);
                     gcc.run();
                 }
                 else{

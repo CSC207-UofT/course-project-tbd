@@ -14,14 +14,14 @@ public class GroupContentController {
 
     private UserManager um;
     private GroupManager gm;
-    private Group group;
     private String userId;
+    private String groupId;
     private GroupContentPresenter gcp = new GroupContentPresenter();
 
-    public GroupContentController(UserManager um, GroupManager gm, Group group, String userId) {
+    public GroupContentController(UserManager um, GroupManager gm, String groupId, String userId) {
         this.gm = gm;
         this.um = um;
-        this.group = group;
+        this.groupId = groupId;
         this.userId = userId;
     }
 
@@ -37,6 +37,7 @@ public class GroupContentController {
                             System.out.println("HomePage class");
                             break;
                     case "2": {
+                        Group group = gm.getGroupById(groupId);
                         if (gm.checkIfLeader(group.getgroupName(), um.getUserById(userId))) {
                             StringBuilder s = new StringBuilder();
                             for (Folder f : group.getFolders()) {
@@ -56,7 +57,7 @@ public class GroupContentController {
                         break;
                     }
                     case "3": {
-                        GroupChatController gcc = new GroupChatController(group, userId, um);
+                        GroupChatController gcc = new GroupChatController(groupId, userId, um, gm);
                         gcc.run();
                         gcp.instructions();
                         input = reader.readLine();
