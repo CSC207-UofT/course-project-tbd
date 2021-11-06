@@ -14,8 +14,8 @@ public class TaskPageController {
     private NormalUser user;
     private TaskPagePresenter tpp;
     private TaskManager itm;
-    NotificationManager nm;
-    UserManager um;
+    private NotificationManager nm;
+    private UserManager um;
     private CategoryPageController cpc;
 
     public TaskPageController(NormalUser user, UserManager um, NotificationPageController npc){
@@ -30,7 +30,7 @@ public class TaskPageController {
         notificationSystem.start();
     }
 
-    public void run() throws IOException{
+    public void run(Category category) throws IOException{
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         tpp.displayTasks();
         String input = "";

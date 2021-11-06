@@ -67,7 +67,7 @@ public class CategoryPageController {
         Category category = cm.getCategoryByName(user, categoryToAdd);
         if (cm.checkCategory(user, category)){
             // If category is present in user, run task
-            tpc.run();
+            tpc.run(category);
         } else {
             cpp.CategoryNotPresent();
         }
