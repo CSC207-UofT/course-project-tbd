@@ -15,6 +15,14 @@ public class CategoryPagePresenter {
                 "Your answer here: ");
     }
 
+    public void availableCategoryOptions(){
+        System.out.println("--------------------");
+        System.out.print("Your options:\n" +
+                "1. Back\n" +
+                "2. Choose Category by Name:\n" +
+                "Your answer here: ");
+    }
+
     public void giveNewCategoryName(){
         System.out.println("--------------------");
         System.out.print("Enter Category Title:\n");

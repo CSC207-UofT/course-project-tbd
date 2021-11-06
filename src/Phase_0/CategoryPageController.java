@@ -42,7 +42,8 @@ public class CategoryPageController {
                 // display categories
                 cpp.displayCategory();
                 System.out.println(um.displayCategories(user));
-                tpc.run();
+                // chose category by name
+                cpp.availableCategoryOptions();
             }
         }
     }
@@ -65,10 +66,13 @@ public class CategoryPageController {
         String categoryToAdd = reader.readLine();
         Category category = cm.getCategoryByName(user, categoryToAdd);
         if (cm.checkCategory(user, category)){
-            // Add task to category
-            tpp.taskAdd();
+            // If category is present in user,
+            tpc.run();
+        } else {
+            cpp.CategoryNotPresent();
         }
     }
+
 
 
 
