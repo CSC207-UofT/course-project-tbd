@@ -134,4 +134,8 @@ public class GroupManager{
         group.removeUser(user);
         ugm.removeGroup(user, groupname);
     }
+
+    public Group getGroupById(String groupId){
+        return maps.get(groupId);
+    }
 }
