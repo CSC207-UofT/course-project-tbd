@@ -34,7 +34,7 @@ public class GroupManager{
         String groupId =  "#" + (maps.keySet().size());
         Group group = new Group(user, name + groupId);
         this.maps.put(name+groupId, group);
-        ugm.addGroup(user, group);
+        ugm.addGroup(user, group.getgroupName());
     }
 
     /**
@@ -44,9 +44,9 @@ public class GroupManager{
      * @param leader leader of the group
      */
     public void deleteGroup(String groupName, User leader) {
-        ugm.removeGroup(leader, this.maps.get(groupName));
+        ugm.removeGroup(leader, groupName);
         for (User user: this.maps.get(groupName).getUsers()){
-            ugm.removeGroup(user, this.maps.get(groupName));
+            ugm.removeGroup(user, groupName);
         }
         this.maps.remove(groupName);
     }
@@ -120,7 +120,7 @@ public class GroupManager{
         ArrayList<User> users = new ArrayList<>();
         users.add(user);
         group.addUsers(users);
-        ugm.addGroup(user, group);
+        ugm.addGroup(user, groupname);
         group.addFolder(user.getUsername());
     }
 
@@ -132,6 +132,6 @@ public class GroupManager{
     public void removeMember(String groupname, User user) {
         Group group = this.maps.get(groupname);
         group.removeUser(user);
-        ugm.removeGroup(user, group);
+        ugm.removeGroup(user, groupname);
     }
 }

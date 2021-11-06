@@ -46,7 +46,7 @@ public class GroupFunctionsController {
                 groupName = reader.readLine();
             }
             gm.createGroup(user, groupName);
-            ugm.addGroup(user, new Group(user, groupName));
+            ugm.addGroup(user, groupName);
             cgp.CreateSuccess(groupName);
             cgp.lines();
         } catch (IOException e) {
