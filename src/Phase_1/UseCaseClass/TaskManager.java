@@ -1,5 +1,6 @@
 package Phase_1.UseCaseClass;
 
+import Phase_1.Entity.Category;
 import Phase_1.Entity.User;
 import Phase_1.Entity.Task;
 
@@ -21,14 +22,14 @@ public class TaskManager {
     }
 
 
-    public void addTask(User user, Task task){
-        user.addTask(task);
+    public void addTask(User user, Task task, Category category){
+        user.addTasktoCategory(task, category);
     }
 
 
-    public String displayTask(User user){
+    public String displayTask(Category category){
         StringBuilder s = new StringBuilder();
-        for(Task t: user.getMyTasks()){
+        for(Task t: category.getTasks()){
             s.append(t.toString()).append("\n");
         }
         return s.toString();

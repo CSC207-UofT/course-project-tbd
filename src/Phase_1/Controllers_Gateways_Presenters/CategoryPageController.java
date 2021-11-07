@@ -14,14 +14,13 @@ import java.io.IOException;
 
 public class CategoryPageController {
     private String userId;
-    private TaskPagePresenter tpp;
     private TaskManager itm;
     private UserManager um;
-    private CategoryPagePresenter cpp;
-    private CategoryManager cm;
-    private TaskPageController tpc;
-    private NotificationPageController npc;
     private NotificationManager nm;
+    private CategoryManager cm;
+    private CategoryPagePresenter cpp;
+    private TaskPagePresenter tpp;
+    private TaskPageController tpc;
 
 
     public CategoryPageController(String userId, UserManager um){
@@ -59,12 +58,13 @@ public class CategoryPageController {
     private void addCategory(BufferedReader reader) throws IOException {
         cpp.giveNewCategoryName();
         String CategoryTitle = reader.readLine();
-        Category category = new Category(CategoryTitle);
-
-        // Add category
-        um.addCategory(um.getUserById(userId), category);
-        // Add task to category
-        // category.addTask();
+        while(cm.getCategoryByName(um.getUserById(userId), CategoryTitle) != null){
+            // while a category can be found in user with the same name as the above, prompt the user to try a new name
+            cpp.CategoryNotUnique();
+            CategoryTitle = reader.readLine();
+        }
+        // Add category with the input CategoryTitle
+        um.addCategory(um.getUserById(userId), new Category(CategoryTitle));
         // Confirmation that category & task has been added
         cpp.CategoryAdd();
     }

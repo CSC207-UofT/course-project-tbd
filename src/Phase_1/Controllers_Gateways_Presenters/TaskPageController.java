@@ -31,6 +31,7 @@ public class TaskPageController {
      */
     private String userId;
 
+
     /**
      * Task Page presenter contains all the print statements associated with the task page
      */
@@ -51,10 +52,7 @@ public class TaskPageController {
      */
     UserManager um;
 
-    /**
-     * To access category page
-     */
-    private CategoryPageController cpc;
+
 
     /**
      * Constructs the personalized Task Page for the specified user
@@ -84,12 +82,12 @@ public class TaskPageController {
             tpp.availableOptions();
             input = reader.readLine();
             if ("2".equals(input)) {    // equals to 2 means to create and add a new task
-                addTask(reader);
+                addTask(reader, category);
             } else if ("3".equals(input)) {     // equals to 3 means user wants to finish an existing task
                 finishTask(reader);
             } else if ("4".equals(input)) {     // equals to 4 means user wants to view all current existing tasks
                 tpp.displayTasks();
-                System.out.println(itm.displayTask(um.getUserById(userId)));
+                System.out.println(itm.displayTask(category));
             }
         }
     }
@@ -123,12 +121,12 @@ public class TaskPageController {
      *
      * @throws IOException {@inheritDoc}
      */
-    private void addTask(BufferedReader reader) throws IOException {
+    private void addTask(BufferedReader reader, Category category) throws IOException {
         tpp.giveNewTaskName();
         String taskTitle = reader.readLine();   // prompts for a name for the new task
         while(itm.getTaskByName(um.getUserById(userId), taskTitle) != null){
-            // while a task can be found in user with the same name as the above, prompt the user to tey a new name
-            System.out.println("A task with this name already exist, please try again:");
+            // while a task can be found in category with the same name as the above, prompt the user to try a new name
+            tpp.TaskNotUnique();
             taskTitle = reader.readLine();
         }
 
@@ -156,7 +154,7 @@ public class TaskPageController {
                 // error dateTime exception may be thrown of date information is invalid (e.g. -200 minutes)
                 TaskWithDueDate task = new TaskWithDueDate(taskTitle, taskDetail, year, month, day, hour, minute);
                 nm.addTaskWithDueDate(task);    // add to notification manager for creating alarm for task
-                itm.addTask(um.getUserById(userId), task);  // add task to user's task collection
+                itm.addTask(um.getUserById(userId), task, category);  // add task to user's task collection
                 tpp.taskAdd();
             } catch (UnsupportedOperationException e) {     // exception thrown when user schedules a date in the past
                 System.out.println(e.getMessage());
@@ -166,8 +164,8 @@ public class TaskPageController {
                 System.out.println("You have entered an invalid date");
             }
         }else{      // user does not want to create a task with due date
-            Task task = new Task(taskTitle, taskDetail); // create a simple task without due date
-            itm.addTask(um.getUserById(userId), task);  // add task to user's task collection
+            Task task = new Task(taskTitle, taskDetail, category); // create a simple task without due date
+            itm.addTask(um.getUserById(userId), task, category);  // add task to user's task collection
             tpp.taskAdd();
         }
     }

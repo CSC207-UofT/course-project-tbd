@@ -50,7 +50,7 @@ public class TaskPagePresenter {
     }
 
     public void TaskNotUnique(){
-        System.out.println("The task already exists, chose another name");
+        System.out.println("A task with this name already exist, please try again:");
     }
 
 

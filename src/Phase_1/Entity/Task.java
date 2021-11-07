@@ -20,10 +20,11 @@ public class Task {
         this.status = false;
     }
 
-    public Task(String title, String information){
+    public Task(String title, String information, Category category){
         this.title = title;
         this.information = information;
         this.status = false;
+        this.category = category;
     }
 
     public Task(String title, String information, int year, int month, int day, int hour, int minute){

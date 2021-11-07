@@ -83,8 +83,8 @@ public class UserManager {
         user.addNewCategory(c);
     }
 
-    public void addTask(User user, Task task) {
-        user.addTask(task);
+    public void addTask(User user, Task task, Category c) {
+        user.addTasktoCategory(task, c);
     }
 
 

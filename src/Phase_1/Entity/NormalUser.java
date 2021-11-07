@@ -70,8 +70,8 @@ public class NormalUser extends User implements Serializable {
         this.myGroups.remove(group);
     }
 
-    public void addTask(Task task){
-        this.myTasks.add(task);
+    public void addTasktoCategory(Task task, Category c){
+        c.tasks.add(task);
     }
     public void addNewCategory(Category newCategory){
         this.myCategories.add(newCategory);
