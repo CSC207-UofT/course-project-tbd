@@ -18,9 +18,7 @@ public class GroupContentController {
     private TaskManager tm;
     private String userId;
     private String groupId;
-    private GroupContentPresenter gcp = new GroupContentPresenter();
-    private GroupCategoryPresenter gcatp = new GroupCategoryPresenter();
-    private GroupCategoryController gcc = new GroupCategoryController(um, gm, tm, userId, groupId, gcatp);
+    GroupContentPresenter gcp = new GroupContentPresenter();
 
     public GroupContentController(UserManager um, GroupManager gm, TaskManager tm, String groupId, String userId) {
         this.gm = gm;
@@ -44,6 +42,8 @@ public class GroupContentController {
                         input = reader.readLine();
                         break;
                     case "2": {
+                        GroupCategoryPresenter gcatp = new GroupCategoryPresenter();
+                        GroupCategoryController gcc = new GroupCategoryController(um, gm, tm, userId, groupId, gcatp);
                         gcc.run();
                         gcp.instructions();
                         input = reader.readLine();

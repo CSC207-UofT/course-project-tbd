@@ -13,12 +13,12 @@ import java.io.InputStreamReader;
 import java.util.List;
 
 public class GroupCategoryController {
-    final String groupId;
-    final UserManager um;
-    final TaskManager tm;
-    final GroupManager gm;
-    final String userId;
-    final GroupCategoryPresenter gcatp;
+    private final String groupId;
+    private final UserManager um;
+    private final TaskManager tm;
+    private final GroupManager gm;
+    private final String userId;
+    private final GroupCategoryPresenter gcatp;
     NotificationManager nm;
 
     public GroupCategoryController(UserManager um, GroupManager gm, TaskManager tm, String groupId, String userId,
@@ -33,9 +33,14 @@ public class GroupCategoryController {
 
     public void run() {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("1");
         try {
+            System.out.println(userId);
+            System.out.println("try");
+            System.out.println(gm.checkIfLeader(gm.getGroupById(groupId).getgroupName(), um.getUserById(userId)));
             if (gm.checkIfLeader(gm.getGroupById(groupId).getgroupName(), um.getUserById(userId))) {
                 gcatp.ifLeader();
+                System.out.println("2");
                 String input = reader.readLine();
                 while(!input.equals("0")) {
                     switch (input) {
@@ -81,6 +86,7 @@ public class GroupCategoryController {
                     input = reader.readLine();
                 }
             } else {
+                System.out.println("3");
                 gcatp.ifUser();
                 String input = reader.readLine();
                 while (!input.equals("0")) {
