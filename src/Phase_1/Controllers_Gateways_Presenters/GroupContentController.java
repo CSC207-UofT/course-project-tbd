@@ -1,9 +1,10 @@
 package Phase_1.Controllers_Gateways_Presenters;
 
+import Phase_1.Entity.Category;
 import Phase_1.Entity.Folder;
 import Phase_1.Entity.Group;
-import Phase_1.Entity.NormalUser;
 import Phase_1.UseCaseClass.GroupManager;
+import Phase_1.UseCaseClass.TaskManager;
 import Phase_1.UseCaseClass.UserManager;
 
 import java.io.BufferedReader;
@@ -14,13 +15,17 @@ public class GroupContentController {
 
     private UserManager um;
     private GroupManager gm;
+    private TaskManager tm;
     private String userId;
     private String groupId;
     private GroupContentPresenter gcp = new GroupContentPresenter();
+    private GroupCategoryPresenter gcatp = new GroupCategoryPresenter();
+    private GroupCategoryController gcc = new GroupCategoryController(um, gm, tm, userId, groupId, gcatp);
 
-    public GroupContentController(UserManager um, GroupManager gm, String groupId, String userId) {
+    public GroupContentController(UserManager um, GroupManager gm, TaskManager tm, String groupId, String userId) {
         this.gm = gm;
         this.um = um;
+        this.tm = tm;
         this.groupId = groupId;
         this.userId = userId;
     }
@@ -32,39 +37,23 @@ public class GroupContentController {
             String input = reader.readLine();
             while(!input.equals("4")) {
                 switch (input) {
-                    case "1":
+                    case "1" ->
                             // TODO Access to Home Page
                             System.out.println("HomePage class");
-                            break;
-                    case "2": {
-                        Group group = gm.getGroupById(groupId);
-                        if (gm.checkIfLeader(group.getgroupName(), um.getUserById(userId))) {
-                            StringBuilder s = new StringBuilder();
-                            for (Folder f : group.getFolders()) {
-                                s.append(f.getFolderName()).append("\n");
-                            }
-                            s.delete(s.length() - 1, s.length());
-                            System.out.println(s);
-                        } else {
-                            for (Folder f : group.getFolders()) {
-                                if (f.getFolderName().equals(um.getUserById(userId).getUsername())) {
-                                    f.toString();
-                                }
-                            }
-                        }
+                    case "2" -> {
+                        gcc.run();
                         gcp.instructions();
                         input = reader.readLine();
                         break;
                     }
-                    case "3": {
+                    case "3" -> {
                         GroupChatController gcc = new GroupChatController(groupId, userId, um, gm);
                         gcc.run();
                         gcp.instructions();
                         input = reader.readLine();
                         break;
                     }
-                    case "0": System.exit(0);
-                    break;
+                    case "0" -> System.exit(0);
                 }
             }
             } catch(IOException e){

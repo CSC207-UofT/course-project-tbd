@@ -1,7 +1,6 @@
 package Phase_1.Controllers_Gateways_Presenters;
 
 import Phase_1.Entity.Group;
-import Phase_1.Entity.NormalUser;
 import Phase_1.UseCaseClass.GroupManager;
 import Phase_1.UseCaseClass.UserManager;
 
@@ -28,16 +27,15 @@ public class GroupChatController {
         try {
             boolean flag = true;
             String input;
-            Group group = gm.getGroupById(groupId);
             while (flag) {
                 gcp.instructions();
                 input = reader.readLine();
                 if (input.equals("1")) {
-                    System.out.println(group.getGroupChat().toString());
+                    System.out.println(gm.getGroupById(groupId).getGroupChat().toString());
                 } else if (input.equals("2")) {
                     gcp.askMessage();
                     String message = reader.readLine();
-                    group.getGroupChat().insertMessage(um.getUserById(userId), message);
+                    gm.getGroupById(groupId).getGroupChat().insertMessage(um.getUserById(userId), message);
                 } else {
                     flag = false;
                 }
