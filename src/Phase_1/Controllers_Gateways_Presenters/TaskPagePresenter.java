@@ -8,7 +8,7 @@ public class TaskPagePresenter {
 
     public void availableOptions(){
         System.out.println("--------------------");
-        System.out.print("Your options:\n" +
+        System.out.println("Your options:\n" +
                 "1. Back\n" +
                 "2. Add Tasks:\n" +
                 "3. finish Task\n" +

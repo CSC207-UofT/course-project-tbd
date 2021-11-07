@@ -73,7 +73,7 @@ public class NotificationManager implements Runnable {
                 try {
                     this.alarmMenu.startAlarm(alarm, new NotificationBox(t));
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    System.out.println(e.getMessage());
                 }
             }
         }
