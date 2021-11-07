@@ -59,9 +59,9 @@ public class CategoryPageController {
     private void addCategory(BufferedReader reader) throws IOException {
         cpp.giveNewCategoryName();
         String CategoryTitle = reader.readLine();
+        Category category = new Category(CategoryTitle);
 
         // Add category
-        Category category = new Category(CategoryTitle);
         um.addCategory(um.getUserById(userId), category);
         // Add task to category
         // category.addTask();

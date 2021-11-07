@@ -20,8 +20,6 @@ public class TaskManager {
         return task.getTaskName().equals(taskName);
     }
 
-    public void checkTaskUnique(Task task){
-    }
 
     public void addTask(User user, Task task){
         user.addTask(task);
@@ -35,6 +33,7 @@ public class TaskManager {
         }
         return s.toString();
     }
+
     public boolean checkTask(User user, Task t) {
         return user.getMyTasks().contains(t);
     }

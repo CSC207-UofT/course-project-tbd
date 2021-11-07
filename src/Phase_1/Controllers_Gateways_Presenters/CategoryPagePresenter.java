@@ -49,4 +49,8 @@ public class CategoryPagePresenter {
         System.out.println("The Categories are :");
     }
 
+    public void CategoryNotUnique(){
+        System.out.println("The category already exists, chose another name");
+    }
+
 }
