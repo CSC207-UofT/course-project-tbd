@@ -37,23 +37,25 @@ public class GroupContentController {
             String input = reader.readLine();
             while(!input.equals("4")) {
                 switch (input) {
-                    case "1" ->
+                    case "1":
                             // TODO Access to Home Page
                             System.out.println("HomePage class");
-                    case "2" -> {
+                            break;
+                    case "2": {
                         gcc.run();
                         gcp.instructions();
                         input = reader.readLine();
                         break;
                     }
-                    case "3" -> {
+                    case "3": {
                         GroupChatController gcc = new GroupChatController(groupId, userId, um, gm);
                         gcc.run();
                         gcp.instructions();
                         input = reader.readLine();
                         break;
                     }
-                    case "0" -> System.exit(0);
+                    case "0": System.exit(0);
+                    break;
                 }
             }
             } catch(IOException e){

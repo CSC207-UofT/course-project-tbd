@@ -36,33 +36,31 @@ public class GroupPageController {
             gpp.welcomeLine();
             String input = reader.readLine();
             while (!input.equals( "3")){
-                switch (input) {
-                    case "0" -> {
+                if (input.equals("0")){
                         CreateGroupController();
                         gpp.welcomeLine();
                         input = reader.readLine();
                     }
-                    case "1" -> {
+                else if (input.equals("1")){
                         JoinGroupController();
                         gpp.welcomeLine();
                         input = reader.readLine();
                     }
-                    case "2" -> {
+                else if (input.equals("2")){
                         LeaveGroupController();
                         gpp.welcomeLine();
                         input = reader.readLine();
                     }
-                    case "4" -> {
-                        ViewGroupController vgc = new ViewGroupController(um, gm, itm, userId);
+                else if (input.equals("4")){
+                    ViewGroupController vgc = new ViewGroupController(um, gm, itm, userId);
                         vgc.run();
                         gpp.welcomeLine();
                         input = reader.readLine();
                     }
-                    default -> {
+                else {
                         gpp.welcomeLine();
                         input = reader.readLine();
                     }
-                }
 
                 }
             gpp.lines();
