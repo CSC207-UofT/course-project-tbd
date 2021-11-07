@@ -1,6 +1,7 @@
 package Phase_1.Controllers_Gateways_Presenters;
 
 import Phase_1.Alarm.AlarmStarter;
+import Phase_1.Entity.Category;
 import Phase_1.Entity.NormalUser;
 import Phase_1.Entity.Task;
 import Phase_1.Entity.TaskWithDueDate;
@@ -75,7 +76,7 @@ public class TaskPageController {
      *
      * @throws IOException {@inheritDoc}
      */
-    public void run() throws IOException{
+    public void run(Category category) throws IOException{
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         tpp.displayTasks();
         String input = "";

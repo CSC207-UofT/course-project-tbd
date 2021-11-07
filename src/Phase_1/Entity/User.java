@@ -8,7 +8,7 @@ public abstract  class User implements Serializable {
     public String username;
     public String password;
 
-    HashMap<String, Group> myGroups = new HashMap<String, Group>();
+    ArrayList<String> myGroups = new ArrayList<>();
 
     public ArrayList<Category> myCategories = new ArrayList<>();
     public ArrayList<Task> myTasks = new ArrayList<>();
@@ -45,13 +45,13 @@ public abstract  class User implements Serializable {
     //        return this.myCategories;
     //    }
 
-        public abstract void addGroup(Group group, String groupId);
-        public abstract void removeGroup(Group group);
+        public abstract void addGroup(String groupId);
+        public abstract void removeGroup(String groupId);
         public abstract String getUsername();
         public abstract void addTask(Task task);
         public abstract void addNewCategory(Category category);
         public abstract String getPassword();
-        public abstract HashMap<String, Group> getMyGroups();
+        public abstract ArrayList<String> getMyGroups();
 
 
 

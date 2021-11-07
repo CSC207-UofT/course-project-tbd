@@ -9,10 +9,11 @@ import java.time.LocalDateTime;
  */
 
 public class Task {
-    public String title;
-    public String information;
+    private String title;
+    private String information;
     public LocalDateTime dueDate = null;
     public boolean status;
+    private Category category;
 
     public Task(String title){
         this.title = title;

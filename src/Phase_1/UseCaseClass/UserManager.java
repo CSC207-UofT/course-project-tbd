@@ -77,13 +77,6 @@ public class UserManager {
 //        }
 //        return unfinished;
 //    }
-    public String getUserName(User user) {
-        return user.getUsername();
-    }
-
-    public void removeGroup(User user, Group group) {
-        user.removeGroup(group);
-    }
 
 
     public void addCategory(User user, Category c) {
@@ -95,37 +88,12 @@ public class UserManager {
     }
 
 
-    public String displayTask(User user) {
-        StringBuilder s = new StringBuilder();
-        for (Task t : user.getMyTasks()) {
-            s.append(t.toString()).append("\n");
-        }
-        return s.toString();
-    }
-
-    public boolean checkTask(User user, Task t) {
-        return user.getMyTasks().contains(t);
-    }
-
-    public Task getTaskByName(User user, String taskName) {
-        for (Task t : user.getMyTasks()) {
-            if (itm.checkTaskByName(t, taskName)) {
-                return t;
-            }
-
-        }
-        return null;
-    }
-
-        public String displayCategories(User user) {
+    public String displayCategories(User user) {
         StringBuilder s = new StringBuilder();
         for (Category c : user.getMyCategories()) {
             s.append(c.toString()).append("\n");
             }
         return s.toString();
-    }
-    public HashMap<String, Group> getMyGroups(User user){
-        return user.getMyGroups();
     }
 
 }
