@@ -58,8 +58,9 @@ public class GroupPageController {
                         input = reader.readLine();
                     }
                 else {
-                        gpp.welcomeLine();
-                        input = reader.readLine();
+
+//                        gpp.welcomeLine();
+//                        input = reader.readLine();
                     }
 
                 }

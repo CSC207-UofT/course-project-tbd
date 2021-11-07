@@ -33,9 +33,11 @@ public class GroupContentController {
             while(!input.equals("4")) {
                 switch (input) {
                     case "1":
-                            // TODO Access to Home Page
-                            System.out.println("HomePage class");
-                            break;
+                        AnnouncementPageController apc = new AnnouncementPageController(groupId, userId, um, gm);
+                        apc.run();
+                        gcp.instructions();
+                        input = reader.readLine();
+                        break;
                     case "2": {
                         Group group = gm.getGroupById(groupId);
                         if (gm.checkIfLeader(group.getgroupName(), um.getUserById(userId))) {
