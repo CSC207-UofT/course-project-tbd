@@ -33,11 +33,18 @@ public class GroupCategoryController {
 
     public void run() {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("1");
         try {
             System.out.println(userId);
             System.out.println(groupId);
+            System.out.println(gcatp);
+            System.out.println(gm);
+            System.out.println(um);
+            System.out.println(tm);
+            System.out.println("try");
+            System.out.println(gm.getGroupById(groupId).getgroupName());
+            System.out.println(um.getUserById(userId));
             System.out.println(gm.checkIfLeader(gm.getGroupById(groupId).getgroupName(), um.getUserById(userId)));
-            System.out.println("x");
             if (gm.checkIfLeader(gm.getGroupById(groupId).getgroupName(), um.getUserById(userId))) {
                 gcatp.ifLeader();
                 System.out.println("2");
