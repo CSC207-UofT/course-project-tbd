@@ -22,8 +22,8 @@ public class TaskManager {
     }
 
 
-    public void addTask(User user, Task task, Category category){
-        user.addTasktoCategory(task, category);
+    public void addTask(Category category, Task task){
+        category.addTask(task);
     }
 
 
@@ -35,12 +35,12 @@ public class TaskManager {
         return s.toString();
     }
 
-    public boolean checkTask(User user, Task t) {
-        return user.getMyTasks().contains(t);
+    public boolean checkTask(Category category, Task t) {
+        return category.tasks.contains(t);
     }
 
-    public Task getTaskByName(User user, String taskName) {
-        for (Task t: user.getMyTasks()){
+    public Task getTaskByName(Category category, String taskName) {
+        for (Task t: category.tasks){
             if (this.checkTaskByName(t, taskName)){
                 return t;
             }

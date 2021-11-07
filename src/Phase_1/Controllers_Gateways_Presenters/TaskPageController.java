@@ -5,6 +5,7 @@ import Phase_1.Entity.Category;
 import Phase_1.Entity.NormalUser;
 import Phase_1.Entity.Task;
 import Phase_1.Entity.TaskWithDueDate;
+import Phase_1.UseCaseClass.CategoryManager;
 import Phase_1.UseCaseClass.NotificationManager;
 import Phase_1.UseCaseClass.TaskManager;
 import Phase_1.UseCaseClass.UserManager;
@@ -27,9 +28,9 @@ import java.util.*;
 public class TaskPageController {
 
     /**
-     * A user id which is unique to a user
+     * A category Name which is unique to a user
      */
-    private String userId;
+    private String catName;
 
 
     /**
@@ -48,23 +49,23 @@ public class TaskPageController {
     NotificationManager nm;
 
     /**
-     * Used to access and modify user information
+     * Used to access and modify category information
      */
-    UserManager um;
+    CategoryManager cm;
 
 
 
     /**
      * Constructs the personalized Task Page for the specified user
      *
-     * @param  userId a unique id associated with the user
-     * @param um the user manager class responsible for operating on user information
+     * @param  catName a unique id associated with the user
+     * @param cm the category manager class responsible for operating on user information
      * @param nm the notification manager class responsible for operations on tasks with due date
      */
-    public TaskPageController(String userId, UserManager um, NotificationManager nm){
-        this.userId = userId;
+    public TaskPageController(String catName, CategoryManager cm, NotificationManager nm){
+        this.catName = catName;
         this.tpp = new TaskPagePresenter();
-        this.um = um;
+        this.cm = cm;
         this.itm = new TaskManager();
         this.nm = nm;
     }
@@ -84,7 +85,7 @@ public class TaskPageController {
             if ("2".equals(input)) {    // equals to 2 means to create and add a new task
                 addTask(reader, category);
             } else if ("3".equals(input)) {     // equals to 3 means user wants to finish an existing task
-                finishTask(reader);
+                finishTask(reader, category);
             } else if ("4".equals(input)) {     // equals to 4 means user wants to view all current existing tasks
                 tpp.displayTasks();
                 System.out.println(itm.displayTask(category));
@@ -99,11 +100,11 @@ public class TaskPageController {
      *
      * @throws IOException {@inheritDoc}
      */
-    private void finishTask(BufferedReader reader) throws IOException {
+    private void finishTask(BufferedReader reader, Category category) throws IOException {
         tpp.enterTaskToComplete();
         String taskToComplete = reader.readLine();      //prompts the user for a task name
-        Task task = itm.getTaskByName(um.getUserById(userId), taskToComplete);// get the specified task in user's tasks
-        if(itm.checkTask(um.getUserById(userId), task)){  // If task is present in user, mark it finished
+        Task task = itm.getTaskByName(category, taskToComplete);// get the specified task in user's tasks
+        if(itm.checkTask(category, task)){  // If task is present in user, mark it finished
             itm.completeTask(task);
             System.out.println("Task finished");
         }
@@ -124,7 +125,7 @@ public class TaskPageController {
     private void addTask(BufferedReader reader, Category category) throws IOException {
         tpp.giveNewTaskName();
         String taskTitle = reader.readLine();   // prompts for a name for the new task
-        while(itm.getTaskByName(um.getUserById(userId), taskTitle) != null){
+        while(itm.getTaskByName(category, taskTitle) != null){
             // while a task can be found in category with the same name as the above, prompt the user to try a new name
             tpp.TaskNotUnique();
             taskTitle = reader.readLine();
@@ -154,7 +155,7 @@ public class TaskPageController {
                 // error dateTime exception may be thrown of date information is invalid (e.g. -200 minutes)
                 TaskWithDueDate task = new TaskWithDueDate(taskTitle, taskDetail, year, month, day, hour, minute);
                 nm.addTaskWithDueDate(task);    // add to notification manager for creating alarm for task
-                itm.addTask(um.getUserById(userId), task, category);  // add task to user's task collection
+                itm.addTask(category, task);  // add task to user's task collection
                 tpp.taskAdd();
             } catch (UnsupportedOperationException e) {     // exception thrown when user schedules a date in the past
                 System.out.println(e.getMessage());
@@ -165,7 +166,7 @@ public class TaskPageController {
             }
         }else{      // user does not want to create a task with due date
             Task task = new Task(taskTitle, taskDetail, category); // create a simple task without due date
-            itm.addTask(um.getUserById(userId), task, category);  // add task to user's task collection
+            itm.addTask(category, task);  // add task to user's task collection
             tpp.taskAdd();
         }
     }

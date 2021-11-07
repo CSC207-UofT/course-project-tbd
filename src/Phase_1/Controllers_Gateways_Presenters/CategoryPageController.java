@@ -30,7 +30,7 @@ public class CategoryPageController {
         this.itm = new TaskManager();
         this.cpp = new CategoryPagePresenter();
         this.cm = new CategoryManager();
-        this.tpc = new TaskPageController(userId, um, nm);
+        this.tpc = new TaskPageController(userId, cm, nm);
     }
 
     public void run() throws IOException{
