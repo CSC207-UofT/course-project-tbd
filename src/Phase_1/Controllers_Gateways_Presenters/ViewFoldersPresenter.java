@@ -24,7 +24,7 @@ public class ViewFoldersPresenter {
         StringBuilder s = new StringBuilder();
         int i = 0;
         for (Category c : gm.getGroupById(groupId).getCategories()) {
-            s.append(i).append(c.toString()).append("\n");
+            s.append(i + " ").append(c.toString()).append("\n");
             i = i + 1;
         }
         s.append("Enter any other key to exit");

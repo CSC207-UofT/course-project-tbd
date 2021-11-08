@@ -40,8 +40,7 @@ public class ViewFoldersController {
                 if(Integer.parseInt(input) < gm.getGroupById(groupId).getCategories().size()){
                     // TODO: Call Harry's method being implemented tomorrow here. Takes in the category name as an input
                     String categoryName = gm.getGroupById(groupId).getCategories().get(Integer.parseInt(input)).toString();
-                }
-                else{
+                } else{
                     flag = false;
                 }
 
