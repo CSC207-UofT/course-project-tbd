@@ -28,7 +28,6 @@ public class UserLoginController {
                 if (um.login(userId, password)){
                     nlp.success(userId);
                     UserPageController upc = new UserPageController(um, userId ,gm);
-                    System.out.println("he");
                     upc.run();
                     break;
                 }

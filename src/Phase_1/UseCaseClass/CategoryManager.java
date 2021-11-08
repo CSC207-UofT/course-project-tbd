@@ -1,11 +1,17 @@
 package Phase_1.UseCaseClass;
 
 import Phase_1.Entity.Category;
+import Phase_1.Entity.NormalUser;
+import Phase_1.Entity.Task;
 import Phase_1.Entity.User;
 
 public class CategoryManager {
 
-    public boolean checkCategory(User user, Category c) {
+    public Category createCategory(String description){
+        return new Category(description);
+    }
+
+    public boolean checkCategory(User user, Category c) throws NullPointerException {
         return user.getMyCategories().contains(c);
     }
 
@@ -22,4 +28,5 @@ public class CategoryManager {
     public boolean checkCategoryByName(Category category, String categoryName) {
         return category.getCategoryName().equals(categoryName);
     }
+
 }
