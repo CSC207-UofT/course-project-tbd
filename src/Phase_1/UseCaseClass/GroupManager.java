@@ -121,7 +121,7 @@ public class GroupManager{
         users.add(user);
         group.addUsers(users);
         ugm.addGroup(user, groupname);
-        group.addFolder(user.getUsername());
+        group.addCategory(user.getUsername());
     }
 
     /**

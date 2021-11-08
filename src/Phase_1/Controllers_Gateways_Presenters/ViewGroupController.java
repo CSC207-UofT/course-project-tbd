@@ -3,6 +3,7 @@ package Phase_1.Controllers_Gateways_Presenters;
 import Phase_1.Entity.Group;
 import Phase_1.Entity.NormalUser;
 import Phase_1.UseCaseClass.GroupManager;
+import Phase_1.UseCaseClass.TaskManager;
 import Phase_1.UseCaseClass.UserGroupManager;
 import Phase_1.UseCaseClass.UserManager;
 
@@ -20,13 +21,15 @@ public class ViewGroupController {
 
     private UserManager um;
     private GroupManager gm;
+    private TaskManager tm;
     private String userId;
     private UserGroupManager ugm;
     // private final ViewGroupPresenter vgp= new ViewGroupPresenter;
 
-    public ViewGroupController(UserManager um, GroupManager gm, String userId) {
+    public ViewGroupController(UserManager um, GroupManager gm, TaskManager tm, String userId) {
         this.gm = gm;
         this.um = um;
+        this.tm = tm;
         this.userId = userId;
         this.ugm = new UserGroupManager();
     }
@@ -42,6 +45,7 @@ public class ViewGroupController {
             // Creates a string showing all the groups the user has and options to click on them.
             s.append("Group ID: ").append(groupId).append("    Sequence number:  ").append(num).append("\n");
             groupIdRecord.put(num, groupId);
+            num++;
         }
         s.append("Enter the sequence number of the group you want to view \n" +
                 "Enter x to go back");
@@ -58,9 +62,7 @@ public class ViewGroupController {
                     // If the user enters a number greater than the no of groups user is in, we ask user to
                     // enter again.
                     String groupId = groupIdRecord.get(Integer.parseInt(option));
-                    GroupContentController gcc = new GroupContentController(um, gm,
-                            gm.getGroupById(groupId),
-                            userId);
+                    GroupContentController gcc = new GroupContentController(um, gm, tm, groupId, userId);
                     gcc.run();
                 }
                 else{
