@@ -25,7 +25,7 @@ public class UserPageController {
         this.upp = new UserPagePresenter(um.displayUserDetail(um.getUserById(userId)));
         this.um = um;
         this.gpc = new GroupPageController(userId, um, gm);
-        this.cpc = new CategoryPageController(userId, um);
+        this.cpc = new CategoryPageController(userId, um, nm);
 
         this.npc = new NotificationPageController(this.nm);
 
