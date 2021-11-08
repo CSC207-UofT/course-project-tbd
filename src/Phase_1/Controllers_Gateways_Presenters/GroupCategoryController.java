@@ -46,10 +46,8 @@ public class GroupCategoryController {
                         if (gm.checkIfLeader(gm.getGroupById(groupId).getgroupName(), um.getUserById(userId))) {
                             StringBuilder s = new StringBuilder();
                             for (Category c : gm.getGroupById(groupId).getCategories()) {
-                                for (Task t : c.getTasks()) {
-                                    s.append(t.getTaskName()).append(" - ");
                                 s.append(c.toString()).append("\n");
-                            }}
+                            }
                             s.delete(s.length() - 1, s.length());
                             System.out.println(s);
                         } else {
@@ -85,22 +83,17 @@ public class GroupCategoryController {
                                 TaskWithDueDate task = new TaskWithDueDate(taskTitle, taskDetail, year
                                         , month, day, hour, minute);
                                 nm.addTaskWithDueDate(task);
-                                for (Category c : gm.getGroupById(groupId).getCategories()) {
-                                    tm.addTask(c, task);
-                                }
+//                                tm.addTask(um.getUserById(userId), task);
                             } else {
-                                for (Category c : gm.getGroupById(groupId).getCategories()) {
-                                    Task task = new Task(taskTitle, taskDetail, c);
-                                    tm.addTask(c, task);
-                                }
+//                                Task task = new Task(taskTitle, taskDetail);
+//                                tm.addTask(um.getUserById(userId), task);
                             }
                         }
                         break;
                     }
-                    case "0": {
+                    case "0":
                         flag = false;
                         break;
-                    }
                 }
             }
         } catch (Exception e) {

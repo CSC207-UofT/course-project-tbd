@@ -45,6 +45,7 @@ public class ViewGroupController {
             // Creates a string showing all the groups the user has and options to click on them.
             s.append("Group ID: ").append(groupId).append("    Sequence number:  ").append(num).append("\n");
             groupIdRecord.put(num, groupId);
+            num++;
         }
         s.append("Enter the sequence number of the group you want to view \n" +
                 "Enter x to go back");
