@@ -40,9 +40,9 @@ public class ViewGroupController {
         StringBuilder s = new StringBuilder();
         groups = ugm.getMyGroups(um.getUserById(userId));
         HashMap<Integer, String> groupIdRecord = new HashMap<Integer, String>();
+        int num = 0;
         for (String groupId: ugm.getGroupIds(um.getUserById(userId))) {
             // Creates a string showing all the groups the user has and options to click on them.
-            int num = 0;
             s.append("Group ID: ").append(groupId).append("    Sequence number:  ").append(num).append("\n");
             groupIdRecord.put(num, groupId);
         }

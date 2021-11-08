@@ -48,7 +48,7 @@ public abstract  class User implements Serializable {
         public abstract void addGroup(String groupId);
         public abstract void removeGroup(String groupId);
         public abstract String getUsername();
-        public abstract void addTask(Task task);
+        public abstract void addTasktoCategory(Task task, Category c);
         public abstract void addNewCategory(Category category);
         public abstract String getPassword();
         public abstract ArrayList<String> getMyGroups();

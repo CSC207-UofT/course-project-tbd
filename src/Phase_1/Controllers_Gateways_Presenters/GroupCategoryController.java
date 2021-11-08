@@ -83,10 +83,10 @@ public class GroupCategoryController {
                                 TaskWithDueDate task = new TaskWithDueDate(taskTitle, taskDetail, year
                                         , month, day, hour, minute);
                                 nm.addTaskWithDueDate(task);
-                                tm.addTask(um.getUserById(userId), task);
+//                                tm.addTask(um.getUserById(userId), task);
                             } else {
-                                Task task = new Task(taskTitle, taskDetail);
-                                tm.addTask(um.getUserById(userId), task);
+//                                Task task = new Task(taskTitle, taskDetail);
+//                                tm.addTask(um.getUserById(userId), task);
                             }
                         }
                         break;
