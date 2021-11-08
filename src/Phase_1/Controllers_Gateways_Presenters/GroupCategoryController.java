@@ -57,6 +57,7 @@ public class GroupCategoryController {
                                 }
                             }
                         }
+                        break;
                     }
                     case "2": {
                         if (gm.checkIfLeader(gm.getGroupById(groupId).getgroupName(), um.getUserById(userId))) {
@@ -88,9 +89,11 @@ public class GroupCategoryController {
                                 tm.addTask(um.getUserById(userId), task);
                             }
                         }
+                        break;
                     }
                     case "0":
-                        flag= false;
+                        flag = false;
+                        break;
                 }
             }
         } catch (Exception e) {
