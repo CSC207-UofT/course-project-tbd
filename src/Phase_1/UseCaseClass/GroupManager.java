@@ -12,6 +12,7 @@ import java.util.HashMap;
 public class GroupManager{
     public HashMap<String, Group> maps;
     UserGroupManager ugm = new UserGroupManager();
+    private int count = 0;
 
     /**
      * Construct a TBD.GroupManager, giving them the given maps
@@ -31,10 +32,12 @@ public class GroupManager{
      * @param name name of the group
      */
     public void createGroup(User user, String name) {
-        String groupId =  "#" + (maps.keySet().size());
+//        String groupId =  "#" + (maps.keySet().size());
+        String groupId =  "#" + count;
         Group group = new Group(user, name + groupId);
         this.maps.put(name+groupId, group);
         ugm.addGroup(user, group.getgroupName());
+        count ++;
     }
 
     /**

@@ -37,16 +37,15 @@ public class GroupContentController {
                             System.out.println("HomePage class");
                             break;
                     case "2": {
-                        Group group = gm.getGroupById(groupId);
-                        if (gm.checkIfLeader(group.getgroupName(), um.getUserById(userId))) {
+                        if (gm.checkIfLeader(gm.getGroupById(groupId).getgroupName(), um.getUserById(userId))) {
                             StringBuilder s = new StringBuilder();
-                            for (Folder f : group.getFolders()) {
+                            for (Folder f : gm.getGroupById(groupId).getFolders()) {
                                 s.append(f.getFolderName()).append("\n");
                             }
                             s.delete(s.length() - 1, s.length());
                             System.out.println(s);
                         } else {
-                            for (Folder f : group.getFolders()) {
+                            for (Folder f : gm.getGroupById(groupId).getFolders()) {
                                 if (f.getFolderName().equals(um.getUserById(userId).getUsername())) {
                                     f.toString();
                                 }
