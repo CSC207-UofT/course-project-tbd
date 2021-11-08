@@ -1,14 +1,12 @@
 package Phase_1.Controllers_Gateways_Presenters;
 
-import Phase_1.Alarm.AlarmStarter;
+
 import Phase_1.Entity.Category;
-import Phase_1.Entity.NormalUser;
 import Phase_1.Entity.Task;
 import Phase_1.Entity.TaskWithDueDate;
 import Phase_1.UseCaseClass.CategoryManager;
 import Phase_1.UseCaseClass.NotificationManager;
 import Phase_1.UseCaseClass.TaskManager;
-import Phase_1.UseCaseClass.UserManager;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -19,16 +17,16 @@ import java.util.*;
 /**
  * This TaskPageController class is made for controlling the task
  * page according to the user input. This TaskPageController is
- * specialized to one user only, and the user is determined upon
- * creation of this class.
+ * specialized to one category only, and the category is determined upon
+ * specification of the user.
  *
- * @author  Owen Huang
+ * @author  Owen Huang, Sanjana Girish
  * @author  placeholder
  */
 public class TaskPageController {
 
     /**
-     * A category Name which is unique to a user
+     * A Category Name which is unique to a user
      */
     private String catName;
 
@@ -56,23 +54,23 @@ public class TaskPageController {
 
 
     /**
-     * Constructs the personalized Task Page for the specified user
+     * Constructs the personalized Task Page for the specified category
      *
-     * @param  catName a unique id associated with the user
+     * @param  catName a unique category associated with the tasks
      * @param cm the category manager class responsible for operating on user information
      * @param nm the notification manager class responsible for operations on tasks with due date
      */
     public TaskPageController(String catName, CategoryManager cm, NotificationManager nm){
-        this.catName = catName;
-        this.tpp = new TaskPagePresenter();
         this.cm = cm;
-        this.itm = new TaskManager();
         this.nm = nm;
+        this.catName = catName;
+        this.itm = new TaskManager();
+        this.tpp = new TaskPagePresenter();
     }
 
     /**
-     * Starts the task page, display to the terminal for interaction with the user
-     *
+     * Starts the task page for a particular category, display to the terminal for interaction with the user
+     * @param  category a category which all tasks are related to
      * @throws IOException {@inheritDoc}
      */
     public void run(Category category) throws IOException{
@@ -82,11 +80,11 @@ public class TaskPageController {
         while (!input.equals("1")){     // equals to 1 means to go back to previous page
             tpp.availableOptions();
             input = reader.readLine();
-            if ("2".equals(input)) {    // equals to 2 means to create and add a new task
+            if ("2".equals(input)) {    // equals to 2 means to create and add a new task to current category
                 addTask(reader, category);
-            } else if ("3".equals(input)) {     // equals to 3 means user wants to finish an existing task
+            } else if ("3".equals(input)) {     // equals to 3 means user wants to finish an existing task in category
                 finishTask(reader, category);
-            } else if ("4".equals(input)) {     // equals to 4 means user wants to view all current existing tasks
+            } else if ("4".equals(input)) {     // equals to 4 means user wants to view all current tasks in category
                 tpp.displayTasks();
                 System.out.println(itm.displayTask(category));
             }
@@ -95,9 +93,9 @@ public class TaskPageController {
 
     /**
      * When user chooses 3, this helper method finishes the task by the task name entered by the user
-     *
+     * for a particular category
      * @param  reader a BufferedReader for input
-     *
+     * @param  category a category which all tasks are related to
      * @throws IOException {@inheritDoc}
      */
     private void finishTask(BufferedReader reader, Category category) throws IOException {
@@ -119,7 +117,7 @@ public class TaskPageController {
      * alarm for the task and notify the user when it is due
      *
      * @param  reader a BufferedReader for input
-     *
+     * @param  category a category which all tasks are related to
      * @throws IOException {@inheritDoc}
      */
     private void addTask(BufferedReader reader, Category category) throws IOException {
@@ -166,7 +164,7 @@ public class TaskPageController {
             }
         }else{      // user does not want to create a task with due date
             Task task = new Task(taskTitle, taskDetail, category); // create a simple task without due date
-            itm.addTask(category, task);  // add task to user's task collection
+            itm.addTask(category, task);  // add task to category's task collection
             tpp.taskAdd();
         }
     }
