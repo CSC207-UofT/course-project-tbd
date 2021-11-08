@@ -63,7 +63,7 @@ public class CategoryPageController {
     private TaskPageController tpc;
 
 
-    public CategoryPageController(String userId, UserManager um){
+    public CategoryPageController(String userId, UserManager um, NotificationManager nm){
         this.userId = userId;
         this.tpp = new TaskPagePresenter();
         this.um = um;
