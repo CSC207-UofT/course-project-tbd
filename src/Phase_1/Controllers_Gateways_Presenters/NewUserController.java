@@ -9,7 +9,7 @@ import java.io.InputStreamReader;
 
 public class NewUserController {
     UserManager um;
-    NewUserController(UserManager um){this.um = um;};
+    NewUserController(UserManager um){this.um = um;}
     public final NewUserPresenter nup = new NewUserPresenter();
     public void run(){BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         nup.Intro();
@@ -21,7 +21,11 @@ public class NewUserController {
             }
             nup.askPassword(userId);
             String password = reader.readLine();
-            um.createNormalUser(userId, password);
+            nup.askSQ();
+            String sq = reader.readLine();
+            nup.askSQAnswer();
+            String sq_ans = reader.readLine();
+            um.createNormalUser(userId, password, sq, sq_ans);
             nup.completed();
         } catch (IOException e){
             System.out.println("Please type a valid number");

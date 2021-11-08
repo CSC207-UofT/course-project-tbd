@@ -15,7 +15,7 @@ public class UserPagePresenter {
 
     public void userProfilePage(){
         System.out.println("---------------------");
-        System.out.println("Your User Profile:");
+        System.out.println("Your User Name:");
         System.out.println(userDetail);
         System.out.println("---------------------");
     }
