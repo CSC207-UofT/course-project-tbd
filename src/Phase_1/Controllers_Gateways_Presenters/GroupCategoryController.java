@@ -13,12 +13,12 @@ import java.io.InputStreamReader;
 import java.util.List;
 
 public class GroupCategoryController {
-    private final String groupId;
-    private final UserManager um;
-    private final TaskManager tm;
-    private final GroupManager gm;
-    private final String userId;
-    private final GroupCategoryPresenter gcatp;
+    private String groupId;
+    private UserManager um;
+    private TaskManager tm;
+    private GroupManager gm;
+    private String userId;
+    private GroupCategoryPresenter gcatp;
     NotificationManager nm;
 
     public GroupCategoryController(UserManager um, GroupManager gm, TaskManager tm, String groupId, String userId,
@@ -33,33 +33,33 @@ public class GroupCategoryController {
 
     public void run() {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("1");
+        System.out.println(gm.getGroupById(groupId));
+        System.out.println(groupId);
         try {
-            System.out.println(userId);
-            System.out.println(groupId);
-            System.out.println(gcatp);
-            System.out.println(gm);
-            System.out.println(um);
-            System.out.println(tm);
-            System.out.println("try");
-            System.out.println(gm.getGroupById(groupId).getgroupName());
-            System.out.println(um.getUserById(userId));
-            System.out.println(gm.checkIfLeader(gm.getGroupById(groupId).getgroupName(), um.getUserById(userId)));
-            if (gm.checkIfLeader(gm.getGroupById(groupId).getgroupName(), um.getUserById(userId))) {
-                gcatp.ifLeader();
-                System.out.println("2");
-                String input = reader.readLine();
-                while(!input.equals("0")) {
-                    switch (input) {
-                        case "1": {
+            String input;
+            boolean flag = true;
+            while(flag) {
+                gcatp.instructions();
+                input = reader.readLine();
+                switch (input) {
+                    case "1": {
+                        if (gm.checkIfLeader(gm.getGroupById(groupId).getgroupName(), um.getUserById(userId))) {
                             StringBuilder s = new StringBuilder();
                             for (Category c : gm.getGroupById(groupId).getCategories()) {
                                 s.append(c.toString()).append("\n");
                             }
                             s.delete(s.length() - 1, s.length());
                             System.out.println(s);
+                        } else {
+                            for (Category c : gm.getGroupById(groupId).getCategories()) {
+                                if (c.getCategoryName().equals(um.getUserById(userId).getUsername())) {
+                                    c.toString();
+                                }
+                            }
                         }
-                        case "2": {
+                    }
+                    case "2": {
+                        if (gm.checkIfLeader(gm.getGroupById(groupId).getgroupName(), um.getUserById(userId))) {
                             gcatp.giveTaskName();
                             String taskTitle = reader.readLine();
                             gcatp.giveTaskDetail();
@@ -89,21 +89,8 @@ public class GroupCategoryController {
                             }
                         }
                     }
-                    gcatp.ifLeader();
-                    input = reader.readLine();
-                }
-            } else {
-                System.out.println("3");
-                gcatp.ifUser();
-                String input = reader.readLine();
-                while (!input.equals("0")) {
-                    for (Category c : gm.getGroupById(groupId).getCategories()) {
-                        if (c.getCategoryName().equals(um.getUserById(userId).getUsername())) {
-                            c.toString();
-                        }
-                    }
-                    gcatp.ifUser();
-                    input = reader.readLine();
+                    case "0":
+                        flag= false;
                 }
             }
         } catch (Exception e) {

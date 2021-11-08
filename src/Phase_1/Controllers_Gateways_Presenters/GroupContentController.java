@@ -42,8 +42,9 @@ public class GroupContentController {
                         input = reader.readLine();
                         break;
                     case "2": {
-                        GroupCategoryPresenter gcatp = new GroupCategoryPresenter();
-                        GroupCategoryController gcc = new GroupCategoryController(um, gm, tm, userId, groupId, gcatp);
+                        System.out.println(groupId);
+                        GroupCategoryPresenter gcatp = new GroupCategoryPresenter(userId, um, gm, groupId);
+                        GroupCategoryController gcc = new GroupCategoryController(um, gm, tm, groupId, userId, gcatp);
                         gcc.run();
                         gcp.instructions();
                         input = reader.readLine();
