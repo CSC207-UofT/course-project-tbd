@@ -52,14 +52,15 @@ public class GroupPageController {
                         input = reader.readLine();
                     }
                 else if (input.equals("4")){
-                    ViewGroupController vgc = new ViewGroupController(um, gm, userId);
+                    ViewGroupController vgc = new ViewGroupController(um, gm, itm, userId);
                         vgc.run();
                         gpp.welcomeLine();
                         input = reader.readLine();
                     }
                 else {
-                        gpp.welcomeLine();
-                        input = reader.readLine();
+
+//                        gpp.welcomeLine();
+//                        input = reader.readLine();
                     }
 
                 }
