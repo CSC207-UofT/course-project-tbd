@@ -42,6 +42,9 @@ public class UserLoginController {
                         password = reader.readLine();
                     }
                     else if (s.equals("1")) {
+                        nlp.typeUserId();
+                        userId = reader.readLine();
+                        if (um.getUserById(userId) != null){
                     while (s.equals("1"))    {
                         nlp.SQ(((NormalUser) um.getUserById(userId)).getSQ());
                         String ans = reader.readLine();
@@ -61,7 +64,7 @@ public class UserLoginController {
                                 s = "2";
                             }
                         }
-                }}
+                }}}
                     else {
                       stop = true;
                     }

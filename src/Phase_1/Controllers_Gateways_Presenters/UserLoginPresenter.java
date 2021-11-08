@@ -36,6 +36,10 @@ public class UserLoginPresenter {
                 "Type anything else to go back to the main page");
     }
 
+    public void fail_1(){
+        System.out.println("Sorry, your username is invalid :(");
+    }
+
     public void changed(){
         System.out.println("Password successfully changed");
     }
