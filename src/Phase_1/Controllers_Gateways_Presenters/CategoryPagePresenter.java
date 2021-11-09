@@ -2,10 +2,6 @@ package Phase_1.Controllers_Gateways_Presenters;
 
 public class CategoryPagePresenter {
 
-    public CategoryPagePresenter(){
-    }
-
-
     public void availableOptions(){
         System.out.println("--------------------");
         System.out.print("Your options:\n" +

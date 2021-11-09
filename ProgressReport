@@ -53,7 +53,7 @@ Extension of the group in the phase 1:
 
     Task:
         1. User can add due date of the task, and will receive a notification when the task is about to due. After due
-        date, nthe task will be automatically assigned "finished" in status.
+        date, the task will be automatically assigned "finished" in status.
         2. will add some special task templates: like StudyTask, WorkoutTask, CountDownTask. And those special task will
         have extended functionality differed from normal task
         - CountDownTask will implement a tomatoClock template to count down the time when the user choose this task

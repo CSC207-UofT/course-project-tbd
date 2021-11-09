@@ -13,6 +13,13 @@ public class NewUserPresenter {
         System.out.println("Congrats! UserName " + u + " is valid \n" +
                 "Please type in your password: ");
     }
+    public void askSQ(){
+        System.out.println("Please enter a security question that only you would know the answer for?");
+    }
+
+    public void askSQAnswer(){
+        System.out.println("Please give your answer to the security question?");
+    }
     public void completed(){
         System.out.println("Hurray! your account is created! \n" +
                 "Have a nice trip!");
