@@ -38,8 +38,9 @@ public class ViewFoldersController {
             input = reader.readLine();
             while(flag){
                 if(Integer.parseInt(input) < gm.getGroupById(groupId).getCategories().size()){
-                    // TODO: Call Harry's method being implemented tomorrow here. Takes in the category name as an input
                     String categoryName = gm.getGroupById(groupId).getCategories().get(Integer.parseInt(input)).toString();
+                    GroupAddTaskController gatc = new GroupAddTaskController(userId, groupId, categoryName, um, tm, gm);
+                    gatc.run();
                 } else{
                     flag = false;
                 }
@@ -47,6 +48,7 @@ public class ViewFoldersController {
             }
         }
         catch (Exception e) {
+            System.out.println("error");
             System.out.println("Please type a valid number");
         }
     }

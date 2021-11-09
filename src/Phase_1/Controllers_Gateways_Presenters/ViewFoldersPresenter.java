@@ -27,7 +27,7 @@ public class ViewFoldersPresenter {
             s.append(i + " ").append(c.toString()).append("\n");
             i = i + 1;
         }
-        s.append("Enter any other key to exit");
+        s.append("Enter x to go back");
         System.out.println(s);
     }
 }

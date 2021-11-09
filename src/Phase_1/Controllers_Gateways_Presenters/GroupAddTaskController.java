@@ -3,65 +3,57 @@ package Phase_1.Controllers_Gateways_Presenters;
 import Phase_1.Entity.Category;
 import Phase_1.Entity.Task;
 import Phase_1.Entity.TaskWithDueDate;
-import Phase_1.UseCaseClass.GroupManager;
-import Phase_1.UseCaseClass.NotificationManager;
-import Phase_1.UseCaseClass.TaskManager;
-import Phase_1.UseCaseClass.UserManager;
+import Phase_1.UseCaseClass.*;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
 
-public class GroupCategoryController {
+public class GroupAddTaskController {
+    private String userId;
     private String groupId;
+    private String categoryName;
     private UserManager um;
     private TaskManager tm;
     private GroupManager gm;
-    private String userId;
-    private GroupCategoryPresenter gcatp;
     NotificationManager nm;
 
-    public GroupCategoryController(UserManager um, GroupManager gm, TaskManager tm, String groupId, String userId,
-                                   GroupCategoryPresenter gcatp) {
-        this.gm = gm;
-        this.um = um;
-        this.tm = tm;
-        this.groupId = groupId;
+    public GroupAddTaskController(String userId, String groupId, String categoryName, UserManager um, TaskManager tm,
+                                  GroupManager gm) {
         this.userId = userId;
-        this.gcatp = gcatp;
+        this.groupId = groupId;
+        this.categoryName = categoryName;
+        this.um = um;
+        this.tm =tm;
+        this.gm = gm;
     }
 
     public void run() {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        CategoryManager cm = new CategoryManager();
         try {
+            System.out.println(userId);
+            System.out.println(groupId);
+            System.out.println(categoryName);
             String input;
             boolean flag = true;
-            while(flag) {
-                gcatp.instructions();
+            GroupAddTaskPresenter gatp = new GroupAddTaskPresenter(groupId, um, gm, userId, categoryName);
+            while (flag) {
+                System.out.println("this is working");
+                gatp.instructions();
                 input = reader.readLine();
                 switch (input) {
                     case "1": {
-                        if (gm.checkIfLeader(gm.getGroupById(groupId).getgroupName(), um.getUserById(userId))) {
-                            StringBuilder s = new StringBuilder();
-                            for (Category c : gm.getGroupById(groupId).getCategories()) {
-                                s.append(c.toString()).append("\n");
-                            }
-                            s.delete(s.length() - 1, s.length());
-                            System.out.println(s);
-                        } else {
-                            for (Category c : gm.getGroupById(groupId).getCategories()) {
-                                if (c.getCategoryName().equals(um.getUserById(userId).getUsername())) {
-                                    c.toString();
-                                }
-                            }
-                        }
+                        String out = cm.getCategoryByName(um.getUserById(categoryName), categoryName).toString();
+                        System.out.println(out);
                         break;
                     }
                     case "2": {
                         if (gm.checkIfLeader(gm.getGroupById(groupId).getgroupName(), um.getUserById(userId))) {
-                            gcatp.giveTaskName();
+                            gatp.giveTaskName();
                             String taskTitle = reader.readLine();
-                            gcatp.giveTaskDetail();
+                            gatp.giveTaskDetail();
                             String taskDetail = reader.readLine();
 
                             System.out.println("Do you want to set an alarm to notify the group? (y/n)");
@@ -81,22 +73,35 @@ public class GroupCategoryController {
                                 TaskWithDueDate task = new TaskWithDueDate(taskTitle, taskDetail, year
                                         , month, day, hour, minute);
                                 nm.addTaskWithDueDate(task);
-//                                tm.addTask(um.getUserById(userId), task);
+                                tm.addTask(cm.getCategoryByName(um.getUserById(userId), categoryName), task);
                             } else {
-//                                Task task = new Task(taskTitle, taskDetail);
-//                                tm.addTask(um.getUserById(userId), task);
+                                Task task = new Task(taskTitle, taskDetail,
+                                        cm.getCategoryByName(um.getUserById(userId), categoryName));
+                                tm.addTask(cm.getCategoryByName(um.getUserById(userId), categoryName), task);
                             }
+                        } else if (userId.equals(categoryName)) {
+                                gatp.toComplete();
+                                String completed = reader.readLine();
+                                Task task = tm.getTaskByName(cm.getCategoryByName(um.getUserById(userId), categoryName),
+                                        completed);
+                                if (tm.checkTask(cm.getCategoryByName(um.getUserById(userId), categoryName), task)) {
+                                    tm.completeTask(task);
+                                    System.out.println("The task you entered has been finished");
+                                } else {
+                                    gatp.notValid();
+                                }
                         }
                         break;
                     }
-                    case "0":
+                    case "0": {
                         flag = false;
                         break;
+                    }
                 }
             }
-        } catch (Exception e) {
+        } catch (IOException e) {
+            System.out.println("error1");
             System.out.println("Please type a valid number");
         }
     }
-
 }
