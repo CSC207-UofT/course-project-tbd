@@ -7,33 +7,57 @@ import java.io.InputStreamReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * This NotificationPageController class is made for controlling the notification
+ * page according to the user input.
+ *
+ * @author  Owen Huang
+ * @author  Sanjana Girish
+ */
 public class NotificationPageController {
-    private NormalUser user;
-    NotificationManager notificationManager;
 
+    /**
+     * Used to start alarm for task with a due date, and send notification to user mailbox
+     */
+    private NotificationManager notificationManager;
+
+    /**
+     * Notification Page presenter contains all the print statements associated with the task page
+     */
     private final NotificationPagePresenter npp = new NotificationPagePresenter();
+
+    /**
+     * Constructs the Notification Page for display
+     *
+     * @param  notificationManager is a NotificationManager object responsible for managing notifications
+     */
     NotificationPageController(NotificationManager notificationManager){
         this.notificationManager = notificationManager;
     }
 
+    /**
+     * Starts the notification page for a user, display to the terminal for interaction with the user
+     *
+     * @throws IOException {@inheritDoc}
+     */
     public void run() throws IOException{
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String input = "";
-        while (!input.equals("1")){
-            showMailbox();
+        while (!input.equals("1")){     // 1 means go back
+            npp.displayNotifications(notificationManager.getMailbox());     // show current notifications
             npp.availableOptions();
             input = reader.readLine();
-            if (input.equals("2")) {
+            if (input.equals("2")) {        // 2 means delete notification
                 deleteNotification(reader);
             }
         }
     }
 
-    public void showMailbox(){
-        System.out.println(notificationManager.getMailbox());
-    }
-
-
+    /**
+     * Deletes a notification in mailbox
+     * @param  reader is a BufferedReader prompting for user for the notification they want to delete
+     * @throws IOException {@inheritDoc}
+     */
     public void deleteNotification(BufferedReader reader) throws IOException {}
 }
 

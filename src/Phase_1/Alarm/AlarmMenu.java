@@ -35,7 +35,7 @@ public interface AlarmMenu{
      * Cancels the alarm passing in
      *
      * @param   alarm is an Alarm object that user wants to get cancelled
-     * @return  true if the alarm is cancelled successfully, false if the alarm does not exist or failed to cancell
+     * @return  true if the alarm is cancelled successfully, false if the alarm does not exist or failed to cancel
      * through other means
      */
     boolean cancelAlarm(Alarm alarm);
