@@ -14,7 +14,7 @@ public class TaskManager {
     }
 
     public boolean checkIfFinished(Task task){
-        return task.status;
+        return task.getStatus();
     }
 
     public boolean checkTaskByName(Task task, String taskName){

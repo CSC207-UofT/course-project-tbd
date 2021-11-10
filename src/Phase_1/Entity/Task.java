@@ -12,7 +12,7 @@ public class Task {
     private String title;
     private String information;
     public LocalDateTime dueDate = null;
-    public boolean status;
+    private boolean status;
     private Category category;
 
     public Task(String title){
@@ -49,8 +49,6 @@ public class Task {
     /**
      * @return This method returns the task name.
      */
-
-
     public String getTaskName(){
         return this.title;
     }
@@ -58,7 +56,6 @@ public class Task {
     /**
      * This method sets task status from incomplete to complete.
      */
-
     public LocalDateTime getDueDate(){
         return this.dueDate;
     }
@@ -80,7 +77,6 @@ public class Task {
     /**
      * @return This method represents the information and status of the task in the form of string.
      */
-
     @Override
     public String toString() {
         String s = "Title: " + this.title + "\n";

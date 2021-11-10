@@ -15,11 +15,7 @@ public class AlarmStarter implements AlarmMenu{
     }
 
     @Override
-    public TimerTask startAlarm(Alarm alarm, Runnable whenFired) throws Exception {
-        /*if (unfinishedScheduledTasks.containsKey(alarm)){
-            throw new UnsupportedOperationException("There is already a task at this time");
-        }*/
-
+    public TimerTask startAlarm(Alarm alarm, Runnable whenFired) throws UnsupportedOperationException {
         //get number of millisecond into the future of the scheduled time
         Duration duration = Duration.between(LocalDateTime.now(), alarm.getTime());
         long ms = duration.toMillis();
