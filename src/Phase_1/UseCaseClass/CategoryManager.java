@@ -1,9 +1,6 @@
 package Phase_1.UseCaseClass;
 
-import Phase_1.Entity.Category;
-import Phase_1.Entity.NormalUser;
-import Phase_1.Entity.Task;
-import Phase_1.Entity.User;
+import Phase_1.Entity.*;
 
 public class CategoryManager {
 
@@ -29,4 +26,13 @@ public class CategoryManager {
         return category.getCategoryName().equals(categoryName);
     }
 
+    public Category getCategoryByGroup(String categoryName, Group groupById) {
+        for (Category c: groupById.getCategories()){
+            if (this.checkCategoryByName(c, categoryName)){
+                return c;
+            }
+
+        }
+        return null;
+    }
 }

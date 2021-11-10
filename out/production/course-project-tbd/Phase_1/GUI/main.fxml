@@ -22,12 +22,14 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="Phase_1.GUI.Main"
+            fx:controller="Phase_1.Controllers_Gateways_Presenters.MainPageController"
             prefHeight="400.0" prefWidth="600.0">
 
 </AnchorPane>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="476.0" prefWidth="852.0" xmlns="http://javafx.com/javafx/14.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gui.Controller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="476.0" prefWidth="852.0" xmlns="http://javafx.com/javafx/14.0.2"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="Phase_1.Controllers_Gateways_Presenters.MainPageController">
 <top>
     <VBox BorderPane.alignment="CENTER">
         <children>
@@ -60,7 +62,7 @@
                 <children>
                     <TextField fx:id="searchField" prefHeight="26.0" prefWidth="124.0" promptText="search courses" />
                     <Separator orientation="VERTICAL" prefHeight="26.0" prefWidth="7.0" visible="false" />
-                    <Button fx:id="searchButton" mnemonicParsing="false" text="search" />
+                    <Button fx:id="searchButton" mnemonicParsing="false" onAction="#searchButtonClicked" text="search" />
                     <MenuBar prefHeight="28.0" prefWidth="636.0" HBox.hgrow="ALWAYS">
                         <menus>
                             <Menu mnemonicParsing="false" text="export">
