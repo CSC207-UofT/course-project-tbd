@@ -33,20 +33,19 @@ public class GroupAddTaskController {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         CategoryManager cm = new CategoryManager();
         try {
-            System.out.println(userId);
-            System.out.println(groupId);
-            System.out.println(categoryName);
             String input;
             boolean flag = true;
-            GroupAddTaskPresenter gatp = new GroupAddTaskPresenter(groupId, um, gm, userId, categoryName);
+            GroupAddTaskPresenter gatp = new GroupAddTaskPresenter(userId, um, gm, groupId, categoryName);
             while (flag) {
-                System.out.println("this is working");
                 gatp.instructions();
                 input = reader.readLine();
                 switch (input) {
                     case "1": {
-                        String out = cm.getCategoryByName(um.getUserById(categoryName), categoryName).toString();
-                        System.out.println(out);
+                        StringBuilder s = new StringBuilder();
+                        for (Task t : cm.getCategoryByGroup(categoryName, gm.getGroupById(groupId)).getTasks()) {
+                            s.append(t.toString() + "\n");
+                        }
+                        System.out.println(s);
                         break;
                     }
                     case "2": {
@@ -73,11 +72,11 @@ public class GroupAddTaskController {
                                 TaskWithDueDate task = new TaskWithDueDate(taskTitle, taskDetail, year
                                         , month, day, hour, minute);
                                 nm.addTaskWithDueDate(task);
-                                tm.addTask(cm.getCategoryByName(um.getUserById(userId), categoryName), task);
+                                tm.addTask(cm.getCategoryByGroup(categoryName, gm.getGroupById(groupId)), task);
                             } else {
                                 Task task = new Task(taskTitle, taskDetail,
-                                        cm.getCategoryByName(um.getUserById(userId), categoryName));
-                                tm.addTask(cm.getCategoryByName(um.getUserById(userId), categoryName), task);
+                                        cm.getCategoryByGroup(categoryName, gm.getGroupById(groupId)));
+                                tm.addTask(cm.getCategoryByGroup(categoryName, gm.getGroupById(groupId)), task);
                             }
                         } else if (userId.equals(categoryName)) {
                                 gatp.toComplete();

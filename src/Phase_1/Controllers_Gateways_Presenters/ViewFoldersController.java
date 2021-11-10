@@ -38,7 +38,8 @@ public class ViewFoldersController {
             input = reader.readLine();
             while(flag){
                 if(Integer.parseInt(input) < gm.getGroupById(groupId).getCategories().size()){
-                    String categoryName = gm.getGroupById(groupId).getCategories().get(Integer.parseInt(input)).toString();
+                    String categoryName = gm.getGroupById(groupId).
+                            getCategories().get(Integer.parseInt(input)).toString();
                     GroupAddTaskController gatc = new GroupAddTaskController(userId, groupId, categoryName, um, tm, gm);
                     gatc.run();
                 } else{
