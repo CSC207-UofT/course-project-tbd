@@ -70,6 +70,7 @@ public class TaskPageController {
 
     /**
      * Starts the task page for a particular category, display to the terminal for interaction with the user
+     *
      * @param  category a category which all tasks are related to
      * @throws IOException {@inheritDoc}
      */
