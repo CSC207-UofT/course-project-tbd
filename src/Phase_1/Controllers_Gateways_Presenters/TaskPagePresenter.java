@@ -2,9 +2,6 @@ package Phase_1.Controllers_Gateways_Presenters;
 
 public class TaskPagePresenter {
 
-    public TaskPagePresenter(){
-    }
-
 
     public void availableOptions(){
         System.out.println("--------------------");

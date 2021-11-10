@@ -14,7 +14,7 @@ public class UserLoginController {
     GroupManager gm;
     UserLoginController(UserManager um, GroupManager gm){
         this.um = um;
-        this.gm = gm;};
+        this.gm = gm;}
     public final UserLoginPresenter nlp = new UserLoginPresenter();
     public void run(){BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         nlp.welcomePage();
@@ -35,14 +35,38 @@ public class UserLoginController {
                 {nlp.fail();
                     nlp.again();
                     String s = reader.readLine();
-                    if (!s.equals("0")){
-                        stop = true;
-                    }
-                    else {
+                    if (s.equals("0")){
                         nlp.typeUserId();
                         userId = reader.readLine();
                         nlp.typePassword();
                         password = reader.readLine();
+                    }
+                    else if (s.equals("1")) {
+                        nlp.typeUserId();
+                        userId = reader.readLine();
+                        if (um.getUserById(userId) != null){
+                    while (s.equals("1"))    {
+                        nlp.SQ(((NormalUser) um.getUserById(userId)).getSQ());
+                        String ans = reader.readLine();
+                        if (((NormalUser) um.getUserById(userId)).getSQ_Ans().equals(ans)) {
+                            nlp.SQ_AS();
+                            String new_pass = reader.readLine();
+                            ((NormalUser) um.getUserById(userId)).setPassword(new_pass);
+                            nlp.changed();
+                            s = "2";
+                            stop = true;
+                        }
+                        else {
+                            nlp.SQ_AUS();
+                            String s1 = reader.readLine();
+                            if (!s1.equals("0")) {
+                                stop = true;
+                                s = "2";
+                            }
+                        }
+                }}}
+                    else {
+                      stop = true;
                     }
                 }
 

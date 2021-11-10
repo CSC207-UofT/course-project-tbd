@@ -23,8 +23,8 @@ public class UserManager {
     /**
      * Creates a normal user and add it to the arraylist of all the users.
      */
-    public void createNormalUser(String username, String password) {
-        this.allUsers.add(new NormalUser(username, password));
+    public void createNormalUser(String username, String password, String sq, String sq_ans) {
+        this.allUsers.add(new NormalUser(username, password, sq, sq_ans));
     }
 
 
