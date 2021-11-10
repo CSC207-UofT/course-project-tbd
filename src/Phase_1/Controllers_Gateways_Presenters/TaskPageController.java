@@ -20,8 +20,8 @@ import java.util.*;
  * specialized to one category only, and the category is determined upon
  * specification of the user.
  *
- * @author  Owen Huang
- * @author  Sanjana Girish
+ * @author  Owen Huang, Sanjana Girish
+ * @author  placeholder
  */
 public class TaskPageController {
 
@@ -103,11 +103,7 @@ public class TaskPageController {
         String taskToComplete = reader.readLine();      //prompts the user for a task name
         Task task = itm.getTaskByName(category, taskToComplete);// get the specified task in user's tasks
         if(itm.checkTask(category, task)){  // If task is present in user, mark it finished
-            itm.completeTask(task);         // mark task as completed
-            if (task instanceof TaskWithDueDate){       // if task has an alarm, turn off the alarm
-                nm.turnOffAlarmOfTask((TaskWithDueDate) task);
-                System.out.println("Alarm for task: "+ task.getTaskName() + " has benn turned off.");
-            }
+            itm.completeTask(task);
             System.out.println("Task finished");
         }
         else{   //the task with the given name does not exist in user's current tasks
@@ -158,7 +154,7 @@ public class TaskPageController {
                 TaskWithDueDate task = new TaskWithDueDate(taskTitle, taskDetail, year, month, day, hour, minute);
                 nm.addTaskWithDueDate(task);    // add to notification manager for creating alarm for task
                 itm.addTask(category, task);  // add task to user's task collection
-                tpp.taskAdded();
+                tpp.taskAdd();
             } catch (UnsupportedOperationException e) {     // exception thrown when user schedules a date in the past
                 System.out.println(e.getMessage());
             } catch (IndexOutOfBoundsException e2){     // when the user's date input does not follow the format
@@ -169,7 +165,7 @@ public class TaskPageController {
         }else{      // user does not want to create a task with due date
             Task task = new Task(taskTitle, taskDetail, category); // create a simple task without due date
             itm.addTask(category, task);  // add task to category's task collection
-            tpp.taskAdded();
+            tpp.taskAdd();
         }
     }
 }
