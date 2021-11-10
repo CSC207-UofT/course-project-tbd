@@ -4,6 +4,7 @@ import Phase_1.Entity.Group;
 import Phase_1.Entity.NormalUser;
 import Phase_1.UseCaseClass.GroupManager;
 import Phase_1.UseCaseClass.TaskManager;
+import Phase_1.UseCaseClass.UserGroupManager;
 import Phase_1.UseCaseClass.UserManager;
 
 import java.io.BufferedReader;
@@ -15,6 +16,7 @@ public class GroupPageController {
     UserManager um;
     String userId;
     GroupManager gm;
+    UserGroupManager ugm;
     private TaskPagePresenter tpp;
     private TaskManager itm;
     private final JoinGroupPresenter jgp = new JoinGroupPresenter();
@@ -25,6 +27,7 @@ public class GroupPageController {
         this.gm = gm;
         this.tpp = new TaskPagePresenter();
         this.itm = new TaskManager();
+        this.ugm = new UserGroupManager();
     }
     public void run(){
         GroupPagePresenter gpp = new GroupPagePresenter();
@@ -49,14 +52,15 @@ public class GroupPageController {
                         input = reader.readLine();
                     }
                 else if (input.equals("4")){
-                    ViewGroupController vgc = new ViewGroupController(um, gm, userId);
+                    ViewGroupController vgc = new ViewGroupController(um, gm, itm, userId);
                         vgc.run();
                         gpp.welcomeLine();
                         input = reader.readLine();
                     }
                 else {
-                        gpp.welcomeLine();
-                        input = reader.readLine();
+
+//                        gpp.welcomeLine();
+//                        input = reader.readLine();
                     }
 
                 }
@@ -78,7 +82,6 @@ public class GroupPageController {
                 groupName = reader.readLine();
             }
             gm.createGroup(um.getUserById(userId), groupName);
-            um.getUserById(userId).myGroups.add(new Group(um.getUserById(userId), groupName));
             cgp.CreateSuccess(groupName);
             cgp.lines();
         } catch (IOException e) {

@@ -5,38 +5,56 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+/**
+ * This class creates a category, with its title, list of tasks in the category
+ */
+
 public class Category implements Iterable<Task>{
     private String categoryName;    // This is the name of the category/folder
-    private ArrayList<Task> tasks;  // These are all the tasks contained in that category
+    public ArrayList<Task> tasks;  // These are all the tasks contained in that category
 
     public Category (String name) {
         this.categoryName = name;
         this.tasks = new ArrayList<>();
     }
 
+
+    /**
+     * This method adds the task to the current category
+     * @param t, a task, to add to this category
+     */
     public void addTask(Task t){
-        // This method adds the task to the current category
         this.tasks.add(t);
     }
 
+
+    /**
+     * @return This method returns the category name.
+     */
     public String getCategoryName() {
         return this.categoryName;
     }
 
+
+    /**
+     * @return This method returns the tasks in this category.
+     */
     public List<Task> getTasks() {
         return this.tasks;
     }
 
+
+    /**
+     * @return This method represents the title of the category in the form of string.
+     */
     @Override
     public String toString() {
         StringBuilder s = new StringBuilder();
         s.append(this.categoryName).append("\n");
-        for (Task t: tasks){
-            s.append(t).append("\n");
-        }
         s.delete(s.length()-1,s.length());
         return s.toString();
     }
+
 
     @Override
     public Iterator<Task> iterator() {

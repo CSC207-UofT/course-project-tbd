@@ -15,7 +15,7 @@ public class UserPagePresenter {
 
     public void userProfilePage(){
         System.out.println("---------------------");
-        System.out.println("Your User Profile:");
+        System.out.println("Your User Name:");
         System.out.println(userDetail);
         System.out.println("---------------------");
     }
@@ -23,7 +23,7 @@ public class UserPagePresenter {
     public void availableOptions(){
         System.out.print("Your Options:\n"+
                 "1. My Group\n" +
-                "2, My Tasks\n" +
+                "2. My Categories\n" +
                 "3. My Notification\n" +
                 "4. Sign Out\n" +
                 "Your answer here: ");

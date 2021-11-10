@@ -2,16 +2,20 @@ package Phase_1.Controllers_Gateways_Presenters;
 
 public class CategoryPagePresenter {
 
-    public CategoryPagePresenter(){
-    }
-
-
     public void availableOptions(){
         System.out.println("--------------------");
         System.out.print("Your options:\n" +
                 "1. Back\n" +
                 "2. Add Category:\n" +
                 "3. View Categories \n" +
+                "Your answer here: ");
+    }
+
+    public void availableCategoryOptions(){
+        System.out.println("--------------------");
+        System.out.print("Your options:\n" +
+                "1. Back\n" +
+                "2. Choose Category by Name:\n" +
                 "Your answer here: ");
     }
 
@@ -39,6 +43,10 @@ public class CategoryPagePresenter {
 
     public void displayCategory(){
         System.out.println("The Categories are :");
+    }
+
+    public void CategoryNotUnique(){
+        System.out.println("The category already exists, chose another name");
     }
 
 }

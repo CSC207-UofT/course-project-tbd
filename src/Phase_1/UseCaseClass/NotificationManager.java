@@ -28,6 +28,10 @@ public class NotificationManager implements Runnable {
         return true;
     }
 
+    public boolean turnOffAlarmOfTask(TaskWithDueDate task){
+        return addTaskWithDueDate(task);
+    }
+
     public ArrayList<String> getMailbox(){
         return mailbox;
     }
@@ -71,11 +75,16 @@ public class NotificationManager implements Runnable {
                 TaskWithDueDate t =  this.taskWithDueDates.poll();
                 Alarm alarm = this.alarmMenu.createAlarm(t.getDueDate());
                 try {
-                    this.alarmMenu.startAlarm(alarm, new NotificationBox(t));
+                    if (!t.getStatus()){        // if task is incomplete, start the alarm
+                        this.alarmMenu.startAlarm(alarm, new NotificationBox(t));
+                    } else {                    // task is mark complete, cancel the alarm
+                        this.alarmMenu.cancelAlarm(alarm);
+                    }
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    System.out.println(e.getMessage());
                 }
             }
+
         }
         /*for(int i = 0; i < 100; i++){
             System.out.println(i);

@@ -1,7 +1,6 @@
 package Phase_1.Controllers_Gateways_Presenters;
 
 import Phase_1.Entity.Group;
-import Phase_1.Entity.NormalUser;
 import Phase_1.UseCaseClass.GroupManager;
 import Phase_1.UseCaseClass.UserManager;
 
@@ -10,16 +9,17 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class GroupChatController {
-    private Group group;
+    private String groupId;
     private GroupManager gm;
     private String userId;
     private final GroupChatPresenter gcp = new GroupChatPresenter();
     private UserManager um;
 
-    public GroupChatController(Group group, String userId, UserManager um) {
-        this.group = group;
+    public GroupChatController(String groupId, String userId, UserManager um, GroupManager gm) {
+        this.groupId = groupId;
         this.userId = userId;
         this.um = um;
+        this.gm = gm;
     }
 
     public void run() {
@@ -27,16 +27,15 @@ public class GroupChatController {
         try {
             boolean flag = true;
             String input;
-
             while (flag) {
                 gcp.instructions();
                 input = reader.readLine();
                 if (input.equals("1")) {
-                    System.out.println(group.getGroupChat().toString());
+                    System.out.println(gm.getGroupById(groupId).getGroupChat().toString());
                 } else if (input.equals("2")) {
                     gcp.askMessage();
                     String message = reader.readLine();
-                    group.getGroupChat().insertMessage(um.getUserById(userId), message);
+                    gm.getGroupById(groupId).getGroupChat().insertMessage(um.getUserById(userId), message);
                 } else {
                     flag = false;
                 }

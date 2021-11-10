@@ -3,6 +3,7 @@ package Phase_1.UseCaseClass;
 import Phase_1.Entity.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Objects;
 
 public class UserManager {
@@ -22,8 +23,8 @@ public class UserManager {
     /**
      * Creates a normal user and add it to the arraylist of all the users.
      */
-    public void createNormalUser(String username, String password) {
-        this.allUsers.add(new NormalUser(username, password));
+    public void createNormalUser(String username, String password, String sq, String sq_ans) {
+        this.allUsers.add(new NormalUser(username, password, sq, sq_ans));
     }
 
 
@@ -76,54 +77,23 @@ public class UserManager {
 //        }
 //        return unfinished;
 //    }
-    public String getUserName(User user) {
-        return user.getUsername();
-    }
 
-    public void removeGroup(User user, Group group) {
-        user.removeGroup(group);
-    }
-
-    public void addGroup(User user, Group group) {
-        user.addGroup(group);
-    }
 
     public void addCategory(User user, Category c) {
         user.addNewCategory(c);
     }
 
-    public void addTask(User user, Task task) {
-        user.addTask(task);
+    public void addTask(User user, Task task, Category c) {
+        user.addTasktoCategory(task, c);
     }
 
 
-    public String displayTask(User user) {
-        StringBuilder s = new StringBuilder();
-        for (Task t : user.getMyTasks()) {
-            s.append(t.toString()).append("\n");
-        }
-        return s.toString();
-    }
-
-    public boolean checkTask(User user, Task t) {
-        return user.getMyTasks().contains(t);
-    }
-
-    public Task getTaskByName(User user, String taskName) {
-        for (Task t : user.getMyTasks()) {
-            if (itm.checkTaskByName(t, taskName)) {
-                return t;
-            }
-
-        }
-        return null;
-    }
-
-        public String displayCategories(User user) {
+    public String displayCategories(User user) {
         StringBuilder s = new StringBuilder();
         for (Category c : user.getMyCategories()) {
             s.append(c.toString()).append("\n");
             }
         return s.toString();
     }
+
 }

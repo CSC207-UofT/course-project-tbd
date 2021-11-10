@@ -12,6 +12,7 @@ import java.util.HashMap;
 public class GroupManager{
     public HashMap<String, Group> maps;
     UserGroupManager ugm = new UserGroupManager();
+    private int count = 0;
 
     /**
      * Construct a TBD.GroupManager, giving them the given maps
@@ -31,9 +32,12 @@ public class GroupManager{
      * @param name name of the group
      */
     public void createGroup(User user, String name) {
-        Group group = new Group(user, name);
-        this.maps.put(name, group);
-        ugm.addGroup(user, group);
+//        String groupId =  "#" + (maps.keySet().size());
+        String groupId =  "#" + count;
+        Group group = new Group(user, name + groupId);
+        this.maps.put(name+groupId, group);
+        ugm.addGroup(user, group.getgroupName());
+        count ++;
     }
 
     /**
@@ -43,9 +47,9 @@ public class GroupManager{
      * @param leader leader of the group
      */
     public void deleteGroup(String groupName, User leader) {
-        ugm.removeGroup(leader, this.maps.get(groupName));
+        ugm.removeGroup(leader, groupName);
         for (User user: this.maps.get(groupName).getUsers()){
-            ugm.removeGroup(user, this.maps.get(groupName));
+            ugm.removeGroup(user, groupName);
         }
         this.maps.remove(groupName);
     }
@@ -119,8 +123,8 @@ public class GroupManager{
         ArrayList<User> users = new ArrayList<>();
         users.add(user);
         group.addUsers(users);
-        ugm.addGroup(user, group);
-        group.addFolder(user.getUsername());
+        ugm.addGroup(user, groupname);
+        group.addCategory(user.getUsername());
     }
 
     /**
@@ -131,6 +135,10 @@ public class GroupManager{
     public void removeMember(String groupname, User user) {
         Group group = this.maps.get(groupname);
         group.removeUser(user);
-        ugm.removeGroup(user, group);
+        ugm.removeGroup(user, groupname);
+    }
+
+    public Group getGroupById(String groupId){
+        return maps.get(groupId);
     }
 }

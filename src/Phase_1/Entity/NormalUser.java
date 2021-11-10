@@ -3,16 +3,28 @@ package Phase_1.Entity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class NormalUser extends User implements Serializable {
 
     public String username;
     public String password;
+    public String sq;
+    public String sq_ans;
 
-    public ArrayList<Group> myGroups = new ArrayList<>();
+    ArrayList<String> myGroups = new ArrayList<>();
 
     public ArrayList<Category> myCategories = new ArrayList<>();
     public ArrayList<Task> myTasks = new ArrayList<>();
+
+    public NormalUser(String username, String password, String sq, String sq_ans) {
+        this.username = username;
+        this.password = password;
+        this.sq = sq;
+        this.sq_ans = sq_ans;
+        Category all = new Category("All Tasks");
+        this.addNewCategory(all);
+    }
 
     public NormalUser(String username, String password) {
         this.username = username;
@@ -60,17 +72,17 @@ public class NormalUser extends User implements Serializable {
 //        return this.myCategories;
 //    }
     @Override
-    public void addGroup(Group group){
-        this.myGroups.add(group);
+    public void addGroup(String groupId){
+        this.myGroups.add(groupId);
 
     }
     @Override
-    public void removeGroup(Group group){
+    public void removeGroup(String group){
         this.myGroups.remove(group);
     }
 
-    public void addTask(Task task){
-        this.myTasks.add(task);
+    public void addTasktoCategory(Task task, Category c){
+        c.tasks.add(task);
     }
     public void addNewCategory(Category newCategory){
         this.myCategories.add(newCategory);
@@ -82,9 +94,11 @@ public class NormalUser extends User implements Serializable {
         return username;
     }
     public String getPassword(){return password;}
-
+    public String getSQ(){return sq;}
+    public String getSQ_Ans(){return sq_ans;}
+    public void setPassword(String pass){this.password = pass;}
     @Override
-    public ArrayList<Group> getMyGroups() {
+    public ArrayList<String> getMyGroups() {
         return myGroups;
     }
 

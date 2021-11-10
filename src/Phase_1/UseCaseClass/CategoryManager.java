@@ -1,11 +1,14 @@
 package Phase_1.UseCaseClass;
 
-import Phase_1.Entity.Category;
-import Phase_1.Entity.User;
+import Phase_1.Entity.*;
 
 public class CategoryManager {
 
-    public boolean checkCategory(User user, Category c) {
+    public Category createCategory(String description){
+        return new Category(description);
+    }
+
+    public boolean checkCategory(User user, Category c) throws NullPointerException {
         return user.getMyCategories().contains(c);
     }
 
@@ -15,6 +18,14 @@ public class CategoryManager {
                 return c;
             }
 
+        }
+        return null;
+    }
+    public Category getCategoryByGroup(String categoryName, Group group) {
+        for (Category c :group.getCategories()) {
+            if (c.getCategoryName().equals(categoryName)) {
+                return c;
+            }
         }
         return null;
     }
@@ -30,4 +41,5 @@ public class CategoryManager {
     public boolean checkCategoryByName(Category category, String categoryName) {
         return category.getCategoryName().equals(categoryName);
     }
+
 }

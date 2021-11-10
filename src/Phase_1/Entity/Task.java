@@ -4,25 +4,27 @@ import java.time.LocalDateTime;
 
 
 /**
- * This class creates task, with its title, information, deadline to finish each task and a sets it
+ * This class creates task, with its title, information, category, deadline to finish each task and a sets it
  * default status to false, until the task is finished.
  */
 
 public class Task {
-    public String title;
-    public String information;
+    private String title;
+    private String information;
     public LocalDateTime dueDate = null;
-    public boolean status;
+    private boolean status;
+    private Category category;
 
     public Task(String title){
         this.title = title;
         this.status = false;
     }
 
-    public Task(String title, String information){
+    public Task(String title, String information, Category category){
         this.title = title;
         this.information = information;
         this.status = false;
+        this.category = category;
     }
 
     public Task(String title, String information, int year, int month, int day, int hour, int minute){
@@ -47,8 +49,6 @@ public class Task {
     /**
      * @return This method returns the task name.
      */
-
-
     public String getTaskName(){
         return this.title;
     }
@@ -56,7 +56,6 @@ public class Task {
     /**
      * This method sets task status from incomplete to complete.
      */
-
     public LocalDateTime getDueDate(){
         return this.dueDate;
     }
@@ -71,7 +70,6 @@ public class Task {
      */
 
     public void addTasktoCategory(Category c){
-
         c.addTask(this);
     }
 
@@ -79,7 +77,6 @@ public class Task {
     /**
      * @return This method represents the information and status of the task in the form of string.
      */
-
     @Override
     public String toString() {
         String s = "Title: " + this.title + "\n";

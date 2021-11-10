@@ -22,7 +22,7 @@ public class UserPageController {
 
     public UserPageController(UserManager um, String userId, GroupManager gm) {
         this.userId = userId;
-        this.upp = new UserPagePresenter(um.displayUserDetail(um.getUserById(userId)));
+        this.upp = new UserPagePresenter(um.getUserById(userId).getUsername());
         this.um = um;
         this.gpc = new GroupPageController(userId, um, gm);
         this.cpc = new CategoryPageController(userId, um, nm);
