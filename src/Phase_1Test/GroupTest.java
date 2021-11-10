@@ -1,21 +1,25 @@
-package Phase_1Test;
-
-import Phase_1.Entity.Group;
-import Phase_1.Entity.NormalUser;
-import Phase_1.Entity.User;
-import org.junit.Before;
-
-public class GroupTest {
-
-    Group g;
-    User leader;
-
-    @Before
-    public void setUp() {
-        leader = new NormalUser("leader", "123"); // This is the leader of the group
-        g = new Group(leader, "Mygroup");   // Group has been created
-    }
-
+//package Phase_1Test;
+//
+//import Phase_1.Entity.Features;
+//import Phase_1.Entity.Group;
+//import Phase_1.Entity.NormalUser;
+//import Phase_1.Entity.User;
+//import org.junit.Before;
+//import org.junit.Test;
+//
+//import java.util.ArrayList;
+//
+//public class GroupTest {
+//
+//    Group g;
+//    User leader;
+//
+//    @Before
+//    public void setUp() {
+//        leader = new NormalUser("leader", "123"); // This is the leader of the group
+//        g = new Group(leader, "Mygroup");   // Group has been created
+//    }
+//
 //    @Test(timeout = 50)
 //    public void TestaddNewFeature(){
 //        // This tests whether adding a new feature works to our group
@@ -66,4 +70,4 @@ public class GroupTest {
 //        ArrayList<User> actual = usersList;
 //        assertEquals(expected, actual);
 //    }
-}
+//}

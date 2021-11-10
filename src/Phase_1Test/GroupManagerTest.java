@@ -1,5 +1,3 @@
-//package Phase_0Test;
-//
 //import Phase_1.UseCaseClass.GroupManager;
 //import Phase_1.Entity.User;
 //import Phase_1.Entity.NormalUser;
