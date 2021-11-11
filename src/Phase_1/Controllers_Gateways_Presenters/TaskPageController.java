@@ -20,8 +20,8 @@ import java.util.*;
  * specialized to one category only, and the category is determined upon
  * specification of the user.
  *
- * @author  Owen Huang
- * @author  Sanjana Girish
+ * @author  Owen Huang, Sanjana Girish
+ * @author  placeholder
  */
 public class TaskPageController {
 
@@ -70,6 +70,7 @@ public class TaskPageController {
 
     /**
      * Starts the task page for a particular category, display to the terminal for interaction with the user
+     *
      * @param  category a category which all tasks are related to
      * @throws IOException {@inheritDoc}
      */
@@ -103,11 +104,7 @@ public class TaskPageController {
         String taskToComplete = reader.readLine();      //prompts the user for a task name
         Task task = itm.getTaskByName(category, taskToComplete);// get the specified task in user's tasks
         if(itm.checkTask(category, task)){  // If task is present in user, mark it finished
-            itm.completeTask(task);         // mark task as completed
-            if (task instanceof TaskWithDueDate){       // if task has an alarm, turn off the alarm
-                nm.turnOffAlarmOfTask((TaskWithDueDate) task);
-                System.out.println("Alarm for task: "+ task.getTaskName() + " has benn turned off.");
-            }
+            itm.completeTask(task);
             System.out.println("Task finished");
         }
         else{   //the task with the given name does not exist in user's current tasks

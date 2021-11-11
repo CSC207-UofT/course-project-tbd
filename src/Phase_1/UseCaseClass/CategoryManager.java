@@ -21,14 +21,6 @@ public class CategoryManager {
         }
         return null;
     }
-    public Category getCategoryByGroup(String categoryName, Group group) {
-        for (Category c :group.getCategories()) {
-            if (c.getCategoryName().equals(categoryName)) {
-                return c;
-            }
-        }
-        return null;
-    }
 
     /**
      * This method checks the name of the category object, with the name of the category.
@@ -42,4 +34,13 @@ public class CategoryManager {
         return category.getCategoryName().equals(categoryName);
     }
 
+    public Category getCategoryByGroup(String categoryName, Group groupById) {
+        for (Category c: groupById.getCategories()){
+            if (this.checkCategoryByName(c, categoryName)){
+                return c;
+            }
+
+        }
+        return null;
+    }
 }

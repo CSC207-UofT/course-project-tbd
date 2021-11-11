@@ -1,64 +1,31 @@
 package Phase_1Test;
-
-import Phase_1.Entity.Folder;
+import Phase_1.Entity.Category;
 import Phase_1.Entity.Task;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
-
+import Phase_1.Entity.Folder;
 
 public class FolderTest {
-    Folder fr;
-    Folder gr;
-    Task a;
-    Task b;
-    Task c;
-    Task d;
-    Task e;
+    Folder folder;
 
     @Before
     public void setUp() {
-        a = new Task("Pitch in Idea");
-        b = new Task("Create team");
-        c = new Task("Prepare Presentation");
-        d = new Task("Give Presentation");
-        e = new Task("Polish the Presentation");
-        fr = new Folder("CSC Project");
-        gr = new Folder("Project phase 1");
-        fr.addTask(a);
-        fr.addTask(b);
-        fr.addTask(c);
-        fr.addTask(d);
-        fr.addTask(e);
-
+        folder = new Folder("example");
         }
 
-
     @Test
-    public void TestaddTask() {
-        gr.addTask(e);
-
-        assertEquals(5, fr.getTasks().size());
-        assertEquals(1, gr.getTasks().size());
-
+    public void addTask() {
     }
 
     @Test
-    public void TestgetFolderName() {
-        assertEquals("CSC Project", fr.getFolderName());
-
+    public void getFolderName() {
     }
 
-
+    @Test
+    public void getTasks() {
+    }
 
     @Test
     public void testToString() {
-        assertEquals("CSC Project\n" +
-                "Pitch in Idea\n" +
-                "Create team\n" +
-                "Prepare Presentation\n" +
-                "Give Presentation\n" +
-                "Polish the Presentation", fr.toString());
-        assertEquals("Project phase 1", gr.toString());
     }
 }
