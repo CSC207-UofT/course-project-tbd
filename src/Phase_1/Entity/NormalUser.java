@@ -12,7 +12,7 @@ public class NormalUser extends User implements Serializable {
     public String sq;
     public String sq_ans;
 
-    ArrayList<String> myGroups = new ArrayList<>();
+    public ArrayList<String> myGroups = new ArrayList<>();
 
     public ArrayList<Category> myCategories = new ArrayList<>();
     public ArrayList<Task> myTasks = new ArrayList<>();
@@ -24,6 +24,7 @@ public class NormalUser extends User implements Serializable {
         this.sq_ans = sq_ans;
         Category all = new Category("All Tasks");
         this.addNewCategory(all);
+
     }
 
     public NormalUser(String username, String password) {

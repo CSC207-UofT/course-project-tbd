@@ -9,6 +9,7 @@ import static org.junit.Assert.*;
 
 public class FolderTest {
     Folder fr;
+    Folder gr;
     Task a;
     Task b;
     Task c;
@@ -23,6 +24,7 @@ public class FolderTest {
         d = new Task("Give Presentation");
         e = new Task("Polish the Presentation");
         fr = new Folder("CSC Project");
+        gr = new Folder("Project phase 1");
         fr.addTask(a);
         fr.addTask(b);
         fr.addTask(c);
@@ -34,8 +36,10 @@ public class FolderTest {
 
     @Test
     public void TestaddTask() {
+        gr.addTask(e);
 
         assertEquals(5, fr.getTasks().size());
+        assertEquals(1, gr.getTasks().size());
 
     }
 
@@ -55,5 +59,6 @@ public class FolderTest {
                 "Prepare Presentation\n" +
                 "Give Presentation\n" +
                 "Polish the Presentation", fr.toString());
+        assertEquals("Project phase 1", gr.toString());
     }
 }
