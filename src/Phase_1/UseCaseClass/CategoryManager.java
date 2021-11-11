@@ -22,6 +22,14 @@ public class CategoryManager {
         return null;
     }
 
+    /**
+     * This method checks the name of the category object, with the name of the category.
+     * @param category the object category
+     * @param categoryName the string representation of the object category.
+     * @return whether the name of the category matches the string category.
+     */
+
+
     public boolean checkCategoryByName(Category category, String categoryName) {
         return category.getCategoryName().equals(categoryName);
     }
