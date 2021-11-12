@@ -45,13 +45,12 @@ public class ViewGroupController {
             num++;
         }
         s.append("Enter the sequence number of the group you want to view \n" +
-                "Enter anything else to go back");
-        try {
+                "Enter x to go back");
             boolean flag = true;
-            String option;
             while (flag) {
+                try {
                 System.out.println(s); // Gets input from user
-                option = reader.readLine();
+                String option = reader.readLine();
                 if (option.equals("x")) {
                     // If the user enters x, we terminate and go back to previous page.
                     flag = false;
@@ -68,10 +67,9 @@ public class ViewGroupController {
                     System.out.println("Sorry! The group does not exist. Enter again!");
 
                 }
-            }
-        } catch (Exception e) {
-            System.out.println("Please type a valid number");
-            }
+            } catch (Exception e) {
+            System.out.println("Please type some valid input");
+            }}
 
     }
 
