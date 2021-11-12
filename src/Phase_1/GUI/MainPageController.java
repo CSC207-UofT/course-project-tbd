@@ -14,9 +14,18 @@ import java.util.Objects;
 public class MainPageController {
     UserManager um;
     GroupManager gm;
+    String h;
 
     public MainPageController(){
     }
+
+    public void setGm(GroupManager gm) {
+        this.gm = gm;
+    }
+    public void setUm(UserManager um) {
+        this.um = um;
+    }
+
     public void display() throws IOException {
         Stage window = new Stage();
         window.setTitle("Welcome to main page" );

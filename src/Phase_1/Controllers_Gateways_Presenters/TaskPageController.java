@@ -44,12 +44,12 @@ public class TaskPageController {
     /**
      * Used to start alarm for task with a due date, and send notification to user mailbox
      */
-    NotificationManager nm;
+    private NotificationManager nm;
 
     /**
      * Used to access and modify category information
      */
-    CategoryManager cm;
+    private CategoryManager cm;
 
 
 
@@ -105,6 +105,9 @@ public class TaskPageController {
         Task task = itm.getTaskByName(category, taskToComplete);// get the specified task in user's tasks
         if(itm.checkTask(category, task)){  // If task is present in user, mark it finished
             itm.completeTask(task);
+            if (task instanceof TaskWithDueDate){       // if task has a due date, turn off the alarm
+                nm.turnOffAlarmOfTask((TaskWithDueDate) task);
+            }
             System.out.println("Task finished");
         }
         else{   //the task with the given name does not exist in user's current tasks
@@ -154,7 +157,7 @@ public class TaskPageController {
                 // error dateTime exception may be thrown of date information is invalid (e.g. -200 minutes)
                 TaskWithDueDate task = new TaskWithDueDate(taskTitle, taskDetail, year, month, day, hour, minute);
                 nm.addTaskWithDueDate(task);    // add to notification manager for creating alarm for task
-                itm.addTask(category, task);  // add task to user's task collection
+                itm.addTaskToCategory(category, task);  // add task to user's task collection
                 tpp.taskAdded();
             } catch (UnsupportedOperationException e) {     // exception thrown when user schedules a date in the past
                 System.out.println(e.getMessage());
@@ -165,7 +168,7 @@ public class TaskPageController {
             }
         }else{      // user does not want to create a task with due date
             Task task = new Task(taskTitle, taskDetail, category); // create a simple task without due date
-            itm.addTask(category, task);  // add task to category's task collection
+            itm.addTaskToCategory(category, task);  // add task to category's task collection
             tpp.taskAdded();
         }
     }
