@@ -52,11 +52,9 @@ public class NotificationManager implements Runnable {
      * Add a TaskWithDueDate instance to the priority queue
      *
      * @param t is an instance of TaskWithDueDate
-     * @return true if task is added successfully, false otherwise
      */
-    public boolean addTaskWithDueDate(TaskWithDueDate t){
+    public void addTaskWithDueDate(TaskWithDueDate t){
         this.taskWithDueDates.add(t);
-        return true;
     }
 
     /**
@@ -84,7 +82,7 @@ public class NotificationManager implements Runnable {
         /**
          * The task that is due and will be shown to the user
          */
-        private TaskWithDueDate task;
+        private final TaskWithDueDate task;
 
         /**
          * Constructor for NotificationBox that initializes the task
