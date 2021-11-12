@@ -133,8 +133,7 @@ public class GroupAddTaskController {
                                     System.out.println("You have entered an invalid date");
                                 }
                             } else { // this means that the user choose to add a task without the notifications
-                                Task task = new Task(title, detail,
-                                        cm.getCategoryByGroup(categoryName, gm.getGroupById(groupId)));
+                                Task task = new Task(title, detail);
                                 tm.addTask(cm.getCategoryByGroup(categoryName, gm.getGroupById(groupId)), task);
                                 gatp.taskAdded();
                             }
