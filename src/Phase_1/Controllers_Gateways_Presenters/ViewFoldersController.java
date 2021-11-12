@@ -37,14 +37,16 @@ public class ViewFoldersController {
         try{
             boolean flag = true;
             String input;
-            vfp.askInput();
-            input = reader.readLine();
+
             while(flag){
+                vfp.askInput();
+                input = reader.readLine();
                 if(Integer.parseInt(input) < gm.getGroupById(groupId).getCategories().size()){
                     String categoryName = gm.getGroupById(groupId).
                             getCategories().get(Integer.parseInt(input)).toString();
                     GroupAddTaskController gatc = new GroupAddTaskController(userId, groupId, categoryName, um, tm, gm);
                     gatc.run();
+                    flag = false;
                 } else{
                     flag = false;
                 }
@@ -52,7 +54,6 @@ public class ViewFoldersController {
             }
         }
         catch (Exception e) {
-            System.out.println("error");
             System.out.println("Please type a valid number");
         }
     }
