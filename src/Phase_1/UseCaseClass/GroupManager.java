@@ -136,6 +136,12 @@ public class GroupManager{
         ugm.removeGroup(user, groupname);
     }
 
+    /**
+     * This method returns an instance of Group that matches the
+     * given groupId
+     * @param groupId the given Id of the wanted group
+     * @return the wanted Group of the given Id
+     */
     public Group getGroupById(String groupId){
         return maps.get(groupId);
     }

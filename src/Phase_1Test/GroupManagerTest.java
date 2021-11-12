@@ -39,7 +39,99 @@ public class GroupManagerTest {
         assertEquals(empty, expected.maps);
     }
 
+    @Test(timeout=50)
     public void testMemberList() {
+        NormalUser user = new NormalUser("user", "1");
+        Group group = new Group(user, "tbd#0");
+        ArrayList<User> expected = new ArrayList<>();
+        expected.add(user);
+        HashMap<String, Group> groups = new HashMap<>();
+        groups.put("tbd#0", group);
+        GroupManager manager = new GroupManager(groups);
+        ArrayList<User> result = manager.memberList("tbd#0");
+        assertEquals(result, expected);
+    }
 
+    @Test(timeout=50)
+    public void testCheckIfIn() {
+        NormalUser user = new NormalUser("user", "1");
+        NormalUser harry = new NormalUser("harry", "1");
+        Group group = new Group(user, "tbd#0");
+        HashMap<String, Group> groups = new HashMap<>();
+        groups.put("tbd#0", group);
+        GroupManager manager = new GroupManager(groups);
+        boolean result1 = manager.checkIfIn("tbd#0", user);
+        boolean result2 = manager.checkIfIn("tbd#0", harry);
+        assertTrue(result1);
+        assertFalse(result2);
+    }
+
+    @Test(timeout=50)
+    public void testCheckGroupExists() {
+        NormalUser user = new NormalUser("user", "1");
+        Group group = new Group(user, "tbd#0");
+        HashMap<String, Group> groups = new HashMap<>();
+        groups.put("tbd#0", group);
+        GroupManager manager = new GroupManager(groups);
+        boolean result1 = manager.checkGroupExists("tbd#0");
+        boolean result2 = manager.checkGroupExists("harry");
+        assertTrue(result1);
+        assertFalse(result2);
+    }
+
+    @Test(timeout=50)
+    public void testCheckIfLeader() {
+        NormalUser user = new NormalUser("user", "1");
+        NormalUser harry = new NormalUser("harry", "1");
+        Group group = new Group(user, "tbd#0");
+        HashMap<String, Group> groups = new HashMap<>();
+        groups.put("tbd#0", group);
+        GroupManager manager = new GroupManager(groups);
+        manager.addUserToGroup("tbd#0", harry);
+        boolean result1 = manager.checkIfLeader("tbd#0", user);
+        boolean result2 = manager.checkIfLeader("tbd#0", harry);
+        assertTrue(result1);
+        assertFalse(result2);
+    }
+
+    @Test(timeout=50)
+    public void testAddUserToGroup() {
+        NormalUser user = new NormalUser("user", "1");
+        NormalUser harry = new NormalUser("harry", "1");
+        NormalUser kevin = new NormalUser("kevin", "1");
+        Group group = new Group(user, "tbd#0");
+        HashMap<String, Group> groups = new HashMap<>();
+        groups.put("tbd#0", group);
+        GroupManager manager = new GroupManager(groups);
+        manager.addUserToGroup("tbd#0", kevin);
+        boolean result1 = manager.checkIfIn("tbd#0", kevin);
+        boolean result2 = manager.checkIfIn("tbd#0", harry);
+        assertTrue(result1);
+        assertFalse(result2);
+    }
+
+    @Test(timeout=50)
+    public void testRemoveMember() {
+        NormalUser user = new NormalUser("user", "1");
+        NormalUser kevin = new NormalUser("kevin", "1");
+        Group group = new Group(user, "tbd#0");
+        HashMap<String, Group> groups = new HashMap<>();
+        groups.put("tbd#0", group);
+        GroupManager manager = new GroupManager(groups);
+        manager.addUserToGroup("tbd#0", kevin);
+        manager.removeMember("tbd#0", kevin);
+        assertEquals(group, manager.maps.get("tbd#0"));
+    }
+
+    @Test(timeout=50)
+    public void testGetGroupById() {
+        NormalUser user = new NormalUser("user", "1");
+        NormalUser kevin = new NormalUser("kevin", "1");
+        Group group = new Group(user, "tbd#0");
+        HashMap<String, Group> groups = new HashMap<>();
+        groups.put("tbd#0", group);
+        GroupManager manager = new GroupManager(groups);
+        Group result = manager.getGroupById("tbd#0");
+        assertEquals(group, result);
     }
 }
