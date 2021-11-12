@@ -126,7 +126,6 @@ public class GroupManagerTest {
     @Test(timeout=50)
     public void testGetGroupById() {
         NormalUser user = new NormalUser("user", "1");
-        NormalUser kevin = new NormalUser("kevin", "1");
         Group group = new Group(user, "tbd#0");
         HashMap<String, Group> groups = new HashMap<>();
         groups.put("tbd#0", group);
