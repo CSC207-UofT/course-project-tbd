@@ -3,7 +3,6 @@ package Phase_1.UseCaseClass;
 import Phase_1.Entity.*;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Objects;
 
 public class UserManager {
@@ -14,6 +13,9 @@ public class UserManager {
         this.allUsers = user_list;
     }
 
+    /**
+     * Returns user detail in string format
+     */
     public String displayUserDetail(User user) {
         return ("Username: " + user.getUsername() + "\n"
                 + "Password: " + user.getPassword());
@@ -66,33 +68,30 @@ public class UserManager {
         return null;
     }
 
-    //    public ArrayList<Task> unfinishedTaskList(NormalUser user) {
-//        ArrayList<Task> unfinished  = new ArrayList<>();
-//        for (Category category : user.myCategories) {
-//            for (Task task : category.getTasks()) {
-//                if (!task.status) {
-//                    unfinished.add(task);
-//                }
-//            }
-//        }
-//        return unfinished;
-//    }
-
-
+    /**
+     * Add new category to user defined by user. Category defined by c.
+     */
     public void addCategory(User user, Category c) {
         user.addNewCategory(c);
     }
 
+
+    /**
+     * Add task to user, given designated task and category.
+     */
     public void addTask(User user, Task task, Category c) {
         user.addTasktoCategory(task, c);
     }
 
 
+    /**
+     * Displays all categories in string format.
+     */
     public String displayCategories(User user) {
         StringBuilder s = new StringBuilder();
         for (Category c : user.getMyCategories()) {
             s.append(c.toString()).append("\n");
-            }
+        }
         return s.toString();
     }
 
