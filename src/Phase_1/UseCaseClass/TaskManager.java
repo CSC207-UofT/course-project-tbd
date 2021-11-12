@@ -1,7 +1,6 @@
 package Phase_1.UseCaseClass;
 
 import Phase_1.Entity.Category;
-import Phase_1.Entity.User;
 import Phase_1.Entity.Task;
 
 public class TaskManager {
