@@ -53,8 +53,7 @@ public class ViewFoldersController {
 
             }
         }
-        catch (Exception e) {
-            System.out.println("Please type a valid number");
+        catch (Exception ignored) {
         }
     }
 

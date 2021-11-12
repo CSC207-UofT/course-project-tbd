@@ -33,6 +33,14 @@ public class AnnouncementPagePresenter {
         System.out.println(s);
     }
 
+    public void back(){
+        System.out.println("Type anything to go back");
+    }
+
+    public void success(){
+        System.out.println("Announcement added successfully");
+    }
+
     /**
      * Prompts leader to create an announcement
      */
