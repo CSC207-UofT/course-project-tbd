@@ -16,7 +16,7 @@ public class AlarmStarter implements AlarmMenu{
     /**
      * A Timer object responsible for scheduling alarms in a background Timer Thread
      */
-    private Timer timer = new Timer();
+    private final Timer timer = new Timer();
 
     /**
      * A map object take has Alarm as its keys and its corresponding TimerTask as its value.
@@ -41,11 +41,10 @@ public class AlarmStarter implements AlarmMenu{
      *
      * @param alarm the Alarm that will be scheduled by Timer
      * @param whenFired is the Runnable object that will be executed when the scheduled alarm goes off
-     * @return a TimerTask object containing the task that will be executed when alarm goes off
      * @throws UnsupportedOperationException {@inheritDoc} when it tries to schedule alarm into the past
      */
     @Override
-    public TimerTask startAlarm(Alarm alarm, Runnable whenFired) throws UnsupportedOperationException {
+    public void startAlarm(Alarm alarm, Runnable whenFired) throws UnsupportedOperationException {
         // if there is  already an alarm set at this time,throw UnsupportedOperationException
         if (unfinishedScheduledTasks.containsKey(alarm)){
             throw new UnsupportedOperationException(" There is already an task due at this time\n" +
@@ -85,21 +84,18 @@ public class AlarmStarter implements AlarmMenu{
         };
         unfinishedScheduledTasks.put(alarm, alert);     // add <Alarm, TimerTask> pair to unfinished task after creation
         timer.schedule(alert, ms);      // schedule/start the TimerTask on a countdown specified at the beginning
-        return alert;
     }
 
     /**
      * Cancel an existing alarm, that is currently in count down.
      *
      * @param   alarm is an Alarm object that user wants to get cancelled
-     * @return  true if the alarm is cancelled successfully, false if the alarm does not exist or failed to cancel
-     * because it wasn't scheduled
      */
     @Override
-    public boolean cancelAlarm(Alarm alarm) {
+    public void cancelAlarm(Alarm alarm) {
         TimerTask alert = unfinishedScheduledTasks.get(alarm);
         if (alert == null){     // if the alarm does not have a TimerTask scheduled
-            return false;       // fail to cancel
+            return;       // fail to cancel
         }
 
         boolean cancelled = alert.cancel();     // try to cancel the TimerTask
@@ -108,7 +104,6 @@ public class AlarmStarter implements AlarmMenu{
             unfinishedScheduledTasks.remove(alarm);     // remove from unfinished task
         }
 
-        return cancelled;       // fail to cancel
     }
 
 }

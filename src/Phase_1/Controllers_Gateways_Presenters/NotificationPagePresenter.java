@@ -26,7 +26,12 @@ public class NotificationPagePresenter {
     public void displayNotifications(ArrayList<String> mailbox){
         System.out.println("My Notifications");
         System.out.println("The notifications are :");
-        System.out.println(mailbox);
+        StringBuilder s = new StringBuilder();
+        for (int i = 0; i < mailbox.size(); i++){
+            s.append("--------------------\n");
+            s.append(i + 1).append(". ").append(mailbox.get(i)).append("\n");
+        }
+        System.out.println(s);
     }
 
 

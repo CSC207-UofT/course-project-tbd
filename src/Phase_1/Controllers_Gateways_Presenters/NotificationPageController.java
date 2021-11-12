@@ -17,7 +17,7 @@ public class NotificationPageController {
     /**
      * Used to start alarm for task with a due date, and send notification to user mailbox
      */
-    private NotificationManager notificationManager;
+    private final NotificationManager notificationManager;
 
     /**
      * Notification Page presenter contains all the print statements associated with the task page
@@ -54,8 +54,16 @@ public class NotificationPageController {
     /**
      * Deletes a notification in mailbox
      * @param  reader is a BufferedReader prompting for user for the notification they want to delete
-     * @throws IOException {@inheritDoc}
      */
-    public void deleteNotification(BufferedReader reader) throws IOException {}
+    public void deleteNotification(BufferedReader reader) {
+        System.out.println("Please enter which notification you want to delete by its number:");
+        try{
+            String input = reader.readLine();
+            notificationManager.getMailbox().remove(Integer.parseInt(input) - 1);
+            System.out.println("Notification deleted");
+        } catch (Exception e) {
+            System.out.println("Your input is invalid");
+        }
+    }
 }
 
