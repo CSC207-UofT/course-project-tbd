@@ -34,7 +34,7 @@ public class AnnouncementPageController {
 
     /**
      * Runs the method. Asks user to either display the announcements or add an announcement (Option appears only
-     * for the leader). Pressing any other button that 0 or 1 returns to the previous page.
+     * for the leader). Pressing any other button than 0 or 1 returns to the previous page.
      */
     public void run(){
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
