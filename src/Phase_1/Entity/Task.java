@@ -69,7 +69,7 @@ public class Task {
      * @param c the category in which I want to add my task.
      */
 
-    public void addTasktoCategory(Category c){
+    public void addTaskToCategory(Category c){
         c.addTask(this);
     }
 

@@ -1,6 +1,5 @@
 package Phase_1.Controllers_Gateways_Presenters;
 
-import Phase_1.Entity.Category;
 import Phase_1.Entity.Task;
 import Phase_1.Entity.TaskWithDueDate;
 import Phase_1.UseCaseClass.*;
@@ -72,11 +71,11 @@ public class GroupAddTaskController {
                                 TaskWithDueDate task = new TaskWithDueDate(taskTitle, taskDetail, year
                                         , month, day, hour, minute);
                                 nm.addTaskWithDueDate(task);
-                                tm.addTask(cm.getCategoryByGroup(categoryName, gm.getGroupById(groupId)), task);
+                                tm.addTaskToCategory(cm.getCategoryByGroup(categoryName, gm.getGroupById(groupId)), task);
                             } else {
                                 Task task = new Task(taskTitle, taskDetail,
                                         cm.getCategoryByGroup(categoryName, gm.getGroupById(groupId)));
-                                tm.addTask(cm.getCategoryByGroup(categoryName, gm.getGroupById(groupId)), task);
+                                tm.addTaskToCategory(cm.getCategoryByGroup(categoryName, gm.getGroupById(groupId)), task);
                             }
                         } else if (userId.equals(categoryName)) {
                                 gatp.toComplete();
