@@ -1,17 +1,17 @@
 package Phase_1.Entity;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class AnnouncementPage {
     // This class represents the homepage for a group
 
-    private ArrayList<String> announcements;
+    private final ArrayList<String> announcements;
 
     /**
      * Constructs a new HomePage object by initializing empty
      */
     public AnnouncementPage(){
-
         this.announcements = new ArrayList<>();
     }
 
@@ -30,6 +30,7 @@ public class AnnouncementPage {
     public ArrayList<String> getAnnouncements() {
         return announcements;
     }
+
 
     /**
      *

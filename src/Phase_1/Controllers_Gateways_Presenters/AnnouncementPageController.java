@@ -6,6 +6,8 @@ import Phase_1.UseCaseClass.UserManager;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * This class is the controller for our announcement page.
@@ -43,13 +45,20 @@ public class AnnouncementPageController {
                 app.instructions();
                 input = reader.readLine();
                 if (input.equals("1")) {
+                    String s = "------------------------------- \n" + userId + ":";
+//                    System.out.println(gm.getGroupById(groupId).getAnnouncementPage().toString());
+                    System.out.println(s);
                     System.out.println(gm.getGroupById(groupId).getAnnouncementPage().toString());
+                    System.out.println("-------------------------------");
                 }
                 else if (input.equals("2")) {
                     if(gm.checkIfLeader(gm.getGroupById(groupId).getgroupName(), um.getUserById(userId))){
                         // If the user is a leader and enters option 2 we ask for announcement
                         app.askAnnouncement();
                         String announcement = reader.readLine();
+                        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+                        LocalDateTime current = LocalDateTime.now();
+                        announcement = announcement + " - " + dtf.format(current);
                         gm.getGroupById(groupId).getAnnouncementPage().addAnnouncement(announcement);
                     }
                     else {

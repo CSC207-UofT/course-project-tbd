@@ -29,7 +29,7 @@ public class AnnouncementPagePresenter {
         if(gm.checkIfLeader(gm.getGroupById(groupId).getgroupName(), um.getUserById(userId))){
             s.append("Type 2 for adding an announcement leader!\n");
         }
-        s.append("Type any other numbers to go back");
+        s.append("Type anything else to go back");
         System.out.println(s);
     }
 
