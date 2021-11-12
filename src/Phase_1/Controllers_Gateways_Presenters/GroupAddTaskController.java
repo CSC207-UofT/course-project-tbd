@@ -10,15 +10,53 @@ import java.io.InputStreamReader;
 import java.time.DateTimeException;
 import java.util.List;
 
+/**
+ * This GroupAddTaskController class is made for controlling the task page
+ * in a group according to the user input. If the user is the leader of the group,
+ * they would have an additional option to add a task for the member whose folder
+ * they chose to enter
+ */
+
 public class GroupAddTaskController {
+    /**
+     * The userId is given beforehand from the previous controller
+     */
     private final String userId;
+    /**
+     * The groupId is given beforehand from the previous controller
+     */
     private final String groupId;
+    /**
+     * The categoryName is given beforehand from the previous controller
+     */
     private final String categoryName;
+    /**
+     * User case for all operations we perform on Users
+     */
     private final UserManager um;
+    /**
+     * Use case for all operations we perform on Tasks
+     */
     private final TaskManager tm;
+    /**
+     * Use case for all operations we perform on Group
+     */
     private final GroupManager gm;
+    /**
+     * Used to start alarm for task with a due date, and send notification to user mailbox
+     */
     NotificationManager nm;
 
+
+    /**
+     * Constructs the personalized Task Page for the specified category
+     * @param userId an Id of the User given from the previous controller
+     * @param groupId an Id of the Group given from the previous controller
+     * @param categoryName the category's name given from the previous controller
+     * @param um an instance of UserManager
+     * @param tm an instance of TaskManager
+     * @param gm an instance of GroupManager
+     */
     public GroupAddTaskController(String userId, String groupId, String categoryName, UserManager um, TaskManager tm,
                                   GroupManager gm) {
         this.userId = userId;
@@ -29,6 +67,11 @@ public class GroupAddTaskController {
         this.gm = gm;
     }
 
+    /**
+     * Starts the task page for a particular member of the group, display all assigned task for this
+     * use by typing 1. Assign a new task (if user is the leader) or finish an assigned task by typing 2.
+     * Goes back to the previous page by typing 0.
+     */
     public void run() {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         CategoryManager cm = new CategoryManager();
@@ -112,8 +155,6 @@ public class GroupAddTaskController {
                         break;
                     case "0" :
                         flag = false;
-//                        ViewFoldersController vfc = new ViewFoldersController(um, tm, gm, userId, groupId);
-//                        vfc.run();
                         break;
                 }
             }
