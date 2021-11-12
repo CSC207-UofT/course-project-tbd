@@ -28,7 +28,7 @@ public class GroupAddTaskPresenter {
                     "Type 2 to finish a task\n" +
                     "Type 0 to get back to the previous page");
         } else {
-            System.out.println(" Type 1 to display all the assigned tasks for this member\n" +
+            System.out.println("Type 1 to display all the assigned tasks for this member\n" +
                     "Type 0 to get back to the previous page");
         }
     }
