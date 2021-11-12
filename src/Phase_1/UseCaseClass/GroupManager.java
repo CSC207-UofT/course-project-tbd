@@ -7,8 +7,6 @@ import java.util.ArrayList;
 
 import java.util.HashMap;
 
-//import static org.junit.Assert.assertEquals;
-
 public class GroupManager{
     public HashMap<String, Group> maps;
     UserGroupManager ugm = new UserGroupManager();

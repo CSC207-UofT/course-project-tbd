@@ -1,42 +1,45 @@
-//package Phase_0Test;
-//
-//import Phase_1.UseCaseClass.GroupManager;
-//import Phase_1.Entity.User;
-//import Phase_1.Entity.NormalUser;
-//import Phase_1.Entity.Group;
-//import java.util.HashMap;
-//import java.util.ArrayList;
-//import org.junit.Before;
-//import org.junit.Test;
-//import static org.junit.Assert.*;
-//
-//public class GroupManagerTest {
-//    NormalUser user = new NormalUser("user", "1");
-//    Group group = new Group(user, "Group 1");
-//    ArrayList<Group> groups = new ArrayList<>();
-//    HashMap<User, ArrayList<Group>> gm = new HashMap<>();
-//
-//    @Before
-//    public void setUpCreateManager() {
-//        groups.add(group);
-//        gm.put(user, groups);
-//    }
-//
-//    @Test(timeout=50)
-//    public void testCreateGroup() {
-//        GroupManager expected = new GroupManager();
-//        expected.createGroup(user, "Group 1");
-//        String result = expected.maps.get(user).get(0).getgroupName();
-//        assertEquals("Group 1", result);
-//    }
-//
-//    @Test(timeout=50)
-//    public void testDeleteManager() {
-//        ArrayList<Group> empty = new ArrayList<>();
-//        GroupManager expected = new GroupManager();
-//        expected.createGroup(user, "Group 1");
-//        Group wanted = expected.maps.get(user).get(0);
-//        expected.deleteGroup(wanted);
-//        assertEquals(empty, expected.maps.get(user));
-//    }
-//}
+package Phase_1Test;
+
+import Phase_1.UseCaseClass.GroupManager;
+import Phase_1.Entity.User;
+import Phase_1.Entity.NormalUser;
+import Phase_1.Entity.Group;
+import java.util.HashMap;
+import java.util.ArrayList;
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class GroupManagerTest {
+    NormalUser user = new NormalUser("user", "1");
+    Group group = new Group(user, "tbd#0");
+    HashMap<String, Group> gm = new HashMap<>();
+
+    @Before
+    public void setUpCreateManager() {
+        gm.put("tbd#0", group);
+    }
+
+    @Test(timeout=50)
+    public void testCreateGroup() {
+        HashMap<String, Group> maps = new HashMap<>();
+        GroupManager expected = new GroupManager(maps);
+        expected.createGroup(user, "tbd");
+        String result = expected.maps.get("tbd#0").getgroupName();
+        assertEquals("tbd#0", result);
+    }
+
+    @Test(timeout=50)
+    public void testDeleteManager() {
+        HashMap<String, Group> empty = new HashMap<>();
+        GroupManager expected = new GroupManager(gm);
+        expected.createGroup(user, "tbd");
+        String wanted = expected.maps.get("tbd#0").getgroupName();
+        expected.deleteGroup(wanted, user);
+        assertEquals(empty, expected.maps);
+    }
+
+    public void testMemberList() {
+
+    }
+}
