@@ -1,6 +1,5 @@
 package Phase_1.Controllers_Gateways_Presenters;
 
-import Phase_1.Entity.Category;
 import Phase_1.UseCaseClass.GroupManager;
 import Phase_1.UseCaseClass.TaskManager;
 import Phase_1.UseCaseClass.UserManager;
@@ -8,13 +7,17 @@ import Phase_1.UseCaseClass.UserManager;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+/**
+ * This controller is responsible for showing all the categories/folders inside a given group. It
+ * prompts the user for an input to go into a particular folder.
+ */
 public class ViewFoldersController {
-    private String groupId;
-    private UserManager um;
-    private TaskManager tm;
-    private GroupManager gm;
-    private String userId;
-    private ViewFoldersPresenter vfp;
+    private final String groupId;
+    private final UserManager um;
+    private final TaskManager tm;
+    private final GroupManager gm;
+    private final String userId;
+    private final ViewFoldersPresenter vfp;
 
     public ViewFoldersController(UserManager um, TaskManager tm, GroupManager gm, String userId, String groupId){
         this.groupId = groupId;
@@ -34,14 +37,16 @@ public class ViewFoldersController {
         try{
             boolean flag = true;
             String input;
-            vfp.askInput();
-            input = reader.readLine();
+
             while(flag){
+                vfp.askInput();
+                input = reader.readLine();
                 if(Integer.parseInt(input) < gm.getGroupById(groupId).getCategories().size()){
                     String categoryName = gm.getGroupById(groupId).
                             getCategories().get(Integer.parseInt(input)).toString();
                     GroupAddTaskController gatc = new GroupAddTaskController(userId, groupId, categoryName, um, tm, gm);
                     gatc.run();
+                    flag = false;
                 } else{
                     flag = false;
                 }
@@ -49,7 +54,6 @@ public class ViewFoldersController {
             }
         }
         catch (Exception e) {
-            System.out.println("error");
             System.out.println("Please type a valid number");
         }
     }

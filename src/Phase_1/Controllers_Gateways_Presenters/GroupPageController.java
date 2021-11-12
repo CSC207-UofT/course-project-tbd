@@ -1,7 +1,6 @@
 package Phase_1.Controllers_Gateways_Presenters;
 
-import Phase_1.Entity.Group;
-import Phase_1.Entity.NormalUser;
+
 import Phase_1.UseCaseClass.GroupManager;
 import Phase_1.UseCaseClass.TaskManager;
 import Phase_1.UseCaseClass.UserGroupManager;
@@ -12,56 +11,53 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Objects;
 
+/**
+ * The controller for managing our group page. This is responsible for the initial pages seen when the user goes
+ * to the group management part of our software.
+ */
 public class GroupPageController {
     UserManager um;
     String userId;
     GroupManager gm;
     UserGroupManager ugm;
-    private TaskPagePresenter tpp;
-    private TaskManager itm;
+    private final TaskManager itm;
     private final JoinGroupPresenter jgp = new JoinGroupPresenter();
 
     public GroupPageController(String userId, UserManager um, GroupManager gm){
         this.um = um;
         this.userId = userId;
         this.gm = gm;
-        this.tpp = new TaskPagePresenter();
         this.itm = new TaskManager();
         this.ugm = new UserGroupManager();
     }
+
+    /**
+     * Runs our method. This run method is responsible for allowing the user to join a group
+     * create a group, view all group, go back etc. Check presenter for more info on each of the options
+     */
     public void run(){
         GroupPagePresenter gpp = new GroupPagePresenter();
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         try {
-            gpp.welcomeLine();
-            String input = reader.readLine();
-            while (!input.equals( "3")){
-                if (input.equals("0")){
-                        CreateGroupController();
-                        gpp.welcomeLine();
-                        input = reader.readLine();
-                    }
-                else if (input.equals("1")){
-                        JoinGroupController();
-                        gpp.welcomeLine();
-                        input = reader.readLine();
-                    }
-                else if (input.equals("2")){
-                        LeaveGroupController();
-                        gpp.welcomeLine();
-                        input = reader.readLine();
-                    }
-                else if (input.equals("4")){
-                    ViewGroupController vgc = new ViewGroupController(um, gm, itm, userId);
-                        vgc.run();
-                        gpp.welcomeLine();
-                        input = reader.readLine();
-                    }
-                else {
+            boolean flag = true;
+            while (flag){
+                gpp.welcomeLine();
+                String input = reader.readLine();
 
-//                        gpp.welcomeLine();
-//                        input = reader.readLine();
-                    }
+                // This warning won't go away as replacing with enhanced switch doesn't work with correto-11
+                switch (input) {
+                    case "0": CreateGroupController();
+                    break;
+                    case "1": JoinGroupController();
+                    break;
+                    case "2": LeaveGroupController();
+                    break;
+                    case "3": ViewGroupController vgc = new ViewGroupController(um, gm, itm, userId);
+                    vgc.run();
+                    break;
+                    default: flag = false;
+                    break;
+                }
 
                 }
             gpp.lines();
@@ -69,6 +65,10 @@ public class GroupPageController {
         catch (IOException e){System.out.println("Please type a valid number");
         }
     }
+
+    /**
+     * This sub-method controller manages tasks related to creating a new group for the user.
+     */
     private void CreateGroupController() {
         CreateGroupPresenter cgp = new CreateGroupPresenter();
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -88,6 +88,10 @@ public class GroupPageController {
             System.out.println("Please type a valid number");
         }
     }
+
+    /**
+     * This sub-method controller manages tasks related to leaving a group.
+     */
     private void LeaveGroupController() {
         LeaveGroupPresenter lgp = new LeaveGroupPresenter();
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -102,15 +106,12 @@ public class GroupPageController {
             else if (gm.checkIfIn(input, this.um.getUserById(userId))){
                 if (gm.checkIfLeader(input, this.um.getUserById(userId))){
                     gm.deleteGroup(input, this.um.getUserById(userId));
-                    lgp.leaveSuccess(input);
-                    lgp.lines();
                 }
                 else {
                     gm.removeMember(input, this.um.getUserById(userId));
-//                    um.leaveGroup(this.user, input);
-                    lgp.leaveSuccess(input);
-                    lgp.lines();
                 }
+                lgp.leaveSuccess(input);
+                lgp.lines();
 
 
             }
@@ -125,6 +126,10 @@ public class GroupPageController {
         }
 
     }
+
+    /**
+     * This sub-method controller is responsible for joining a new group.
+     */
     private void JoinGroupController() {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         try{

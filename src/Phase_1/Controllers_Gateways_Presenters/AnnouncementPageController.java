@@ -1,7 +1,5 @@
 package Phase_1.Controllers_Gateways_Presenters;
 
-import Phase_1.Entity.AnnouncementPage;
-import Phase_1.Entity.Group;
 import Phase_1.UseCaseClass.GroupManager;
 import Phase_1.UseCaseClass.UserManager;
 
@@ -11,13 +9,18 @@ import java.io.InputStreamReader;
 
 /**
  * This class is the controller for our announcement page.
+ * String groupId: Represents the the id of the current group.
+ * GroupManager gm: The usecase class for managing groups.
+ * String userId: The userId of the current user logged in.
+ * UserManager um: The  usecase class for managing users.
+ * AnnouncementPagePresenter: The presenter class for displaying information. (Will be changed once gui is implemented)
  */
 public class AnnouncementPageController {
-    private String groupId;
-    private GroupManager gm;
-    private String userId;
-    private UserManager um;
-    private AnnouncementPagePresenter app;
+    private final String groupId;
+    private final GroupManager gm;
+    private final String userId;
+    private final UserManager um;
+    private final AnnouncementPagePresenter app;
 
     public AnnouncementPageController(String groupId, String userId, UserManager um, GroupManager gm){
         this.groupId = groupId;
@@ -27,6 +30,10 @@ public class AnnouncementPageController {
         app = new AnnouncementPagePresenter(userId, um, gm, groupId);
     }
 
+    /**
+     * Runs the method. Asks user to either display the announcements or add an announcement (Option appears only
+     * for the leader). Pressing any other button that 0 or 1 returns to the previous page.
+     */
     public void run(){
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         try{

@@ -1,15 +1,14 @@
 package Phase_1.Controllers_Gateways_Presenters;
 
 import Phase_1.UseCaseClass.GroupManager;
-import Phase_1.UseCaseClass.TaskManager;
 import Phase_1.UseCaseClass.UserManager;
 
 public class GroupAddTaskPresenter {
-    private String groupId;
-    private UserManager um;
-    private GroupManager gm;
-    private String userId;
-    private String categoryName;
+    private final String groupId;
+    private final UserManager um;
+    private final GroupManager gm;
+    private final String userId;
+    private final String categoryName;
 
     public GroupAddTaskPresenter(String userId, UserManager um, GroupManager gm, String groupId, String categoryName) {
         this.userId = userId;
@@ -29,7 +28,7 @@ public class GroupAddTaskPresenter {
                     "Type 2 to finish a task\n" +
                     "Type 0 to get back to the previous page");
         } else {
-            System.out.println(" Type 1 to display all the assigned tasks for this member\n" +
+            System.out.println("Type 1 to display all the assigned tasks for this member\n" +
                     "Type 0 to get back to the previous page");
         }
     }
@@ -40,6 +39,9 @@ public class GroupAddTaskPresenter {
     public void giveTaskDetail() {
         System.out.println("--------------------");
         System.out.println("Enter Task Detail:");
+    }
+    public void taskAdded(){
+        System.out.println("The task you entered has been successfully added");
     }
     public void toComplete() {
         System.out.println("Please enter the name of a task you have completed ");
