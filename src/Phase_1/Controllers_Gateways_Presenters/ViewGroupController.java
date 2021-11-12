@@ -45,7 +45,7 @@ public class ViewGroupController {
             num++;
         }
         s.append("Enter the sequence number of the group you want to view \n" +
-                "Enter x to go back");
+                "Enter anything else to go back");
         try {
             boolean flag = true;
             String option;
@@ -69,7 +69,7 @@ public class ViewGroupController {
 
                 }
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             System.out.println("Please type a valid number");
             }
 
