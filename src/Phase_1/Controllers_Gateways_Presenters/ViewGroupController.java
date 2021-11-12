@@ -6,7 +6,6 @@ import Phase_1.UseCaseClass.UserGroupManager;
 import Phase_1.UseCaseClass.UserManager;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;

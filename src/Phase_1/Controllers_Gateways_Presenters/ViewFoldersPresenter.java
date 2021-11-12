@@ -2,22 +2,14 @@ package Phase_1.Controllers_Gateways_Presenters;
 
 import Phase_1.Entity.Category;
 import Phase_1.UseCaseClass.GroupManager;
-import Phase_1.UseCaseClass.TaskManager;
-import Phase_1.UseCaseClass.UserManager;
 
 public class ViewFoldersPresenter {
     private final String groupId;
-    private UserManager um;
-    private TaskManager tm;
     private final GroupManager gm;
-    private String userId;
 
-    public ViewFoldersPresenter(UserManager um, TaskManager tm, GroupManager gm, String userId, String groupId){
+    public ViewFoldersPresenter(GroupManager gm, String groupId){
         this.groupId = groupId;
-        this.userId = userId;
-        this.um = um;
         this.gm = gm;
-        this.tm = tm;
     }
 
     public void askInput(){

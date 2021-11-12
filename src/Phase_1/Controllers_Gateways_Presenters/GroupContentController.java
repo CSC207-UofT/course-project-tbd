@@ -16,7 +16,7 @@ public class GroupContentController {
      * GroupManager gm: The usecase class for managing groups.
      * TaskManager tm: The usecase class for managing tasks
      * String userId: The userId of the current user logged in.
-     * String groupId: Represents the the id of the current group.
+     * String groupId: Represents the id of the current group.
      * GroupContentPresenter gcp: The presenter class for displaying information.
      */
     private final UserManager um;
@@ -32,7 +32,7 @@ public class GroupContentController {
      * GroupManager gm: The usecase class for managing groups.
      * TaskManager tm: The usecase class for managing tasks
      * String userId: The userId of the current user logged in.
-     * String groupId: Represents the the id of the current group.
+     * String groupId: Represents the id of the current group.
      */
     public GroupContentController(UserManager um, GroupManager gm, TaskManager tm, String groupId, String userId) {
         this.um = um;

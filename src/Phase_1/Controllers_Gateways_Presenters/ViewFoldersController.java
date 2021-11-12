@@ -25,7 +25,7 @@ public class ViewFoldersController {
         this.um = um;
         this.gm = gm;
         this.tm = tm;
-        this.vfp = new ViewFoldersPresenter(um, tm, gm, userId, groupId);
+        this.vfp = new ViewFoldersPresenter(gm, groupId);
     }
 
     /**

@@ -34,12 +34,12 @@ public class TaskPageController {
     /**
      * Task Page presenter contains all the print statements associated with the task page
      */
-    private TaskPagePresenter tpp;
+    private final TaskPagePresenter tpp;
 
     /**
      * Use case for all operations we are performing on Tasks (e.g. add task, delete task)
      */
-    private TaskManager itm;
+    private final TaskManager itm;
 
     /**
      * Used to start alarm for task with a due date, and send notification to user mailbox
