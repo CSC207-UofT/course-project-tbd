@@ -29,7 +29,7 @@ public class MainPageController {
     public void display() throws IOException {
         Stage window = new Stage();
         window.setTitle("Welcome to main page" );
-        Scene scene = new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainPage.fxml"))), 600, 400);
+        Scene scene = new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainPage.fxml"))), 400, 600);
         window.setScene(scene);
         window.show();
     }
