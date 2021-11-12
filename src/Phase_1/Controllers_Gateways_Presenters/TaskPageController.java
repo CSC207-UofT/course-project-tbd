@@ -159,7 +159,9 @@ public class TaskPageController {
                 nm.addTaskWithDueDate(task);    // add to notification manager for creating alarm for task
                 itm.addTaskToCategory(category, task);  // add task to user's task collection
                 tpp.taskAdded();
-            } catch (UnsupportedOperationException e) {     // exception thrown when user schedules a date in the past
+            } catch (UnsupportedOperationException e) {
+                // exception thrown when user schedules a date in the past
+                // or try to schedule alarms at the same time as an existing one
                 System.out.println(e.getMessage());
             } catch (IndexOutOfBoundsException e2){     // when the user's date input does not follow the format
                 System.out.println("Please enter according to the format: Year/Month/Date/Hour/Minute");

@@ -50,7 +50,7 @@ public class TaskManager {
     public String displayTask(Category category){
         StringBuilder s = new StringBuilder();
         for(Task t: category.getTasks()){
-            s.append(t.toString()).append("\n");
+            s.append("--------------------\n").append(t.toString()).append("\n");
         }
         return s.toString();
     }
