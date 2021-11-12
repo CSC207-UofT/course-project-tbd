@@ -14,7 +14,7 @@ public class GUImain extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent layout = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Main.fxml")));
+        Parent layout = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("NewUser.fxml")));
 
         Scene scene = new Scene(layout, 400, 600); // Layout of the window
         stage.setTitle("TBD's Productivity App"); // title of the window

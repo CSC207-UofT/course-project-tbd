@@ -16,14 +16,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import Phase_1.Entity.Group;
-import Phase_1.Entity.User;
-import Phase_1.UseCaseClass.GroupManager;
-import Phase_1.UseCaseClass.UserManager;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.event.ActionEvent;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -37,7 +39,6 @@ public class WelcomePageController implements Initializable {
     Stage stg;
 
     public WelcomePageController() {
-
 
     }
     @FXML
