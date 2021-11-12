@@ -6,7 +6,6 @@ import Phase_1.UseCaseClass.UserGroupManager;
 import Phase_1.UseCaseClass.UserManager;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -46,12 +45,11 @@ public class ViewGroupController {
         }
         s.append("Enter the sequence number of the group you want to view \n" +
                 "Enter x to go back");
-        try {
             boolean flag = true;
-            String option;
             while (flag) {
+                try {
                 System.out.println(s); // Gets input from user
-                option = reader.readLine();
+                String option = reader.readLine();
                 if (option.equals("x")) {
                     // If the user enters x, we terminate and go back to previous page.
                     flag = false;
@@ -68,10 +66,9 @@ public class ViewGroupController {
                     System.out.println("Sorry! The group does not exist. Enter again!");
 
                 }
-            }
-        } catch (IOException e) {
-            System.out.println("Please type a valid number");
-            }
+            } catch (Exception e) {
+            System.out.println("Please type some valid input");
+            }}
 
     }
 

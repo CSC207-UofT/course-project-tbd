@@ -34,7 +34,7 @@ public class AnnouncementPageController {
 
     /**
      * Runs the method. Asks user to either display the announcements or add an announcement (Option appears only
-     * for the leader). Pressing any other button that 0 or 1 returns to the previous page.
+     * for the leader). Pressing any other button than 0 or 1 returns to the previous page.
      */
     public void run(){
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -45,11 +45,19 @@ public class AnnouncementPageController {
                 app.instructions();
                 input = reader.readLine();
                 if (input.equals("1")) {
-                    String s = "------------------------------- \n" + userId + ":";
+                    String s = "------------------------------- \n" +
+                            gm.getGroupById(groupId).getgroupLeader().getUsername() + ":";
 //                    System.out.println(gm.getGroupById(groupId).getAnnouncementPage().toString());
                     System.out.println(s);
                     System.out.println(gm.getGroupById(groupId).getAnnouncementPage().toString());
                     System.out.println("-------------------------------");
+                    app.back();
+                    String x = reader.readLine();
+                    if (x != null &&
+                            !gm.checkIfLeader(gm.getGroupById(groupId).getgroupName(), um.getUserById(userId))) {
+                        flag = false;
+                    }
+
                 }
                 else if (input.equals("2")) {
                     if(gm.checkIfLeader(gm.getGroupById(groupId).getgroupName(), um.getUserById(userId))){
@@ -60,6 +68,7 @@ public class AnnouncementPageController {
                         LocalDateTime current = LocalDateTime.now();
                         announcement = announcement + " - " + dtf.format(current);
                         gm.getGroupById(groupId).getAnnouncementPage().addAnnouncement(announcement);
+                        app.success();
                     }
                     else {
                         // If the user is not leader and enters option 2 we go back
