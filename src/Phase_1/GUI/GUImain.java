@@ -1,20 +1,26 @@
 package Phase_1.GUI;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.fxml.FXMLLoader;
+
+import java.util.Objects;
 
 public class GUImain extends Application {
-    Stage window;
+
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        window = primaryStage;
-        Parent root = FXMLLoader.load(getClass().getResource("GroupPageGUI.fxml"));
-        Scene scene = new Scene(root, 400, 600);
-        window.setScene(scene);
-        window.show();
+    public void start(Stage stage) throws Exception {
+        Parent layout = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Main.fxml")));
+
+        Scene scene = new Scene(layout, 400, 600); // Layout of the window
+        stage.setTitle("TBD's Productivity App"); // title of the window
+
+        stage.setScene(scene);
+        stage.show();
     }
 
     public static void main(String[] args){

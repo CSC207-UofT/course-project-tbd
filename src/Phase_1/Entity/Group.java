@@ -14,6 +14,7 @@ public class Group implements Serializable {
     private AnnouncementPage announcementPage;
 
 
+
     public Group(User groupLead, String groupname) {
         this.groupLeader = groupLead;
         this.groupName = groupname;
