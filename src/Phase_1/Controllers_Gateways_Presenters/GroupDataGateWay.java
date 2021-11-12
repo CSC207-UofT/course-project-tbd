@@ -10,7 +10,7 @@ public class GroupDataGateWay {
     String filePath;
     private ArrayList<Group> HashMap;
 
-    GroupDataGateWay(String filepath){
+    public GroupDataGateWay(String filepath){
         this.filePath = filepath;
     }
     public void saveToFile(HashMap<String, Group> groups) throws IOException {

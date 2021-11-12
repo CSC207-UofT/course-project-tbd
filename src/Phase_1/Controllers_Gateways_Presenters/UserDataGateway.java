@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class UserDataGateway {
     String filePath;
-    UserDataGateway(String filePath){
+    public UserDataGateway(String filePath){
         this.filePath = filePath;
     }
     public void saveToFile(ArrayList<User> users) throws IOException {
