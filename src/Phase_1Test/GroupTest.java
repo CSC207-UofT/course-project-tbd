@@ -20,22 +20,16 @@ public class GroupTest {
     User x;
     User y;
     User z;
-    //    AnnouncementPage pg;
-//    GroupChat gc;
     ArrayList<Category> Categories;
     ArrayList<Features> features;
     ArrayList<User> users;
-//    ArrayList<String> announcements;
+
 
 
     @Before
     public void setUp() {
         leader = new NormalUser("leader", "123"); // This is the leader of the group
-//        g.addCategory(leader.getUsername());
-//        pg = announcements;
-//        gc = new GroupChat("CSC project");
         g = new Group(leader, "CSC project");   // Group has been created
-//        g.addCategory(leader.getUsername());
         x = new NormalUser("Jack", "234");
         y = new NormalUser("Peter", "345");
         z = new NormalUser("Milly", "456");
@@ -84,7 +78,13 @@ public class GroupTest {
 
     @Test
     public void TestGroupchat() {
+        assertEquals("", g.getGroupChat().toString());
+    }
+
+    @Test
+    public void TestAnnouncementPage() {
         assertEquals("", g.getAnnouncementPage().toString());
     }
+
 
 }
