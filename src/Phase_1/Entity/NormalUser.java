@@ -12,7 +12,7 @@ public class NormalUser extends User implements Serializable {
     public String sq;
     public String sq_ans;
 
-    ArrayList<String> myGroups = new ArrayList<>();
+    public ArrayList<String> myGroups = new ArrayList<>();
 
     public ArrayList<Category> myCategories = new ArrayList<>();
     public ArrayList<Task> myTasks = new ArrayList<>();
@@ -24,6 +24,7 @@ public class NormalUser extends User implements Serializable {
         this.sq_ans = sq_ans;
         Category all = new Category("All Tasks");
         this.addNewCategory(all);
+
     }
 
     public NormalUser(String username, String password) {
@@ -41,68 +42,92 @@ public class NormalUser extends User implements Serializable {
                 + "Password: " + this.password);
     }
 
-//    public String displayMyCategories() {
-//        StringBuilder s = new StringBuilder();
-//        int size = this.myCategories.size();
-//        for (Category c : this.myCategories) {
-//            s.append(c.getCategoryName());
-//            size -= 1;
-//            if (size != 0) {
-//                s.append("\n");
-//            }
-//        }
-//        return s.toString();
-//    }
-//
-//    /**
-//     * A method that takes the parameter (newCategory) and adds it to the ArrayList
-//     */
-//    public void addNewCategory(Category newCategory) {
-//        this.myCategories.add(newCategory);
-//    }
-//
-//    /**
-//     * A method that takes the parameter (target) and removes it from the ArrayList
-//     */
-//    public void deleteCategory(Category target) {
-//        this.myCategories.remove(target);
-//    }
-//
-//    public ArrayList<Category> getMyCategories(){
-//        return this.myCategories;
-//    }
+    /**
+     * Add group to this normal user
+     */
     @Override
-    public void addGroup(String groupId){
+    public void addGroup(String groupId) {
         this.myGroups.add(groupId);
 
+
     }
+
+    /**
+     * Remove group from this normal user
+     */
     @Override
-    public void removeGroup(String group){
+    public void removeGroup(String group) {
         this.myGroups.remove(group);
     }
 
-    public void addTasktoCategory(Task task, Category c){
+    /**
+     * Add task to category c
+     */
+    public void addTasktoCategory(Task task, Category c) {
         c.tasks.add(task);
     }
-    public void addNewCategory(Category newCategory){
+
+    /**
+     * Create a new category to this normal user
+     */
+    public void addNewCategory(Category newCategory) {
         this.myCategories.add(newCategory);
     }
-    public ArrayList<Task> getMyTasks(){
+
+    /**
+     * Returns all tasks from this user
+     */
+    public ArrayList<Task> getMyTasks() {
         return myTasks;
     }
-    public String getUsername(){
+
+    /**
+     * Returns username of this normal user
+     */
+    public String getUsername() {
         return username;
     }
-    public String getPassword(){return password;}
-    public String getSQ(){return sq;}
-    public String getSQ_Ans(){return sq_ans;}
-    public void setPassword(String pass){this.password = pass;}
+
+    /**
+     * Returns password of this normal user
+     */
+    public String getPassword() {
+        return password;
+    }
+
+    /**
+     * returns security question of this normal user
+     */
+    public String getSQ() {
+        return sq;
+    }
+
+    /**
+     * returns security questions answer of this normal user
+     */
+    public String getSQ_Ans() {
+        return sq_ans;
+    }
+
+    /**
+     * resets the password of this normal user
+     */
+    public void setPassword(String pass) {
+        this.password = pass;
+    }
+
+    /**
+     * Returns all groups of this normal user
+     */
     @Override
     public ArrayList<String> getMyGroups() {
         return myGroups;
     }
 
-    public ArrayList<Category> getMyCategories(){
+    /**
+     * returns all categories of this normal user
+     */
+    public ArrayList<Category> getMyCategories() {
         return myCategories;
     }
 }
