@@ -1,11 +1,9 @@
 package Phase_1.Controllers_Gateways_Presenters;
-import Phase_1.Entity.NormalUser;
 import Phase_1.UseCaseClass.NotificationManager;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
-import java.util.ArrayList;
 
 /**
  * This NotificationPageController class is made for controlling the notification

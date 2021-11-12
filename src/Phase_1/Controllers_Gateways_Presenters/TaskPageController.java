@@ -44,12 +44,12 @@ public class TaskPageController {
     /**
      * Used to start alarm for task with a due date, and send notification to user mailbox
      */
-    NotificationManager nm;
+    private NotificationManager nm;
 
     /**
      * Used to access and modify category information
      */
-    CategoryManager cm;
+    private CategoryManager cm;
 
 
 
@@ -105,6 +105,9 @@ public class TaskPageController {
         Task task = itm.getTaskByName(category, taskToComplete);// get the specified task in user's tasks
         if(itm.checkTask(category, task)){  // If task is present in user, mark it finished
             itm.completeTask(task);
+            if (task instanceof TaskWithDueDate){       // if task has a due date, turn off the alarm
+                nm.turnOffAlarmOfTask((TaskWithDueDate) task);
+            }
             System.out.println("Task finished");
         }
         else{   //the task with the given name does not exist in user's current tasks
