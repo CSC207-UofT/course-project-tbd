@@ -36,10 +36,6 @@ public class WelcomePageController implements Initializable {
     MainPageController mpc;
     Stage stg;
 
-    public WelcomePageController() {
-
-
-    }
     @FXML
     public Button welcomeButton;
 
@@ -71,6 +67,8 @@ public class WelcomePageController implements Initializable {
         gm = new GroupManager(groups);
 
         mpc = new MainPageController();
+        mpc.setGm(gm);
+        mpc.setUm(um);
 
 
 
