@@ -1,5 +1,6 @@
 package Phase_1.GUI;
 
+import Phase_1.Controllers_Gateways_Presenters.Main;
 import Phase_1.Entity.Group;
 import Phase_1.UseCaseClass.GroupManager;
 import Phase_1.UseCaseClass.UserManager;
@@ -27,10 +28,7 @@ public class MainPageController {
     }
 
     public void display() throws IOException {
-        Stage window = new Stage();
-        window.setTitle("Welcome to main page" );
-        Scene scene = new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainPage.fxml"))), 400, 600);
-        window.setScene(scene);
-        window.show();
+        GUImain m = new GUImain();
+        m.changeScene("MainPage.fxml");
     }
 }
