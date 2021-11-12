@@ -1,6 +1,5 @@
 package Phase_1.Controllers_Gateways_Presenters;
 
-import Phase_1.Entity.Group;
 import Phase_1.Entity.NormalUser;
 import Phase_1.Entity.User;
 import Phase_1.UseCaseClass.GroupManager;
@@ -18,8 +17,8 @@ public class GroupFunctionsController {
     NormalUser user;
     GroupManager gm;
     UserGroupManager ugm;
-    private TaskPagePresenter tpp;
-    private TaskManager itm;
+    final TaskPagePresenter tpp;
+    final TaskManager itm;
     private User currentUser;
     private final JoinGroupPresenter jgp = new JoinGroupPresenter();
 
