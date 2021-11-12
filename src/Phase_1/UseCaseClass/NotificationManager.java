@@ -62,8 +62,8 @@ public class NotificationManager implements Runnable {
     /**
      * turn off the alarm of the task
      */
-    public boolean turnOffAlarmOfTask(TaskWithDueDate task){
-        return addTaskWithDueDate(task);
+    public void turnOffAlarmOfTask(TaskWithDueDate task){
+        addTaskWithDueDate(task);
     }
 
     /**
