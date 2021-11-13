@@ -1,9 +1,6 @@
 package Phase_1.Controllers_Gateways_Presenters;
 
-import Phase_1.UseCaseClass.GroupManager;
-import Phase_1.UseCaseClass.TaskManager;
-import Phase_1.UseCaseClass.UserGroupManager;
-import Phase_1.UseCaseClass.UserManager;
+import Phase_1.UseCaseClass.*;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -20,14 +17,16 @@ public class ViewGroupController {
     private final TaskManager tm;
     private final String userId;
     private final UserGroupManager ugm;
+    NotificationManager nm;
     // private final ViewGroupPresenter vgp= new ViewGroupPresenter;
 
-    public ViewGroupController(UserManager um, GroupManager gm, TaskManager tm, String userId) {
+    public ViewGroupController(UserManager um, GroupManager gm, TaskManager tm, String userId, NotificationManager nm) {
         this.gm = gm;
         this.um = um;
         this.tm = tm;
         this.userId = userId;
         this.ugm = new UserGroupManager();
+        this.nm = nm;
     }
 
     public void run() {
@@ -58,7 +57,7 @@ public class ViewGroupController {
                     // If the user enters a number greater than the no of groups user is in, we ask user to
                     // enter again.
                     String groupId = groupIdRecord.get(Integer.parseInt(option));
-                    GroupContentController gcc = new GroupContentController(um, gm, tm, groupId, userId);
+                    GroupContentController gcc = new GroupContentController(um, gm, tm, groupId, userId, nm);
                     gcc.run();
                 }
                 else {

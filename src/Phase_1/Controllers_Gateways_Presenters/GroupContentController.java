@@ -1,6 +1,7 @@
 package Phase_1.Controllers_Gateways_Presenters;
 
 import Phase_1.UseCaseClass.GroupManager;
+import Phase_1.UseCaseClass.NotificationManager;
 import Phase_1.UseCaseClass.TaskManager;
 import Phase_1.UseCaseClass.UserManager;
 
@@ -24,6 +25,7 @@ public class GroupContentController {
     private final TaskManager tm;
     private final String userId;
     private final String groupId;
+    NotificationManager nm;
     GroupContentPresenter gcp = new GroupContentPresenter();
 
     /**
@@ -34,12 +36,14 @@ public class GroupContentController {
      * String userId: The userId of the current user logged in.
      * String groupId: Represents the id of the current group.
      */
-    public GroupContentController(UserManager um, GroupManager gm, TaskManager tm, String groupId, String userId) {
+    public GroupContentController(UserManager um, GroupManager gm, TaskManager tm, String groupId, String userId,
+                                  NotificationManager nm) {
         this.um = um;
         this.gm = gm;
         this.tm = tm;
         this.userId = userId;
         this.groupId = groupId;
+        this.nm = nm;
     }
 
     /**
@@ -62,7 +66,7 @@ public class GroupContentController {
                         break;
                     }
                     case "2": {
-                        ViewFoldersController vfc = new ViewFoldersController(um, tm, gm, userId, groupId);
+                        ViewFoldersController vfc = new ViewFoldersController(um, tm, gm, userId, groupId, nm);
                         vfc.run();
                         gcp.instructions();
                         input = reader.readLine();

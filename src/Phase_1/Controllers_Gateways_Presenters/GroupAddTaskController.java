@@ -58,13 +58,14 @@ public class GroupAddTaskController {
      * @param gm an instance of GroupManager
      */
     public GroupAddTaskController(String userId, String groupId, String categoryName, UserManager um, TaskManager tm,
-                                  GroupManager gm) {
+                                  GroupManager gm, NotificationManager nm) {
         this.userId = userId;
         this.groupId = groupId;
         this.categoryName = categoryName;
         this.um = um;
         this.tm =tm;
         this.gm = gm;
+        this.nm = nm;
     }
 
     /**

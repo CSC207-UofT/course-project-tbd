@@ -20,13 +20,15 @@ public class GroupAddTaskPresenter {
 
     public void instructions() {
         if (gm.checkIfLeader(gm.getGroupById(groupId).getgroupName(), um.getUserById(userId))) {
-            System.out.println("Type 1 to display all the assigned tasks for this member\n" +
-                    "Type 2 to add a task for this member\n" +
-                    "Type 0 to get back to the previous page");
+            String s = "Type 1 to display all the assigned tasks for this member\n";
+            s = s + "Type 2 to add a task for this member\n";
+            s = s + "Type 0 to get back to the previous page";
+            System.out.println(s);
         } else if (userId.equals(categoryName)) {
-            System.out.println("Type 1 to display all the assigned tasks for you in this group\n" +
-                    "Type 2 to finish a task\n" +
-                    "Type 0 to get back to the previous page");
+            String s = "Type 1 to display all the assigned tasks for you in this group\n";
+            s = s + "Type 2 to finish a task\n";
+            s = s + "Type 0 to get back to the previous page";
+            System.out.println(s);
         } else {
             System.out.println("Type 1 to display all the assigned tasks for this member\n" +
                     "Type 0 to get back to the previous page");

@@ -1,10 +1,7 @@
 package Phase_1.Controllers_Gateways_Presenters;
 
 
-import Phase_1.UseCaseClass.GroupManager;
-import Phase_1.UseCaseClass.TaskManager;
-import Phase_1.UseCaseClass.UserGroupManager;
-import Phase_1.UseCaseClass.UserManager;
+import Phase_1.UseCaseClass.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -21,14 +18,16 @@ public class GroupPageController {
     GroupManager gm;
     UserGroupManager ugm;
     private final TaskManager itm;
+    NotificationManager nm;
     private final JoinGroupPresenter jgp = new JoinGroupPresenter();
 
-    public GroupPageController(String userId, UserManager um, GroupManager gm){
+    public GroupPageController(String userId, UserManager um, GroupManager gm, NotificationManager nm){
         this.um = um;
         this.userId = userId;
         this.gm = gm;
         this.itm = new TaskManager();
         this.ugm = new UserGroupManager();
+        this.nm = nm;
     }
 
     /**
@@ -52,7 +51,7 @@ public class GroupPageController {
                     break;
                     case "2": LeaveGroupController();
                     break;
-                    case "3": ViewGroupController vgc = new ViewGroupController(um, gm, itm, userId);
+                    case "3": ViewGroupController vgc = new ViewGroupController(um, gm, itm, userId, nm);
                     vgc.run();
                     break;
                     default: flag = false;

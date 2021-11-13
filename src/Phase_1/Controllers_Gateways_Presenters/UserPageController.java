@@ -17,9 +17,9 @@ public class UserPageController {
     private final NotificationPageController npc;
 
     public UserPageController(UserManager um, String userId, GroupManager gm) {
-        this.upp = new UserPagePresenter(um.getUserById(userId).getUsername());
-        this.gpc = new GroupPageController(userId, um, gm);
         NotificationManager nm = new NotificationManager();
+        this.upp = new UserPagePresenter(um.getUserById(userId).getUsername());
+        this.gpc = new GroupPageController(userId, um, gm, nm);
         this.cpc = new CategoryPageController(userId, um, nm);
 
         this.npc = new NotificationPageController(nm);

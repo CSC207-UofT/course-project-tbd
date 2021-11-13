@@ -1,11 +1,13 @@
 package Phase_1.Controllers_Gateways_Presenters;
 
 import Phase_1.UseCaseClass.GroupManager;
+import Phase_1.UseCaseClass.NotificationManager;
 import Phase_1.UseCaseClass.TaskManager;
 import Phase_1.UseCaseClass.UserManager;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.net.NoRouteToHostException;
 
 /**
  * This controller is responsible for showing all the categories/folders inside a given group. It
@@ -18,14 +20,17 @@ public class ViewFoldersController {
     private final GroupManager gm;
     private final String userId;
     private final ViewFoldersPresenter vfp;
+    NotificationManager nm;
 
-    public ViewFoldersController(UserManager um, TaskManager tm, GroupManager gm, String userId, String groupId){
+    public ViewFoldersController(UserManager um, TaskManager tm, GroupManager gm, String userId, String groupId,
+                                 NotificationManager nm){
         this.groupId = groupId;
         this.userId = userId;
         this.um = um;
         this.gm = gm;
         this.tm = tm;
         this.vfp = new ViewFoldersPresenter(gm, groupId);
+        this.nm = nm;
     }
 
     /**
@@ -44,7 +49,8 @@ public class ViewFoldersController {
                 if(Integer.parseInt(input) < gm.getGroupById(groupId).getCategories().size()){
                     String categoryName = gm.getGroupById(groupId).
                             getCategories().get(Integer.parseInt(input)).toString();
-                    GroupAddTaskController gatc = new GroupAddTaskController(userId, groupId, categoryName, um, tm, gm);
+                    GroupAddTaskController gatc = new GroupAddTaskController(userId, groupId,
+                            categoryName, um, tm, gm, nm);
                     gatc.run();
                     flag = false;
                 } else{
