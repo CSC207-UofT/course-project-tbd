@@ -17,6 +17,7 @@ import javafx.scene.control.Button;
 public class MainPageController implements Initializable {
     UserManager um;
     GroupManager gm;
+    NewUserController nuc;
     @FXML
     Button signInButton;
     @FXML
@@ -39,6 +40,7 @@ public class MainPageController implements Initializable {
 
     public void display() throws IOException {
         GUImain m = new GUImain();
+        System.out.println(um);
         m.changeScene("Main.fxml");
     }
 
@@ -54,7 +56,7 @@ public class MainPageController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        NewUserController nuc = new NewUserController();
+        nuc = new NewUserController();
         nuc.setGm(gm);
         nuc.setUm(um);
 
