@@ -3,7 +3,7 @@ package Phase_1.Entity;
 import java.util.ArrayList;
 
 public class GroupChat {
-    private String name;
+    private final String name;
     public ArrayList<String> messages;
 
     /**
