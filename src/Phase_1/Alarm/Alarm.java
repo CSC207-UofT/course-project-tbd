@@ -42,10 +42,8 @@ public class Alarm {
             return false;
         }
         Alarm other = (Alarm) obj;          //cast obj to Alarm
-        if (!Objects.equals(this.time, other.time)){    // if the alarm times are not the same
-            return false;
-        }
-        return true;            // the two Alarms are equal
+        // if the alarm times are not the same
+        return Objects.equals(this.time, other.time);// the two Alarms are equal
     }
 
     /**
@@ -53,6 +51,6 @@ public class Alarm {
      */
     @Override
     public int hashCode() {
-        return Objects.hash(time);
+        return time.hashCode();
     }
 }

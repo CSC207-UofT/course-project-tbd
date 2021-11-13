@@ -52,64 +52,97 @@ public class NotificationManager implements Runnable {
      * Add a TaskWithDueDate instance to the priority queue
      *
      * @param t is an instance of TaskWithDueDate
-     * @return true if task is added successfully, false otherwise
      */
-    public boolean addTaskWithDueDate(TaskWithDueDate t){
+    public void addTaskWithDueDate(TaskWithDueDate t){
         this.taskWithDueDates.add(t);
-        return true;
     }
 
     /**
-     * an instance of the AlarmMenu interface that creates alarm, starts the alarm, and cancels the alarm
+     * turn off the alarm of the task
      */
-    public boolean turnOffAlarmOfTask(TaskWithDueDate task){
-        return addTaskWithDueDate(task);
+    public void turnOffAlarmOfTask(TaskWithDueDate task){
+        addTaskWithDueDate(task);
     }
 
+    /**
+     * Getter method for the mailbox array list
+     *
+     * @return mailbox, which is an array list of strings
+     */
     public ArrayList<String> getMailbox(){
         return mailbox;
     }
 
+    /**
+     * A nested class that defines the action performed when the alarm clock goes off.
+     * A pop-up window will be shown to the screen notifying to the user what task is due on what time
+     */
     public class NotificationBox implements Runnable{
 
-        private TaskWithDueDate task;
+        /**
+         * The task that is due and will be shown to the user
+         */
+        private final TaskWithDueDate task;
 
+        /**
+         * Constructor for NotificationBox that initializes the task
+         *
+         * @param task is the TaskWithDueDate that is due right now
+         */
         NotificationBox(TaskWithDueDate task){
             this.task = task;
         }
 
+        /**
+         * Overrides the run method. This method will be run when the alarm goes off,
+         * which constructs a pop-up window and display task information
+         */
         @Override
         public void run() {
+            // Adds notification to mailbox with the following format:
+            // dd-MM-yyy HH:mm
+            // DUE DATE ALERT!
+            // Task: <Task Title>
             DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
             String note = task.getDueDate().format(format) + "\nDUE DATE ALERT! \nTask: <" + task.getTaskName() + ">";
             mailbox.add(note);
 
-            final JFrame alert = new JFrame();
-            JButton button = new JButton();
+            final JFrame alert = new JFrame();      // Frame
+            JButton button = new JButton();         // button
 
-            button.setText("OK! I GET IT! SHUT UP!");
+            button.setText(note);           // button text
             alert.add(button);
             alert.pack();
-            alert.setSize(500,500);
+            alert.setSize(500,500);     // size: 500 x 500
             alert.setVisible(true);
 
-            button.addActionListener(evt -> alert.dispose());
+            button.addActionListener(evt -> alert.dispose());   // close window when button is pressed
         }
     }
 
+    /**
+     * Override the run method of runnable.
+     * This block will always be running in the background, and once a TaskWithDueDate object has been added
+     * to the queue. It will start the alarm if task status is incomplete,
+     * and cancel the alarm if task status is complete
+     */
     @Override
     public void run() {
-        while(true){
+        System.currentTimeMillis();
+        while(true){        // Make sure it is always running in the background
             try {
+                // thread will run every 500 ms to reduce traffic
                 Thread.sleep(500);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            if(!taskWithDueDates.isEmpty()){
-                TaskWithDueDate t =  this.taskWithDueDates.poll();
-                Alarm alarm = this.alarmMenu.createAlarm(t.getDueDate());
+
+            if(!taskWithDueDates.isEmpty()){    // if there is a task in the queue
+                TaskWithDueDate t =  this.taskWithDueDates.poll();      // dequeue
+                Alarm alarm = this.alarmMenu.createAlarm(t.getDueDate());       // create the alarm using due date
                 try {
                     if (!t.getStatus()){        // if task is incomplete, start the alarm
+                        // may catch unsupported operation exception if try to schedule alarm into the past
                         this.alarmMenu.startAlarm(alarm, new NotificationBox(t));
                     } else {                    // task is mark complete, cancel the alarm
                         this.alarmMenu.cancelAlarm(alarm);
@@ -120,13 +153,5 @@ public class NotificationManager implements Runnable {
             }
 
         }
-        /*for(int i = 0; i < 100; i++){
-            System.out.println(i);
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }*/
     }
 }

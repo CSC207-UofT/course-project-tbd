@@ -7,4 +7,5 @@ module course.project.tbd {
     opens Phase_1.GUI.src to javafx.fxml;
     exports Phase_1.GUI.src;
     exports Phase_1Test;
+    exports Phase_1.UseCaseClass;
 }

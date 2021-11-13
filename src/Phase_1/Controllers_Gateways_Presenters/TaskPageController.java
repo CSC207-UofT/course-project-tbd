@@ -34,17 +34,17 @@ public class TaskPageController {
     /**
      * Task Page presenter contains all the print statements associated with the task page
      */
-    private TaskPagePresenter tpp;
+    private final TaskPagePresenter tpp;
 
     /**
      * Use case for all operations we are performing on Tasks (e.g. add task, delete task)
      */
-    private TaskManager itm;
+    private final TaskManager itm;
 
     /**
      * Used to start alarm for task with a due date, and send notification to user mailbox
      */
-    private NotificationManager nm;
+    private final NotificationManager nm;
 
     /**
      * Used to access and modify category information
@@ -159,12 +159,16 @@ public class TaskPageController {
                 nm.addTaskWithDueDate(task);    // add to notification manager for creating alarm for task
                 itm.addTaskToCategory(category, task);  // add task to user's task collection
                 tpp.taskAdded();
-            } catch (UnsupportedOperationException e) {     // exception thrown when user schedules a date in the past
+            } catch (UnsupportedOperationException e) {
+                // exception thrown when user schedules a date in the past
+                // or try to schedule alarms at the same time as an existing one
                 System.out.println(e.getMessage());
             } catch (IndexOutOfBoundsException e2){     // when the user's date input does not follow the format
                 System.out.println("Please enter according to the format: Year/Month/Date/Hour/Minute");
             } catch (DateTimeException e3){     // when the date user entered is an invalid date
                 System.out.println("You have entered an invalid date");
+            }catch (Exception e4) {
+                System.out.println("Input is invalid");
             }
         }else{      // user does not want to create a task with due date
             Task task = new Task(taskTitle, taskDetail, category); // create a simple task without due date

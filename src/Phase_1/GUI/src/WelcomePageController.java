@@ -26,7 +26,6 @@ public class WelcomePageController implements Initializable {
     GroupManager gm;
     UserManager um;
     MainPageController mpc;
-    Stage stg;
 
     @FXML
     public Button welcomeButton;
@@ -57,6 +56,7 @@ public class WelcomePageController implements Initializable {
         }
         um = new UserManager(users);
         gm = new GroupManager(groups);
+        um.createNormalUser("1", "1", "1", "1");
 
         mpc = new MainPageController();
         mpc.setGm(gm);
