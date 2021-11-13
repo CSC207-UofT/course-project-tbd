@@ -1,5 +1,6 @@
 package Phase_1.Entity;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 
@@ -8,7 +9,7 @@ import java.time.LocalDateTime;
  * default status to false, until the task is finished.
  */
 
-public class Task {
+public class Task implements Serializable {
     private final String title;
     private String information;
     public LocalDateTime dueDate = null;
@@ -60,20 +61,6 @@ public class Task {
     public LocalDateTime getDueDate(){
         return this.dueDate;
     }
-
-    public void completeTask(){
-        this.status = true;
-    }
-
-    /**
-     * This method adds task to the category.
-     * @param c the category in which I want to add my task.
-     */
-
-    public void addTasktoCategory(Category c){
-        c.addTask(this);
-    }
-
 
     /**
      * @return This method represents the information and status of the task in the form of string.
