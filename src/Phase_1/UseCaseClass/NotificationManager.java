@@ -54,6 +54,7 @@ public class NotificationManager implements Runnable {
      */
     public void addTaskWithDueDate(TaskWithDueDate t){
         this.taskWithDueDates.add(t);
+        runTask();
     }
 
     /**
@@ -113,36 +114,41 @@ public class NotificationManager implements Runnable {
     }
 
     /**
-     * Override the run method of runnable.
-     * This block will always be running in the background, and once a TaskWithDueDate object has been added
-     * to the queue. It will start the alarm if task status is incomplete,
-     * and cancel the alarm if task status is complete
+     * polls the task with the highest priority from queue (aka the task with the earliest due date)
+     * and set up and start an alarm for this task
+     */
+    private void runTask(){
+        if(!taskWithDueDates.isEmpty()){    // if there is a task in the queue
+            TaskWithDueDate t =  this.taskWithDueDates.poll();      // dequeue
+            Alarm alarm = this.alarmMenu.createAlarm(t.getDueDate());       // create the alarm using due date
+            try {
+                if (!t.getStatus()){        // if task is incomplete, start the alarm
+                    // may catch unsupported operation exception if try to schedule alarm into the past
+                    this.alarmMenu.startAlarm(alarm, new NotificationBox(t));
+                } else {                    // task is mark complete, cancel the alarm
+                    this.alarmMenu.cancelAlarm(alarm);
+                }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
+    /**
+     * Display to the user whether the current state of their mailbox
      */
     @Override
     public void run() {
-        while(true){        // Make sure it is always running in the background
-            try {
-                // thread will run every 500 ms to reduce traffic
-                Thread.sleep(500);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+        StringBuilder s = new StringBuilder();
+        s.append("\n--------------------\n").append("NOTIFICATIONS\n--------------------\n");
+        if (mailbox.isEmpty()){
+            s.append("EMPTY\n");
+        } else {
+            for (int i = 0; i < mailbox.size(); i++){
+                s.append("--------------------\n");
+                s.append(i + 1).append(". ").append(mailbox.get(i)).append("\n");
             }
-
-            if(!taskWithDueDates.isEmpty()){    // if there is a task in the queue
-                TaskWithDueDate t =  this.taskWithDueDates.poll();      // dequeue
-                Alarm alarm = this.alarmMenu.createAlarm(t.getDueDate());       // create the alarm using due date
-                try {
-                    if (!t.getStatus()){        // if task is incomplete, start the alarm
-                        // may catch unsupported operation exception if try to schedule alarm into the past
-                        this.alarmMenu.startAlarm(alarm, new NotificationBox(t));
-                    } else {                    // task is mark complete, cancel the alarm
-                        this.alarmMenu.cancelAlarm(alarm);
-                    }
-                } catch (Exception e) {
-                    System.out.println(e.getMessage());
-                }
-            }
-
         }
+        System.out.println(s);
     }
 }
