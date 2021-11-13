@@ -11,9 +11,9 @@ import java.util.HashMap;
 
 
 public class Main {
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
-        ArrayList<User> users = new ArrayList<User>();
-        HashMap<String, Group> groups = new HashMap<String, Group>();
+    public static void main(String[] args) throws ClassNotFoundException {
+        ArrayList<User> users = new ArrayList<>();
+        HashMap<String, Group> groups = new HashMap<>();
         UserDataGateway udg = new UserDataGateway("userData.ser");
         GroupDataGateWay gdw = new GroupDataGateWay("groupData.ser");
         try{users = udg.readFromFile();}

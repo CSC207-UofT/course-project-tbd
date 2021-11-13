@@ -26,6 +26,11 @@ public class WelcomePageController implements Initializable {
     GroupManager gm;
     UserManager um;
     MainPageController mpc;
+    UserDataGateway udg;
+    GroupDataGateWay gdw;
+    ArrayList<User> users;
+    HashMap<String, Group> groups;
+
 
     @FXML
     public Button welcomeButton;
@@ -36,15 +41,23 @@ public class WelcomePageController implements Initializable {
     public void buttonPushed(ActionEvent event) throws IOException {
         mpc.display();
         welcomeButton.setText("Hope you enjoy our app :)");
+        try{udg.saveToFile(users);}
+        catch (IOException ioException){
+            System.out.println("No user data is stored in database");
+        }
+        try{gdw.saveToFile(groups);}
+        catch (IOException ioException){
+            System.out.println("No group data is stored in database");
+        }
     }
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ArrayList<User> users = new ArrayList<User>();
-        HashMap<String, Group> groups = new HashMap<String, Group>();
-        UserDataGateway udg = new UserDataGateway("userData.ser");
-        GroupDataGateWay gdw = new GroupDataGateWay("groupData.ser");
+        users = new ArrayList<User>();
+        groups = new HashMap<String, Group>();
+        udg = new UserDataGateway("userData.ser");
+        gdw = new GroupDataGateWay("groupData.ser");
         try{users = udg.readFromFile();}
         catch (IOException | ClassNotFoundException ioException){
             System.out.println("No User stored in the file");
@@ -56,7 +69,6 @@ public class WelcomePageController implements Initializable {
         }
         um = new UserManager(users);
         gm = new GroupManager(groups);
-        um.createNormalUser("1", "1", "1", "1");
 
         mpc = new MainPageController();
         mpc.setGm(gm);
@@ -64,13 +76,6 @@ public class WelcomePageController implements Initializable {
 
 
 
-        try{udg.saveToFile(users);}
-        catch (IOException ioException){
-            System.out.println("No user data is stored in database");
-        }
-        try{gdw.saveToFile(groups);}
-        catch (IOException ioException){
-            System.out.println("No group data is stored in database");
-        }
+
     }
 }

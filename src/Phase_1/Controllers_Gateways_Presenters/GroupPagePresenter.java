@@ -6,8 +6,8 @@ public class GroupPagePresenter {
                 "Type 0 create a group \n" +
                 "Type 1 join a group \n" +
                 "Type 2 leave a group \n" +
-                "Type 3 to leave this page \n" +
-                "Type 4 to view all the groups");
+                "Type 3 to view all the groups \n" +
+                "Type any other button to go back");
     }
     public void lines(){
         System.out.println("---------------------");

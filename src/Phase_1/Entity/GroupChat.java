@@ -42,15 +42,16 @@ public class GroupChat {
      */
     public ArrayList<String> getMessagesByUser(User user) {
         ArrayList<String> results = new ArrayList<>();
-        String userName = user.username;
+        String userName = user.getUsername();
 
         for (String str : this.messages) {
             String[] compare = str.split("/");
+            System.out.println(compare[1]);
+            System.out.println(userName);
             if (compare[1].equals(userName)) {
                 results.add(str);
             }
         }
-
         return results;
     }
 

@@ -32,6 +32,7 @@ public class NewUserController implements Initializable {
     Hyperlink back;
     Label takenUserName;
     Label success;
+    MainPageController mpc;
 
 
     public void setGm(GroupManager gm) {
@@ -60,7 +61,7 @@ public class NewUserController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        MainPageController mpc = new MainPageController();
+        mpc = new MainPageController();
         mpc.setUm(um);
         mpc.setGm(gm);
     }
