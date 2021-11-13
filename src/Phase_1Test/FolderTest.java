@@ -14,6 +14,7 @@ public class FolderTest {
     Task c;
     Task d;
     Task e;
+    String s;
 
     @Before
     public void setUp() {
@@ -49,11 +50,13 @@ public class FolderTest {
 
     @Test
     public void testToString() {
-        assertEquals("CSC Project\n" +
-                "Pitch in Idea\n" +
-                "Create team\n" +
-                "Prepare Presentation\n" +
-                "Give Presentation\n" +
-                "Polish the Presentation", fr.toString());
+
+        s = "CSC Project\n";
+        s+= "Pitch in Idea\n";
+        s+= "Create team\n";
+        s+= "Prepare Presentation\n";
+        s+= "Give Presentation\n";
+        s+= "Polish the Presentation";
+        assertEquals(s, fr.toString());
     }
 }
