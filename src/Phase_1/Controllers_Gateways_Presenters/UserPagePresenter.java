@@ -1,9 +1,8 @@
 package Phase_1.Controllers_Gateways_Presenters;
 
-import Phase_1.Entity.NormalUser;
 
 public class UserPagePresenter {
-    private String userDetail;
+    private final String userDetail;
 
     public UserPagePresenter(String userDetail){
         this.userDetail = userDetail;
@@ -21,12 +20,8 @@ public class UserPagePresenter {
     }
 
     public void availableOptions(){
-        System.out.print("Your Options:\n"+
-                "1. My Group\n" +
-                "2. My Categories\n" +
-                "3. My Notification\n" +
-                "4. Sign Out\n" +
-                "Your answer here: ");
+        String s = "Your Options:\n1. My Group\n2. My Categories\n3. My Notification\n4. Sign Out\nYour answer here: ";
+        System.out.print(s);
     }
 
 }

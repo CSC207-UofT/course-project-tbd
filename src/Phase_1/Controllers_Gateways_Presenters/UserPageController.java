@@ -1,7 +1,6 @@
 package Phase_1.Controllers_Gateways_Presenters;
 
 import Phase_1.Alarm.AlarmStarter;
-import Phase_1.Entity.NormalUser;
 import Phase_1.UseCaseClass.GroupManager;
 import Phase_1.UseCaseClass.NotificationManager;
 import Phase_1.UseCaseClass.UserManager;
@@ -12,22 +11,18 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class UserPageController {
-    private String userId;
     private final UserPagePresenter upp;
-    private UserManager um;
-    private GroupPageController gpc;
-    private CategoryPageController cpc;
-    private NotificationPageController npc;
-    private NotificationManager nm = new NotificationManager();
+    private final GroupPageController gpc;
+    private final CategoryPageController cpc;
+    private final NotificationPageController npc;
 
     public UserPageController(UserManager um, String userId, GroupManager gm) {
-        this.userId = userId;
+        NotificationManager nm = new NotificationManager();
         this.upp = new UserPagePresenter(um.getUserById(userId).getUsername());
-        this.um = um;
-        this.gpc = new GroupPageController(userId, um, gm);
+        this.gpc = new GroupPageController(userId, um, gm, nm);
         this.cpc = new CategoryPageController(userId, um, nm);
 
-        this.npc = new NotificationPageController(this.nm);
+        this.npc = new NotificationPageController(nm);
 
         nm.setAlarmMenu(new AlarmStarter());
         Thread notificationSystem = new Thread(nm);

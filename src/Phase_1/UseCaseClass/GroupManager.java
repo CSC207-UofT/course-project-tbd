@@ -7,8 +7,6 @@ import java.util.ArrayList;
 
 import java.util.HashMap;
 
-//import static org.junit.Assert.assertEquals;
-
 public class GroupManager{
     public HashMap<String, Group> maps;
     UserGroupManager ugm = new UserGroupManager();
@@ -138,6 +136,12 @@ public class GroupManager{
         ugm.removeGroup(user, groupname);
     }
 
+    /**
+     * This method returns an instance of Group that matches the
+     * given groupId
+     * @param groupId the given Id of the wanted group
+     * @return the wanted Group of the given Id
+     */
     public Group getGroupById(String groupId){
         return maps.get(groupId);
     }
