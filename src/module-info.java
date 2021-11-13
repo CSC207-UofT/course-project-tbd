@@ -8,4 +8,5 @@ module course.project.tbd {
     exports Phase_1.GUI;
     exports Phase_1Test;
     exports Phase_1.UseCaseClass;
+    exports Phase_1.Entity;
 }
