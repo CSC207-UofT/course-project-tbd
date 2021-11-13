@@ -1,6 +1,5 @@
 package Phase_1.UseCaseClass;
 
-
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.PriorityQueue;
@@ -55,13 +54,6 @@ public class NotificationManager implements Runnable {
      */
     public void addTaskWithDueDate(TaskWithDueDate t){
         this.taskWithDueDates.add(t);
-    }
-
-    /**
-     * turn off the alarm of the task
-     */
-    public void turnOffAlarmOfTask(TaskWithDueDate task){
-        addTaskWithDueDate(task);
     }
 
     /**
@@ -128,7 +120,6 @@ public class NotificationManager implements Runnable {
      */
     @Override
     public void run() {
-        System.currentTimeMillis();
         while(true){        // Make sure it is always running in the background
             try {
                 // thread will run every 500 ms to reduce traffic

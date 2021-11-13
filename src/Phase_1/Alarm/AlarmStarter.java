@@ -1,3 +1,9 @@
+/*
+ * The design of this class was based on AlarmClock
+ * on GitHub repository by gburgett
+ * (https://github.com/gburgett/AlarmClock)
+ */
+
 package Phase_1.Alarm;
 
 import java.time.Duration;
@@ -20,10 +26,15 @@ public class AlarmStarter implements AlarmMenu{
 
     /**
      * A map object take has Alarm as its keys and its corresponding TimerTask as its value.
+     */
+    private final Map<Alarm, TimerTask> mp = new HashMap<>();
+
+    /**
+     * A map object take has Alarm as its keys and its corresponding TimerTask as its value.
      * Map should be synchronized so that no two threads can change its content at the same time,
      * it should be a thread safe operation
      */
-    private Map<Alarm, TimerTask> unfinishedScheduledTasks = Collections.synchronizedMap(new HashMap());
+    private final Map<Alarm, TimerTask> unfinishedScheduledTasks = Collections.synchronizedMap(mp);
 
     /**
      * Creates an Alarm object according to the time
