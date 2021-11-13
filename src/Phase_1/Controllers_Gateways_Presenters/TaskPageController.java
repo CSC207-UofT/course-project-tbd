@@ -163,7 +163,7 @@ public class TaskPageController {
                 System.out.println("You have entered an invalid date");
             }
         }else{      // user does not want to create a task with due date
-            Task task = new Task(taskTitle, taskDetail, category); // create a simple task without due date
+            Task task = new Task(taskTitle, taskDetail); // create a simple task without due date
             itm.addTask(category, task);  // add task to category's task collection
             tpp.taskAdd();
         }
