@@ -44,12 +44,12 @@ public class TaskPageController {
     /**
      * Used to start alarm for task with a due date, and send notification to user mailbox
      */
-    private final NotificationManager nm;
+    NotificationManager nm;
 
     /**
      * Used to access and modify category information
      */
-    private CategoryManager cm;
+    CategoryManager cm;
 
 
 
@@ -70,7 +70,6 @@ public class TaskPageController {
 
     /**
      * Starts the task page for a particular category, display to the terminal for interaction with the user
-     *
      * @param  category a category which all tasks are related to
      * @throws IOException {@inheritDoc}
      */
@@ -105,9 +104,6 @@ public class TaskPageController {
         Task task = itm.getTaskByName(category, taskToComplete);// get the specified task in user's tasks
         if(itm.checkTask(category, task)){  // If task is present in user, mark it finished
             itm.completeTask(task);
-            if (task instanceof TaskWithDueDate){       // if task has a due date, turn off the alarm
-                nm.turnOffAlarmOfTask((TaskWithDueDate) task);
-            }
             System.out.println("Task finished");
         }
         else{   //the task with the given name does not exist in user's current tasks
@@ -167,7 +163,7 @@ public class TaskPageController {
                 System.out.println("You have entered an invalid date");
             }
         }else{      // user does not want to create a task with due date
-            Task task = new Task(taskTitle, taskDetail, category); // create a simple task without due date
+            Task task = new Task(taskTitle, taskDetail); // create a simple task without due date
             itm.addTaskToCategory(category, task);  // add task to category's task collection
             tpp.taskAdded();
         }

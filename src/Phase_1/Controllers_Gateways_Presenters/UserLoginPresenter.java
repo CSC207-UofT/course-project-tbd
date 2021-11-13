@@ -19,9 +19,10 @@ public class UserLoginPresenter {
         System.out.println("Sorry, your input doesn't match :(");
     }
     public void again(){
-        System.out.println("Type 0 if you want to try again \n" +
-                "Type 1 if you forgot your password \n" +
-                "Type anything else to go back to main page");
+        String s = "Type 0 if you want to try again \n";
+        s = s + "Type 1 if you forgot your password \n";
+        s = s + "Type anything else to go back to main page";
+        System.out.println(s);
     }
     public void SQ(String sq){
         System.out.println("Answer the following question \n" + sq);
@@ -31,13 +32,10 @@ public class UserLoginPresenter {
                 "Enter new password");
     }
     public void SQ_AUS(){
-        System.out.println("Security Question answered incorrectly \n" +
-                "Type 0 to try again \n" +
-                "Type anything else to go back to the main page");
-    }
-
-    public void fail_1(){
-        System.out.println("Sorry, your username is invalid :(");
+        String s = "Security Question answered incorrectly\n";
+               s = s + "Type 0 to try again \n";
+               s = s + "Type anything else to go back to the main page";
+        System.out.println(s);
     }
 
     public void changed(){

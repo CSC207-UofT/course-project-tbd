@@ -46,11 +46,12 @@ public class GroupChat {
 
         for (String str : this.messages) {
             String[] compare = str.split("/");
+            System.out.println(compare[1]);
+            System.out.println(userName);
             if (compare[1].equals(userName)) {
                 results.add(str);
             }
         }
-
         return results;
     }
 

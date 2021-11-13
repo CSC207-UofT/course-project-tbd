@@ -1,105 +1,84 @@
 package Phase_1.Entity;
 
+import java.time.LocalDateTime;
+
+
 /**
  * This class creates task, with its title, information, category, deadline to finish each task and a sets it
  * default status to false, until the task is finished.
- *
- * @author  Owen Huang
- * @author  placeholder
  */
+
 public class Task {
-
-    /**
-     * The title of the task, where no two task can have the same title
-     */
     private final String title;
-
-    /**
-     * The detail description of the task
-     */
     private String information;
+    public LocalDateTime dueDate = null;
+    public boolean status;
 
-    /**
-     * Whether task is completed, true means completed, false means incomplete
-     */
-    private boolean status;
-
-    /**
-     * The Category this task belongs to, all tasks belong to the 'All Tasks' category
-     */
-    private Category category;
-
-    /**
-     * Construct a task with only a title and status.
-     * This is for testing purposes only, and nowhere in the main program
-     * should this instance of Task be created
-     *
-     * @param title is the title of the task
-     */
     public Task(String title){
         this.title = title;
         this.status = false;
     }
 
-    /**
-     * Construct a basic Task with title and information (its description)
-     * and assign it to a category
-     *
-     * @param title is the title of the task
-     * @param information is the description of the task
-     * @param category is the category this task belongs to
-     */
-    public Task(String title, String information, Category category){
-        this.title = title;
-        this.information = information;
-        this.status = false;
-
-    }
-
-    /**
-     * Construct a basic Task with title and information (its description) only.
-     * The purpose of this constructor is for its child classes to inherit from without
-     * specifying the Category it belongs to. Making it easier to extend.
-     *
-     * @param title is the title of the task
-     * @param information is the description of the task
-     */
     public Task(String title, String information){
         this.title = title;
         this.information = information;
         this.status = false;
     }
 
+    public Task(String title, String information, int year, int month, int day, int hour, int minute){
+        this.title = title;
+        this.information = information;
+        this.status = false;
+        this.dueDate = LocalDateTime.of(year, month, day, hour, minute);
+        // 2021/12/07/24/40
+        // YYYY/MM/DD/hh/mm
+    }
+
     /**
-     * Setter method for the status of the task
      *
-     * @param status is what we want to set status to, true means complete, false means incomplete
+     * @param status is the current status of a task.
      */
     public void setStatus(Boolean status){this.status = status;}
 
-    /**
-     * Getter method for the current status of the task
-     *
-     * @return the status of the task
-     */
     public boolean getStatus(){
         return this.status;
     }
 
     /**
-     * Getter method for the task title
-     *
-     * @return this method returns the task title
+     * @return This method returns the task name.
      */
+
+
     public String getTaskName(){
         return this.title;
     }
 
     /**
-     * Override the toString method to print task details to window
-     *
-     * @return a string s representing the task and its details
+     * This method sets task status from incomplete to complete.
      */
+
+    public LocalDateTime getDueDate(){
+        return this.dueDate;
+    }
+
+    public void completeTask(){
+        this.status = true;
+    }
+
+    /**
+     * This method adds task to the category.
+     * @param c the category in which I want to add my task.
+     */
+
+    public void addTasktoCategory(Category c){
+        c.addTask(this);
+    }
+
+
+    /**
+     * @return This method represents the information and status of the task in the form of string.
+     */
+
     @Override
     public String toString() {
         String s = "Title: " + this.title + "\n";

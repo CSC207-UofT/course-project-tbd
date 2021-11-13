@@ -47,10 +47,12 @@ public class TaskManager {
      * @param category is the category we want to view the tasks of
      * @return a string representation of all tasks in category
      */
+
+
     public String displayTask(Category category){
         StringBuilder s = new StringBuilder();
         for(Task t: category.getTasks()){
-            s.append(t.toString()).append("\n");
+            s.append("--------------------\n").append(t.toString()).append("\n");
         }
         return s.toString();
     }

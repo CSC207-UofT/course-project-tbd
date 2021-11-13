@@ -57,6 +57,7 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="lib1" level="project" />
+    <orderEntry type="library" name="javafx-sdk-17.0" level="application" />
+    <orderEntry type="library" exported="" name="lib" level="project" />
   </component>
 </module>
