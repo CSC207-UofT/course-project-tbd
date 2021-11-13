@@ -1,5 +1,6 @@
 package Phase_1.GUI;
 
+import Phase_1.GUI.src.GUImain;
 import Phase_1.UseCaseClass.GroupManager;
 import Phase_1.UseCaseClass.UserManager;
 import javafx.fxml.FXML;
@@ -17,7 +18,6 @@ import javafx.scene.control.Button;
 public class MainPageController implements Initializable {
     UserManager um;
     GroupManager gm;
-    NewUserController nuc;
     @FXML
     Button signInButton;
     @FXML
@@ -56,9 +56,6 @@ public class MainPageController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        nuc = new NewUserController();
-        nuc.setGm(gm);
-        nuc.setUm(um);
 
     }
 }
