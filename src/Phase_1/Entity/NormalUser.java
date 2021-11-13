@@ -3,7 +3,6 @@ package Phase_1.Entity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class NormalUser extends User implements Serializable {
 

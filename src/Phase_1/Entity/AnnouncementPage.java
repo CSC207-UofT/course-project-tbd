@@ -1,7 +1,6 @@
 package Phase_1.Entity;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class AnnouncementPage {
     // This class represents the homepage for a group
@@ -22,15 +21,6 @@ public class AnnouncementPage {
     public void addAnnouncement(String announcement){
         this.announcements.add(announcement);
     }
-
-    /**
-     *
-     * @return Returns the arraylist containing announcements
-     */
-    public ArrayList<String> getAnnouncements() {
-        return announcements;
-    }
-
 
     /**
      *
