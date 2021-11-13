@@ -1,4 +1,4 @@
-package Phase_1.GUI;
+package Phase_1.GUI.src;
 
 import javafx.application.Application;
 import javafx.scene.Parent;
@@ -19,7 +19,7 @@ public class GUImain extends Application {
         stage = primaryStage;
         primaryStage.setResizable(false);
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("WelcomePage.fxml")));
-        primaryStage.setTitle("Falcon");
+        primaryStage.setTitle("TBD's Productivity App");
         primaryStage.setScene(new Scene(root, 400, 600));
         primaryStage.show();
     }

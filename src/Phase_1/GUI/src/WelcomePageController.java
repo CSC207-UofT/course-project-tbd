@@ -1,15 +1,15 @@
-package Phase_1.GUI;
+package Phase_1.GUI.src;
 
 import Phase_1.Controllers_Gateways_Presenters.GroupDataGateWay;
 import Phase_1.Controllers_Gateways_Presenters.UserDataGateway;
 import Phase_1.Entity.Group;
 import Phase_1.Entity.User;
+import Phase_1.GUI.src.MainPageController;
 import Phase_1.UseCaseClass.GroupManager;
 import Phase_1.UseCaseClass.UserManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
-import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -19,15 +19,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import Phase_1.Entity.Group;
-import Phase_1.Entity.User;
-import Phase_1.UseCaseClass.GroupManager;
-import Phase_1.UseCaseClass.UserManager;
 import javafx.stage.Stage;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
 
 
 public class WelcomePageController implements Initializable {

@@ -1,15 +1,10 @@
-package Phase_1.GUI;
+package Phase_1.GUI.src;
 
-import Phase_1.Controllers_Gateways_Presenters.Main;
-import Phase_1.Entity.Group;
+import Phase_1.GUI.src.GUImain;
 import Phase_1.UseCaseClass.GroupManager;
 import Phase_1.UseCaseClass.UserManager;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Objects;
 
 
 public class MainPageController {
