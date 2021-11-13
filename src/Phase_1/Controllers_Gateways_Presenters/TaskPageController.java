@@ -154,6 +154,8 @@ public class TaskPageController {
                 System.out.println("Please enter according to the format: Year/Month/Date/Hour/Minute");
             } catch (DateTimeException e3){     // when the date user entered is an invalid date
                 System.out.println("You have entered an invalid date");
+            } catch (Exception e){
+                System.out.println("Invalid input");
             }
         }else{      // user does not want to create a task with due date
             Task task = new Task(taskTitle, taskDetail); // create a simple task without due date
