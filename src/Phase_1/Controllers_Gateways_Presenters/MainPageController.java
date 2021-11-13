@@ -14,7 +14,7 @@ public class MainPageController {
     GroupManager gm;
     MainPageController(UserManager um, GroupManager gm){
         this.um = um;
-        this.gm = gm;};
+        this.gm = gm;}
     private final MainPagePresenter mpp = new MainPagePresenter();
     public void run() {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));

@@ -2,9 +2,10 @@ package Phase_1.Controllers_Gateways_Presenters;
 
 public class NewUserPresenter {
     public void Intro(){
-        System.out.println("Welcome new adventurer! \n" +
-                "Hope you can enjoy our app :)\n \n" +
-                "Please type your preferred UserName");
+        String s = "Welcome new adventurer! \n";
+        s += "Hope you can enjoy our app :)\n \n";
+        s += "Please type your preferred UserName";
+        System.out.println(s);
     }
     public void invalidUserName(String u){
         System.out.println("Sorry, UserName " + u + " has been taken");

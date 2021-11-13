@@ -10,7 +10,7 @@ import java.util.NoSuchElementException;
  */
 
 public class Category implements Iterable<Task>{
-    private String categoryName;    // This is the name of the category/folder
+    private final String categoryName;    // This is the name of the category/folder
     public ArrayList<Task> tasks;  // These are all the tasks contained in that category
 
     public Category (String name) {
