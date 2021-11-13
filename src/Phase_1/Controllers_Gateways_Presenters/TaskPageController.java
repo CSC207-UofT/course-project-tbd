@@ -25,11 +25,6 @@ import java.util.*;
  */
 public class TaskPageController {
 
-    /**
-     * A Category Name which is unique to a user
-     */
-    private String catName;
-
 
     /**
      * Task Page presenter contains all the print statements associated with the task page
@@ -56,14 +51,12 @@ public class TaskPageController {
     /**
      * Constructs the personalized Task Page for the specified category
      *
-     * @param  catName a unique category associated with the tasks
      * @param cm the category manager class responsible for operating on user information
      * @param nm the notification manager class responsible for operations on tasks with due date
      */
-    public TaskPageController(String catName, CategoryManager cm, NotificationManager nm){
+    public TaskPageController(CategoryManager cm, NotificationManager nm){
         this.cm = cm;
         this.nm = nm;
-        this.catName = catName;
         this.itm = new TaskManager();
         this.tpp = new TaskPagePresenter();
     }
