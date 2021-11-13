@@ -1,8 +1,9 @@
 package Phase_1.Entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Folder {
+public class Folder implements Serializable {
     /*This class represents a folder inside a group. This holds all the tasks for a particular
     * user. The folderName refers to the user*/
     private final String folderName;    // This is the name of the folder

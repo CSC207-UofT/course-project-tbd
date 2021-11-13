@@ -3,7 +3,9 @@ package Phase_1.Entity;
 
 import Phase_1.UseCaseClass.CategoryManager;
 
-public class CountDownTask extends Task implements TomatoClock{
+import java.io.Serializable;
+
+public class CountDownTask extends Task implements TomatoClock, Serializable {
     private int WorkTime;
     private int BreakTime;
 

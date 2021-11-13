@@ -1,5 +1,6 @@
 package Phase_1.Entity;
 
+import java.io.Serializable;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -11,7 +12,7 @@ import java.time.format.DateTimeFormatter;
  * @author  Owen Huang
  * @author  placeholder
  */
-public class TaskWithDueDate extends Task implements Comparable<TaskWithDueDate>{
+public class TaskWithDueDate extends Task implements Comparable<TaskWithDueDate>, Serializable {
 
     /**
      * A LocalDateTime object storing the actual date information about the alarm time
