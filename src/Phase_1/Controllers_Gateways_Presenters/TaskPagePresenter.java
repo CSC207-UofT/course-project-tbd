@@ -13,12 +13,13 @@ public class TaskPagePresenter {
      */
     public void availableOptions(){
         System.out.println("--------------------");
-        System.out.println("Your options:\n" +
-                "1. Back\n" +
-                "2. Add Tasks:\n" +
-                "3. finish Task\n" +
-                "4. View Tasks \n" +
-                "Your answer here: ");
+        String s = "Your options:\n";
+        s += "1. Back\n";
+        s += "2. Add Tasks:\n";
+        s += "3. finish Task\n";
+        s += "4. View Tasks \n";
+        s += "Your answer here: ";
+        System.out.println(s);
     }
 
     /**

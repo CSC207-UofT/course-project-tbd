@@ -2,7 +2,6 @@ package Phase_1.Entity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public abstract  class User implements Serializable {
     public String username;
@@ -13,6 +12,8 @@ public abstract  class User implements Serializable {
     public ArrayList<Category> myCategories = new ArrayList<>();
     public ArrayList<Task> myTasks = new ArrayList<>();
         public abstract void addGroup(String groupId);
+
+
         public abstract void removeGroup(String groupId);
         public abstract String getUsername();
         public abstract void addTasktoCategory(Task task, Category c);

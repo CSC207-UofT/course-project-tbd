@@ -15,9 +15,10 @@ public class NotificationPagePresenter {
      */
     public void availableOptions(){
         System.out.println("--------------------");
-        System.out.print("Your options:\n" +
-                "1. Back\n" +
-                "2. Delete notification:\n");
+        String s = "Your options:\n";
+        s += "1. Back\n";
+        s += "2. Delete notification:\n";
+        System.out.print(s);
     }
 
     /**

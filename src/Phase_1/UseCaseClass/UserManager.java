@@ -7,7 +7,6 @@ import java.util.Objects;
 
 public class UserManager {
     public ArrayList<User> allUsers;
-    TaskManager itm = new TaskManager();
 
     public UserManager(ArrayList<User> user_list) {
         this.allUsers = user_list;

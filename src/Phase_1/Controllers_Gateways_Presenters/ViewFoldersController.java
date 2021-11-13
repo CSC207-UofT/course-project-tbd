@@ -7,7 +7,6 @@ import Phase_1.UseCaseClass.UserManager;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.net.NoRouteToHostException;
 
 /**
  * This controller is responsible for showing all the categories/folders inside a given group. It

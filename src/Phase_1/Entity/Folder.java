@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class Folder {
     /*This class represents a folder inside a group. This holds all the tasks for a particular
     * user. The folderName refers to the user*/
-    private String folderName;    // This is the name of the folder
-    private ArrayList<Task> tasks;  // These are all the tasks contained in that folder
+    private final String folderName;    // This is the name of the folder
+    private final ArrayList<Task> tasks;  // These are all the tasks contained in that folder
 
     public Folder (String name) {
         // Constructor: takes in name of folder(username) and assigns it to the folder.
