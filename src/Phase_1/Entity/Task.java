@@ -1,5 +1,6 @@
 package Phase_1.Entity;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 
@@ -8,7 +9,7 @@ import java.time.LocalDateTime;
  * default status to false, until the task is finished.
  */
 
-public class Task {
+public class Task implements Serializable {
     private final String title;
     private String information;
     public LocalDateTime dueDate = null;

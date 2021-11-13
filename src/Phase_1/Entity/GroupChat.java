@@ -1,8 +1,9 @@
 package Phase_1.Entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class GroupChat {
+public class GroupChat implements Serializable {
     private final String name;
     public ArrayList<String> messages;
 

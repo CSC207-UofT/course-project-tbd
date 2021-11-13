@@ -1,9 +1,10 @@
 package Phase_1.Entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AnnouncementPage {
+public class AnnouncementPage implements Serializable {
     // This class represents the homepage for a group
 
     private final ArrayList<String> announcements;

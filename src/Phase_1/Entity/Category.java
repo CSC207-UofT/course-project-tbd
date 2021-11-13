@@ -1,5 +1,6 @@
 package Phase_1.Entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.NoSuchElementException;
  * This class creates a category, with its title, list of tasks in the category
  */
 
-public class Category implements Iterable<Task>{
+public class Category implements Iterable<Task>, Serializable {
     private final String categoryName;    // This is the name of the category/folder
     public ArrayList<Task> tasks;  // These are all the tasks contained in that category
 
