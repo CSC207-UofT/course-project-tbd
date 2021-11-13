@@ -44,6 +44,11 @@ public class Group implements Serializable {
      * Adds user to our group
      * @param users: the list of users to be added
      **/
+
+    public void addTasktoCategory(Task t, Category c) {
+        c.addTask(t);
+    }
+
     public void addUsers(List<User> users) {
         this.users.addAll(users);
     }

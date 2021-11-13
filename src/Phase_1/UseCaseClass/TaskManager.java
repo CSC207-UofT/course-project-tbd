@@ -47,6 +47,8 @@ public class TaskManager {
      * @param category is the category we want to view the tasks of
      * @return a string representation of all tasks in category
      */
+
+
     public String displayTask(Category category){
         StringBuilder s = new StringBuilder();
         for(Task t: category.getTasks()){

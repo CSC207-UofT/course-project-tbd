@@ -120,7 +120,8 @@ public class GroupAddTaskController {
                                     TaskWithDueDate task = new TaskWithDueDate(title, detail, year
                                             , month, day, hour, minute);
                                     nm.addTaskWithDueDate(task);
-                                    tm.addTask(cm.getCategoryByGroup(categoryName, gm.getGroupById(groupId)), task);
+                                    tm.addTaskToCategory
+                                            (cm.getCategoryByGroup(categoryName, gm.getGroupById(groupId)), task);
                                     gatp.taskAdded();
                                 } catch (UnsupportedOperationException e) {
                                     // this exception is thrown when the user schedules a date in the past
@@ -135,7 +136,8 @@ public class GroupAddTaskController {
                                 }
                             } else { // this means that the user choose to add a task without the notifications
                                 Task task = new Task(title, detail);
-                                tm.addTask(cm.getCategoryByGroup(categoryName, gm.getGroupById(groupId)), task);
+                                tm.addTaskToCategory
+                                        (cm.getCategoryByGroup(categoryName, gm.getGroupById(groupId)), task);
                                 gatp.taskAdded();
                             }
                         } else if (userId.equals(categoryName)) {

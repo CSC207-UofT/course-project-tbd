@@ -153,8 +153,8 @@ public class TaskPageController {
                 // error dateTime exception may be thrown of date information is invalid (e.g. -200 minutes)
                 TaskWithDueDate task = new TaskWithDueDate(taskTitle, taskDetail, year, month, day, hour, minute);
                 nm.addTaskWithDueDate(task);    // add to notification manager for creating alarm for task
-                itm.addTask(category, task);  // add task to user's task collection
-                tpp.taskAdd();
+                itm.addTaskToCategory(category, task);  // add task to user's task collection
+                tpp.taskAdded();
             } catch (UnsupportedOperationException e) {     // exception thrown when user schedules a date in the past
                 System.out.println(e.getMessage());
             } catch (IndexOutOfBoundsException e2){     // when the user's date input does not follow the format
@@ -164,8 +164,8 @@ public class TaskPageController {
             }
         }else{      // user does not want to create a task with due date
             Task task = new Task(taskTitle, taskDetail); // create a simple task without due date
-            itm.addTask(category, task);  // add task to category's task collection
-            tpp.taskAdd();
+            itm.addTaskToCategory(category, task);  // add task to category's task collection
+            tpp.taskAdded();
         }
     }
 }
