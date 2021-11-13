@@ -12,7 +12,7 @@ public class Task {
     /**
      * The title of the task, where no two task can have the same title
      */
-    private String title;
+    private final String title;
 
     /**
      * The detail description of the task
@@ -53,7 +53,7 @@ public class Task {
         this.title = title;
         this.information = information;
         this.status = false;
-        this.category = category;
+
     }
 
     /**

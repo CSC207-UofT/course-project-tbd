@@ -3,7 +3,7 @@ package Phase_1.Entity;
 import java.util.ArrayList;
 
 public class GroupChat {
-    private String name;
+    private final String name;
     public ArrayList<String> messages;
 
     /**
@@ -42,7 +42,7 @@ public class GroupChat {
      */
     public ArrayList<String> getMessagesByUser(User user) {
         ArrayList<String> results = new ArrayList<>();
-        String userName = user.username;
+        String userName = user.getUsername();
 
         for (String str : this.messages) {
             String[] compare = str.split("/");

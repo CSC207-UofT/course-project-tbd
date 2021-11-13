@@ -8,7 +8,6 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class UserManagerTest {
     ArrayList<User> allUsers;
@@ -16,10 +15,10 @@ public class UserManagerTest {
     User b;
     User c;
     User d;
-    User x;
     UserManager um;
     Category cy;
     Task temp;
+    String s;
 
 
     @Before
@@ -28,7 +27,7 @@ public class UserManagerTest {
         b = new NormalUser("Pat", "234");
         c = new NormalUser("Dog", "345");
         d = new NormalUser("Duck", "567");
-        allUsers = new ArrayList<User>();
+        allUsers = new ArrayList<>();
         allUsers.add(a);
         allUsers.add(b);
         allUsers.add(c);
@@ -51,25 +50,26 @@ public class UserManagerTest {
 
     @Test
     public void TestcheckIfValid(){
-        assertEquals(false, um.checkIfValid("Cat"));
-        assertEquals(true, um.checkIfValid("Cam"));
+        assertFalse(um.checkIfValid("Cat"));
+        assertTrue(um.checkIfValid("Cam"));
     }
     @Test
     public void Testlogin(){
-        assertEquals(true, um.login("Cat", "123"));
-        assertEquals(false, um.login("Cat", "133"));
+        assertTrue(um.login("Cat", "123"));
+        assertFalse(um.login("Cat", "133"));
     }
     @Test
     public void TestgetUserById(){
-        assertEquals(null, um.getUserById("Cam"));
+        assertNull(um.getUserById("Cam"));
         assertEquals(a, um.getUserById("Cat"));
     }
     @Test
     public void TestaddCategory(){
         cy = new Category("Study");
         um.addCategory(a, cy);
-        assertEquals("All Tasks"+
-                "\n" + "Study" + "\n", um.displayCategories(a));
+        s = "All Tasks"+ "\n";
+        s += "Study" + "\n";
+        assertEquals(s, um.displayCategories(a));
     }
     @Test
     public void TestaddTask(){

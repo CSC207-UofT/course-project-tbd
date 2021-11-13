@@ -6,7 +6,6 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 import java.util.ArrayList;
-import java.util.List;
 
 public class GroupTest {
 
@@ -20,8 +19,6 @@ public class GroupTest {
     User x;
     User y;
     User z;
-    ArrayList<Category> Categories;
-    ArrayList<Features> features;
     ArrayList<User> users;
 
 
@@ -56,7 +53,7 @@ public class GroupTest {
         a = new Task("Pitch in Idea");
         b = new Task("Create team");
         c = new Task("Prepare Presentation");
-        d = new Task("Give Prcesentation");
+        d = new Task("Give Presentation");
         cy.addTask(a);
         cy.addTask(b);
         cy.addTask(c);
