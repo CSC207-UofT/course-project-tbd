@@ -1,6 +1,7 @@
 package Phase_1.UseCaseClass;
 
 import Phase_1.Entity.Group;
+import Phase_1.Entity.NormalUser;
 import Phase_1.Entity.User;
 
 import java.util.ArrayList;
