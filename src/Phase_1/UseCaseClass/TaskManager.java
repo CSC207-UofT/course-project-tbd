@@ -2,6 +2,7 @@ package Phase_1.UseCaseClass;
 
 import Phase_1.Entity.Category;
 import Phase_1.Entity.Task;
+import Phase_1.Entity.TaskWithDueDate;
 
 /**
  * This TaskManager is the use case that is responsible for accessing and manipulating attributes and methods
@@ -47,14 +48,40 @@ public class TaskManager {
      * @param category is the category we want to view the tasks of
      * @return a string representation of all tasks in category
      */
-
-
     public String displayTask(Category category){
         StringBuilder s = new StringBuilder();
         for(Task t: category.getTasks()){
             s.append("--------------------\n").append(t.toString()).append("\n");
         }
         return s.toString();
+    }
+
+    /**
+     * Create a default Task object and then returns it
+     *
+     * @param title is the tile of the task
+     * @param information is the detail or content of the task
+     * @return a Task object constructed with the given parameters
+     */
+    public Task createTask(String title, String information){
+        return new Task(title, information);
+    }
+
+    /**
+     * Create a TaskWithDueDate object and then returns it
+     *
+     * @param title the name/title of the task
+     * @param information the content/detail of the task
+     * @param year the year of the due date
+     * @param month the month of the due date
+     * @param day the day of the due date
+     * @param hour the hour of the due date
+     * @param minute the minute of the due date
+     * @return a TaskWithDueDate object constructed with the given parameters
+     */
+    public TaskWithDueDate createTask(String title, String information
+            , int year, int month, int day, int hour, int minute){
+        return new TaskWithDueDate(title, information, year, month, day, hour, minute);
     }
 
     /**
