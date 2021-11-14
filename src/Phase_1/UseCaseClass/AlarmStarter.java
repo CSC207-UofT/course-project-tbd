@@ -4,7 +4,9 @@
  * (https://github.com/gburgett/AlarmClock)
  */
 
-package Phase_1.Alarm;
+package Phase_1.UseCaseClass;
+
+import Phase_1.Entity.Alarm;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
@@ -17,7 +19,7 @@ import java.util.*;
  *
  * @author  Owen Huang
  */
-public class AlarmStarter implements AlarmMenu{
+public class AlarmStarter implements AlarmMenu {
 
     /**
      * A Timer object responsible for scheduling alarms in a background Timer Thread
