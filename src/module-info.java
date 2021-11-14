@@ -10,4 +10,6 @@ module course.project.tbd {
     exports Phase_1.UseCaseClass;
     exports Phase_1.Entity;
     exports Phase_1.Alarm;
+    exports Phase_1.GUI;
+    opens Phase_1.GUI to javafx.fxml;
 }

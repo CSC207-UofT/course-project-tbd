@@ -1,6 +1,5 @@
-package Phase_1.GUI.src;
+package Phase_1.GUI;
 
-import Phase_1.GUI.src.GUImain;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;

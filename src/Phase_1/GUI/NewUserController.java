@@ -1,4 +1,4 @@
-package Phase_1.GUI.src;
+package Phase_1.GUI;
 import Phase_1.UseCaseClass.GroupManager;
 import Phase_1.UseCaseClass.UserManager;
 import javafx.fxml.FXML;
