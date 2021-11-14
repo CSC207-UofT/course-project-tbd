@@ -1,3 +1,9 @@
+/*
+ * The design of this class was based on AlarmClock
+ * on GitHub repository by gburgett
+ * (https://github.com/gburgett/AlarmClock)
+ */
+
 package Phase_1.Alarm;
 
 import java.time.LocalDateTime;
@@ -13,7 +19,7 @@ public class Alarm {
     /**
      * A LocalDateTime object storing the actual date information about the alarm time
      */
-    private LocalDateTime time;
+    private final LocalDateTime time;
 
     /**
      * Getter method for accessing the alarm time

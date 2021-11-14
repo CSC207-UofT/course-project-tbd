@@ -51,10 +51,8 @@ public class ViewFoldersController {
                     GroupAddTaskController gatc = new GroupAddTaskController(userId, groupId,
                             categoryName, um, tm, gm, nm);
                     gatc.run();
-                    flag = false;
-                } else{
-                    flag = false;
                 }
+                flag = false;
 
             }
         }

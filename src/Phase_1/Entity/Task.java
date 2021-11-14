@@ -62,20 +62,6 @@ public class Task implements Serializable {
         return this.dueDate;
     }
 
-    public void completeTask(){
-        this.status = true;
-    }
-
-    /**
-     * This method adds task to the category.
-     * @param c the category in which I want to add my task.
-     */
-
-    public void addTasktoCategory(Category c){
-        c.addTask(this);
-    }
-
-
     /**
      * @return This method represents the information and status of the task in the form of string.
      */
