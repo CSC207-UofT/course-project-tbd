@@ -21,7 +21,7 @@ public class GUImain extends Application {
         stage = primaryStage;
         primaryStage.setResizable(false);
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("WelcomePage.fxml")));
-        primaryStage.setTitle("Falcon");
+        primaryStage.setTitle("Group TBD");
         primaryStage.setScene(new Scene(root, 400, 600));
         primaryStage.show();
 

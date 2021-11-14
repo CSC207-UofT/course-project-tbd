@@ -148,4 +148,12 @@ public class GroupManager{
     public Group getGroupById(String groupId){
         return maps.get(groupId);
     }
+
+    /**
+     * This method returns groups stored in GroupManager
+     * @return groups stored
+     */
+    public HashMap<String, Group> getMaps(){
+        return maps;
+    }
 }

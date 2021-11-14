@@ -32,6 +32,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 
+
 public class WelcomePageController implements Initializable {
     GroupManager gm;
     UserManager um;
@@ -47,12 +48,27 @@ public class WelcomePageController implements Initializable {
     @FXML
     public Label tbd;
 
+    @FXML Button saveButton;
+
+
     public void setUm(UserManager um) {
         this.um = um;
     }
 
     public void setGm(GroupManager gm) {
         this.gm = gm;
+    }
+
+    public void saveButtonPushed(ActionEvent event){
+
+        try{udg.saveToFile(um.getAllUsers());}
+        catch (IOException ioException){
+            System.out.println("No user data is stored in database");
+        }
+        try{gdw.saveToFile(gm.getMaps());}
+        catch (IOException ioException){
+            System.out.println("No group data is stored in database");}
+        tbd.setText("Data saved, we hope to see you again!");
     }
 
     public void buttonPushed(ActionEvent event) throws IOException {
@@ -65,16 +81,7 @@ public class WelcomePageController implements Initializable {
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
         welcomeButton.setText("Hope you enjoy our app :)");
-        System.out.println(um.allUsers);
 
-        try{udg.saveToFile(users);}
-        catch (IOException ioException){
-            System.out.println("No user data is stored in database");
-        }
-        try{gdw.saveToFile(groups);}
-        catch (IOException ioException){
-            System.out.println("No group data is stored in database");
-        }
     }
 
 
