@@ -29,10 +29,10 @@ public class GroupManager{
      * @param name name of the group
      */
     public void createGroup(User user, String name) {
-        int count = -1;
+        int count = 0;
         for (Group g: maps.values()) {
            String a = g.getgroupName().substring(g.getgroupName().indexOf('#')+1);
-            if (count < Integer.parseInt(a)){
+            if (count <= Integer.parseInt(a)){
                 count = Integer.parseInt(a) + 1;
             }}
         String groupId =  "#" + count;
