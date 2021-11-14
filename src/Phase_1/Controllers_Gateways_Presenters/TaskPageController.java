@@ -25,11 +25,6 @@ import java.util.*;
  */
 public class TaskPageController {
 
-    /**
-     * A Category Name which is unique to a user
-     */
-    private String catName;
-
 
     /**
      * Task Page presenter contains all the print statements associated with the task page
@@ -56,14 +51,12 @@ public class TaskPageController {
     /**
      * Constructs the personalized Task Page for the specified category
      *
-     * @param  catName a unique category associated with the tasks
      * @param cm the category manager class responsible for operating on user information
      * @param nm the notification manager class responsible for operations on tasks with due date
      */
-    public TaskPageController(String catName, CategoryManager cm, NotificationManager nm){
+    public TaskPageController(CategoryManager cm, NotificationManager nm){
         this.cm = cm;
         this.nm = nm;
-        this.catName = catName;
         this.itm = new TaskManager();
         this.tpp = new TaskPagePresenter();
     }
@@ -104,6 +97,10 @@ public class TaskPageController {
         Task task = itm.getTaskByName(category, taskToComplete);// get the specified task in user's tasks
         if(itm.checkTask(category, task)){  // If task is present in user, mark it finished
             itm.completeTask(task);
+            if (task instanceof TaskWithDueDate){
+                nm.addTaskWithDueDate((TaskWithDueDate) task);
+                System.out.println("Alarm for task: <" + task.getTaskName() + "> has benn turned off.");
+            }
             System.out.println("Task finished");
         }
         else{   //the task with the given name does not exist in user's current tasks
@@ -161,6 +158,8 @@ public class TaskPageController {
                 System.out.println("Please enter according to the format: Year/Month/Date/Hour/Minute");
             } catch (DateTimeException e3){     // when the date user entered is an invalid date
                 System.out.println("You have entered an invalid date");
+            } catch (Exception e){
+                System.out.println("Invalid input");
             }
         }else{      // user does not want to create a task with due date
             Task task = new Task(taskTitle, taskDetail); // create a simple task without due date

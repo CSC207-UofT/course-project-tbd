@@ -6,9 +6,10 @@ public class JoinGroupPresenter {
     }
 
     public void groupNameNotInMap(){
-        System.out.println("Sorry, the name is not available in our database \n" +
-                "Enter 1 search for the group again \n" +
-                "Enter any other number to go back");
+        String s = "Sorry, the name is not available in our database \n";
+        s += "Enter 1 search for the group again \n";
+        s += "Enter any other number to go back";
+        System.out.println(s);
     }
 
     public void alreadyInGroup(String groupName){

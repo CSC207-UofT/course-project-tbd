@@ -1,27 +1,31 @@
 package Phase_1.GUI;
 
-import Phase_1.GUI.src.GUImain;
 import Phase_1.UseCaseClass.GroupManager;
 import Phase_1.UseCaseClass.UserManager;
 import javafx.fxml.FXML;
 
-import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 
 
 public class MainPageController implements Initializable {
     UserManager um;
     GroupManager gm;
+
     @FXML
     Button signInButton;
     @FXML
     Button newUserButton;
+    @FXML
+    Hyperlink back;
 
 
     public MainPageController(){
@@ -40,22 +44,39 @@ public class MainPageController implements Initializable {
 
     public void display() throws IOException {
         GUImain m = new GUImain();
-        System.out.println(um);
         m.changeScene("Main.fxml");
     }
 
-    public void newUserButtonPushed(javafx.event.ActionEvent event) throws IOException {
+    public void newUserButtonPushed() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("NewUser.fxml"));
+        Parent root = loader.load();
+        NewUserController mpc1 = loader.getController();
+        mpc1.setUm(um);
+        mpc1.setGm(gm);
+        Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
-        guiMain.changeScene("NewUser.fxml");
+        guiMain.addScene(scene);
     }
 
-    public void signInButtonPushed(javafx.event.ActionEvent event) throws IOException {
+    public void backPushed() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("WelcomePage.fxml"));
+        Parent root = loader.load();
+        WelcomePageController mpc1 = loader.getController();
+        mpc1.setUm(um);
+        mpc1.setGm(gm);
+        Scene scene = new Scene(root);
+        GUImain guiMain = new GUImain();
+        guiMain.addScene(scene);
+    }
+
+    public void signInButtonPushed() throws IOException {
         GUImain guiMain = new GUImain();
         guiMain.changeScene("UserLogin.fxml");
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
 
     }
 }

@@ -3,7 +3,6 @@ package Phase_1.Entity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class NormalUser extends User implements Serializable {
 
@@ -45,7 +44,6 @@ public class NormalUser extends User implements Serializable {
     /**
      * Add group to this normal user
      */
-    @Override
     public void addGroup(String groupId) {
         this.myGroups.add(groupId);
 

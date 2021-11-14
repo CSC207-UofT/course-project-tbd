@@ -11,7 +11,7 @@ import java.util.HashMap;
 
 
 public class Main {
-    public static void main(String[] args) throws ClassNotFoundException {
+    public static void main(String[] args) throws ClassNotFoundException, IOException {
         ArrayList<User> users = new ArrayList<>();
         HashMap<String, Group> groups = new HashMap<>();
         UserDataGateway udg = new UserDataGateway("userData.ser");
@@ -28,12 +28,9 @@ public class Main {
         UserManager um = new UserManager(users);
         GroupManager gm = new GroupManager(groups);
         MainPageController mp = new MainPageController(um, gm);
-        System.out.println(um.login("2","2"));
         mp.run();
-        try{udg.saveToFile(users);}
-        catch (IOException ioException){
-            System.out.println("No user data is stored in database");
-        }
+        udg.saveToFile(users);
+
         try{gdw.saveToFile(groups);}
         catch (IOException ioException){
             System.out.println("No group data is stored in database");

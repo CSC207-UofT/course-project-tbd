@@ -24,11 +24,6 @@ public class CategoryPagePresenter {
         System.out.print("Enter Category Title:\n");
     }
 
-    public void giveCategoryDetail(){
-        System.out.println("--------------------");
-        System.out.println("Enter Category Detail:");
-    }
-
     public void CategoryAdd(){
         System.out.println("Your Category has been created and added");
     }

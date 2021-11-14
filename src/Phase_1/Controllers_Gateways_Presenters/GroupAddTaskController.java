@@ -50,8 +50,8 @@ public class GroupAddTaskController {
 
     /**
      * Constructs the personalized Task Page for the specified category
-     * @param userId an Id of the User given from the previous controller
-     * @param groupId an Id of the Group given from the previous controller
+     * @param userId an id of the User given from the previous controller
+     * @param groupId an id of the Group given from the previous controller
      * @param categoryName the category's name given from the previous controller
      * @param um an instance of UserManager
      * @param tm an instance of TaskManager

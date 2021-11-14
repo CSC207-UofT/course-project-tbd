@@ -1,9 +1,10 @@
 package Phase_1.Entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.List;
 
-public class AnnouncementPage {
+public class AnnouncementPage implements Serializable {
     // This class represents the homepage for a group
 
     private final ArrayList<String> announcements;
@@ -25,15 +26,6 @@ public class AnnouncementPage {
 
     /**
      *
-     * @return Returns the arraylist containing announcements
-     */
-    public ArrayList<String> getAnnouncements() {
-        return announcements;
-    }
-
-
-    /**
-     *
      * @return Returns the string form of the announcements
      */
     @Override
@@ -50,4 +42,11 @@ public class AnnouncementPage {
         return s.toString();
     }
 
+    /**
+     * Returns the anouncements as a list of strings
+     * @return A list of strings corresponding to the announcements.
+     */
+    public List<String> getAnnouncements() {
+        return this.announcements;
+    }
 }

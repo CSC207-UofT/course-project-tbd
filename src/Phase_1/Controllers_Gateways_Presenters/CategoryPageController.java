@@ -2,10 +2,8 @@ package Phase_1.Controllers_Gateways_Presenters;
 
 
 import Phase_1.Entity.Category;
-import Phase_1.Entity.NormalUser;
 import Phase_1.UseCaseClass.CategoryManager;
 import Phase_1.UseCaseClass.NotificationManager;
-import Phase_1.UseCaseClass.TaskManager;
 import Phase_1.UseCaseClass.UserManager;
 
 import java.io.BufferedReader;
@@ -23,54 +21,37 @@ import java.io.IOException;
 public class CategoryPageController {
 
     /**
-     * A user Id which is unique to a user
+     * A user id which is unique to a user
      */
-    private String userId;
-
-    /**
-     * Use case for all operations we are performing on Tasks (e.g. add task, delete task)
-     */
-    private TaskManager itm;
+    private final String userId;
 
     /**
      * Used to access and modify user information
      */
-    private UserManager um;
-
-    /**
-     * Used to start alarm for task with a due date, and send notification to user mailbox
-     */
-    private NotificationManager nm;
+    private final UserManager um;
 
     /**
      * Used to access and modify category information
      */
-    private CategoryManager cm;
+    private final CategoryManager cm;
 
     /**
      * Category Page presenter contains all the print statements associated with the category page
      */
-    private CategoryPagePresenter cpp;
-
-    /**
-     * Task Page presenter contains all the print statements associated with the task page
-     */
-    private TaskPagePresenter tpp;
+    private final CategoryPagePresenter cpp;
 
     /**
      * Task Page controller made for controlling the task page according to the user input
      */
-    private TaskPageController tpc;
+    private final TaskPageController tpc;
 
 
     public CategoryPageController(String userId, UserManager um, NotificationManager nm){
         this.userId = userId;
-        this.tpp = new TaskPagePresenter();
         this.um = um;
-        this.itm = new TaskManager();
         this.cpp = new CategoryPagePresenter();
         this.cm = new CategoryManager();
-        this.tpc = new TaskPageController(userId, cm, nm);
+        this.tpc = new TaskPageController(cm, nm);
     }
 
     /**

@@ -1,10 +1,8 @@
-package Phase_1.GUI.src;
+package Phase_1.GUI;
 
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 
@@ -19,9 +17,10 @@ public class GUImain extends Application {
         stage = primaryStage;
         primaryStage.setResizable(false);
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("WelcomePage.fxml")));
-        primaryStage.setTitle("TBD's Productivity App");
+        primaryStage.setTitle("Group TBD");
         primaryStage.setScene(new Scene(root, 400, 600));
         primaryStage.show();
+
     }
 
     public void changeScene(String fxml) throws IOException {
@@ -31,6 +30,11 @@ public class GUImain extends Application {
 
     public static void main(String[] args){
         launch(args);
+    }
+
+    public void addScene(Scene scene) {
+        stage.setScene(scene);
+        stage.show();
     }
 }
 

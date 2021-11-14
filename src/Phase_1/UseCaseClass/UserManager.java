@@ -7,7 +7,6 @@ import java.util.Objects;
 
 public class UserManager {
     public ArrayList<User> allUsers;
-    TaskManager itm = new TaskManager();
 
     public UserManager(ArrayList<User> user_list) {
         this.allUsers = user_list;
@@ -93,6 +92,14 @@ public class UserManager {
             s.append(c.toString()).append("\n");
         }
         return s.toString();
+    }
+
+    /**
+     * get the users stored in the um
+     * @Return  ArrayList<User>
+     */
+    public ArrayList<User> getAllUsers(){
+        return allUsers;
     }
 
 }
