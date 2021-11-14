@@ -10,7 +10,6 @@ import java.util.HashMap;
 public class GroupManager{
     public HashMap<String, Group> maps;
     UserGroupManager ugm = new UserGroupManager();
-    private int count = 0;
 
     /**
      * Construct a TBD.GroupManager, giving them the given maps
@@ -30,12 +29,16 @@ public class GroupManager{
      * @param name name of the group
      */
     public void createGroup(User user, String name) {
-//        String groupId =  "#" + (maps.keySet().size());
+        int count = 0;
+        for (Group g: maps.values()) {
+           String a = g.getgroupName().substring(g.getgroupName().indexOf('#')+1);
+            if (count <= Integer.parseInt(a)){
+                count = Integer.parseInt(a) + 1;
+            }}
         String groupId =  "#" + count;
         Group group = new Group(user, name + groupId);
         this.maps.put(name+groupId, group);
         ugm.addGroup(user, group.getgroupName());
-        count ++;
     }
 
     /**
@@ -144,5 +147,13 @@ public class GroupManager{
      */
     public Group getGroupById(String groupId){
         return maps.get(groupId);
+    }
+
+    /**
+     * This method returns groups stored in GroupManager
+     * @return groups stored
+     */
+    public HashMap<String, Group> getMaps(){
+        return maps;
     }
 }

@@ -47,7 +47,7 @@ public class MainPageController implements Initializable {
         m.changeScene("Main.fxml");
     }
 
-    public void newUserButtonPushed(javafx.event.ActionEvent event) throws IOException {
+    public void newUserButtonPushed() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("NewUser.fxml"));
         Parent root = loader.load();
         NewUserController mpc1 = loader.getController();
@@ -58,7 +58,7 @@ public class MainPageController implements Initializable {
         guiMain.addScene(scene);
     }
 
-    public void backPushed(javafx.event.ActionEvent event) throws IOException {
+    public void backPushed() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("WelcomePage.fxml"));
         Parent root = loader.load();
         WelcomePageController mpc1 = loader.getController();
@@ -69,7 +69,7 @@ public class MainPageController implements Initializable {
         guiMain.addScene(scene);
     }
 
-    public void signInButtonPushed(javafx.event.ActionEvent event) throws IOException {
+    public void signInButtonPushed() throws IOException {
         GUImain guiMain = new GUImain();
         guiMain.changeScene("UserLogin.fxml");
     }
