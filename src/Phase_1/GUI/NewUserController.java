@@ -53,7 +53,7 @@ public class NewUserController implements Initializable {
 
         String userId = username.getText();
         if (!um.checkIfValid(userId)){
-            takenUserName.setText("Username " + userId + " has been taken");
+            takenUserName.setText("Username " + userId + " already taken");
 
         }
         else {
