@@ -6,10 +6,8 @@ import Phase_1.Entity.Group;
 import Phase_1.Entity.User;
 import Phase_1.UseCaseClass.GroupManager;
 import Phase_1.UseCaseClass.UserManager;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -21,15 +19,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import Phase_1.Entity.Group;
-import Phase_1.Entity.User;
-import Phase_1.UseCaseClass.GroupManager;
-import Phase_1.UseCaseClass.UserManager;
-import javafx.stage.Stage;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
 
 
 
@@ -59,7 +49,7 @@ public class WelcomePageController implements Initializable {
         this.gm = gm;
     }
 
-    public void saveButtonPushed(ActionEvent event){
+    public void saveButtonPushed(){
 
         try{udg.saveToFile(um.getAllUsers());}
         catch (IOException ioException){
@@ -71,7 +61,7 @@ public class WelcomePageController implements Initializable {
         tbd.setText("Data saved, we hope to see you again!");
     }
 
-    public void buttonPushed(ActionEvent event) throws IOException {
+    public void buttonPushed() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("MainPage.fxml"));
         Parent root = loader.load();
         MainPageController mpc1 = loader.getController();
@@ -88,8 +78,8 @@ public class WelcomePageController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         welcomeButton.setText("Click here to begin!");
-        users = new ArrayList<User>();
-        groups = new HashMap<String, Group>();
+        users = new ArrayList<>();
+        groups = new HashMap<>();
         udg = new UserDataGateway("userData.ser");
         gdw = new GroupDataGateWay("groupData.ser");
         try{users = udg.readFromFile();}

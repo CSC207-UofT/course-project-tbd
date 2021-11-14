@@ -8,9 +8,6 @@ public class UserPagePresenter {
         this.userDetail = userDetail;
     }
 
-//    public void welcomeMsg(){
-//        System.out.println("Welcome! " + ((NormalUser) user).username);
-//    }
 
     public void userProfilePage(){
         System.out.println("---------------------");
