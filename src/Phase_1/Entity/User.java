@@ -4,8 +4,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public abstract  class User implements Serializable {
-    public String username;
-    public String password;
 
 
         public abstract void addGroup(String groupId);

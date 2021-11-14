@@ -12,8 +12,8 @@ import java.time.LocalDateTime;
 public class Task implements Serializable {
     private final String title;
     private String information;
-    public LocalDateTime dueDate = null;
-    public boolean status;
+    private LocalDateTime dueDate = null;
+    private boolean status;
 
     public Task(String title){
         this.title = title;
