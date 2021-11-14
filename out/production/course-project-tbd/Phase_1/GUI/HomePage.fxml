@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text layoutX="166.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HomePage" wrappingWidth="67.21630859375" />
+   </children>
+</AnchorPane>
