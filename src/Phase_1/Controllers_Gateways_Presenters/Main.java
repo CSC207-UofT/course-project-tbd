@@ -1,7 +1,6 @@
 package Phase_1.Controllers_Gateways_Presenters;
 
 import Phase_1.Entity.Group;
-import Phase_1.Entity.NormalUser;
 import Phase_1.Entity.User;
 import Phase_1.UseCaseClass.GroupManager;
 import Phase_1.UseCaseClass.UserManager;
@@ -17,7 +16,6 @@ public class Main {
         HashMap<String, Group> groups = new HashMap<>();
         UserDataGateway udg = new UserDataGateway("userData.ser");
         GroupDataGateWay gdw = new GroupDataGateWay("groupData.ser");
-        System.out.println(groups);
         try{users = udg.readFromFile();}
         catch (IOException ioException){
             System.out.println("No User stored in the file");
