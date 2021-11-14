@@ -70,8 +70,14 @@ public class MainPageController implements Initializable {
     }
 
     public void signInButtonPushed() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("UserLogin.fxml"));
+        Parent root = loader.load();
+        UserLoginController mpc1 = loader.getController();
+        mpc1.setUm(um);
+        mpc1.setGm(gm);
+        Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
-        guiMain.changeScene("UserLogin.fxml");
+        guiMain.addScene(scene);
     }
 
     @Override
