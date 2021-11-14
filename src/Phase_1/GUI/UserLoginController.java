@@ -1,47 +1,78 @@
 package Phase_1.GUI;
 
+import Phase_1.UseCaseClass.GroupManager;
+import Phase_1.UseCaseClass.UserManager;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.event.ActionEvent;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class UserLoginController {
+public class UserLoginController implements Initializable{
 
-    public UserLoginController(){}
+    GroupManager gm;
+    UserManager um;
 
     @FXML
-    private Button login_button;
+    Button LoginButton;
     @FXML
-    private Label WrongLogin;
+    Label WrongLogin;
     @FXML
-    private TextField username;
+    TextField username;
     @FXML
-    private PasswordField password;
+    PasswordField password;
+    @FXML
+    Label SuccessLogin;
 
-    public void userLogIn(ActionEvent event) throws IOException {
-        checkLogin();
 
+    public void setGm(GroupManager gm) {
+        this.gm = gm;
     }
 
-    private void checkLogin() throws IOException {
-        GUImain m = new GUImain();
-        if(username.getText().toString().equals("javacoding") && password.getText().toString().equals("123")) {
-            WrongLogin.setText("Success!");
+    public void setUm(UserManager um) {
+        this.um = um;
+    }
 
-            m.changeScene("afterLogin.fxml");
-        }
+    public void LoginButtonPushed() throws IOException {
+        GUImain guiMain = new GUImain();
 
-        else if(username.getText().isEmpty() && password.getText().isEmpty()) {
+        WrongLogin.setText("");
+        SuccessLogin.setText("");
+
+        String userId = username.getText();
+        String passwordId = password.getText();
+
+        if (username.getText().isEmpty() && password.getText().isEmpty()) {
             WrongLogin.setText("Please enter your data.");
         }
-
-
+        else if (um.login(userId, passwordId)){
+            SuccessLogin.setText("Success!");
+            guiMain.changeScene("HomePage.fxml");
+        }
         else {
-            WrongLogin.setText("Wrong username or password!");
+            WrongLogin.setText("Wrong username or Password. Try Again!");
         }
     }
+
+    public void backPushed() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("MainPage.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        GUImain guiMain = new GUImain();
+        guiMain.addScene(scene);
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
+
 }
