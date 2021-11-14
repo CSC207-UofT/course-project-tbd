@@ -3,12 +3,11 @@ package Phase_1.Controllers_Gateways_Presenters;
 import Phase_1.Entity.Group;
 
 import java.io.*;
-import java.util.ArrayList;
+
 import java.util.HashMap;
 
 public class GroupDataGateWay {
     String filePath;
-    private ArrayList<Group> HashMap;
 
     public GroupDataGateWay(String filepath){
         this.filePath = filepath;
