@@ -38,8 +38,8 @@ public class GroupChatController {
 
     /**
      * Constructs the Group chat page for a specified group
-     * @param groupId an Id of the Group given from the previous controller
-     * @param userId an Id of the user given from the previous controller
+     * @param groupId an id of the Group given from the previous controller
+     * @param userId an id of the user given from the previous controller
      * @param um an instance of UserManager
      * @param gm an instance of GroupManager
      */

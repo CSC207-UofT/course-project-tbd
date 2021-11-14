@@ -8,7 +8,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -30,9 +33,11 @@ public class NewUserController implements Initializable {
     TextField sA;
     @FXML
     Hyperlink back;
+    @FXML
     Label takenUserName;
+    @FXML
     Label success;
-    MainPageController mpc;
+
 
 
     public void setGm(GroupManager gm) {
@@ -44,25 +49,36 @@ public class NewUserController implements Initializable {
     }
 
     public void signUpButtonPushed(javafx.event.ActionEvent event){
+        takenUserName.setText("");
+        success.setText("");
+
         String userId = username.getText();
         if (!um.checkIfValid(userId)){
             takenUserName.setText("Username " + userId + " has been taken");
+
         }
         else {
+
             um.createNormalUser(userId, password.getText(), sQ.getText(), sA.getText());
+            success.setText("User " + userId +" created");
         }
     }
 
     public void backPushed(javafx.event.ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("MainPage.fxml"));
+        Parent root = loader.load();
+        MainPageController mpc = loader.getController();
+        mpc.setUm(um);
+        mpc.setGm(gm);
+        Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
-        guiMain.changeScene("MainPageGUI.fxml");
+        guiMain.addScene(scene);
     }
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        mpc = new MainPageController();
-        mpc.setUm(um);
-        mpc.setGm(gm);
+
     }
+
 }

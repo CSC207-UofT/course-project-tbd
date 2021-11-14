@@ -1,5 +1,7 @@
 package Phase_1.GUI;
 
+import Phase_1.Entity.NormalUser;
+import Phase_1.Entity.User;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -22,6 +24,7 @@ public class GUImain extends Application {
         primaryStage.setTitle("Falcon");
         primaryStage.setScene(new Scene(root, 400, 600));
         primaryStage.show();
+
     }
 
     public void changeScene(String fxml) throws IOException {
@@ -31,6 +34,11 @@ public class GUImain extends Application {
 
     public static void main(String[] args){
         launch(args);
+    }
+
+    public void addScene(Scene scene) throws IOException {
+        stage.setScene(scene);
+        stage.show();
     }
 }
 
