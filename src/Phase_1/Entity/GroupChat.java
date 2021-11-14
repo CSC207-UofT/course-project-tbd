@@ -26,35 +26,8 @@ public class GroupChat implements Serializable {
         return this.name;
     }
 
-    /**
-     * This method returns an ArrayList contains all the messages
-     * and their sender of a GroupChat object
-     * @return an ArrayList of "message/user.name"
-     */
-    public ArrayList<String> getMessages() {
-        return this.messages;
-    }
 
-    /**
-     * This method returns an ArrayList contains all the messages
-     * from the wanted user
-     * @param user the wanted user
-     * @return an ArrayList contains "message/user.name"
-     */
-    public ArrayList<String> getMessagesByUser(User user) {
-        ArrayList<String> results = new ArrayList<>();
-        String userName = user.getUsername();
 
-        for (String str : this.messages) {
-            String[] compare = str.split("/");
-            System.out.println(compare[1]);
-            System.out.println(userName);
-            if (compare[1].equals(userName)) {
-                results.add(str);
-            }
-        }
-        return results;
-    }
 
     /**
      * This method inserts a message that is input by a given User

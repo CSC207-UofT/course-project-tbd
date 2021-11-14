@@ -1,12 +1,8 @@
 package Phase_1.GUI;
 
-import Phase_1.Entity.NormalUser;
-import Phase_1.Entity.User;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 
@@ -36,7 +32,7 @@ public class GUImain extends Application {
         launch(args);
     }
 
-    public void addScene(Scene scene) throws IOException {
+    public void addScene(Scene scene) {
         stage.setScene(scene);
         stage.show();
     }

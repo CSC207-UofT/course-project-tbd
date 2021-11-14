@@ -25,8 +25,7 @@ public class UserGroupManager {
      * @param groupId the string representation of the groupID.
      */
 
-    public void addGroup(User user, String groupId){
-        user.getMyGroups().add(groupId);
+    public void addGroup(User user, String groupId){user.addGroup(groupId);
     }
 
     /**

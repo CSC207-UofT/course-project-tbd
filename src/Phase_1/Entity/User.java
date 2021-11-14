@@ -7,10 +7,7 @@ public abstract  class User implements Serializable {
     public String username;
     public String password;
 
-    ArrayList<String> myGroups = new ArrayList<>();
 
-    public ArrayList<Category> myCategories = new ArrayList<>();
-    public ArrayList<Task> myTasks = new ArrayList<>();
         public abstract void addGroup(String groupId);
 
 

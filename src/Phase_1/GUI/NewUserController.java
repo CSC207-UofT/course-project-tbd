@@ -3,7 +3,6 @@ import Phase_1.UseCaseClass.GroupManager;
 import Phase_1.UseCaseClass.UserManager;
 import javafx.fxml.FXML;
 
-import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -48,7 +47,7 @@ public class NewUserController implements Initializable {
         this.um = um;
     }
 
-    public void signUpButtonPushed(javafx.event.ActionEvent event){
+    public void signUpButtonPushed(){
         takenUserName.setText("");
         success.setText("");
 
@@ -64,7 +63,7 @@ public class NewUserController implements Initializable {
         }
     }
 
-    public void backPushed(javafx.event.ActionEvent event) throws IOException {
+    public void backPushed() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("MainPage.fxml"));
         Parent root = loader.load();
         MainPageController mpc = loader.getController();
