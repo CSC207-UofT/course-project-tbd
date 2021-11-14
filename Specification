@@ -1,8 +1,7 @@
 After running the program, you will start with the page where you can create or log in to an existed account
 When our program is opened for the first time, the option to create an account is chosen, you then have to choose a
 userid (which should be unique in the system) along with a password. Afterward, you can now log in to the created
-account. There has been a forget password feature added that uses a security question and answer which is asked during
-the creation of the account if the user forgets their password.
+account.
 
 For every user who logs in to an account, they would next have the access to group page and task page.
 In the group page, user can interact with other users by creating a group for other users to join by typing in the group
@@ -11,3 +10,19 @@ the group they joined to the leave group option. When the creator of a group lea
 Last but not least, as any productivity app, the user is able to create task and mark the task finished in the task
 page. Also, all of the unfinished tasks would be displayed on the task page. Upon finishing a task, they can then
 mark it finished by choosing its sequence number showed in the task page.
+
+Updates from Phase 0 to Phase 1: There has been a forget password feature added that uses a security question and answer
+ which is asked during the creation of the account if the user forgets their password to enable them to update their
+ password. There has been a notification system that has been implemented that shows the notifications of a user on the
+ main page after the user logs into their account.
+
+ There has also been the implementation of an alarm clock system for tasks that works on the local time of the user. The
+ alarm clock system is incorporated into both personal tasks and group related tasks. The user can now access their task
+ page and create categories where they can distribute their tasks to. Their is also a similar implementation for tasks
+ in the group page. The user can now assign tasks to other members of a specific group if they are the leader of the
+ group. All members of a group can view the tasks assigned to themselves and other members. However, they can only
+ finish tasks that are assigned to them by the group leader.
+
+ The group page now also has a group chat system that is implemented, which allows more affective communication between
+ all members of the group. The group page also additionally has an announcement page where the group leader can make
+ group related announcements.
