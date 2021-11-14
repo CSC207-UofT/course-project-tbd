@@ -29,7 +29,7 @@ public class GroupManagerTest {
         assertEquals("tbd#0", result);
     }
 
-    @Test(timeout=50)
+    @Test
     public void testDeleteManager() {
         HashMap<String, Group> empty = new HashMap<>();
         GroupManager expected = new GroupManager(gm);
