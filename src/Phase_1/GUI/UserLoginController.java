@@ -65,6 +65,9 @@ public class UserLoginController implements Initializable{
     public void backPushed() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("MainPage.fxml"));
         Parent root = loader.load();
+        MainPageController mpc = loader.getController();
+        mpc.setUm(um);
+        mpc.setGm(gm);
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
