@@ -37,4 +37,3 @@ public class GUImain extends Application {
         stage.show();
     }
 }
-
