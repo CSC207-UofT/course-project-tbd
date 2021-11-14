@@ -1,7 +1,6 @@
 package Phase_1Test;
 
-import Phase_1.Alarm.*;
-
+import Phase_1.Entity.Alarm;
 import org.junit.Before;
 import org.junit.Test;
 
