@@ -94,4 +94,12 @@ public class UserManager {
         return s.toString();
     }
 
+    /**
+     * get the users stored in the um
+     * @Return  ArrayList<User>
+     */
+    public ArrayList<User> getAllUsers(){
+        return allUsers;
+    }
+
 }

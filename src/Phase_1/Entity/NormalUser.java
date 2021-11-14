@@ -44,7 +44,6 @@ public class NormalUser extends User implements Serializable {
     /**
      * Add group to this normal user
      */
-    @Override
     public void addGroup(String groupId) {
         this.myGroups.add(groupId);
 

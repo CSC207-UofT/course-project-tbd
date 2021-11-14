@@ -20,8 +20,8 @@ import java.util.*;
  * specialized to one category only, and the category is determined upon
  * specification of the user.
  *
- * @author  Owen Huang, Sanjana Girish
- * @author  placeholder
+ * @author  Owen Huang
+ * @author  Sanjana Girish
  */
 public class TaskPageController {
 
@@ -39,12 +39,12 @@ public class TaskPageController {
     /**
      * Used to start alarm for task with a due date, and send notification to user mailbox
      */
-    NotificationManager nm;
+    private NotificationManager nm;
 
     /**
      * Used to access and modify category information
      */
-    CategoryManager cm;
+    private CategoryManager cm;
 
 
 
@@ -148,7 +148,7 @@ public class TaskPageController {
 
                 // create the task as a TaskWithDueDate object
                 // error dateTime exception may be thrown of date information is invalid (e.g. -200 minutes)
-                TaskWithDueDate task = new TaskWithDueDate(taskTitle, taskDetail, year, month, day, hour, minute);
+                TaskWithDueDate task = itm.createTask(taskTitle, taskDetail, year, month, day, hour, minute);
                 nm.addTaskWithDueDate(task);    // add to notification manager for creating alarm for task
                 itm.addTaskToCategory(category, task);  // add task to user's task collection
                 tpp.taskAdded();
@@ -162,7 +162,7 @@ public class TaskPageController {
                 System.out.println("Invalid input");
             }
         }else{      // user does not want to create a task with due date
-            Task task = new Task(taskTitle, taskDetail); // create a simple task without due date
+            Task task = itm.createTask(taskTitle, taskDetail); // create a simple task without due date
             itm.addTaskToCategory(category, task);  // add task to category's task collection
             tpp.taskAdded();
         }
