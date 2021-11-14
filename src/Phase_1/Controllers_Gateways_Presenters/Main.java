@@ -12,7 +12,7 @@ import java.util.HashMap;
 
 
 public class Main {
-    public static void main(String[] args) throws ClassNotFoundException {
+    public static void main(String[] args) throws ClassNotFoundException, IOException {
         ArrayList<User> users = new ArrayList<>();
         HashMap<String, Group> groups = new HashMap<>();
         UserDataGateway udg = new UserDataGateway("userData.ser");
@@ -29,15 +29,10 @@ public class Main {
         }
         UserManager um = new UserManager(users);
         GroupManager gm = new GroupManager(groups);
-        um.createNormalUser("1","1","1","1");
-        users.add(new NormalUser("2", "2", "@", "2"));
         MainPageController mp = new MainPageController(um, gm);
         mp.run();
-        System.out.println(users);
-        try{udg.saveToFile(users);}
-        catch (IOException ioException){
-            System.out.println("No user data is stored in database");
-        }
+        udg.saveToFile(users);
+
         try{gdw.saveToFile(groups);}
         catch (IOException ioException){
             System.out.println("No group data is stored in database");
