@@ -13,3 +13,8 @@ with Sana
 Fix the bug in database which prevent our program from saving data
 Fix Javafx module document  so that Javafx can run
 Help teammate to find problem and fix some of bugs myself
+
+Phase 2 expectation:
+Help finish all the controller of GUI
+help design Admin User
+Fix bugs
