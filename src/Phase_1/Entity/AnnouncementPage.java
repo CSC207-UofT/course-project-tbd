@@ -43,7 +43,7 @@ public class AnnouncementPage implements Serializable {
     }
 
     /**
-     * Returns the anouncements as a list of strings
+     * Returns the announcements as a list of strings
      * @return A list of strings corresponding to the announcements.
      */
     public List<String> getAnnouncements() {

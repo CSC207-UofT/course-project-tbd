@@ -17,12 +17,13 @@ Updates from Phase 0 to Phase 1: There has been a forget password feature added 
  main page after the user logs into their account.
 
  There has also been the implementation of an alarm clock system for tasks that works on the local time of the user. The
- alarm clock system is incorporated into both personal tasks and group related tasks. The user can now access their task
- page and create categories where they can distribute their tasks to. Their is also a similar implementation for tasks
- in the group page. The user can now assign tasks to other members of a specific group if they are the leader of the
- group. All members of a group can view the tasks assigned to themselves and other members. However, they can only
- finish tasks that are assigned to them by the group leader.
+ alarm clock system is incorporated into both personal tasks and group related tasks. The alarm system uses a due date
+ assigned by the user and pops out a JFrame when the due date is reached to notify the user. The user can now access
+ their task page and create categories where they can distribute their tasks to. Their is also a similar implementation
+ for tasks in the group page.
 
- The group page now also has a group chat system that is implemented, which allows more affective communication between
- all members of the group. The group page also additionally has an announcement page where the group leader can make
- group related announcements.
+ The user can now assign tasks to other members of a specific group if they are the leader of the group.
+ All members of a group can view the tasks assigned to themselves and other members. However, they can only finish tasks
+ that are assigned to them by the group leader. The group page now also has a group chat system that is implemented,
+ which allows more affective communication between all members of the group. The group page also additionally has an
+ announcement page where the group leader can make group related announcements.
