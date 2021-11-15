@@ -45,7 +45,7 @@ the user can create/join/leave group
 and add/finish task
 
 
-Extension of the group in the phase 1:
+Extension of the project implemented the phase 1:
     Group: will be joined with more features.
         Group Now can have duplicated name
         1. the leader of group can assign tasks individually to other members.
