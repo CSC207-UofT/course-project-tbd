@@ -18,9 +18,13 @@ Kevin: - Writer of SOLID principles explanation .
        Help finish the GUI of all the group related controllers
        Fix bugs
 
-Peter: Helped with the development of the CRC model.
-       Coding: Finished Class: NormalUser, UserManager, User, CreateGroupController, CreateGroupPresenter, helped with
-       some of the controller that Leo worked on.
+Peter: - Refactored some classes, i.e. merged CreateGroupController, JoinGroupController, and LeaveGroupController.
+       - Made changes to User class and UserGroupManager class.
+       - Added docstrings to all the presenter classes.
+
+       Phase 2 expectation:
+       Finish GUI for UserPage, JoinGroupPage, CreateGroupPage controllers
+       Fix bugs
 
 Owen: - Writer of the Code Style and Documentation explanation
       - Implemented Alarm, AlarmMenu, AlarmStarter, TaskWithDueDate to implement an Alarm Clock feature
@@ -55,8 +59,8 @@ Aryan: - Writer of the updated specification from Phase 0 and put together/made 
        - Fixed most style warnings and bugs across all group related controllers and presenters
 
        Phase 2 expectation:
-             Help finish the GUI for some of the controllers
-             Fix bugs and any GUI related errors that arise during implementation
+       Help finish the GUI for group related controllers
+       Fix bugs and any GUI related errors that arise during implementation
 
 Harry: - Worked on the CRC card. Writer of the Clean Architecture explanation.
        - Implemented GroupChat, GroupChatController, GroupChatPresenter, GroupAddTaskController, GroupAddTaskPresenter.

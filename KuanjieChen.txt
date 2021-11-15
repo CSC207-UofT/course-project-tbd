@@ -4,9 +4,9 @@ Worked on the CRC card
 
 Coding:
 
-Refactored some of the classes, i.e merged CreateGroupController, JoinGroupController, and LeaveGroupController. 
-Made changes to class User and UserGroupManager to accomodate changes in other classes 
-Added docstrings to all of the presenter classes. 
+Refactored some classes, i.e. merged CreateGroupController, JoinGroupController, and LeaveGroupController.
+Made changes to class User and UserGroupManager to accommodate changes in other classes
+Added docstrings to all the presenter classes.
 
 Phase 2 expectation:
 
