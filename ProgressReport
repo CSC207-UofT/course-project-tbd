@@ -20,9 +20,10 @@ Coding: Created and wrote UserPageController, UsePagePresenter, TaskPageControll
 
 
 Sana: Helped edit CRC model.
-Coding: Created IndividualTaskManager, Task, CategoryTest.
+Coding: Created IndividualTaskManager, Task, CategoryTest, CategoryPagePresenter, CategoryPageController, 
+GUI: GUImain, MainPage.fxml, NewUser.fxml, UserLogin.fxml, WelcomePage.fxml, UserLoginController
 Created CategoryPageManager and CategoryPagePresenter, linked tasks to categories, made Tasks and Categories unique. 
-Created fxml files for GUI and LoginControllerPage for GUI.
+Created fxml files for GUI and LoginControllerPage for GUI. 
 
 Fariha: Coding: Worked on IndividualTaskManager, Task, NormalUserTest.
 Started on the other Phase_1.Controllers_Gateways_Presenters Tests files.
@@ -69,8 +70,6 @@ Extension of the project implemented the phase 1:
         2. will receive the private message from the group member
         3. will be able to make decision like accept or reject the request from a user who wants to join the group
 
-
-    GUI - will use scene builder for graphic user interface - phase 2
 
     If still have time:
          Social System: users can add other users as friends and have a special chat box with each of them
