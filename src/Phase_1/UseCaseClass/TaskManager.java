@@ -92,7 +92,7 @@ public class TaskManager {
      * @return a true of task is in category, false otherwise
      */
     public boolean checkTask(Category category, Task t) {
-        return category.tasks.contains(t);
+        return category.getTasks().contains(t);
     }
 
     /**
@@ -103,7 +103,7 @@ public class TaskManager {
      * @return the task if it has the same name as taskName, null otherwise
      */
     public Task getTaskByName(Category category, String taskName) {
-        for (Task t: category.tasks){
+        for (Task t: category.getTasks()){
             if (this.checkTaskByName(t, taskName)){
                 return t;
             }

@@ -6,10 +6,10 @@ import java.util.ArrayList;
 
 public class NormalUser extends User implements Serializable {
 
-    public String username;
-    public String password;
-    public String sq;
-    public String sq_ans;
+    private final String username;
+    private String password;
+    private String sq;
+    private String sq_ans;
 
     public ArrayList<String> myGroups = new ArrayList<>();
 
@@ -62,7 +62,7 @@ public class NormalUser extends User implements Serializable {
      * Add task to category c
      */
     public void addTasktoCategory(Task task, Category c) {
-        c.tasks.add(task);
+        c.getTasks().add(task);
     }
 
     /**
