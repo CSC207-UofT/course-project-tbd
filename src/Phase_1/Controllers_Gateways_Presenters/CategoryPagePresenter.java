@@ -1,7 +1,13 @@
 package Phase_1.Controllers_Gateways_Presenters;
 
+/**
+ * The presenter for printing information to the user about the category page.
+ */
 public class CategoryPagePresenter {
 
+    /**
+     * Options for available options
+     */
     public void availableOptions(){
         System.out.println("--------------------");
         System.out.print("Your options:\n" +
@@ -11,6 +17,9 @@ public class CategoryPagePresenter {
                 "Your answer here: ");
     }
 
+    /**
+     * Options for available categories
+     */
     public void availableCategoryOptions(){
         System.out.println("--------------------");
         System.out.print("Your options:\n" +
@@ -19,11 +28,17 @@ public class CategoryPagePresenter {
                 "Your answer here: ");
     }
 
+    /**
+     * Prompts user to give new category name
+     */
     public void giveNewCategoryName(){
         System.out.println("--------------------");
         System.out.print("Enter Category Title:\n");
     }
 
+    /**
+     * Informing user when prompted
+     */
     public void CategoryAdd(){
         System.out.println("Your Category has been created and added");
     }

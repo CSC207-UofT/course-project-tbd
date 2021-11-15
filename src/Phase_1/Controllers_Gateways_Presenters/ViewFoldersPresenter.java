@@ -12,6 +12,9 @@ public class ViewFoldersPresenter {
         this.gm = gm;
     }
 
+    /**
+     * Message prompting user for input
+     */
     public void askInput(){
         StringBuilder s = new StringBuilder();
         int i = 0;
