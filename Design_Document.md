@@ -2,8 +2,7 @@
 
 
 ##CRC Model
-heheh
-
+![](CRC card (phase 1).png)
 ##Clean Architecture
 
 Our group have made sure to follow the Clean Architecture when implementing the program.
