@@ -1,0 +1,15 @@
+Progress report in Phase 1
+
+Writing: Update entity and use case part of the CRC card
+Design Pattern explanation
+
+
+Code
+Databases to store Group and User. Combined and update controllers. Extract UserGroup methods from UserManager to
+UserGroupManager.Change Database for Group, Change User parameter in Controllers to String UserID,
+Finished GUI demo, that now our GUI demo can load data from .ser file and can pass data from controller to controller
+and our demo start from welcome page to create account and sign in part of our program.
+with Sana
+Fix the bug in database which prevent our program from saving data
+Fix Javafx module document  so that Javafx can run
+Help teammate to find problem and fix some of bugs myself
