@@ -45,7 +45,7 @@ public class UserManagerTest {
     @Test
     public void TestcreateNormalUser(){
         um.createNormalUser("Mark", "234", "My name", "Mark");
-        assertEquals(5, um.allUsers.size());
+        assertEquals(5, um.getuser().size());
     }
 
     @Test

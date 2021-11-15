@@ -21,7 +21,8 @@ Coding: Created and wrote UserPageController, UsePagePresenter, TaskPageControll
 
 Sana: Helped edit CRC model.
 Coding: Created IndividualTaskManager, Task, CategoryTest.
-Started on the other Phase_1.Controllers_Gateways_Presenters Tests files (GroupManagerTest, UserManagerTest).
+Created CategoryPageManager and CategoryPagePresenter, linked tasks to categories, made Tasks and Categories unique. 
+Created fxml files for GUI and LoginControllerPage for GUI.
 
 Fariha: Coding: Worked on IndividualTaskManager, Task, NormalUserTest.
 Started on the other Phase_1.Controllers_Gateways_Presenters Tests files.

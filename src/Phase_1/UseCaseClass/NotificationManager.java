@@ -3,7 +3,8 @@ package Phase_1.UseCaseClass;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.PriorityQueue;
-import Phase_1.Alarm.*;
+
+import Phase_1.Entity.Alarm;
 import Phase_1.Entity.TaskWithDueDate;
 import javax.swing.*;
 
@@ -135,20 +136,10 @@ public class NotificationManager implements Runnable {
     }
 
     /**
-     * Display to the user whether the current state of their mailbox
+     * Signals the notification system is running when NotificationManager is started
      */
     @Override
     public void run() {
-        StringBuilder s = new StringBuilder();
-        s.append("\n--------------------\n").append("NOTIFICATIONS\n--------------------\n");
-        if (mailbox.isEmpty()){
-            s.append("EMPTY\n");
-        } else {
-            for (int i = 0; i < mailbox.size(); i++){
-                s.append("--------------------\n");
-                s.append(i + 1).append(". ").append(mailbox.get(i)).append("\n");
-            }
-        }
-        System.out.println(s);
+        System.out.println("...System Running...");
     }
 }
