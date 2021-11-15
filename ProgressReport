@@ -78,3 +78,9 @@ Extension of the group in the phase 1:
 
 
 
+Kevin: Created AnnouncementPageController, ViewFolderController, other controllers etc.
+worked on bug fixes on our controllers to meet the previous changes suggested by TA.
+Created SOLID Document. Worked on the group page viewer and old classes. Controller/presenter for viewing group.
+In the future: I will be working on the GUI and get modify our controllers and presenters to work with the GUI.
+
+
