@@ -93,9 +93,7 @@ public class Group implements Serializable {
      * Returns the GroupChat object
      * @return The GroupChat object
      */
-    public GroupChat getGroupChat() {
-        return this.groupChat;
-    }
+    public GroupChat getGroupChat() {return this.groupChat;}
 
     /**
      * Returns all the categories in our group

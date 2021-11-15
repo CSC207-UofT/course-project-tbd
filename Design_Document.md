@@ -2,6 +2,7 @@
 
 
 ##CRC Model
+
 ![](https://github.com/CSC207-UofT/course-project-tbd/blob/9d53b51927695325d7e9261066477fc2cc88f960/CRC%20card%20(phase%201).png)
 
 ##Clean Architecture
@@ -119,3 +120,24 @@ will be calling on the method CreateGroup in the GroupFunctionsController instea
 ##Test Report
 We tested most of our classes, including the use case classes and entity classes. We could not test the controller and
 presenters as in order to test them we would have to make a file system, and we would have to change a bunch of things.
+
+##Use of GitHub Features
+**Branches**: We created separate local branches, one for each member in the group. Each member committed their changes
+to their own branch, before merging with the master branch.
+
+**Git Status**: All the members of our group used git status after every commit to check whether the changes we 
+committed actually made it into the repositories.
+
+**Pull Requests**: After committing changed to our own branches, we created a pull request to update the master branch 
+with our commit. Creating a pull requests allows other members of the group to check, test the code and review any 
+conflicts before merging with the master branch.  
+
+**Documentation**: All of our commits contained a short message to indicate what the changes being made were.
+
+**Issues**: The issues feature on GitHub lets a member keep track of tasks to be completed. So one could link an issue 
+to a pull request. We did not extensively use this feature, primarily because we split the work, splitting into groups 
+of 2-3 such that another teammate can also provide their input, help resolve errors and catch mistakes.
+
+**Actions**:  The actions feature on GitHub can help automate tasks and automatically trigger a workflow to test the 
+code. While we use test cases to rigorously test our code, we also were able to see over 460 workflows created with a 
+green checkmark on GitHub.
