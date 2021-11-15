@@ -1,7 +1,7 @@
-#Design Document
+# Design Document
 
 
-##CRC Model
+## CRC Model
 
 ![](https://github.com/CSC207-UofT/course-project-tbd/blob/9d53b51927695325d7e9261066477fc2cc88f960/CRC%20card%20(phase%201).png)
 
