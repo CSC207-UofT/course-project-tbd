@@ -92,7 +92,7 @@ We will use Factory method to create the instance of them. Then call it in contr
 UserGroupManager to add the group to user’s record. And whenever the user leave or delete group, UserGroupManager will
 also be notified to make the change in User's group record.
 
-##Coding style and documentation
+## Coding style and documentation
 
 To make sure we strictly follow the coding style and documentation guidelines of java, we consulted existing
 documentations and coding style within the java library. For example, while we were documenting our code,
@@ -109,7 +109,7 @@ GitHub to make sure people who are reviewing the code don’t have a hard time r
 the warnings, which made our code cleaner. So overall, in terms of coding style and documentation, our code looks
 standardized and uniform across all files, regardless of who wrote them.
 
-##Refactoring:
+## Refactoring:
 
 Following the feedback that suggests we merge some of our controller classes, we have decided to merge
 CreateGroupController, JoinGroupController, LeaveGroupController into one class. This merged class is called
@@ -117,11 +117,11 @@ GroupFunctionsController; it embodies all the functionalities of the three contr
 functionality presented as methods instead. Now, each time we want to use functionalities such as create a group, we
 will be calling on the method CreateGroup in the GroupFunctionsController instead.
 
-##Test Report
+## Test Report
 We tested most of our classes, including the use case classes and entity classes. We could not test the controller and
 presenters as in order to test them we would have to make a file system, and we would have to change a bunch of things.
 
-##Use of GitHub Features
+## Use of GitHub Features
 **Branches**: We created separate local branches, one for each member in the group. Each member committed their changes
 to their own branch, before merging with the master branch.
 
