@@ -2,7 +2,6 @@
 
 
 ##CRC Model
-![](../../Desktop/CRC card (phase 1).png)
 
 ##Clean Architecture
 
