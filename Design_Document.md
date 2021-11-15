@@ -1,5 +1,9 @@
 #Design Document
 
+
+##CRC Model
+![](../../Desktop/CRC card (phase 1).png)
+
 ##Clean Architecture
 
 Our group have made sure to follow the Clean Architecture when implementing the program.
