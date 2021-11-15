@@ -20,7 +20,8 @@ Coding: Created and wrote UserPageController, UsePagePresenter, TaskPageControll
 
 
 Sana: Helped edit CRC model.
-Coding: Created IndividualTaskManager, Task, CategoryTest.
+Coding: Created IndividualTaskManager, Task, CategoryTest, CategoryPagePresenter, CategoryPageController, 
+GUI: GUImain, MainPage.fxml, NewUser.fxml, UserLogin.fxml, WelcomePage.fxml, UserLoginController
 Created CategoryPageManager and CategoryPagePresenter, linked tasks to categories, made Tasks and Categories unique. 
 Created fxml files for GUI and LoginControllerPage for GUI.
 
