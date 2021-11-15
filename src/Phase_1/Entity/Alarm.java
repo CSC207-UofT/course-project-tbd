@@ -4,7 +4,7 @@
  * (https://github.com/gburgett/AlarmClock)
  */
 
-package Phase_1.Alarm;
+package Phase_1.Entity;
 
 import java.time.LocalDateTime;
 import java.util.Objects;

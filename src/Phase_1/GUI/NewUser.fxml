@@ -61,19 +61,19 @@
                 <Button fx:id="signUpButton" layoutX="156.0" layoutY="127.0" mnemonicParsing="false" onAction="#signUpButtonPushed" prefHeight="37.0" prefWidth="100.0" text="Sign Up" />
                 <Hyperlink fx:id="back" layoutX="221.0" layoutY="189.0" onAction="#backPushed" text="Go back to main page" />
                 <Text fill="#fffefe" layoutX="78.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Already have an account?" />
-            <Label layoutX="14.0" layoutY="-15.0" text="Security Question:" textFill="WHITE">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Label>
-            <TextField fx:id="sQ" layoutX="221.0" layoutY="-15.0" prefHeight="39.0" prefWidth="167.0" promptText="Security Question?" />
-            <Label layoutX="22.0" layoutY="52.0" text="Security Answer:" textFill="#fffdfd">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Label>
-            <TextField fx:id="sA" layoutX="221.0" layoutY="48.0" prefHeight="39.0" prefWidth="167.0" promptText="Security Answer" />
-            <Label fx:id="success" layoutX="136.0" layoutY="98.0" textFill="RED" />
+                <Label layoutX="14.0" layoutY="-15.0" text="Security Question:" textFill="WHITE">
+                    <font>
+                        <Font size="25.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="sQ" layoutX="221.0" layoutY="-15.0" prefHeight="39.0" prefWidth="167.0" promptText="Security Question?" />
+                <Label layoutX="22.0" layoutY="52.0" text="Security Answer:" textFill="#fffdfd">
+                    <font>
+                        <Font size="25.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="sA" layoutX="221.0" layoutY="48.0" prefHeight="39.0" prefWidth="167.0" promptText="Security Answer" />
+                <Label fx:id="success" layoutX="136.0" layoutY="98.0" textFill="RED" />
             </children>
         </AnchorPane>
     </bottom>

@@ -32,9 +32,9 @@ public class GroupManagerTest {
     @Test
     public void testDeleteManager() {
         HashMap<String, Group> empty = new HashMap<>();
-        GroupManager expected = new GroupManager(gm);
-        expected.createGroup(user, "tbd");
-        String wanted = expected.maps.get("tbd#0").getgroupName();
+        GroupManager expected = new GroupManager(empty);
+        expected.createGroup(user, "1");
+        String wanted = expected.maps.get("1#0").getgroupName();
         expected.deleteGroup(wanted, user);
         assertEquals(empty, expected.maps);
     }

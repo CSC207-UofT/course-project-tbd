@@ -17,7 +17,7 @@ public class TaskWithDueDate extends Task implements Comparable<TaskWithDueDate>
     /**
      * A LocalDateTime object storing the actual date information about the alarm time
      */
-    private final LocalDateTime dueDate;
+    private LocalDateTime dueDate;
 
     /**
      * Constructs the TaskWithDueDate using the super class constructor and additional due date information

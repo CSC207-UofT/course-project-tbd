@@ -22,10 +22,10 @@
     </top>
     <left>
         <AnchorPane prefHeight="294.0" prefWidth="376.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button fx:id="newUserButton" layoutX="124.0" layoutY="37.0" mnemonicParsing="false" onAction="#newUserButtonPushed" prefHeight="45.0" prefWidth="147.0" text="Sign Up" />
-            <Button fx:id="signInButton" layoutX="124.0" layoutY="123.0" mnemonicParsing="false" onAction="#signInButtonPushed" prefHeight="48.0" prefWidth="148.0" text="Log In" />
-         </children>
+            <children>
+                <Button fx:id="newUserButton" layoutX="124.0" layoutY="37.0" mnemonicParsing="false" onAction="#newUserButtonPushed" prefHeight="45.0" prefWidth="147.0" text="Sign Up" />
+                <Button fx:id="signInButton" layoutX="124.0" layoutY="123.0" mnemonicParsing="false" onAction="#signInButtonPushed" prefHeight="48.0" prefWidth="148.0" text="Log In" />
+            </children>
         </AnchorPane>
     </left>
     <center>
@@ -35,7 +35,7 @@
         <AnchorPane prefHeight="126.0" prefWidth="396.0" BorderPane.alignment="CENTER">
             <children>
                 <Label fx:id="WrongLogin" layoutX="206.0" layoutY="6.0" prefHeight="17.0" prefWidth="11.0" textFill="#f20606" />
-            <Hyperlink fx:id="back" layoutX="74.0" layoutY="84.0" onAction="#backPushed" text="click me when you are done with this project" />
+                <Hyperlink fx:id="back" layoutX="74.0" layoutY="84.0" onAction="#backPushed" text="click me when you are done with this project" />
             </children>
         </AnchorPane>
     </bottom>
