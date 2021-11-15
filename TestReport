@@ -1,3 +1,0 @@
-Test Report
-We tested most of our classes, including the use case classes and entity classes. We could not test the controller and
-presenters as in order to test them we would have to make a file system and we would have to change bunch of things.
