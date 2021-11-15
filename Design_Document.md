@@ -5,7 +5,7 @@
 
 ![](https://github.com/CSC207-UofT/course-project-tbd/blob/9d53b51927695325d7e9261066477fc2cc88f960/CRC%20card%20(phase%201).png)
 
-##Clean Architecture
+## Clean Architecture
 
 Our group have made sure to follow the Clean Architecture when implementing the program.
 As shown in the src file, the whole program is divided into layers consisted of entities;
