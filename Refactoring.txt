@@ -1,0 +1,4 @@
+﻿Refactoring:
+
+
+Following the feedback that suggests we merge some of our controller classes, we have decided to merge CreateGroupController, JoinGroupController, LeaveGroupController into one class. This file and its class is called GroupFunctionsController; it embodies all of the functionalities of the three controllers aforementioned with each functionalities presented as methods instead. Now, each time we want to use functionalities such as create a group, we will be calling on the method CreateGroup in the GroupFunctionsController instead.
