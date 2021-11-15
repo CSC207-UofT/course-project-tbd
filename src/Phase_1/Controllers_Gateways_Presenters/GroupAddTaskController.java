@@ -142,9 +142,9 @@ public class GroupAddTaskController {
                             // this handles the case where the owner of this folder wants to finish a task
                                 gatp.toComplete();
                                 String completed = reader.readLine();
-                                Task task = tm.getTaskByName(cm.getCategoryByName(um.getUserById(userId), categoryName),
-                                        completed);
-                                if (tm.checkTask(cm.getCategoryByName(um.getUserById(userId), categoryName), task)) {
+                                Task task = tm.getTaskByName(cm.getCategoryByGroup(
+                                        categoryName, gm.getGroupById(groupId)), completed);
+                                if (tm.checkTask(cm.getCategoryByGroup(categoryName, gm.getGroupById(groupId)), task)) {
                                     tm.completeTask(task);
                                     System.out.println("The task you entered has been finished");
                                 } else {
