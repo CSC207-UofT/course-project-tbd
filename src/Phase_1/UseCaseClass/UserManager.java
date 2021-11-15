@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class UserManager {
-    public ArrayList<User> allUsers;
+    private final ArrayList<User> allUsers;
 
     public UserManager(ArrayList<User> user_list) {
         this.allUsers = user_list;
@@ -93,6 +93,13 @@ public class UserManager {
         }
         return s.toString();
     }
+    /**
+     * A method that returns a list of all the user.
+     */
+    public ArrayList<User> getuser(){
+        return new ArrayList<>(allUsers);
+    }
+
 
     /**
      * get the users stored in the um
