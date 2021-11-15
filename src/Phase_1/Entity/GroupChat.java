@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class GroupChat implements Serializable {
     private final String name;
-    public ArrayList<String> messages;
+    private final ArrayList<String> messages;
 
     /**
      * Construct a GroupChat object which stores user's messages
