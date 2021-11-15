@@ -27,12 +27,11 @@ Created fxml files for GUI and LoginControllerPage for GUI.
 
 Fariha: Coding: Worked on IndividualTaskManager, Task, NormalUserTest.
 Started on the other Phase_1.Controllers_Gateways_Presenters Tests files.
-Made category iterable. Created notification presenter and categorypage presenter and date parameter to task,
+Made category iterable. Created notification presenter and category page presenter and date parameter to task,
 modified task manager and user manager. Added some test files.
 Writer of code organization and test report.
 
-
-Aryan: co writer of CRC model, editor of specification.
+Aryan: Helped edit CRC model, Updated the Specification from Phase 0
        Coding: Worked on NormalUserTest, Group, GroupManager, NormalUser,
        Helped edit JoinGroupController, LeaveGroupController, TaskPageController, TaskPagePresenter
 
