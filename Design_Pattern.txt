@@ -1,8 +1,0 @@
-Design Pattern for project of Group-TBD
-
-In phase 1: We implemented Iterator Design Pattern in Category class, which stores Tasks of users’. In this way, we can encapsulate the code. And users don’t need to know how Task is stored in Category.
-
-Plan in Phase 2:
-1.We will create another type of User called AdminUser, which will be given more functionalities than NormalUser, We will use Factory method to create the instance of them.
-2.We may implement Observer Design Pattern in GroupManager, in this way, when a group is created, it will notify UserManager to add the group to user’s record.
-3.Last but not least, we will implement Strategy Design Pattern to load fxml file and set scenes.

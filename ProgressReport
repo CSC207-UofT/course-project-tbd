@@ -1,75 +1,78 @@
 Contribution list:
-Qiyi Zhang(AKA Leo):
-co-writer of Scenario-WalkThrough, CRC-card, ProgressReport and specification
-helped finalize the program in phase 0
-Coding: Main, MainPageController, MainPagePresenter, UserLoginController, UserLoginPresenter, LeavePageController,
-LeavePagePresenter, NewUserController, NewUserPresenter
 
-Kevin: co-writer of CRC model, edited Scenario-walkthrough and specification.
-       Coding: Created GroupTest, Category, Features, JoinGroupController, JoinGroupPresenter, TaskPageController,
-       TaskPagePresenter
-       Helped edit Group, GroupManager, TaskPageController
+Qiyi Zhang(AKA Leo): - Worked on the CRC-card and writer of the design pattern explanations
+                     - Implemented database to store Group and User instances
+                     - Implemented GUI Demo and fixed some of the bugs related to GUI and JavaFX demo
+                     - Updated and fixed bugs related to controllers
 
-Peter: Helped with the development of the CRC model.
-       Coding: Finished Class: NormalUser, UserManager, User, CreateGroupController, CreateGroupPresenter, helped with
-       some of the controller that Leo worked on.
+                     Phase 2 expectation:
+                     Help finish all the controller of GUI
+                     help design Admin User
+                     Fix bugs
 
-Owen: Helped edit CRC model.
-Coding: Created and wrote UserPageController, UsePagePresenter, TaskPageController, TaskPagePresenter
-        also implemented related functionalities in Class Task and NormalUser such as the toString and display methods.
+Kevin: - Writer of SOLID principles explanation .
+       - Implemented AnnouncementPageController, ViewFolderController, other controllers etc.
+       - Worked on our controllers to meet the changes suggested by TA including any coding principle violations.
+
+       Phase 2 expectation:
+       Help finish the GUI of all the group related controllers
+       Fix bugs
+
+Peter: - Refactored some classes, i.e. merged CreateGroupController, JoinGroupController, and LeaveGroupController.
+       - Made changes to User class and UserGroupManager class.
+       - Added docstrings to all the presenter classes.
+
+       Phase 2 expectation:
+       Finish GUI for UserPage, JoinGroupPage, CreateGroupPage controllers
+       Fix bugs
+
+Owen: - Writer of the Code Style and Documentation explanation
+      - Implemented Alarm, AlarmMenu, AlarmStarter, TaskWithDueDate to implement an Alarm Clock feature
+      - Implemented NotificationPageController, NotificationManager
+      - Fixed all the warnings and existing bugs.
+
+      Phase 2 expectation:
+      Help finish the GUI for some of the controllers
+      Fix bugs
+
+Sana: - Writer of the Use of GitHub features explanation.
+      - Co-implemented IndividualTaskManager, Task and implemented CategoryPagePresenter, CategoryPageController.
+      - Implemented GUI Demo and the related fxml files for the implementation of the GUI
+       -fixed some of the bugs related to GUI and JavaFX demo
+
+      Phase 2 expectation:
+      Help finish the GUI for some of the controllers
+      Fix bugs
+
+Fariha: - Writer of the Test Report and Code Organization explanation.
+        - Co-implemented IndividualTaskManager, Task and made the entity class category iterable.
+        - Made changes to notification presenter, category page presenter, task manager and user manager.
+        - Added some test files.
+
+        Phase 2 expectation:
+        Help finish the GUI for some of the controllers
+        Add test files for controllers and presenters
+
+Aryan: - Writer of the updated specification from Phase 0 and put together/made edits throughout the design document.
+       - Implemented GroupContentController, GroupContentPresenter and made changes to other group related controllers.
+       - Modified NormalUser, UserLoginController, UserLoginPresenter, AnnouncePageController to add features
+       - Fixed most style warnings and bugs across all group related controllers and presenters
+
+       Phase 2 expectation:
+       Help finish the GUI for group related controllers
+       Fix bugs and any GUI related errors that arise during implementation
+
+Harry: - Worked on the CRC card. Writer of the Clean Architecture explanation.
+       - Implemented GroupChat, GroupChatController, GroupChatPresenter, GroupAddTaskController, GroupAddTaskPresenter.
+       - Recorded a demo for the project.
+       - Help teammates to find problem and fix some of bugs myself
+
+       Phase 2 expectation:
+       Help to finish all the controllers of GUI
+       Fix any unexpected bugs
 
 
-Sana: Helped edit CRC model.
-Coding: Created IndividualTaskManager, Task, CategoryTest.
-Started on the other Phase_1.Controllers_Gateways_Presenters Tests files (GroupManagerTest, UserManagerTest).
 
-Fariha: Coding: Worked on IndividualTaskManager, Task, NormalUserTest.
-Started on the other Phase_1.Controllers_Gateways_Presenters Tests files.
-
-Aryan: co writer of CRC model, editor of specification.
-       Coding: Worked on NormalUserTest, Group, GroupManager, NormalUser,
-       Helped edit JoinGroupController, LeaveGroupController, TaskPageController, TaskPagePresenter
-
-Harry: co-writer and edit the CRC model. Helped edit specification.
-       Coding: Created and modify GroupManager, implemented GroupManagerTest
-       Help edit with LeaveGroupController, TaskPageController, Group, NormalUser, User
-
-Phase 0 summary:
-user can create and login an account
-the user can create/join/leave group
-and add/finish task
-
-
-Extension of the group in the phase 1:
-    Group: will be joined with more features.
-        Group Now can have duplicated name
-        1. the leader of group can assign tasks individually to other members.
-        2. Discussion board, where each members of the group can post stuff
-        3. private message: each member can leave a message to others in this group to Notification Box (will show up in
-        phase 1.
-        4. Group can store some data in different "Category", which is like a folder with different names
-        5. Leader may receive a notification whenever an user applied the group. And he can choose to accept this new
-        member or reject him.
-
-    Task:
-        1. User can add due date of the task, and will receive a notification when the task is about to due. After due
-        date, the task will be automatically assigned "finished" in status.
-        2. will add some special task templates: like StudyTask, WorkoutTask, CountDownTask. And those special task will
-        have extended functionality differed from normal task
-        - CountDownTask will implement a tomatoClock template to count down the time when the user choose this task
-
-
-    Notification Box:
-        1. will receive a message when a task, which has due date, is about to due
-        2. will receive the private message from the group member
-        3. will be able to make decision like accept or reject the request from a user who wants to join the group
-
-
-    GUI - will use scene builder for graphic user interface - phase 2
-
-    If still have time:
-         Social System: users can add other users as friends and have a special chat box with each of them
-         AdminUser: would be a build-in account that can do what normal user do, and can also manager users' account
 
 
 
