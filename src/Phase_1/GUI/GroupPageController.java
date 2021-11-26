@@ -16,6 +16,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 public class GroupPageController implements Initializable{
     @FXML
@@ -51,7 +52,17 @@ public class GroupPageController implements Initializable{
 
     public void joinPushed(){}
 
-    public void leavePushed(){
+    public void leavePushed() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("LeaveGroupGUI.fxml"));
+        Parent root = loader.load();
+        LeaveGroupController mpc1 = loader.getController();
+        mpc1.setUm(um);
+        mpc1.setGm(gm);
+        mpc1.setUserId(userId);
+        Scene scene = new Scene(root);
+        Stage stg = new Stage();
+        stg.setScene(scene);
+        stg.show();
 
     }
 
