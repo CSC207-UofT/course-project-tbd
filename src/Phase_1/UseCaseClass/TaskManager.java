@@ -12,7 +12,6 @@ import Phase_1.Entity.TaskWithDueDate;
  * @author  placeholder
  */
 public class TaskManager {
-
     /**
      * set the status of the task to complete
      *

@@ -5,8 +5,8 @@ import java.time.LocalDateTime;
 
 
 /**
- * This class creates task, with its title, information, category, deadline to finish each task and a sets it
- * default status to false, until the task is finished.
+ * This class creates task, with its title, information, category, deadline to finish each task
+ * and  sets it default status to false, until the task is finished.
  */
 
 public class Task implements Serializable {
