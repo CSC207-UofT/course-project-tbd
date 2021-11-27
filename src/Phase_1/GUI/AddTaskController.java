@@ -26,9 +26,21 @@ public class AddTaskController implements Initializable {
     @FXML
     TextField date;
     @FXML
+    TextField month;
+    @FXML
+    TextField year;
+    @FXML
+    TextField minute;
+    @FXML
+    TextField hour;
+    @FXML
     Button addTask;
     @FXML
     Label Success;
+    @FXML
+    Label format;
+    @FXML
+    Hyperlink goback;
 
     public void setTm(TaskManager tm) {this.tm = tm;}
 
@@ -38,10 +50,27 @@ public class AddTaskController implements Initializable {
 
     public void addTask() throws IOException {
         GUImain guiMain = new GUImain();
+        format.setText("Please enter according to the format: Year/Month/Date/Hour/Minute");
         String name = title.getText();
         String info = information.getText();
-        int due = Integer.parseInt(date.getText());
+//        int d = Integer.parseInt(date.getText());
+//        int mon = Integer.parseInt(month.getText());
+//        int y = Integer.parseInt(year.getText());
+//        int h = Integer.parseInt(hour.getText());
+//        int min = Integer.parseInt(minute.getText());
+        tm.createTask(name, info);
+        Success.setText("Task Successfully Created");
 
+    }
+
+    public void backPushed() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("TaskPageController.fxml"));
+        Parent root = loader.load();
+        TaskPageController tpc = loader.getController();
+        tpc.setTm(tm);
+        Scene scene = new Scene(root);
+        GUImain guiMain = new GUImain();
+        guiMain.addScene(scene);
     }
 
 

@@ -2,6 +2,7 @@ package Phase_1.GUI;
 
 import Phase_1.Entity.Task;
 import Phase_1.UseCaseClass.TaskManager;
+import Phase_1.UseCaseClass.UserManager;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -17,6 +18,7 @@ import java.util.ResourceBundle;
 public class TaskPageController implements Initializable {
     Task t;
     TaskManager tm;
+    UserManager um;
 
     @FXML
     Button addtask;
@@ -31,6 +33,7 @@ public class TaskPageController implements Initializable {
 
 
     public void setTm(TaskManager tm) {this.tm = tm;}
+    public void setUm(UserManager um) {this.um = um;}
 
     public void setT(Task t) {
         this.t = t;
@@ -66,6 +69,15 @@ public class TaskPageController implements Initializable {
         AddTaskController apc1 = loader.getController();
         apc1.setTm(tm);
 //        apc1.setGm(gm);
+        Scene scene = new Scene(root);
+        GUImain guiMain = new GUImain();
+        guiMain.addScene(scene);
+    }
+    public void backPushed() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("UserPageController.fxml"));
+        Parent root = loader.load();
+        UserPageController upc = loader.getController();
+//        upc.setUm(um);
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
