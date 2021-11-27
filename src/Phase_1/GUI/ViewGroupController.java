@@ -24,6 +24,9 @@ public class ViewGroupController {
     @FXML
     VBox GroupsPane;
 
+    @FXML
+    Button refreshButton;
+
     /**
      * This method creates buttons which when clicked take you to the different pages.
      */
