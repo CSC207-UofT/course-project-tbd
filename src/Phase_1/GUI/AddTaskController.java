@@ -38,8 +38,6 @@ public class AddTaskController implements Initializable {
     @FXML
     Label Success;
     @FXML
-    Label format;
-    @FXML
     Hyperlink goback;
 
     public void setTm(TaskManager tm) {this.tm = tm;}
@@ -50,8 +48,8 @@ public class AddTaskController implements Initializable {
 
     public void addTask() throws IOException {
         GUImain guiMain = new GUImain();
-        format.setText("Please enter according to the format: Year/Month/Date/Hour/Minute");
         String name = title.getText();
+        Success.setText("");
         String info = information.getText();
 //        int d = Integer.parseInt(date.getText());
 //        int mon = Integer.parseInt(month.getText());
