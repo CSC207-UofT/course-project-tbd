@@ -1,8 +1,7 @@
 package Phase_1.UseCaseClass;
 
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.PriorityQueue;
+import java.util.*;
 
 import Phase_1.Entity.Alarm;
 import Phase_1.Entity.TaskWithDueDate;
@@ -31,7 +30,8 @@ public class NotificationManager implements Runnable {
     /**
      * mailbox is an array list of strings that keeps track off all the notifications.
      */
-    public ArrayList<String> mailbox = new ArrayList<>();
+    public ArrayList<String> mailboxTaskName = new ArrayList<>();
+    public HashMap<String, String> mailDetail = new HashMap<>();
 
     /**
      * Constructs the NotificationManager and initialize the priority queue taskWithDueDates
@@ -63,8 +63,12 @@ public class NotificationManager implements Runnable {
      *
      * @return mailbox, which is an array list of strings
      */
-    public ArrayList<String> getMailbox(){
-        return mailbox;
+    public ArrayList<String> getMailboxTaskName(){
+        return mailboxTaskName;
+    }
+
+    public HashMap<String, String> getMailDetail(){
+        return mailDetail;
     }
 
     /**
@@ -99,7 +103,10 @@ public class NotificationManager implements Runnable {
             // Task: <Task Title>
             DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
             String note = task.getDueDate().format(format) + "\nDUE DATE ALERT! \nTask: <" + task.getTaskName() + ">";
-            mailbox.add(note);
+            //==================
+            mailboxTaskName.add(0,task.getTaskName());
+            mailDetail.put(task.getTaskName(), note);
+            //==================
 
             final JFrame alert = new JFrame();      // Frame
             JButton button = new JButton();         // button
