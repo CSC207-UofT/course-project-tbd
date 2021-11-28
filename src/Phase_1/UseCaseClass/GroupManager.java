@@ -111,7 +111,7 @@ public class GroupManager{
     public boolean checkIfLeader(String groupname, User user) {
         Group group = this.maps.get(groupname);
         User leader = group.getgroupLeader();
-        return user.equals(leader);
+        return user.getUsername().equals(leader.getUsername());
     }
 
     /**
