@@ -12,7 +12,7 @@
          <font>
             <Font name="Apple Chancery" size="24.0" />
          </font></Label>
-      <VBox id="GroupsPane" layoutX="65.0" layoutY="118.0" prefHeight="355.0" prefWidth="271.0">
+      <VBox fx:id="GroupsPane" layoutX="65.0" layoutY="118.0" prefHeight="355.0" prefWidth="271.0">
          <children>
             <Label alignment="CENTER" prefHeight="17.0" prefWidth="271.0" text="Click to view the group" textAlignment="CENTER">
                <font>
@@ -21,6 +21,7 @@
             </Label>
          </children>
       </VBox>
-      <Button id="refreshButton" layoutX="138.0" layoutY="473.0" mnemonicParsing="false" onAction="#createGroupButton" prefHeight="26.0" prefWidth="127.0" text="Click me to refresh" />
+      <Button fx:id="refreshButton" layoutX="138.0" layoutY="473.0" mnemonicParsing="false" onAction="#createGroupButton" prefHeight="26.0" prefWidth="127.0" text="Click me to refresh" />
+      <Button fx:id="BackButton" layoutX="170.0" layoutY="525.0" mnemonicParsing="false" onAction="#goBack" text="Go Back" />
     </children>
 </Pane>
