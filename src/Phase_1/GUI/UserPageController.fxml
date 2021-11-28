@@ -5,13 +5,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Phase_1.GUI.UserPageController">
    <children>
-      <Button layoutX="144.0" layoutY="180.0" mnemonicParsing="false" onAction="#goto_grouppage" text="Go to Group Page" />
-      <Button layoutX="137.0" layoutY="265.0" mnemonicParsing="false" onAction="#goto_categorypage" text="Go to Category Page" />
-      <Button fx:id="goto_notificationspage" layoutX="127.0" layoutY="353.0" mnemonicParsing="false" text="Go to Notifications Page" />
-      <Label layoutX="29.0" layoutY="31.0" text="You are on User Page">
+      <Button fx:id="groupPage" layoutX="102.0" layoutY="179.0" mnemonicParsing="false" onAction="#groupButtonPushed" prefHeight="50.0" prefWidth="200.0" text="Go to Group Page" />
+      <Button fx:id="categoryPage" layoutX="100.0" layoutY="275.0" mnemonicParsing="false" onAction="#categoryButtonPushed" prefHeight="50.0" prefWidth="200.0" text="Go to Category Page" />
+      <Button fx:id="notificationsPage" layoutX="102.0" layoutY="376.0" mnemonicParsing="false" onAction="#NotificationButtonPushed" prefHeight="50.0" prefWidth="200.0" text="Go to Notifications Page" />
+      <Label layoutX="86.0" layoutY="28.0" text="Welcome User!">
          <font>
             <Font size="36.0" />
          </font>
