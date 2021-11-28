@@ -32,6 +32,8 @@ public class NotificationPageController implements Initializable{
 
     NotificationManager notificationManager;
 
+    Scene previousScene;
+
     @FXML
     public ListView<String> notificationListView;
 
@@ -44,6 +46,10 @@ public class NotificationPageController implements Initializable{
     @FXML
     public Button refreshButton;
 
+    @FXML
+    public Button backButton;
+
+
     // for testing
     ArrayList<String> currentNotification = new ArrayList<>();
     HashMap<String, String> temp = new HashMap<>();
@@ -51,6 +57,10 @@ public class NotificationPageController implements Initializable{
 
     public void setNotificationManager(NotificationManager notificationManager){
         this.notificationManager = notificationManager;
+    }
+
+    public void setPreviousScene(Scene previousScene){
+        this.previousScene = previousScene;
     }
 
     @Override
@@ -96,6 +106,7 @@ public class NotificationPageController implements Initializable{
 
     public void deleteNotification(MouseEvent mouseEvent) throws Exception{
 
+        // a new window for warning, before the user can delete a notification
         Stage warningWindow = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("WarningWindow.fxml"));
         Parent root = loader.load();
@@ -108,6 +119,7 @@ public class NotificationPageController implements Initializable{
         warningWindow.initModality(Modality.APPLICATION_MODAL);
         warningWindow.showAndWait();
 
+        // if the button clicked was the yes button, proceed to delete
         if(warningWindowController.getYesButtonClicked()){
             ObservableList<String> current = notificationListView.getSelectionModel().getSelectedItems();
             String currentString = current.toString().substring(1, current.toString().length() - 1);
@@ -124,5 +136,10 @@ public class NotificationPageController implements Initializable{
             notificationListView.getItems().remove(currentString);
         }
 
+    }
+
+    public void backPushed() throws IOException {
+        Stage stage = (Stage) refreshButton.getScene().getWindow();
+        stage.setScene(previousScene);
     }
 }
