@@ -76,11 +76,27 @@ public class GroupPageController implements Initializable{
         guiMain.addScene(scene);
     }
 
-    public void exitPushed(){}
+    public void exitPushed() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("UserPageController.fxml"));
+        Parent root = loader.load();
+        UserPageController mpc = loader.getController();
+        mpc.setUm(um);
+        mpc.setGm(gm);
+        mpc.setUserName(userId);
+        Scene scene = new Scene(root);
+        GUImain guiMain = new GUImain();
+        guiMain.addScene(scene);
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         UserGroupManager umg = new UserGroupManager();
-
+//        if (umg.getMyGroups(um.getUserById(userId)).isEmpty()){
+//            remindLabel.setText("reminder: You haven't joined any group yet");
+//        }
+//        else {
+//            remindLabel.setText("you currently joined " + umg.getMyGroups(um.getUserById(userId)).size() + " group(s)");
+//        }
+        remindLabel.setText("");
     }
 }
