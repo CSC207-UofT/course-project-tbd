@@ -11,10 +11,10 @@ public class NormalUser extends User implements Serializable {
     private String sq;
     private String sq_ans;
 
-    public ArrayList<String> myGroups = new ArrayList<>();
+    private final ArrayList<String> myGroups = new ArrayList<>();
 
-    public ArrayList<Category> myCategories = new ArrayList<>();
-    public ArrayList<Task> myTasks = new ArrayList<>();
+    private final ArrayList<Category> myCategories = new ArrayList<>();
+    private final ArrayList<Task> myTasks = new ArrayList<>();
 
     public NormalUser(String username, String password, String sq, String sq_ans) {
         this.username = username;

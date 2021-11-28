@@ -45,4 +45,21 @@ public class UserGroupManager {
     public ArrayList<String> getMyGroups(User user){
         return user.getMyGroups();
     }
+
+
+    /**
+     * This method returns info of the groups name for the given user.
+     * @param user the user object
+     * @return user's group info
+     */
+    public String getGroupInfo(User user){
+        StringBuilder te = new StringBuilder();
+        te.append("Dear ").append(user.getUsername()).append(": \n");
+        te.append("\n You currently joined ").append(this.getMyGroups(user).size()).append(" group(s) \n");
+        te.append("Here is the ID(s) of your joined group(s):\n");
+        for (String g: this.getMyGroups(user)){
+            te.append(g).append("\n");
+        }
+        return te.toString();
+    }
 }
