@@ -12,7 +12,6 @@ import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
 public class TaskPageController implements Initializable {
@@ -52,7 +51,7 @@ public class TaskPageController implements Initializable {
 
 
     public void finishtask() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("FinishTask.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("viewNFinishTask.fxml"));
         Parent root = loader.load();
         AddTaskController apc1 = loader.getController();
         apc1.setTm(tm);
@@ -64,7 +63,7 @@ public class TaskPageController implements Initializable {
 
 
     public void viewtask() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("ViewTask.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("viewNFinishTask.fxml"));
         Parent root = loader.load();
         AddTaskController apc1 = loader.getController();
         apc1.setTm(tm);
