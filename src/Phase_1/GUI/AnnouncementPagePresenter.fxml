@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="leaderControls" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Phase_1.GUI.AnnouncementPageController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Phase_1.GUI.AnnouncementPageController">
    <children>
       <Label alignment="CENTER" layoutX="61.0" layoutY="45.0" prefHeight="46.0" prefWidth="278.0" text="Announcements!">
          <font>
@@ -21,12 +21,12 @@
             <Label id="Announcements" fx:id="Announcements" alignment="TOP_LEFT" prefHeight="324.0" prefWidth="280.0" />
          </content>
       </ScrollPane>
-      <VBox id="enterAnnouncement" alignment="TOP_CENTER" layoutX="63.0" layoutY="506.0" prefHeight="64.0" prefWidth="278.0" spacing="5.0" visible="false">
+      <VBox id="leaderControls" fx:id="leaderControls" alignment="TOP_CENTER" layoutX="63.0" layoutY="506.0" prefHeight="64.0" prefWidth="278.0" spacing="5.0" visible="false">
          <children>
             <TextField />
             <Button fx:id="SendAnnouncement" mnemonicParsing="false" text="Send announcement" />
          </children>
       </VBox>
-      <Button fx:id="Back" layoutX="355.0" layoutY="570.0" mnemonicParsing="false" onAction="#goBack" text="Back" />
+      <Button fx:id="Back" layoutX="346.0" layoutY="573.0" mnemonicParsing="false" onAction="#goBack" text="Back" />
    </children>
 </Pane>

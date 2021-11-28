@@ -46,10 +46,12 @@ public class AnnouncementPageController {
     public void isLeader(){
         if(gm.checkIfLeader(gm.getGroupById(groupId).getgroupName(), um.getUserById(userId))){
             leaderControls.setVisible(true);
+
         }
     }
 
     public void refreshAnnouncements(){
+        isLeader();
         Announcements.setText("");
         String announcements = gm.getGroupById(groupId).getAnnouncementPage().toString();
         Announcements.setText(announcements);

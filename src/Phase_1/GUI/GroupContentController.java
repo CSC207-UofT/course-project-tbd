@@ -64,7 +64,6 @@ public class GroupContentController implements Initializable{
         Parent root = loader.load();
         AnnouncementPageController apc = loader.getController();
         apc.setAll(um, gm, groupId, userId);
-//      apc.isLeader();
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
