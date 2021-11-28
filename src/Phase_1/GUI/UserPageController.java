@@ -37,7 +37,7 @@ public class UserPageController {
     private Button goto_notificationspage;
 
 
-    void goto_categorypage() {
+    public void goto_categorypage() {
 
     }
 
@@ -55,7 +55,7 @@ public class UserPageController {
 
     }
 
-    void goto_notificationspage() {
+    public void goto_notificationspage() {
 
     }
 
