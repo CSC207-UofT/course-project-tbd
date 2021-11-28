@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -22,36 +23,34 @@
         </AnchorPane>
     </top>
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="500.0" prefWidth="346.0" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="75.0" layoutY="49.0" text="Title: " textFill="WHITE">
+            <Label layoutX="48.0" style="-fx-text-fill: white;" text="Title: " textFill="WHITE">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label layoutX="75.0" layoutY="104.0" text="Information: " textFill="#f2eded">
+            <Label layoutX="48.0" layoutY="36.0" style="-fx-text-fill: whitw;" text="Information: " textFill="#f2eded">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label layoutX="77.0" layoutY="159.0" text="Due Date: " textFill="#f8f5f5">
+            <TextField fx:id="title" layoutX="193.0" layoutY="2.0" promptText="Name of the task" style="-fx-background-color: white;" />
+            <TextField fx:id="information" layoutX="193.0" layoutY="38.0" promptText="Details of the Task" style="-fx-background-color: white;" />
+            <Button fx:id="addTask" layoutX="154.0" layoutY="287.0" mnemonicParsing="false" onAction="#addTask" text="Add Task" textFill="WHITE" />
+            <Label layoutX="54.0" layoutY="167.0" style="-fx-text-fill: lightblue;" text="Due date format: Year/Month/Date/Hour/Minute" textFill="#2f99ba" />
+            <Label layoutX="40.0" layoutY="118.0" style="-fx-text-fill: white;" text="Do you want to add notification " />
+            <Label layoutX="62.0" layoutY="140.0" style="-fx-text-fill: white;" text="for you Task(Yes or No):" />
+            <TextField fx:id="yes0rNo" layoutX="253.0" layoutY="123.0" prefHeight="26.0" prefWidth="84.0" promptText="Yes or No" style="-fx-background-color: white;" />
+            <Label layoutX="75.0" layoutY="189.0" style="-fx-text-fill: light blue;" text="Not applicable if above answer is no" textFill="#e6eaeb" />
+            <Label layoutX="39.0" layoutY="231.0" style="-fx-text-fill: whitw;" text="Enter Due Date:" textFill="#f8f3f3">
                <font>
-                  <Font size="24.0" />
+                  <Font size="19.0" />
                </font>
             </Label>
-            <TextField fx:id="title" layoutX="197.0" layoutY="51.0" style="-fx-background-color: white;" />
-            <TextField fx:id="information" layoutX="197.0" layoutY="106.0" style="-fx-background-color: white;" />
-            <Label layoutX="172.0" layoutY="198.0" style="-fx-text-fill: white;" text="Year: " textFill="WHITE" />
-            <Label layoutX="172.0" layoutY="216.0" text="Month:" />
-            <Label layoutX="172.0" layoutY="234.0" text="Date:" />
-            <Label layoutX="172.0" layoutY="252.0" text="Hour:" />
-            <Label layoutX="172.0" layoutY="270.0" text="Minute:" />
-            <TextField layoutX="205.0" layoutY="185.0" />
-            <TextField layoutX="207.0" layoutY="212.0" prefHeight="20.0" prefWidth="148.0" />
-            <TextField layoutX="201.0" layoutY="240.0" />
-            <TextField layoutX="201.0" layoutY="240.0" />
-            <TextField layoutX="201.0" layoutY="267.0" />
-            <Button fx:id="addTask" layoutX="170.0" layoutY="309.0" mnemonicParsing="false" text="Add Task" textFill="WHITE" />
+            <TextField fx:id="date" layoutX="189.0" layoutY="231.0" prefHeight="26.0" prefWidth="173.0" promptText="year/mon/day/hour/min" style="-fx-background-color: white;" />
+            <Label fx:id="Success" layoutX="179.0" layoutY="284.0" style="-fx-text-fill: white;" />
+            <Hyperlink fx:id="goback" layoutX="238.0" layoutY="341.0" onAction="#backPushed" text="Go back to Task page" />
          </children>
       </AnchorPane>
    </center>
