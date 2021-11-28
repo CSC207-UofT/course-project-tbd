@@ -19,14 +19,6 @@ public class ViewGroupController {
     TaskManager tm;
     String userId;
 
-
-    public ViewGroupController(GroupManager gm, UserManager um, UserGroupManager ugm, String userId){
-        this.gm = gm;
-        this.um = um;
-        this.ugm = ugm;
-        this.userId = userId;
-    }
-
     public void setAll(UserManager um, GroupManager gm, String userId){
         this.um = um;
         this.gm = gm;

@@ -1,29 +1,32 @@
 package Phase_1.GUI;
 
-import Phase_1.UseCaseClass.GroupManager;
-import Phase_1.UseCaseClass.UserGroupManager;
-import Phase_1.UseCaseClass.UserManager;
+import Phase_1.UseCaseClass.*;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 
+import java.io.IOException;
+
 public class AnnouncementPageController {
     GroupManager gm;
     UserManager um;
-    UserGroupManager ugm;
     String groupId;
     String userId;
 
-    public AnnouncementPageController(GroupManager gm, UserManager um,
-                                      UserGroupManager ugm, String userId, String groupId){
-        this.gm = gm;
+    public void setAll(UserManager um, GroupManager gm, String groupId, String userId){
         this.um = um;
-        this.ugm = ugm;
-        this.userId = userId;
+        this.gm = gm;
         this.groupId = groupId;
+        this.userId = userId;
     }
+
+    @FXML
+    VBox leaderControls;
 
     @FXML
     Button Refresh;
@@ -35,13 +38,32 @@ public class AnnouncementPageController {
     Label Announcements;
 
     @FXML
-    VBox enterAnnouncement;
+    Button Back;
 
+    @FXML
+    Button SendAnnouncement;
+
+    public void isLeader(){
+        if(gm.checkIfLeader(gm.getGroupById(groupId).getgroupName(), um.getUserById(userId))){
+            leaderControls.setVisible(true);
+        }
+    }
 
     public void refreshAnnouncements(){
         Announcements.setText("");
         String announcements = gm.getGroupById(groupId).getAnnouncementPage().toString();
         Announcements.setText(announcements);
+    }
+
+    public void goBack() throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupContentController.fxml"));
+        Parent root = loader.load();
+        GroupContentController gcc = loader.getController();
+        TaskManager tm = new TaskManager();
+        gcc.setAll(um, gm, tm, userId, groupId);
+        Scene scene = new Scene(root);
+        GUImain guiMain = new GUImain();
+        guiMain.addScene(scene);
     }
 
 }
