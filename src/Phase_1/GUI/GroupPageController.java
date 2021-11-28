@@ -34,6 +34,7 @@ public class GroupPageController implements Initializable{
     GroupManager gm;
     UserManager um;
     String userId;
+    UserGroupManager ugm;
 
     public void setGm(GroupManager gm) {
         this.gm = gm;
@@ -98,5 +99,6 @@ public class GroupPageController implements Initializable{
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         remindLabel.setText("");
+        ugm = new UserGroupManager();
     }
 }

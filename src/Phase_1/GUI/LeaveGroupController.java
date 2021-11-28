@@ -23,6 +23,7 @@ public class LeaveGroupController implements Initializable{
     UserManager um;
     String userId;
     UserGroupManager ugm;
+
     @FXML Label remindLabel;
     @FXML Button leaveButton;
     @FXML
@@ -42,6 +43,10 @@ public class LeaveGroupController implements Initializable{
     public void setGm(GroupManager gm) {
         this.gm = gm;
     }
+
+
+
+
     public void viewInfoPushed(){
         remindLabel.setText(ugm.getGroupInfo(um.getUserById(userId)));
 
@@ -51,7 +56,7 @@ public class LeaveGroupController implements Initializable{
 
 
             if(!gm.checkGroupExists(groupName)){
-                info.setText("Group " + groupName + " doesn't exist");
+                remindLabel.setText("Group " + groupName + " doesn't exist");
             }
             else if (gm.checkIfIn(groupName, um.getUserById(userId))){
                 if (gm.checkIfLeader(groupName, um.getUserById(userId))){
@@ -73,6 +78,7 @@ public class LeaveGroupController implements Initializable{
 
         remindLabel.setText("");
         ugm = new UserGroupManager();
+
 
     }
 }
