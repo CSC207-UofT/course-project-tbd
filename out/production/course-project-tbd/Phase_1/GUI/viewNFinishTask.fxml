@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.TextField?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: black; -fx-border-color: grey;               -fx-border-width: 2;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Phase_1.GUI.ViewNFinishTaskController">
+    <top>
+        <AnchorPane prefHeight="128.0" prefWidth="375.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label layoutX="83.0" layoutY="54.0" prefHeight="60.0" prefWidth="230.0" style="-fx-text-fill: WHite;" text="Here is all your Tasks!" textFill="#fffdfd">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+    </top>
+    <center>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <Hyperlink fx:id="back" layoutX="244.0" layoutY="418.0" onAction="#backPushed" text="Go back to Task page" />
+                <VBox layoutX="21.0" layoutY="14.0" prefHeight="231.0" prefWidth="350.0">
+                    <children>
+                        <TableView prefHeight="225.0" prefWidth="350.0">
+                            <columns>
+                                <TableColumn prefWidth="74.0" text="Title" />
+                                <TableColumn prefWidth="177.0" text="Information" />
+                                <TableColumn prefWidth="97.0" text="Date" />
+                            </columns>
+                        </TableView>
+                        <ListView fx:id="list" prefHeight="200.0" prefWidth="200.0" />
+                    </children>
+                </VBox>
+                <Label layoutX="39.0" layoutY="297.0" style="-fx-text-fill: white;" text="Enter the task name you want to finish:">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="name" layoutX="164.0" layoutY="336.0" promptText="Task Name" style="-fx-background-color: white;" />
+            <Label fx:id="Status" layoutX="168.0" layoutY="385.0" style="-fx-text-fill: lightblue;" />
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>
