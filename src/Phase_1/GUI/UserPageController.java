@@ -36,6 +36,7 @@ public class UserPageController {
     @FXML
     private Button goto_notificationspage;
 
+
     void goto_categorypage() {
 
     }
@@ -50,6 +51,7 @@ public class UserPageController {
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
+
 
     }
 
