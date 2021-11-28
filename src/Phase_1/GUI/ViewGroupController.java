@@ -29,10 +29,10 @@ public class ViewGroupController {
         this.userId = userId;
     }
 
-    public void setAll(UserManager um, GroupManager gm, UserGroupManager ugm, String userId){
+    public void setAll(UserManager um, GroupManager gm, String userId){
         this.um = um;
         this.gm = gm;
-        this.ugm = ugm;
+        this.ugm = new UserGroupManager();
         this.userId = userId;
     }
 
