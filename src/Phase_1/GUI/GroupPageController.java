@@ -81,11 +81,6 @@ public class GroupPageController implements Initializable{
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         UserGroupManager umg = new UserGroupManager();
-        if (umg.getMyGroups(um.getUserById(userId)).isEmpty()){
-            remindLabel.setText("reminder: You haven't joined any group yet");
-        }
-        else {
-            remindLabel.setText("you currently joined " + umg.getMyGroups(um.getUserById(userId)).size() + " group(s)");
-        }
+
     }
 }
