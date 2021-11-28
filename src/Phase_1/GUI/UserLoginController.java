@@ -7,10 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.net.URL;
@@ -31,6 +28,8 @@ public class UserLoginController implements Initializable{
     PasswordField password;
     @FXML
     Label SuccessLogin;
+    @FXML
+    Hyperlink ResetPassword;
 
 
     public void setGm(GroupManager gm) {
@@ -78,6 +77,10 @@ public class UserLoginController implements Initializable{
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
+    }
+
+    public void ResetPasswordonClick() throws IOException{
+
     }
 
     @Override

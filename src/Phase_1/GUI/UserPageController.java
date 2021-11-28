@@ -46,7 +46,15 @@ public class UserPageController {
     public Button notificationsPage;
 
 
-    public void categoryButtonPushed() {
+    public void categoryButtonPushed() throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("CategoryPage.fxml"));
+        Parent root = loader.load();
+        CategoryPageController cpc1 = loader.getController();
+        cpc1.setUm(um);
+        cpc1.setUserId(userName);
+        Scene scene = new Scene(root);
+        GUImain guiMain = new GUImain();
+        guiMain.addScene(scene);
 
     }
 
@@ -60,7 +68,6 @@ public class UserPageController {
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
-
 
     }
 

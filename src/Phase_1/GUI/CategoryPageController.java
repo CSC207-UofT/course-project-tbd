@@ -2,6 +2,7 @@ package Phase_1.GUI;
 
 import Phase_1.UseCaseClass.*;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -10,6 +11,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 public class CategoryPageController {
     TaskPageController tpc;
@@ -28,23 +31,19 @@ public class CategoryPageController {
     @FXML
     Label WrongNewCategory;
 
-    public CategoryPageController(String userId, UserManager um, NotificationManager nm){
-        this.userId = userId;
-        this.um = um;
-        this.cm = new CategoryManager();
-        this.tpc = new TaskPageController(cm, nm);
-    }
+
 
     public void setUm(UserManager um) {
         this.um = um;
     }
+    public void setUserId(String userId){this.userId = userId;}
 
     public void goBack() throws IOException {
         // Go back to previous page: UserPageController
         FXMLLoader loader = new FXMLLoader(getClass().getResource("UserPageController.fxml"));
         Parent root = loader.load();
-        GroupPageController gpc = loader.getController();
-        gpc.setUm(um);
+        UserPageController upc = loader.getController();
+        upc.setUm(um);
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
@@ -86,4 +85,5 @@ public class CategoryPageController {
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
     }
+
 }
