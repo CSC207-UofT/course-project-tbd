@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
@@ -43,6 +44,9 @@ public class AnnouncementPageController {
     @FXML
     Button SendAnnouncement;
 
+    @FXML
+    TextField announcementInput;
+
     public void isLeader(){
         if(gm.checkIfLeader(gm.getGroupById(groupId).getgroupName(), um.getUserById(userId))){
             leaderControls.setVisible(true);
@@ -68,4 +72,9 @@ public class AnnouncementPageController {
         guiMain.addScene(scene);
     }
 
+    public void addAnnouncement(){
+        String input = announcementInput.getText();
+        gm.getGroupById(groupId).getAnnouncementPage().addAnnouncement(input);
+        announcementInput.clear();
+    }
 }
