@@ -4,14 +4,19 @@ import Phase_1.UseCaseClass.GroupManager;
 import Phase_1.UseCaseClass.UserManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 
+import java.io.IOException;
 import java.util.Optional;
 
 public class JoinGroupController {
 
     GroupManager gm;
     UserManager um;
+    String userName;
 
     public void setGm(GroupManager gm) {
         this.gm = gm;
@@ -21,25 +26,37 @@ public class JoinGroupController {
         this.um = um;
     }
 
-    @FXML
-    private Button join_group;
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
     @FXML
-    private TextField group_name;
+    public Button join_group;
 
     @FXML
-    private Label message;
+    public TextField group_name;
 
     @FXML
-    void join_group(ActionEvent event) {
+    public Label message;
+
+    @FXML
+    public void join_group(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupPageGUI.fxml"));
+        Parent root = loader.load();
+        GroupPageController mpc1 = loader.getController();
+        mpc1.setUm(um);
+        mpc1.setGm(gm);
+        mpc1.setUserId(userName);
         String name = group_name.getText();
         if(!gm.checkGroupExists(name)){
-           message.setText("Group doesn't exist!");
-        } else if (gm.checkIfIn(name, um.getUserById("i have no idea"))) {Alert alert = new Alert((Alert.AlertType.WARNING));
+            message.setText("Group doesn't exist!");
+        } else if (gm.checkIfIn(name, um.getUserById(userName))) {Alert alert = new Alert((Alert.AlertType.WARNING));
             message.setText("You're already in this group!");
         } else {
-            gm.addUserToGroup(name, um.getUserById("still have no idea"));
-            // TODO: switch scene
+            gm.addUserToGroup(name, um.getUserById(userName));
+            Scene scene = new Scene(root);
+            GUImain guiMain = new GUImain();
+            guiMain.addScene(scene);
         }
     }
 
