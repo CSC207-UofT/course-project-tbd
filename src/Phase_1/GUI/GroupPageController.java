@@ -67,13 +67,20 @@ public class GroupPageController implements Initializable{
     }
 
     public void viewPushed() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("ViewGroupController.fxml"));
-        Parent root = loader.load();
-        ViewGroupController vgc = loader.getController();
-        vgc.setAll(um, gm, userId);
-        Scene scene = new Scene(root);
-        GUImain guiMain = new GUImain();
-        guiMain.addScene(scene);
+        UserGroupManager umg = new UserGroupManager();
+        if (umg.getMyGroups(um.getUserById(userId)).isEmpty()){
+            remindLabel.setText("reminder: You haven't joined any group yet");
+        }
+        else {
+            remindLabel.setText("you currently joined " + umg.getMyGroups(um.getUserById(userId)).size() + " group(s)");
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ViewGroupController.fxml"));
+            Parent root = loader.load();
+            ViewGroupController vgc = loader.getController();
+            vgc.setAll(um, gm, userId);
+            Scene scene = new Scene(root);
+            GUImain guiMain = new GUImain();
+            guiMain.addScene(scene);
+        }
     }
 
     public void exitPushed() throws IOException {
@@ -90,13 +97,6 @@ public class GroupPageController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        UserGroupManager umg = new UserGroupManager();
-//        if (umg.getMyGroups(um.getUserById(userId)).isEmpty()){
-//            remindLabel.setText("reminder: You haven't joined any group yet");
-//        }
-//        else {
-//            remindLabel.setText("you currently joined " + umg.getMyGroups(um.getUserById(userId)).size() + " group(s)");
-//        }
         remindLabel.setText("");
     }
 }
