@@ -15,10 +15,17 @@ import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.fxml.FXMLLoader;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class NotificationPageController implements Initializable{
@@ -87,19 +94,35 @@ public class NotificationPageController implements Initializable{
         notificationListView.getItems().addAll(currentNotification);
     }
 
-    public void deleteNotification(MouseEvent mouseEvent) {
-        ObservableList<String> current = notificationListView.getSelectionModel().getSelectedItems();
-        String currentString = current.toString().substring(1, current.toString().length() - 1);
+    public void deleteNotification(MouseEvent mouseEvent) throws Exception{
 
-        // uncomment this
-        /*notificationManager.getMailboxTaskName().remove(currentString);
-        notificationManager.getMailDetail().remove(currentString);*/
+        Stage warningWindow = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("WarningWindow.fxml"));
+        Parent root = loader.load();
+        warningWindow.setResizable(false);
+        warningWindow.setTitle("WARNING");
+        warningWindow.setScene(new Scene(root, 250, 150));
 
-        // comment out this
-        currentNotification.remove(currentString);
-        temp.remove(currentString);
-        //
+        WarningWindowController warningWindowController = loader.getController();
 
-        notificationListView.getItems().remove(currentString);
+        warningWindow.initModality(Modality.APPLICATION_MODAL);
+        warningWindow.showAndWait();
+
+        if(warningWindowController.getYesButtonClicked()){
+            ObservableList<String> current = notificationListView.getSelectionModel().getSelectedItems();
+            String currentString = current.toString().substring(1, current.toString().length() - 1);
+
+            // uncomment this
+            /*notificationManager.getMailboxTaskName().remove(currentString);
+            notificationManager.getMailDetail().remove(currentString);*/
+
+            // comment out this
+            currentNotification.remove(currentString);
+            temp.remove(currentString);
+            //
+
+            notificationListView.getItems().remove(currentString);
+        }
+
     }
 }
