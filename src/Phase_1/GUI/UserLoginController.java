@@ -55,12 +55,12 @@ public class UserLoginController implements Initializable{
         }
         else if (um.login(userId, passwordId)){
             SuccessLogin.setText("Success!");
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("UserPageController.fxml"));
             Parent root = loader.load();
-            HomePageController mpc = loader.getController();
+            UserPageController mpc = loader.getController();
             mpc.setUm(um);
             mpc.setGm(gm);
-            mpc.setUserId(userId);
+            mpc.setUserName(userId);
             Scene scene = new Scene(root);
             guiMain.addScene(scene);
         }

@@ -30,6 +30,7 @@ public class JoinGroupController {
     @FXML
     private Label message;
 
+    @FXML
     void join_group(ActionEvent event) {
         String name = group_name.getText();
         if(!gm.checkGroupExists(name)){
@@ -42,4 +43,6 @@ public class JoinGroupController {
         }
     }
 
+    public void group_name(ActionEvent actionEvent) {
+    }
 }

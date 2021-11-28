@@ -1,28 +1,70 @@
 package Phase_1.GUI;
 
-import javafx.event.ActionEvent;
+import Phase_1.UseCaseClass.GroupManager;
+import Phase_1.UseCaseClass.UserManager;
 import javafx.fxml.FXML;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Hyperlink;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+
+import java.io.IOException;
 
 public class UserPageController {
 
+    UserManager um;
+    GroupManager gm;
+    String userName;
+
+    public void setGm(GroupManager gm) {
+        this.gm = gm;
+    }
+
+    public void setUm(UserManager um) {
+        this.um = um;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
     @FXML
-    private Button goto_grouppage;
+    public Button groupPage;
     @FXML
-    private Button goto_categorypage;
+    public Button categoryPage;
     @FXML
-    private Button goto_notificationspage;
+    public Button notificationsPage;
 
-    void goto_categorypage(ActionEvent event) {
+
+    public void categoryButtonPushed() {
 
     }
 
-    void goto_grouppage(ActionEvent event) {
+   public void groupButtonPushed() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupPageGUI.fxml"));
+        Parent root = loader.load();
+        GroupPageController mpc1 = loader.getController();
+        mpc1.setUm(um);
+        mpc1.setGm(gm);
+        mpc1.setUserId(userName);
+        Scene scene = new Scene(root);
+        GUImain guiMain = new GUImain();
+        guiMain.addScene(scene);
+
 
     }
 
-    void goto_notificationspage(ActionEvent event) {
+    public void NotificationButtonPushed() {
 
     }
 
