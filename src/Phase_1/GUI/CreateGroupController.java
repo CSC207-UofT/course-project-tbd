@@ -12,11 +12,23 @@ import javafx.scene.control.*;
 import java.io.IOException;
 import java.util.Optional;
 
-public class JoinGroupController {
-
+public class CreateGroupController {
     GroupManager gm;
     UserManager um;
     String userName;
+
+    @FXML
+    public Button create_group;
+
+    @FXML
+    public Button go_back_button;
+
+    @FXML
+    public TextField group_name;
+
+    @FXML
+    public Label message;
+
 
     public void setGm(GroupManager gm) {
         this.gm = gm;
@@ -30,20 +42,7 @@ public class JoinGroupController {
         this.userName = userName;
     }
 
-    @FXML
-    public Button join_group;
-
-    @FXML
-    public Button go_back_button;
-
-    @FXML
-    public TextField group_name;
-
-    @FXML
-    public Label message;
-
-    @FXML
-    public void join_group(ActionEvent event) throws IOException {
+    public void create_group_button(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupPageGUI.fxml"));
         Parent root = loader.load();
         GroupPageController mpc1 = loader.getController();
@@ -51,22 +50,21 @@ public class JoinGroupController {
         mpc1.setGm(gm);
         mpc1.setUserId(userName);
         String name = group_name.getText();
-        if(!gm.checkGroupExists(name)){
-            message.setText("Group doesn't exist!");
-        } else if (gm.checkIfIn(name, um.getUserById(userName))) {Alert alert = new Alert((Alert.AlertType.WARNING));
-            message.setText("You're already in this group!");
+
+
+        if(gm.checkGroupExists(name)){
+            message.setText("Group already exists!");
         } else {
-            gm.addUserToGroup(name, um.getUserById(userName));
+            gm.createGroup(um.getUserById(userName), group_name.getText());
             Scene scene = new Scene(root);
             GUImain guiMain = new GUImain();
             guiMain.addScene(scene);
         }
     }
 
-    public void group_name(ActionEvent actionEvent) {
-    }
-
     public void Go_back_button(ActionEvent actionEvent) {
 
     }
+
+
 }
