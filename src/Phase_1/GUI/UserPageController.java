@@ -14,10 +14,12 @@ public class UserPageController {
     @FXML
     private Button goto_notificationspage;
 
+    @FXML
     void goto_categorypage(ActionEvent event) {
 
     }
 
+    @FXML
     void goto_grouppage(ActionEvent event) {
 
     }
