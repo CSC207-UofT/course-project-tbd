@@ -26,11 +26,11 @@ public class GroupContentController implements Initializable{
      * String groupId: Represents the id of the current group.
      * GroupContentPresenter gcp: The presenter class for displaying information.
      */
-    private final UserManager um;
-    private final GroupManager gm;
-    private final TaskManager tm;
-    private final String userId;
-    private final String groupId;
+    private UserManager um;
+    private GroupManager gm;
+    private TaskManager tm;
+    private String userId;
+    private String groupId;
     NotificationManager nm;
     GroupContentPresenter gcp = new GroupContentPresenter();
     UserGroupManager ugm = new UserGroupManager();
@@ -59,6 +59,15 @@ public class GroupContentController implements Initializable{
         this.groupId = groupId;
         this.nm = nm;
     }
+
+    public void setAll(UserManager um, GroupManager gm, TaskManager tm, String userId, String groupId){
+        this.um = um;
+        this.gm = gm;
+        this.tm = tm;
+        this.userId = userId;
+        this.groupId = groupId;
+    }
+
     public void HomePagePushed() throws IOException {
         GUImain guiMain = new GUImain();
 

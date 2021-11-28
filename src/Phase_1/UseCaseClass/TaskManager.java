@@ -4,6 +4,8 @@ import Phase_1.Entity.Category;
 import Phase_1.Entity.Task;
 import Phase_1.Entity.TaskWithDueDate;
 
+import java.time.LocalDate;
+
 /**
  * This TaskManager is the use case that is responsible for accessing and manipulating attributes and methods
  * in Task and its child classes.
@@ -12,7 +14,6 @@ import Phase_1.Entity.TaskWithDueDate;
  * @author  placeholder
  */
 public class TaskManager {
-
     /**
      * set the status of the task to complete
      *
@@ -111,6 +112,7 @@ public class TaskManager {
         }
         return null;
     }
+
 }
 
 

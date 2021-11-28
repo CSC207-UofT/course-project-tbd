@@ -42,7 +42,7 @@ public class NotificationPageController {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String input = "";
         while (!input.equals("1")){     // 1 means go back
-            npp.displayNotifications(notificationManager.getMailbox());     // show current notifications
+            npp.displayNotifications(notificationManager.getMailboxTaskName());     // show current notifications
             npp.availableOptions();
             input = reader.readLine();
             if (input.equals("2")) {        // 2 means delete notification
@@ -59,7 +59,7 @@ public class NotificationPageController {
         System.out.println("Please enter which notification you want to delete by its number:");
         try{
             String input = reader.readLine();
-            notificationManager.getMailbox().remove(Integer.parseInt(input) - 1);
+            notificationManager.getMailboxTaskName().remove(Integer.parseInt(input) - 1);
             System.out.println("Notification deleted");
         } catch (Exception e) {
             System.out.println("Your input is invalid");
