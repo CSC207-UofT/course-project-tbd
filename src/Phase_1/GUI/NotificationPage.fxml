@@ -16,7 +16,7 @@
                   <Font name="Calibri" size="31.0" />
                </font>
             </Text>
-            <Button fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#backPushed" prefHeight="39.0" prefWidth="72.0" style="-fx-background-color: rgba(0, 255, 255, 0.5);" text="Back" />
+            <Button fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#backPushed" prefHeight="39.0" prefWidth="72.0" text="Back" />
          </children></AnchorPane>
       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
          <children>
@@ -29,13 +29,13 @@
                   </AnchorPane>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="451.0" prefWidth="275.0">
                      <children>
-                        <Button fx:id="deleteNotificationButton" layoutX="189.0" layoutY="468.0" mnemonicParsing="false" onMouseClicked="#deleteNotification" prefHeight="39.0" prefWidth="72.0" style="-fx-background-color: rgba(0, 255, 255, 0.5);" text="Delete" />
+                        <Button fx:id="deleteNotificationButton" layoutX="189.0" layoutY="468.0" mnemonicParsing="false" onMouseClicked="#deleteNotification" prefHeight="39.0" prefWidth="72.0" text="Delete" />
                         <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="436.0" prefWidth="251.0">
                            <children>
                               <Text fx:id="notificationDetail" strokeType="OUTSIDE" strokeWidth="0.0" />
                            </children>
                         </AnchorPane>
-                        <Button fx:id="refreshButton" layoutX="14.0" layoutY="468.0" mnemonicParsing="false" onMouseClicked="#refreshNotification" prefHeight="39.0" prefWidth="72.0" style="-fx-background-color: rgba(0, 255, 255, 0.5);" text="Refresh" />
+                        <Button fx:id="refreshButton" layoutX="14.0" layoutY="468.0" mnemonicParsing="false" onMouseClicked="#refreshNotification" prefHeight="39.0" prefWidth="72.0" text="Refresh" />
                      </children>
                   </AnchorPane>
                </items>
