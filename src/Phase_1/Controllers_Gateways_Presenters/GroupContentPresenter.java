@@ -6,7 +6,7 @@ package Phase_1.Controllers_Gateways_Presenters;
 public class GroupContentPresenter {
 
     /**
-     * Instructions to naviage GroupContent page
+     * Instructions to navigate GroupContent page
      */
     public void instructions() {
         String s = "Type 1 to go to the homepage\nType 2 to go to the Group Task Page\nType 3 to access the";
