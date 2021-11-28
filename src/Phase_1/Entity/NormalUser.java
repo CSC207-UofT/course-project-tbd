@@ -131,7 +131,7 @@ public class NormalUser extends User implements Serializable {
     }
 
     @Override
-    public boolean equals(NormalUser nu){
+    public boolean equals(User nu){
         return Objects.equals(nu.getUsername(), this.getUsername());
     }
 }
