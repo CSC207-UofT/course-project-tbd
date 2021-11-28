@@ -2,12 +2,21 @@ package Phase_1.GUI;
 
 import Phase_1.UseCaseClass.GroupManager;
 import Phase_1.UseCaseClass.UserManager;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Hyperlink;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
@@ -30,18 +39,18 @@ public class UserPageController {
     }
 
     @FXML
-    private Button goto_grouppage;
+    public Button groupPage;
     @FXML
-    private Button goto_categorypage;
+    public Button categoryPage;
     @FXML
-    private Button goto_notificationspage;
+    public Button notificationsPage;
 
 
-    public void goto_categorypage() {
+    public void categoryButtonPushed() {
 
     }
 
-   public void goto_grouppage() throws IOException {
+   public void groupButtonPushed() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupPageGUI.fxml"));
         Parent root = loader.load();
         GroupPageController mpc1 = loader.getController();
@@ -55,7 +64,7 @@ public class UserPageController {
 
     }
 
-    public void goto_notificationspage() {
+    public void NotificationButtonPushed() {
 
     }
 
