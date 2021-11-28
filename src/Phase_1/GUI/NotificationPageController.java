@@ -86,6 +86,7 @@ public class NotificationPageController implements Initializable{
                 temp.put("shit bro", "yeah bro");
                 notificationDetail.setText(temp.get(currentString));
                 notificationManager = new NotificationManager();
+                //
 
                 // uncomment this
                 /*notificationDetail.setText(notificationManager.getMailDetail().get(currentString));*/
