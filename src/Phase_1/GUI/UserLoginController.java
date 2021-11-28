@@ -55,7 +55,7 @@ public class UserLoginController implements Initializable{
         }
         else if (um.login(userId, passwordId)){
             SuccessLogin.setText("Success!");
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("UserPageController.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("UserPage.fxml"));
             Parent root = loader.load();
             UserPageController mpc = loader.getController();
             mpc.setUm(um);

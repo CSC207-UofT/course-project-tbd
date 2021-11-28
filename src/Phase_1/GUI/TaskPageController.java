@@ -12,7 +12,6 @@ import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
 public class TaskPageController implements Initializable {
@@ -74,7 +73,7 @@ public class TaskPageController implements Initializable {
         guiMain.addScene(scene);
     }
     public void backPushed() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("UserPageController.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("UserPage.fxml"));
         Parent root = loader.load();
         UserPageController upc = loader.getController();
 //        upc.setUm(um);

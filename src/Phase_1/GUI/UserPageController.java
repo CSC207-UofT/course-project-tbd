@@ -37,6 +37,7 @@ public class UserPageController {
     private Button goto_notificationspage;
 
 
+    @FXML
     void goto_categorypage() {
 
     }
