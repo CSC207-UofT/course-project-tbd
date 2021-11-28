@@ -22,12 +22,14 @@ public class LeaveGroupController implements Initializable{
     GroupManager gm;
     UserManager um;
     String userId;
+    UserGroupManager ugm;
     @FXML Label remindLabel;
     @FXML Button leaveButton;
     @FXML
     TextField userInput;
     @FXML
     TextArea info;
+    @FXML Button viewInfo;
 
     public void setUserId(String userId) {
         this.userId = userId;
@@ -39,6 +41,10 @@ public class LeaveGroupController implements Initializable{
 
     public void setGm(GroupManager gm) {
         this.gm = gm;
+    }
+    public void viewInfoPushed(){
+        remindLabel.setText(ugm.getGroupInfo(um.getUserById(userId)));
+
     }
     public void leaveButtonPushed(){
         String groupName = userInput.getText();
@@ -64,8 +70,9 @@ public class LeaveGroupController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        info.setText(new UserGroupManager().getGroupInfo(um.getUserById(userId)));
+
         remindLabel.setText("");
+        ugm = new UserGroupManager();
 
     }
 }

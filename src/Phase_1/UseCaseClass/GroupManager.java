@@ -76,12 +76,13 @@ public class GroupManager{
      */
     public boolean checkIfIn(String groupname, User user) {
         Group group = this.maps.get(groupname);
+        System.out.println(group.getUsers());
         for (User i: group.getUsers()) {
             if (i.equals(user)) {
                 return true;
             }
         }
-        return false;
+        return this.maps.get(groupname).getgroupLeader().equals(user);
     }
 
     /**

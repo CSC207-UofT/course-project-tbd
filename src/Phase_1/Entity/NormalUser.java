@@ -3,6 +3,7 @@ package Phase_1.Entity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class NormalUser extends User implements Serializable {
 
@@ -127,5 +128,10 @@ public class NormalUser extends User implements Serializable {
      */
     public ArrayList<Category> getMyCategories() {
         return myCategories;
+    }
+
+    @Override
+    public boolean equals(NormalUser nu){
+        return Objects.equals(nu.getUsername(), this.getUsername());
     }
 }
