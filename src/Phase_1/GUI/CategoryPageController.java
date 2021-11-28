@@ -15,7 +15,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class CategoryPageController {
-    TaskPageController tpc;
     CategoryManager cm;
     UserManager um;
     String userId;

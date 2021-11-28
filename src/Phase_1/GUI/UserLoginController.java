@@ -1,5 +1,6 @@
 package Phase_1.GUI;
 
+import Phase_1.Entity.NormalUser;
 import Phase_1.UseCaseClass.GroupManager;
 import Phase_1.UseCaseClass.UserManager;
 import javafx.fxml.FXML;
@@ -80,7 +81,24 @@ public class UserLoginController implements Initializable{
     }
 
     public void ResetPasswordonClick() throws IOException{
+        WrongLogin.setText("");
+        SuccessLogin.setText("");
 
+        String userId = username.getText();
+        if (userId.isEmpty()){
+            WrongLogin.setText("Enter username before resetting password");
+        } else {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ResetPassword.fxml"));
+            Parent root = loader.load();
+            ResetPasswordController rpc = loader.getController();
+            rpc.setUm(um);
+            rpc.setGm(gm);
+            rpc.setUserId(userId);
+            rpc.SecurityQues.setText(((NormalUser) um.getUserById(userId)).getSQ());
+            Scene scene = new Scene(root);
+            GUImain guiMain = new GUImain();
+            guiMain.addScene(scene);
+        }
     }
 
     @Override
