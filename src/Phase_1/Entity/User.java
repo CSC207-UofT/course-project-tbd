@@ -22,4 +22,6 @@ public abstract  class User implements Serializable {
 
 
     public abstract ArrayList<Category> getMyCategories();
+
+    public abstract boolean equals(NormalUser nu);
 }
