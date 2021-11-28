@@ -66,7 +66,14 @@ public class GroupPageController implements Initializable{
 
     }
 
-    public void viewPushed(){
+    public void viewPushed() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ViewGroupController.fxml"));
+        Parent root = loader.load();
+        ViewGroupController vgc = loader.getController();
+        vgc.setAll(um, gm, userId);
+        Scene scene = new Scene(root);
+        GUImain guiMain = new GUImain();
+        guiMain.addScene(scene);
     }
 
     public void exitPushed(){}
