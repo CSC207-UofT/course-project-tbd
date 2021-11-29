@@ -46,6 +46,8 @@ public class UserPageController {
     public Button categoryPage;
     @FXML
     public Button notificationsPage;
+    @FXML
+    public Button LoginPage;
 
 
     public void categoryButtonPushed() throws IOException{
@@ -80,6 +82,19 @@ public class UserPageController {
 
         notificationPageController.setNotificationManager(notificationManager);
         notificationPageController.setPreviousScene(notificationsPage.getScene());
+
+        Scene scene = new Scene(root);
+        GUImain guiMain = new GUImain();
+        guiMain.addScene(scene);
+    }
+
+    public void LogOutButtonPushed() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("UserLogin.fxml"));
+        Parent root = loader.load();
+        UserLoginController ulc = loader.getController();
+
+        ulc.setGm(gm);
+        ulc.setUm(um);
 
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
