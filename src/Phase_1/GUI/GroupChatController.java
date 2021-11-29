@@ -49,11 +49,11 @@ public class GroupChatController {
      * This is a method to go back to the previous page
      */
     public void backPush() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupContentPresenter.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupContentController.fxml"));
         Parent root = loader.load();
         GroupContentController gcc = loader.getController();
         TaskManager tm = new TaskManager();
-        gcc.setAll(um, gm, tm, userId,groupId);
+        gcc.setAll(um, gm, tm, userId, groupId);
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);

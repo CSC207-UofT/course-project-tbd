@@ -24,6 +24,6 @@
             <Button id="sendButton" fx:id="sendButton" mnemonicParsing="false" onAction="#enter" text="Send" />
          </children>
       </HBox>
-      <TextArea fx:id="displayMessage" layoutX="14.0" layoutY="10.0" prefHeight="487.0" prefWidth="366.0" />
+      <TextArea fx:id="displayMessage" editable="false" layoutX="14.0" layoutY="14.0" prefHeight="487.0" prefWidth="366.0" />
     </children>
 </Pane>
