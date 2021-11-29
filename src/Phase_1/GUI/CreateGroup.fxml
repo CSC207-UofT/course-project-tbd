@@ -8,8 +8,7 @@
 <AnchorPane prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Phase_1.GUI.CreateGroupController">
    <children>
       <Button fx:id="create_group" layoutX="143.0" layoutY="216.0" mnemonicParsing="false" onAction="#create_group_button" text="Create Group" />
-      <Button fx:id="go_back_button" layoutX="156.0" layoutY="474.0" mnemonicParsing="false" onAction="#Go_back_button" text="Go Back" />
-      <Label fx:id="message" layoutX="172.0" layoutY="171.0" text="Label" />
+      <Label fx:id="message" layoutX="31.0" layoutY="133.0" />
       <TextField fx:id="group_name" layoutX="31.0" layoutY="94.0" prefHeight="25.0" prefWidth="310.0" promptText="Please enter the name of the group you want to create" />
    </children>
 </AnchorPane>
