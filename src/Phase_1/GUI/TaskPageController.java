@@ -33,11 +33,6 @@ public class TaskPageController {
     Button viewtask;
     @FXML
     Hyperlink back;
-    public TaskPageController(CategoryManager cm, NotificationManager nm){
-        this.cm = cm;
-        this.nm = nm;
-        this.itm = new TaskManager();
-    }
 
 
     public void setTm(TaskManager tm) {this.tm = tm;}
