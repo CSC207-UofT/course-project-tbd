@@ -12,6 +12,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class AnnouncementPageController {
     GroupManager gm;
@@ -74,6 +76,9 @@ public class AnnouncementPageController {
 
     public void addAnnouncement(){
         String input = announcementInput.getText();
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        LocalDateTime current = LocalDateTime.now();
+        input = input + " - " + dtf.format(current);
         gm.getGroupById(groupId).getAnnouncementPage().addAnnouncement(input);
         announcementInput.clear();
     }
