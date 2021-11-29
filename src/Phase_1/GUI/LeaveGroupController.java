@@ -22,12 +22,15 @@ public class LeaveGroupController implements Initializable{
     GroupManager gm;
     UserManager um;
     String userId;
+    UserGroupManager ugm;
+
     @FXML Label remindLabel;
     @FXML Button leaveButton;
     @FXML
     TextField userInput;
     @FXML
     TextArea info;
+    @FXML Button viewInfo;
 
     public void setUserId(String userId) {
         this.userId = userId;
@@ -40,12 +43,20 @@ public class LeaveGroupController implements Initializable{
     public void setGm(GroupManager gm) {
         this.gm = gm;
     }
+
+
+
+
+    public void viewInfoPushed(){
+        remindLabel.setText(ugm.getGroupInfo(um.getUserById(userId)));
+
+    }
     public void leaveButtonPushed(){
         String groupName = userInput.getText();
 
 
             if(!gm.checkGroupExists(groupName)){
-                info.setText("Group " + groupName + " doesn't exist");
+                remindLabel.setText("Group " + groupName + " doesn't exist");
             }
             else if (gm.checkIfIn(groupName, um.getUserById(userId))){
                 if (gm.checkIfLeader(groupName, um.getUserById(userId))){
@@ -64,8 +75,10 @@ public class LeaveGroupController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        info.setText(new UserGroupManager().getGroupInfo(um.getUserById(userId)));
+
         remindLabel.setText("");
+        ugm = new UserGroupManager();
+
 
     }
 }

@@ -84,11 +84,11 @@ public class GroupManager{
     public boolean checkIfIn(String groupname, User user) {
         Group group = this.maps.get(groupname);
         for (User i: group.getUsers()) {
-            if (i.equals(user)) {
+            if (i.getUsername().equals(user.getUsername())) {
                 return true;
             }
         }
-        return false;
+        return group.getgroupLeader().getUsername().equals(user.getUsername());
     }
 
     /**
@@ -118,7 +118,7 @@ public class GroupManager{
     public boolean checkIfLeader(String groupname, User user) {
         Group group = this.maps.get(groupname);
         User leader = group.getgroupLeader();
-        return user.equals(leader);
+        return user.getUsername().equals(leader.getUsername());
     }
 
     /**
