@@ -1,6 +1,7 @@
 package Phase_1.GUI;
 
 import Phase_1.UseCaseClass.GroupManager;
+import Phase_1.UseCaseClass.TaskManager;
 import Phase_1.UseCaseClass.UserManager;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,12 +17,6 @@ public class GroupChatController {
     GroupManager gm;
     UserManager um;
 
-    public GroupChatController(String groupId, String userId, GroupManager gm, UserManager um) {
-        this.groupId = groupId;
-        this.userId = userId;
-        this.gm = gm;
-        this.um = um;
-    }
     public void setGroupId(String groupId) {
         this.groupId = groupId;
     }
@@ -34,6 +29,7 @@ public class GroupChatController {
     public void setUm(UserManager um) {
         this.um = um;
     }
+
     @FXML
     Button backButton;
 
@@ -56,6 +52,8 @@ public class GroupChatController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupContentPresenter.fxml"));
         Parent root = loader.load();
         GroupContentController gcc = loader.getController();
+        TaskManager tm = new TaskManager();
+        gcc.setAll(um, gm, tm, userId,groupId);
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
@@ -70,7 +68,7 @@ public class GroupChatController {
         displayMessage.setText(gm.getGroupById(groupId).getGroupChat().toString());
     }
     /**
-     *
+     * This is the method to add a message into the current GroupChat
      */
     public void enter() {
         String message = enterMessage.getText();

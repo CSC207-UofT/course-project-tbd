@@ -2,6 +2,7 @@ package Phase_1.UseCaseClass;
 
 import Phase_1.Entity.Group;
 import Phase_1.Entity.NormalUser;
+import Phase_1.Entity.Task;
 import Phase_1.Entity.User;
 
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ import java.util.HashMap;
 public class GroupManager{
     public HashMap<String, Group> maps;
     UserGroupManager ugm = new UserGroupManager();
+    TaskManager tm = new TaskManager();
 
     /**
      * Construct a TBD.GroupManager, giving them the given maps
@@ -52,6 +54,11 @@ public class GroupManager{
         ugm.removeGroup(leader, groupName);
         for (User user: this.maps.get(groupName).getUsers()){
             ugm.removeGroup(user, groupName);
+        }
+        for (User user: this.maps.get(groupName).getUsers()){
+            for (Task task: user.getMyTasks()) {
+                tm.completeTask(task);
+            }
         }
         this.maps.remove(groupName);
     }
