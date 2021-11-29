@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
@@ -38,7 +39,7 @@ public class NotificationPageController implements Initializable{
     public ListView<String> notificationListView;
 
     @FXML
-    public Text notificationDetail;
+    public TextArea notificationDetail;
 
     @FXML
     public Button deleteNotificationButton;
