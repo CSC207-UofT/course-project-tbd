@@ -18,6 +18,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -47,7 +48,7 @@ public class UserPageController {
     @FXML
     public Button notificationsPage;
     @FXML
-    public Button LoginPage;
+    public Button log_out_button;
 
 
     public void categoryButtonPushed() throws IOException{
@@ -62,7 +63,7 @@ public class UserPageController {
 
     }
 
-   public void groupButtonPushed() throws IOException {
+    public void groupButtonPushed() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupPageGUI.fxml"));
         Parent root = loader.load();
         GroupPageController mpc1 = loader.getController();
@@ -76,6 +77,8 @@ public class UserPageController {
     }
 
     public void NotificationButtonPushed() throws IOException {
+
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("NotificationPage.fxml"));
         Parent root = loader.load();
         NotificationPageController notificationPageController = loader.getController();
@@ -88,14 +91,12 @@ public class UserPageController {
         guiMain.addScene(scene);
     }
 
-    public void LogOutButtonPushed() throws IOException {
+    public void LogoutButtonPushed() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("UserLogin.fxml"));
         Parent root = loader.load();
-        UserLoginController ulc = loader.getController();
-
-        ulc.setGm(gm);
-        ulc.setUm(um);
-
+        UserLoginController mpc = loader.getController();
+        mpc.setUm(um);
+        mpc.setGm(gm);
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
