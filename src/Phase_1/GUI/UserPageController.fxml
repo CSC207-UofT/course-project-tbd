@@ -15,6 +15,6 @@
             <Font size="36.0" />
          </font>
       </Label>
-      <Button fx:id="log_out_button" layoutX="175.0" layoutY="478.0" mnemonicParsing="false" onAction="#LogoutButtonPushed" text="Logout" />
+      <Button fx:id="log_out_button" layoutX="174.0" layoutY="560.0" mnemonicParsing="false" onAction="#LogoutButtonPushed" text="Logout" />
    </children>
 </AnchorPane>
