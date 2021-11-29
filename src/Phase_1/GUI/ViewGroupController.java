@@ -51,6 +51,7 @@ public class ViewGroupController {
                     e.printStackTrace();
                 }
             });
+            button.setPrefSize(370.0, 26.0);
             GroupsPane.getChildren().add(button);
         }
     }
