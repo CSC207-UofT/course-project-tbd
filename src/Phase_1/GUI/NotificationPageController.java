@@ -15,15 +15,24 @@ import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.fxml.FXMLLoader;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class NotificationPageController implements Initializable{
 
     NotificationManager notificationManager;
+
+    Scene previousScene;
 
     @FXML
     public ListView<String> notificationListView;
@@ -37,6 +46,10 @@ public class NotificationPageController implements Initializable{
     @FXML
     public Button refreshButton;
 
+    @FXML
+    public Button backButton;
+
+
     // for testing
     ArrayList<String> currentNotification = new ArrayList<>();
     HashMap<String, String> temp = new HashMap<>();
@@ -44,6 +57,10 @@ public class NotificationPageController implements Initializable{
 
     public void setNotificationManager(NotificationManager notificationManager){
         this.notificationManager = notificationManager;
+    }
+
+    public void setPreviousScene(Scene previousScene){
+        this.previousScene = previousScene;
     }
 
     @Override
@@ -69,6 +86,7 @@ public class NotificationPageController implements Initializable{
                 temp.put("shit bro", "yeah bro");
                 notificationDetail.setText(temp.get(currentString));
                 notificationManager = new NotificationManager();
+                //
 
                 // uncomment this
                 /*notificationDetail.setText(notificationManager.getMailDetail().get(currentString));*/
@@ -87,19 +105,42 @@ public class NotificationPageController implements Initializable{
         notificationListView.getItems().addAll(currentNotification);
     }
 
-    public void deleteNotification(MouseEvent mouseEvent) {
-        ObservableList<String> current = notificationListView.getSelectionModel().getSelectedItems();
-        String currentString = current.toString().substring(1, current.toString().length() - 1);
+    public void deleteNotification(MouseEvent mouseEvent) throws Exception{
 
-        // uncomment this
-        /*notificationManager.getMailboxTaskName().remove(currentString);
-        notificationManager.getMailDetail().remove(currentString);*/
+        // a new window for warning, before the user can delete a notification
+        Stage warningWindow = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("WarningWindow.fxml"));
+        Parent root = loader.load();
+        warningWindow.setResizable(false);
+        warningWindow.setTitle("WARNING");
+        warningWindow.setScene(new Scene(root, 250, 150));
 
-        // comment out this
-        currentNotification.remove(currentString);
-        temp.remove(currentString);
-        //
+        WarningWindowController warningWindowController = loader.getController();
 
-        notificationListView.getItems().remove(currentString);
+        warningWindow.initModality(Modality.APPLICATION_MODAL);
+        warningWindow.showAndWait();
+
+        // if the button clicked was the yes button, proceed to delete
+        if(warningWindowController.getYesButtonClicked()){
+            ObservableList<String> current = notificationListView.getSelectionModel().getSelectedItems();
+            String currentString = current.toString().substring(1, current.toString().length() - 1);
+
+            // uncomment this
+            /*notificationManager.getMailboxTaskName().remove(currentString);
+            notificationManager.getMailDetail().remove(currentString);*/
+
+            // comment out this
+            currentNotification.remove(currentString);
+            temp.remove(currentString);
+            //
+
+            notificationListView.getItems().remove(currentString);
+        }
+
+    }
+
+    public void backPushed() throws IOException {
+        Stage stage = (Stage) refreshButton.getScene().getWindow();
+        stage.setScene(previousScene);
     }
 }

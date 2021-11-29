@@ -22,8 +22,8 @@
     <left>
         <AnchorPane prefHeight="143.0" prefWidth="201.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="finishtask" layoutX="122.0" layoutY="138.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="146.0" text="Finish Task" />
-            <Button fx:id="viewtask" layoutX="121.0" layoutY="210.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="148.0" text="View Task" />
+            <Button fx:id="finishtask" layoutX="122.0" layoutY="138.0" mnemonicParsing="false" onAction="#finishtask" prefHeight="38.0" prefWidth="146.0" text="Finish Task" />
+            <Button fx:id="viewtask" layoutX="121.0" layoutY="210.0" mnemonicParsing="false" onAction="#viewtask" prefHeight="37.0" prefWidth="148.0" text="View Task" />
             <Button fx:id="addtask" layoutX="120.0" layoutY="64.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="150.0" text="Add Task" />
          </children>
         </AnchorPane>

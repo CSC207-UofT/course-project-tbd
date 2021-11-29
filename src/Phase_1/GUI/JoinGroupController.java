@@ -66,7 +66,15 @@ public class JoinGroupController {
     public void group_name(ActionEvent actionEvent) {
     }
 
-    public void Go_back_button(ActionEvent actionEvent) {
-
+    public void Go_back_button(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupPageGUI.fxml"));
+        Parent root = loader.load();
+        GroupPageController mpc1 = loader.getController();
+        mpc1.setUm(um);
+        mpc1.setGm(gm);
+        mpc1.setUserId(userName);
+        Scene scene = new Scene(root);
+        GUImain guiMain = new GUImain();
+        guiMain.addScene(scene);
     }
 }

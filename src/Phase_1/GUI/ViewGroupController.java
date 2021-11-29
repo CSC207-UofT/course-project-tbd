@@ -10,8 +10,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
-
-import java.awt.*;
 import java.io.IOException;
 
 public class ViewGroupController {
