@@ -21,7 +21,6 @@
             </Label>
          </children>
       </VBox>
-      <Button fx:id="refreshButton" layoutX="138.0" layoutY="473.0" mnemonicParsing="false" onAction="#createGroupButton" prefHeight="26.0" prefWidth="127.0" text="Click me to refresh" />
       <Button fx:id="BackButton" layoutX="170.0" layoutY="525.0" mnemonicParsing="false" onAction="#goBack" text="Go Back" />
     </children>
 </Pane>
