@@ -99,9 +99,11 @@ public class GroupPageController implements Initializable{
             Parent root = loader.load();
             ViewGroupController vgc = loader.getController();
             vgc.setAll(um, gm, userId);
+            vgc.createGroupButton();
             Scene scene = new Scene(root);
             GUImain guiMain = new GUImain();
             guiMain.addScene(scene);
+
         }
     }
 

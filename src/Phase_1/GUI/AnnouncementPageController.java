@@ -12,6 +12,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class AnnouncementPageController {
     GroupManager gm;
@@ -33,9 +35,6 @@ public class AnnouncementPageController {
     Button Refresh;
 
     @FXML
-    ScrollPane AnnouncementContainer;
-
-    @FXML
     Label Announcements;
 
     @FXML
@@ -47,6 +46,9 @@ public class AnnouncementPageController {
     @FXML
     TextField announcementInput;
 
+    @FXML
+    VBox GroupsPane;
+
     public void isLeader(){
         if(gm.checkIfLeader(gm.getGroupById(groupId).getgroupName(), um.getUserById(userId))){
             leaderControls.setVisible(true);
@@ -56,9 +58,13 @@ public class AnnouncementPageController {
 
     public void refreshAnnouncements(){
         isLeader();
-        Announcements.setText("");
+        GroupsPane.getChildren().clear();
+        Label lbl = new Label();
+        lbl.setText("");
         String announcements = gm.getGroupById(groupId).getAnnouncementPage().toString();
-        Announcements.setText(announcements);
+        lbl.setText(announcements);
+        GroupsPane.setPrefSize(lbl.getPrefWidth(), lbl.getPrefHeight());
+        GroupsPane.getChildren().add(lbl);
     }
 
     public void goBack() throws IOException{
@@ -74,6 +80,9 @@ public class AnnouncementPageController {
 
     public void addAnnouncement(){
         String input = announcementInput.getText();
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        LocalDateTime current = LocalDateTime.now();
+        input = input + " - " + dtf.format(current);
         gm.getGroupById(groupId).getAnnouncementPage().addAnnouncement(input);
         announcementInput.clear();
     }

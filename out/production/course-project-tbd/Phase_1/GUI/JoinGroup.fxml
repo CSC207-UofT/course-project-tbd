@@ -9,7 +9,6 @@
    <children>
       <TextField fx:id="group_name" layoutX="46.0" layoutY="140.0" onAction="#group_name" prefHeight="25.0" prefWidth="310.0" promptText="Please enter the name of the group you want to join:" />
       <Button fx:id="join_group" layoutX="163.0" layoutY="238.0" mnemonicParsing="false" onAction="#join_group" text="Join Group" />
-      <Label fx:id="message" layoutX="186.0" layoutY="190.0" text="Label" />
-      <Button fx:id="go_back_button" layoutX="170.0" layoutY="505.0" mnemonicParsing="false" onAction="#Go_back_button" text="Go back" />
+      <Label fx:id="message" layoutX="46.0" layoutY="177.0" />
    </children>
 </AnchorPane>

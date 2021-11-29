@@ -16,11 +16,6 @@
          </font>
       </Label>
       <Button id="Refresh" fx:id="Refresh" layoutX="115.0" layoutY="467.0" mnemonicParsing="false" onAction="#refreshAnnouncements" prefHeight="26.0" prefWidth="171.0" text="Click me to refresh" />
-      <ScrollPane id="AnnouncementContainer" fx:id="AnnouncementContainer" fitToHeight="true" fitToWidth="true" hbarPolicy="ALWAYS" layoutX="63.0" layoutY="135.0" prefHeight="318.0" prefWidth="278.0" vbarPolicy="ALWAYS">
-         <content>
-            <Label id="Announcements" fx:id="Announcements" alignment="TOP_LEFT" prefHeight="324.0" prefWidth="280.0" />
-         </content>
-      </ScrollPane>
       <VBox id="leaderControls" fx:id="leaderControls" alignment="TOP_CENTER" layoutX="63.0" layoutY="506.0" prefHeight="64.0" prefWidth="278.0" spacing="5.0" visible="false">
          <children>
             <TextField id="announcementInput" fx:id="announcementInput" />
@@ -28,5 +23,10 @@
          </children>
       </VBox>
       <Button fx:id="Back" layoutX="346.0" layoutY="573.0" mnemonicParsing="false" onAction="#goBack" text="Back" />
+      <ScrollPane layoutX="68.0" layoutY="100.0" prefHeight="336.0" prefWidth="278.0">
+         <content>
+            <VBox fx:id="GroupsPane" prefHeight="336.0" prefWidth="281.0" />
+         </content>
+      </ScrollPane>
    </children>
 </Pane>
