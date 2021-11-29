@@ -49,10 +49,14 @@ public class ResetPasswordController implements Initializable {
     }
 
     public void ResetButtonPushed() {
+        SuccessReset.setText("");
+        WrongSA.setText("");
+
         if (SecurityAnswer.getText().isEmpty() && NewPassword.getText().isEmpty()){
             SuccessReset.setText("Answer or password empty. Try Again!");
         } else if (((NormalUser) um.getUserById(userId)).getSQ_Ans().equals(SecurityAnswer.getText())){
             ((NormalUser) um.getUserById(userId)).setPassword(NewPassword.getText());
+            SuccessReset.setText("Password has been reset successfully!");
         } else {
             WrongSA.setText("Security Answer incorrect. Try again or return to login page.");
         }
