@@ -1,5 +1,6 @@
 package Phase_1.GUI;
 
+import Phase_1.Entity.NormalUser;
 import Phase_1.UseCaseClass.GroupManager;
 import Phase_1.UseCaseClass.UserManager;
 import javafx.fxml.FXML;
@@ -7,10 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.net.URL;
@@ -31,6 +29,8 @@ public class UserLoginController implements Initializable{
     PasswordField password;
     @FXML
     Label SuccessLogin;
+    @FXML
+    Hyperlink ResetPassword;
 
 
     public void setGm(GroupManager gm) {
@@ -78,6 +78,27 @@ public class UserLoginController implements Initializable{
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
+    }
+
+    public void ResetPasswordonClick() throws IOException{
+        WrongLogin.setText("");
+        SuccessLogin.setText("");
+
+        String userId = username.getText();
+        if (userId.isEmpty()){
+            WrongLogin.setText("Enter username before resetting password");
+        } else {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ResetPassword.fxml"));
+            Parent root = loader.load();
+            ResetPasswordController rpc = loader.getController();
+            rpc.setUm(um);
+            rpc.setGm(gm);
+            rpc.setUserId(userId);
+            rpc.SecurityQues.setText(((NormalUser) um.getUserById(userId)).getSQ());
+            Scene scene = new Scene(root);
+            GUImain guiMain = new GUImain();
+            guiMain.addScene(scene);
+        }
     }
 
     @Override
