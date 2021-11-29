@@ -50,15 +50,6 @@ public class GroupContentController implements Initializable{
      * String userId: The userId of the current user logged in.
      * String groupId: Represents the id of the current group.
      */
-    public GroupContentController(UserManager um, GroupManager gm, TaskManager tm, String groupId, String userId,
-                                  NotificationManager nm) {
-        this.um = um;
-        this.gm = gm;
-        this.tm = tm;
-        this.userId = userId;
-        this.groupId = groupId;
-        this.nm = nm;
-    }
 
     public void setAll(UserManager um, GroupManager gm, TaskManager tm, String userId, String groupId){
         this.um = um;
@@ -69,16 +60,13 @@ public class GroupContentController implements Initializable{
     }
 
     public void HomePagePushed() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("AnnouncementPagePresenter.fxml"));
+        Parent root = loader.load();
+        AnnouncementPageController apc = loader.getController();
+        apc.setAll(um, gm, groupId, userId);
+        Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AnnouncementPage.fxml"));
-            Parent root = loader.load();
-        //    AnnouncementPageController apc = loader.getController(um, gm, userId);
-        //    apc.setUm(um);
-        //    apc.setGm(gm);
-        //   apc.setUserId(userId);
-            Scene scene = new Scene(root);
-            guiMain.addScene(scene);
+        guiMain.addScene(scene);
     }
     public void GroupTaskPushed() throws IOException {
         GUImain guiMain = new GUImain();
@@ -109,13 +97,11 @@ public class GroupContentController implements Initializable{
     public void backPushed() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ViewGroupController.fxml"));
         Parent root = loader.load();
-//        ViewGroupController vgc = loader.getController(gm, um, ugm, userId);
-//        vgc.setUm(um);
-//        vgc.setGm(gm);
+        ViewGroupController vgc = loader.getController();
+        vgc.setAll(um, gm, userId);
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
-
     }
 
 

@@ -1,6 +1,7 @@
 package Phase_1.GUI;
 
 import Phase_1.UseCaseClass.GroupManager;
+import Phase_1.UseCaseClass.NotificationManager;
 import Phase_1.UseCaseClass.UserManager;
 import javafx.fxml.FXML;
 
@@ -25,6 +26,7 @@ public class UserPageController {
     UserManager um;
     GroupManager gm;
     String userName;
+    NotificationManager notificationManager = new NotificationManager();
 
     public void setGm(GroupManager gm) {
         this.gm = gm;
@@ -46,7 +48,15 @@ public class UserPageController {
     public Button notificationsPage;
 
 
-    public void categoryButtonPushed() {
+    public void categoryButtonPushed() throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("CategoryPage.fxml"));
+        Parent root = loader.load();
+        CategoryPageController cpc1 = loader.getController();
+        cpc1.setUm(um);
+        cpc1.setUserId(userName);
+        Scene scene = new Scene(root);
+        GUImain guiMain = new GUImain();
+        guiMain.addScene(scene);
 
     }
 
@@ -61,11 +71,19 @@ public class UserPageController {
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
 
-
     }
 
-    public void NotificationButtonPushed() {
+    public void NotificationButtonPushed() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("NotificationPage.fxml"));
+        Parent root = loader.load();
+        NotificationPageController notificationPageController = loader.getController();
 
+        notificationPageController.setNotificationManager(notificationManager);
+        notificationPageController.setPreviousScene(notificationsPage.getScene());
+
+        Scene scene = new Scene(root);
+        GUImain guiMain = new GUImain();
+        guiMain.addScene(scene);
     }
 
 }

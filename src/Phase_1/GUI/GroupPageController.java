@@ -34,6 +34,7 @@ public class GroupPageController implements Initializable{
     GroupManager gm;
     UserManager um;
     String userId;
+    UserGroupManager ugm;
 
     public void setGm(GroupManager gm) {
         this.gm = gm;
@@ -47,10 +48,31 @@ public class GroupPageController implements Initializable{
         this.userId = userId;
     }
 
-    public void createPushed() {
+    public void createPushed() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("CreateGroup.fxml"));
+        Parent root = loader.load();
+        CreateGroupController mpc1 = loader.getController();
+        mpc1.setUm(um);
+        mpc1.setGm(gm);
+        mpc1.setUserName(userId);
+        Scene scene = new Scene(root);
+        Stage stg = new Stage();
+        stg.setScene(scene);
+        stg.show();
     }
 
-    public void joinPushed(){}
+    public void joinPushed() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("JoinGroup.fxml"));
+        Parent root = loader.load();
+        JoinGroupController mpc1 = loader.getController();
+        mpc1.setUm(um);
+        mpc1.setGm(gm);
+        mpc1.setUserName(userId);
+        Scene scene = new Scene(root);
+        Stage stg = new Stage();
+        stg.setScene(scene);
+        stg.show();
+    }
 
     public void leavePushed() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("LeaveGroupGUI.fxml"));
@@ -98,5 +120,6 @@ public class GroupPageController implements Initializable{
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         remindLabel.setText("");
+        ugm = new UserGroupManager();
     }
 }

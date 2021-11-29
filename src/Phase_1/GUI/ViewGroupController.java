@@ -10,8 +10,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
-
-import java.awt.*;
 import java.io.IOException;
 
 public class ViewGroupController {
@@ -69,11 +67,13 @@ public class ViewGroupController {
 
     public void goBack() throws IOException {
         // Go back to previous page: GroupPageController
+        GroupsPane.getChildren().clear();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupPageGUI.fxml"));
         Parent root = loader.load();
         GroupPageController gpc = loader.getController();
         gpc.setGm(gm);
         gpc.setUm(um);
+        gpc.setUserId(userId);
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);

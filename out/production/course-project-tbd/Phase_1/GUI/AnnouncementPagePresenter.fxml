@@ -15,17 +15,18 @@
             <Font size="37.0" />
          </font>
       </Label>
-      <Button id="Refresh" layoutX="115.0" layoutY="467.0" mnemonicParsing="false" onAction="#refreshAnnouncements" prefHeight="26.0" prefWidth="171.0" text="Click me to refresh" />
-      <ScrollPane id="AnnouncementContainer" fitToHeight="true" fitToWidth="true" layoutX="63.0" layoutY="135.0" prefHeight="318.0" prefWidth="278.0">
+      <Button id="Refresh" fx:id="Refresh" layoutX="115.0" layoutY="467.0" mnemonicParsing="false" onAction="#refreshAnnouncements" prefHeight="26.0" prefWidth="171.0" text="Click me to refresh" />
+      <ScrollPane id="AnnouncementContainer" fx:id="AnnouncementContainer" fitToHeight="true" fitToWidth="true" layoutX="63.0" layoutY="135.0" prefHeight="318.0" prefWidth="278.0">
          <content>
-            <Label id="Announcements" alignment="TOP_LEFT" prefHeight="324.0" prefWidth="280.0" />
+            <Label id="Announcements" fx:id="Announcements" alignment="TOP_LEFT" prefHeight="324.0" prefWidth="280.0" />
          </content>
       </ScrollPane>
-      <VBox id="enterAnnouncement" alignment="TOP_CENTER" layoutX="63.0" layoutY="506.0" prefHeight="64.0" prefWidth="278.0" spacing="5.0" visible="false">
+      <VBox id="leaderControls" fx:id="leaderControls" alignment="TOP_CENTER" layoutX="63.0" layoutY="506.0" prefHeight="64.0" prefWidth="278.0" spacing="5.0" visible="false">
          <children>
-            <TextField />
-            <Button mnemonicParsing="false" text="Send announcement" />
+            <TextField id="announcementInput" fx:id="announcementInput" />
+            <Button fx:id="SendAnnouncement" mnemonicParsing="false" onAction="#addAnnouncement" text="Send announcement" />
          </children>
       </VBox>
+      <Button fx:id="Back" layoutX="346.0" layoutY="573.0" mnemonicParsing="false" onAction="#goBack" text="Back" />
    </children>
 </Pane>

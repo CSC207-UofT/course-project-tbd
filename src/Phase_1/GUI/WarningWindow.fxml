@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="144.0" prefWidth="253.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Phase_1.GUI.WarningWindowController">
+   <children>
+      <Button fx:id="noButton" defaultButton="true" layoutX="127.0" layoutY="105.0" mnemonicParsing="false" onMouseClicked="#buttonClicked" prefHeight="25.0" prefWidth="51.0" text="No" underline="true" />
+      <Button fx:id="yesButton" contentDisplay="CENTER" layoutX="187.0" layoutY="105.0" mnemonicParsing="false" onMouseClicked="#buttonClicked" prefHeight="25.0" prefWidth="51.0" text="Yes" underline="true" />
+      <Text layoutX="44.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Are you sure you want to do it?" />
+   </children>
+</AnchorPane>

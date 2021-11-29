@@ -52,7 +52,10 @@ public class NewUserController implements Initializable {
         success.setText("");
 
         String userId = username.getText();
-        if (!um.checkIfValid(userId)){
+        if (sQ.getText().isEmpty() && sA.getText().isEmpty()){
+            success.setText("Security Question or Answer empty. Try again.");
+
+        } else if (!um.checkIfValid(userId)){
             takenUserName.setText("Username " + userId + " already taken");
 
         }
