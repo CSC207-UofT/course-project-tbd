@@ -42,6 +42,9 @@ public class ViewNFinishTaskController implements Initializable {
     @FXML
     Label Status;
 
+    @FXML
+    Button finishTask;
+
 
     public void setTm(TaskManager tm) {this.tm = tm;}
 
