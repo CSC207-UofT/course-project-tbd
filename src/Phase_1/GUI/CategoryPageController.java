@@ -87,6 +87,7 @@ public class CategoryPageController {
         tpc.setUm(um);
         tpc.setTm(new TaskManager());
         tpc.setC(cm.getCategoryByName(um.getUserById(userId), CategoryId));
+        tpc.setUserId(userId);
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);

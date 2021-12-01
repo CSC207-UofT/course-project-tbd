@@ -5,6 +5,7 @@ import Phase_1.Entity.Task;
 import Phase_1.Entity.TaskWithDueDate;
 import Phase_1.UseCaseClass.NotificationManager;
 import Phase_1.UseCaseClass.TaskManager;
+import Phase_1.UseCaseClass.UserManager;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
@@ -24,7 +25,7 @@ import java.util.*;
 
 public class ViewNFinishTaskController implements Initializable {
     TaskManager tm;
-
+    UserManager um;
     Category category;
 
     @FXML
@@ -47,6 +48,10 @@ public class ViewNFinishTaskController implements Initializable {
 
 
     public void setTm(TaskManager tm) {this.tm = tm;}
+    public void setUm(UserManager um) {this.um = um;}
+    public void setCategory(Category category){
+        this.category = category;
+    }
 
     //    public ListView<String> getList() {
 //        List<String> newlist = new ArrayList<>();
@@ -59,9 +64,6 @@ public class ViewNFinishTaskController implements Initializable {
 //
 //    }
 
-    public void setCategory(Category category){
-        this.category = category;
-    }
 
     public void finishtask(Category category) throws IOException {
         GUImain guiMain = new GUImain();

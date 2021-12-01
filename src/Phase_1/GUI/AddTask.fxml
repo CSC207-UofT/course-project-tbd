@@ -30,7 +30,7 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label layoutX="48.0" layoutY="36.0" style="-fx-text-fill: whitw;" text="Information: " textFill="#f2eded">
+            <Label layoutX="48.0" layoutY="36.0" style="-fx-text-fill: white;" text="Information: " textFill="#f2eded">
                <font>
                   <Font size="24.0" />
                </font>
@@ -42,8 +42,8 @@
             <Label layoutX="40.0" layoutY="118.0" style="-fx-text-fill: white;" text="Do you want to add notification " />
             <Label layoutX="62.0" layoutY="140.0" style="-fx-text-fill: white;" text="for you Task(Yes or No):" />
             <TextField fx:id="yes0rNo" layoutX="253.0" layoutY="123.0" prefHeight="26.0" prefWidth="84.0" promptText="Yes or No" style="-fx-background-color: white;" />
-            <Label layoutX="75.0" layoutY="189.0" style="-fx-text-fill: light blue;" text="Not applicable if above answer is no" textFill="#e6eaeb" />
-            <Label layoutX="39.0" layoutY="231.0" style="-fx-text-fill: whitw;" text="Enter Due Date:" textFill="#f8f3f3">
+            <Label layoutX="75.0" layoutY="189.0" style="-fx-text-fill: lightblue;" text="Not applicable if above answer is no" textFill="#e6eaeb" />
+            <Label layoutX="39.0" layoutY="231.0" style="-fx-text-fill: white;" text="Enter Due Date:" textFill="#f8f3f3">
                <font>
                   <Font size="19.0" />
                </font>
