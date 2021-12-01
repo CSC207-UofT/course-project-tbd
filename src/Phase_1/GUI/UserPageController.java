@@ -1,5 +1,6 @@
 package Phase_1.GUI;
 
+import Phase_1.UseCaseClass.CategoryManager;
 import Phase_1.UseCaseClass.GroupManager;
 import Phase_1.UseCaseClass.NotificationManager;
 import Phase_1.UseCaseClass.UserManager;
@@ -57,6 +58,8 @@ public class UserPageController {
         CategoryPageController cpc1 = loader.getController();
         cpc1.setUm(um);
         cpc1.setUserId(userName);
+        cpc1.setCm(new CategoryManager());
+        cpc1.loadCategoryPane();
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
