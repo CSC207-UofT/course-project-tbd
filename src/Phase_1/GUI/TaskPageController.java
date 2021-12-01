@@ -37,7 +37,8 @@ public class TaskPageController {
 
     public void setTm(TaskManager tm) {this.tm = tm;}
     public void setUm(UserManager um) {this.um = um;}
-    public void setCm(CategoryManager cm){this.cm = cm;}
+    public void setCm(CategoryManager um) {this.cm = um;}
+    public void setNm(NotificationManager nm) {this.nm = nm;}
     public void setC(Category c){this.c = c;}
     public void setT(Task t) {
         this.t = t;
@@ -79,6 +80,8 @@ public class TaskPageController {
         Parent root = loader.load();
         CategoryPageController cpc = loader.getController();
         cpc.setUm(um);
+        cpc.setCm(new CategoryManager());
+        cpc.loadCategoryPane();
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
