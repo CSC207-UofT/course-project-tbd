@@ -1,7 +1,9 @@
 package Phase_1.GUI;
 
 import Phase_1.Entity.NormalUser;
+import Phase_1.UseCaseClass.AlarmStarter;
 import Phase_1.UseCaseClass.GroupManager;
+import Phase_1.UseCaseClass.NotificationManager;
 import Phase_1.UseCaseClass.UserManager;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +20,7 @@ public class UserLoginController implements Initializable{
 
     GroupManager gm;
     UserManager um;
+    NotificationManager notificationManager = new NotificationManager();
 
     @FXML
     Button LoginButton;
@@ -60,6 +63,7 @@ public class UserLoginController implements Initializable{
             UserPageController mpc = loader.getController();
             mpc.setUm(um);
             mpc.setGm(gm);
+            mpc.setNotificationManager(notificationManager);
             mpc.setUserName(userId);
             Scene scene = new Scene(root);
             guiMain.addScene(scene);
@@ -103,7 +107,11 @@ public class UserLoginController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        // this is added by Owen, contact if this troubles you
+        notificationManager.setAlarmMenu(new AlarmStarter());
+        Thread notificationSystem = new Thread(notificationManager);
+        notificationSystem.start();
+        // --------------------------------------------------------
     }
 
 }

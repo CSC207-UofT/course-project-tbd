@@ -16,6 +16,7 @@ public class CategoryPageController {
     CategoryManager cm;
     UserManager um;
     String userId;
+    NotificationManager nm;
 
     @FXML
     VBox CategoryPane;
@@ -35,6 +36,9 @@ public class CategoryPageController {
     }
     public void setUserId(String userId){this.userId = userId;}
     public void setCm(CategoryManager cm){this.cm = cm;}
+    public void setNm(NotificationManager nm){
+        this.nm = nm;
+    }
 
     public void goBack() throws IOException {
         // Go back to previous page: UserPageController
@@ -84,6 +88,7 @@ public class CategoryPageController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("TaskPage.fxml"));
         Parent root = loader.load();
         TaskPageController tpc = loader.getController();
+        tpc.setNm(nm);
         tpc.setUm(um);
         tpc.setTm(new TaskManager());
         tpc.setC(cm.getCategoryByName(um.getUserById(userId), CategoryId));
