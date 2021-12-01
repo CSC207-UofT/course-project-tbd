@@ -34,6 +34,7 @@ public class CategoryPageController {
         this.um = um;
     }
     public void setUserId(String userId){this.userId = userId;}
+    public void setCm(CategoryManager cm){this.cm = cm;}
 
     public void goBack() throws IOException {
         // Go back to previous page: UserPageController
