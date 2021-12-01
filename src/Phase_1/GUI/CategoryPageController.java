@@ -50,6 +50,7 @@ public class CategoryPageController {
 
     public void createCategoryButton(){
         String NewCatName = NewCategoryName.getText();
+        WrongNewCategory.setText("");
         if (NewCatName.isEmpty()){
             WrongNewCategory.setText("Please Enter valid Category Name");
         } else if (cm.getCategoryByName(um.getUserById(userId), NewCatName) != null){
