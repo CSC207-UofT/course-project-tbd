@@ -90,6 +90,15 @@ public class ViewNFinishTaskController implements Initializable {
     }
 
     public void finishTask() throws IOException {
+        String title = name.getText();
+        Task task = tm.getTaskByName(category, title);
+        Status.setText("");
+        if(tm.checkTask(category, task)){  // If task is present in user, mark it finished
+            tm.completeTask(task);
+            Status.setText("Task finished");
+        }
+        else{Status.setText("Task not Present");
+        }
 
     }
 

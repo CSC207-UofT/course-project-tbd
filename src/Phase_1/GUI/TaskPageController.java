@@ -61,11 +61,17 @@ public class TaskPageController {
 
     public void finishtask() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("viewNFinishTask.fxml"));
+        // set controller using constructor so that category can be accessed in the initialize method
+        loader.setControllerFactory((controller -> {
+            return new ViewNFinishTaskController(c);
+        }));
+
         Parent root = loader.load();
         ViewNFinishTaskController apc1 = loader.getController();
         apc1.setTm(tm);
         apc1.setUm(um);
-        apc1.setCategory(c);
+        apc1.setPreviousScene(viewTaskButton.getScene());
+//        apc1.setCategory(c);
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
