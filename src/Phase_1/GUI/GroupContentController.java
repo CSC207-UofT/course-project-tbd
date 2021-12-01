@@ -41,6 +41,8 @@ public class GroupContentController implements Initializable{
     Button GroupTaskPage;
     @FXML
     Button GroupChat;
+    @FXML
+    Label GroupName;
 
     /**
      * This is a constructor method for the class that initializes
@@ -57,6 +59,7 @@ public class GroupContentController implements Initializable{
         this.tm = tm;
         this.userId = userId;
         this.groupId = groupId;
+        GroupName.setText(groupId);
     }
 
     public void HomePagePushed() throws IOException {
@@ -84,12 +87,14 @@ public class GroupContentController implements Initializable{
     public void GroupChatPushed() throws IOException {
         GUImain guiMain = new GUImain();
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupChatPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupChatPresenter.fxml"));
         Parent root = loader.load();
-//        GroupChatController gcc = loader.getController(um, gm, userId);
-//        gcc.setUm(um);
-//        gcc.setGm(gm);
-//        gcc.setUserId(userId);
+        GroupChatController gcc = loader.getController();
+        gcc.setGroupId(groupId);
+        gcc.setUserId(userId);
+        gcc.setGm(gm);
+        gcc.setUm(um);
+        gcc.setUserId(userId);
         Scene scene = new Scene(root);
         guiMain.addScene(scene);
 
@@ -99,6 +104,7 @@ public class GroupContentController implements Initializable{
         Parent root = loader.load();
         ViewGroupController vgc = loader.getController();
         vgc.setAll(um, gm, userId);
+        vgc.createGroupButton();
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);

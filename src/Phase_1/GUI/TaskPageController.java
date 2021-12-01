@@ -24,6 +24,7 @@ public class TaskPageController {
     Task t;
     TaskManager tm;
     UserManager um;
+    String userId;
 
     @FXML
     Button addtask;
@@ -33,26 +34,25 @@ public class TaskPageController {
     Button viewtask;
     @FXML
     Hyperlink back;
-    public TaskPageController(CategoryManager cm, NotificationManager nm){
-        this.cm = cm;
-        this.nm = nm;
-        this.itm = new TaskManager();
-    }
 
 
     public void setTm(TaskManager tm) {this.tm = tm;}
     public void setUm(UserManager um) {this.um = um;}
-    public void setCm(CategoryManager cm){this.cm = cm;}
+    public void setCm(CategoryManager um) {this.cm = um;}
+    public void setNm(NotificationManager nm) {this.nm = nm;}
+    public void setUserId(String userId){this.userId = userId;}
     public void setC(Category c){this.c = c;}
     public void setT(Task t) {
         this.t = t;
     }
 
-    public void addtask() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("AddTaskController.fxml"));
+    public void addTask() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("AddTask.fxml"));
         Parent root = loader.load();
         AddTaskController apc1 = loader.getController();
         apc1.setTm(tm);
+        apc1.setUm(um);
+        apc1.setC(c);
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
@@ -62,8 +62,10 @@ public class TaskPageController {
     public void finishtask() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("viewNFinishTask.fxml"));
         Parent root = loader.load();
-        AddTaskController apc1 = loader.getController();
+        ViewNFinishTaskController apc1 = loader.getController();
         apc1.setTm(tm);
+        apc1.setUm(um);
+        apc1.setCategory(c);
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
@@ -73,17 +75,22 @@ public class TaskPageController {
     public void viewtask() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("viewNFinishTask.fxml"));
         Parent root = loader.load();
-        AddTaskController apc1 = loader.getController();
+        ViewNFinishTaskController apc1 = loader.getController();
         apc1.setTm(tm);
+        apc1.setUm(um);
+        apc1.setCategory(c);
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
     }
     public void backPushed() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("CategoryPageController.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("CategoryPage.fxml"));
         Parent root = loader.load();
         CategoryPageController cpc = loader.getController();
         cpc.setUm(um);
+        cpc.setCm(new CategoryManager());
+        cpc.setUserId(userId);
+        cpc.loadCategoryPane();
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
