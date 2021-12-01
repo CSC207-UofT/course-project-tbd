@@ -22,7 +22,7 @@
          </children>
       </AnchorPane>
    </top>
-   <bottom>
+   <center>
       <AnchorPane prefHeight="500.0" prefWidth="346.0" BorderPane.alignment="CENTER">
          <children>
             <Label layoutX="48.0" style="-fx-text-fill: white;" text="Title: " textFill="WHITE">
@@ -37,6 +37,7 @@
             </Label>
             <TextField fx:id="title" layoutX="193.0" layoutY="2.0" promptText="Name of the task" style="-fx-background-color: white;" />
             <TextField fx:id="information" layoutX="193.0" layoutY="38.0" promptText="Details of the Task" style="-fx-background-color: white;" />
+            <Button fx:id="addTask" layoutX="154.0" layoutY="287.0" mnemonicParsing="false" onAction="#addTask" text="Add Task" />
             <Label layoutX="54.0" layoutY="167.0" style="-fx-text-fill: lightblue;" text="Due date format: Year/Month/Date/Hour/Minute" textFill="#2f99ba" />
             <Label layoutX="40.0" layoutY="118.0" style="-fx-text-fill: white;" text="Do you want to add notification " />
             <Label layoutX="62.0" layoutY="140.0" style="-fx-text-fill: white;" text="for you Task(Yes or No):" />
@@ -48,10 +49,9 @@
                </font>
             </Label>
             <TextField fx:id="date" layoutX="189.0" layoutY="231.0" prefHeight="26.0" prefWidth="173.0" promptText="year/mon/day/hour/min" style="-fx-background-color: white;" />
+            <Label fx:id="Success" layoutX="179.0" layoutY="284.0" style="-fx-text-fill: white;" />
             <Hyperlink fx:id="goback" layoutX="238.0" layoutY="341.0" onAction="#backPushed" text="Go back to Task page" />
-            <Label fx:id="Success" layoutX="193.0" layoutY="272.0" prefHeight="18.0" prefWidth="0.0" style="-fx-text-fill: blue;" text="Label" />
-            <Button fx:id="addTask" layoutX="171.0" layoutY="302.0" mnemonicParsing="false" onAction="#addTask" text="Add Task" />
          </children>
       </AnchorPane>
-   </bottom>
+   </center>
 </BorderPane>

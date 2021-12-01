@@ -1,10 +1,8 @@
 package Phase_1.GUI;
 
 import Phase_1.Entity.Category;
-import Phase_1.Entity.NormalUser;
 import Phase_1.Entity.Task;
 import Phase_1.Entity.TaskWithDueDate;
-import Phase_1.UseCaseClass.CategoryManager;
 import Phase_1.UseCaseClass.NotificationManager;
 import Phase_1.UseCaseClass.TaskManager;
 import Phase_1.UseCaseClass.UserManager;
@@ -14,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -26,9 +25,9 @@ public class AddTaskController implements Initializable {
     TaskManager tm;
     UserManager um;
     Category c;
-    String userId;
-    CategoryManager cm;
     NotificationManager nm;
+
+    Scene previousScene;
 
     @FXML
     TextField title;
@@ -47,8 +46,6 @@ public class AddTaskController implements Initializable {
     Hyperlink goback;
 
     public void setTm(TaskManager tm) {this.tm = tm;}
-    public void setUserId(String userId){this.userId = userId;}
-    public void setNm(NotificationManager nm) {this.nm = nm;}
     public void setUm(UserManager um) {
         this.um = um;
     }
@@ -56,8 +53,15 @@ public class AddTaskController implements Initializable {
         this.t = t;
     }
     public void setC(Category c){this.c = c;}
+    public void setNm(NotificationManager nm){
+        this.nm = nm;
+    }
+    public void setPreviousScene(Scene scene){
+        this.previousScene = scene;
+    }
 
     public void addTask() throws IOException {
+        GUImain guiMain = new GUImain();
         String name = title.getText();
         Success.setText("");
         String info = information.getText();
@@ -72,15 +76,10 @@ public class AddTaskController implements Initializable {
                 int day = Integer.parseInt(formattedDate.get(2));
                 int hour = Integer.parseInt(formattedDate.get(3));
                 int minute = Integer.parseInt(formattedDate.get(4));
-                if (name.isEmpty()){
-                    Success.setText("Please Enter valid Task Name");
-                } else {
-                    TaskWithDueDate task = tm.createTask(name, info, year, month, day, hour, minute);
-                    nm.addTaskWithDueDate(task);    // add to notification manager for creating alarm for task
-                    um.addTask(um.getUserById(userId), task,
-                            cm.getCategoryByName(um.getUserById(userId), c.getCategoryName()));
-                    Success.setText("Task Successfully Created");
-                }
+                TaskWithDueDate task = tm.createTask(name, info, year, month, day, hour, minute);
+                nm.addTaskWithDueDate(task);    // add to notification manager for creating alarm for task
+                tm.addTaskToCategory(c, task);  // add task to user's task collection
+                Success.setText("Task Successfully Created");
             } catch (UnsupportedOperationException e) {     // exception thrown when user schedules a date in the past
                 System.out.println(e.getMessage());
             } catch (IndexOutOfBoundsException e2) {     // when the user's date input does not follow the format
@@ -93,24 +92,17 @@ public class AddTaskController implements Initializable {
             }
         }
         if(ans.equals("No")) {
-            if (name.isEmpty()){
-                Success.setText("Please Enter valid Task Name");
-            } else {
-                um.addTask(um.getUserById(userId), tm.createTask(name, info),
-                        cm.getCategoryByName(um.getUserById(userId), c.getCategoryName()));
-                Success.setText("Task Successfully Created");
-            }
+            Task task = tm.createTask(name, info); // create a simple task without due date
+            tm.addTaskToCategory(c, task);  // add task to category's task collection
+            Success.setText("Task Successfully Created");
+
+
         }
     }
 
     public void backPushed() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("TaskPage.fxml"));
-        Parent root = loader.load();
-        TaskPageController tpc = loader.getController();
-        tpc.setTm(tm);
-        Scene scene = new Scene(root);
-        GUImain guiMain = new GUImain();
-        guiMain.addScene(scene);
+        Stage stage = (Stage) addTask.getScene().getWindow();
+        stage.setScene(previousScene);
     }
 
 
