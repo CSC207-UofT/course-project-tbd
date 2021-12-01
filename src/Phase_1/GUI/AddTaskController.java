@@ -2,6 +2,8 @@ package Phase_1.GUI;
 
 import Phase_1.Entity.Category;
 import Phase_1.Entity.Task;
+import Phase_1.Entity.TaskWithDueDate;
+import Phase_1.UseCaseClass.NotificationManager;
 import Phase_1.UseCaseClass.TaskManager;
 import Phase_1.UseCaseClass.UserManager;
 import javafx.fxml.FXML;
@@ -10,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -22,6 +25,9 @@ public class AddTaskController implements Initializable {
     TaskManager tm;
     UserManager um;
     Category c;
+    NotificationManager nm;
+
+    Scene previousScene;
 
     @FXML
     TextField title;
@@ -47,6 +53,12 @@ public class AddTaskController implements Initializable {
         this.t = t;
     }
     public void setC(Category c){this.c = c;}
+    public void setNm(NotificationManager nm){
+        this.nm = nm;
+    }
+    public void setPreviousScene(Scene scene){
+        this.previousScene = scene;
+    }
 
     public void addTask() throws IOException {
         GUImain guiMain = new GUImain();
@@ -64,7 +76,9 @@ public class AddTaskController implements Initializable {
                 int day = Integer.parseInt(formattedDate.get(2));
                 int hour = Integer.parseInt(formattedDate.get(3));
                 int minute = Integer.parseInt(formattedDate.get(4));
-                tm.createTask(name, info, year, month, day, hour, minute);
+                TaskWithDueDate task = tm.createTask(name, info, year, month, day, hour, minute);
+                nm.addTaskWithDueDate(task);    // add to notification manager for creating alarm for task
+                tm.addTaskToCategory(c, task);  // add task to user's task collection
                 Success.setText("Task Successfully Created");
             } catch (UnsupportedOperationException e) {     // exception thrown when user schedules a date in the past
                 System.out.println(e.getMessage());
@@ -78,7 +92,8 @@ public class AddTaskController implements Initializable {
             }
         }
         if(ans.equals("No")) {
-            tm.createTask(name, info);
+            Task task = tm.createTask(name, info); // create a simple task without due date
+            tm.addTaskToCategory(c, task);  // add task to category's task collection
             Success.setText("Task Successfully Created");
 
 
@@ -86,13 +101,8 @@ public class AddTaskController implements Initializable {
     }
 
     public void backPushed() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("TaskPage.fxml"));
-        Parent root = loader.load();
-        TaskPageController tpc = loader.getController();
-        tpc.setTm(tm);
-        Scene scene = new Scene(root);
-        GUImain guiMain = new GUImain();
-        guiMain.addScene(scene);
+        Stage stage = (Stage) addTask.getScene().getWindow();
+        stage.setScene(previousScene);
     }
 
 
