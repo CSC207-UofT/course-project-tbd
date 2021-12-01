@@ -72,15 +72,18 @@ public class GroupContentController implements Initializable{
         guiMain.addScene(scene);
     }
     public void GroupTaskPushed() throws IOException {
-        GUImain guiMain = new GUImain();
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupTaskPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ViewFolderPresenter.fxml"));
         Parent root = loader.load();
-//        GroupTaskPageController gtpc = loader.getController(um, gm, userId);
-//        gtpc.setUm(um);
-//        gtpc.setGm(gm);
-//        gtpc.setUserId(userId);
+        ViewFolderController vfc = loader.getController();
+        vfc.setUserId(userId);
+        vfc.setGroupId(groupId);
+        vfc.setGm(gm);
+        vfc.setUm(um);
+        vfc.setTm(tm);
+        vfc.setNm(nm);
+        vfc.createFolderButton();
         Scene scene = new Scene(root);
+        GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
     }
 

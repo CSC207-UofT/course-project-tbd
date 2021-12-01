@@ -53,10 +53,11 @@ public class GroupTaskController {
     Button displayTask;
 
     public void back() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupContentPresenter.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupContentController.fxml"));
         Parent root = loader.load();
         GroupContentController gcc = loader.getController();
-        gcc.setAll(um, gm, tm, userId,groupId);
+        TaskManager tm = new TaskManager();
+        gcc.setAll(um, gm, tm, userId, groupId);
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
