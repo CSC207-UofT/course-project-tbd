@@ -29,7 +29,7 @@
         </AnchorPane>
     </left>
     <bottom>
-        <AnchorPane prefHeight="205.0" prefWidth="396.0" BorderPane.alignment="CENTER">
+        <AnchorPane prefHeight="139.0" prefWidth="396.0" BorderPane.alignment="CENTER">
             <children>
                 <Hyperlink fx:id="back" layoutX="129.0" layoutY="91.0" onAction="#backPushed" text="Go back to main page" />
             </children>
