@@ -61,6 +61,7 @@ public class CategoryPageController {
     }
 
     public void loadCategoryPane(){
+        WrongNewCategory.setText("");
         CategoryPane.getChildren().clear(); // Removes all the elements of the pane
         for (String CategoryId : um.displayCategories(um.getUserById(userId)).split("\n")) {
             // Creates and adds button for each group to the pane
