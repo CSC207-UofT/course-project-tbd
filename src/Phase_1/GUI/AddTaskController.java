@@ -1,7 +1,9 @@
 package Phase_1.GUI;
 
+import Phase_1.Entity.Category;
 import Phase_1.Entity.Task;
 import Phase_1.UseCaseClass.TaskManager;
+import Phase_1.UseCaseClass.UserManager;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -18,6 +20,8 @@ import java.util.*;
 public class AddTaskController implements Initializable {
     Task t;
     TaskManager tm;
+    UserManager um;
+    Category c;
 
     @FXML
     TextField title;
@@ -36,10 +40,13 @@ public class AddTaskController implements Initializable {
     Hyperlink goback;
 
     public void setTm(TaskManager tm) {this.tm = tm;}
-
+    public void setUm(UserManager um) {
+        this.um = um;
+    }
     public void setT(Task t) {
         this.t = t;
     }
+    public void setC(Category c){this.c = c;}
 
     public void addTask() throws IOException {
         GUImain guiMain = new GUImain();
@@ -79,7 +86,7 @@ public class AddTaskController implements Initializable {
     }
 
     public void backPushed() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("TaskPageController.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("TaskPage.fxml"));
         Parent root = loader.load();
         TaskPageController tpc = loader.getController();
         tpc.setTm(tm);
