@@ -16,6 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -28,8 +29,10 @@ public class ViewNFinishTaskController implements Initializable {
     UserManager um;
     Category category;
 
+    Scene previousScene;
+
     @FXML
-    public Text taskDetailField;
+    public TextArea taskDetailField;
 
     @FXML
     Hyperlink back;
@@ -52,6 +55,9 @@ public class ViewNFinishTaskController implements Initializable {
     public void setCategory(Category category){
         this.category = category;
     }
+    public void setPreviousScene(Scene scene){
+        this.previousScene = scene;
+    }
 
     //    public ListView<String> getList() {
 //        List<String> newlist = new ArrayList<>();
@@ -64,8 +70,12 @@ public class ViewNFinishTaskController implements Initializable {
 //
 //    }
 
+    ViewNFinishTaskController(Category category){
+        this.category = category;
+    }
 
-    public void finishtask(Category category) throws IOException {
+
+    public void finishtaskhelper(Category category) throws IOException {
         GUImain guiMain = new GUImain();
         String title = name.getText();
         Task task = tm.getTaskByName(category, title);
@@ -79,15 +89,14 @@ public class ViewNFinishTaskController implements Initializable {
 
     }
 
+    public void finishTask() throws IOException {
+
+    }
+
 
     public void backPushed() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("TaskPage.fxml"));
-        Parent root = loader.load();
-        TaskPageController tpc1 = loader.getController();
-        tpc1.setTm(tm);
-        Scene scene = new Scene(root);
-        GUImain guiMain = new GUImain();
-        guiMain.addScene(scene);
+        Stage stage = (Stage) finishTask.getScene().getWindow();
+        stage.setScene(previousScene);
     }
 
 
@@ -96,21 +105,24 @@ public class ViewNFinishTaskController implements Initializable {
         ArrayList<String> taskNames = new ArrayList<>();
         HashMap<String, String> taskDetail = new HashMap<>();
 
-        /*for (Task t: category.getTasks()){
+
+        for (Task t : category.getTasks()) {
             taskNames.add(t.getTaskName());
             taskDetail.put(t.getTaskName(), t.toString());
-        }*/
+        }
 
-        // for testing
-        taskNames.add("1");
-        taskNames.add("2");
-        taskNames.add("3");
-        taskDetail.put("1", "hello");
-        taskDetail.put("2", "world");
-        taskDetail.put("3", "I'm coming");
-        //
+
+            /*// for testing
+            taskNames.add("1");
+            taskNames.add("2");
+            taskNames.add("3");
+            taskDetail.put("1", "hello");
+            taskDetail.put("2", "world");
+            taskDetail.put("3", "I'm coming");
+            //*/
 
         taskListView.getItems().addAll(taskNames);
+
 
         taskListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<>() {
             @Override
@@ -121,6 +133,5 @@ public class ViewNFinishTaskController implements Initializable {
                 taskDetailField.setText(taskDetail.get(currentString));
             }
         });
-
     }
 }
