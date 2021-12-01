@@ -42,6 +42,7 @@ public class CategoryPageController {
         Parent root = loader.load();
         UserPageController upc = loader.getController();
         upc.setUm(um);
+        upc.setUserName(userId);
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
@@ -80,12 +81,11 @@ public class CategoryPageController {
     }
 
     public void goToTask(String CategoryId) throws IOException{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("TaskPageController.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("TaskPage.fxml"));
         Parent root = loader.load();
         TaskPageController tpc = loader.getController();
         tpc.setUm(um);
         tpc.setTm(new TaskManager());
-        tpc.setCm(cm);
         tpc.setC(cm.getCategoryByName(um.getUserById(userId), CategoryId));
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
