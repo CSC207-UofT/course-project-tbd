@@ -13,8 +13,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class TaskPageController {
     Category c;
@@ -31,7 +29,7 @@ public class TaskPageController {
     @FXML
     Button finishtask;
     @FXML
-    Button viewtask;
+    Button viewTaskButton;
     @FXML
     Hyperlink back;
 
@@ -53,6 +51,8 @@ public class TaskPageController {
         apc1.setTm(tm);
         apc1.setUm(um);
         apc1.setC(c);
+        apc1.setNm(nm);
+        apc1.setPreviousScene(addtask.getScene());
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
@@ -72,17 +72,25 @@ public class TaskPageController {
     }
 
 
-    public void viewtask() throws IOException {
+    public void viewTask() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("viewNFinishTask.fxml"));
+
+        // set controller using constructor so that category can be accessed in the initialize method
+        loader.setControllerFactory((controller -> {
+            return new ViewNFinishTaskController(c);
+        }));
+
         Parent root = loader.load();
         ViewNFinishTaskController apc1 = loader.getController();
         apc1.setTm(tm);
         apc1.setUm(um);
-        apc1.setCategory(c);
+        apc1.setPreviousScene(viewTaskButton.getScene());
+//        apc1.setCategory(c);
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
     }
+
     public void backPushed() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("CategoryPage.fxml"));
         Parent root = loader.load();
