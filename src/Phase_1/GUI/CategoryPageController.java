@@ -9,6 +9,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
 import java.io.IOException;
 
 
@@ -17,6 +19,7 @@ public class CategoryPageController {
     UserManager um;
     String userId;
     NotificationManager nm;
+    Scene previousScene;
 
     @FXML
     VBox CategoryPane;
@@ -39,17 +42,14 @@ public class CategoryPageController {
     public void setNm(NotificationManager nm){
         this.nm = nm;
     }
+    public void setPreviousScene(Scene scene){
+        this.previousScene = scene;
+    }
 
     public void goBack() throws IOException {
         // Go back to previous page: UserPageController
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("UserPageController.fxml"));
-        Parent root = loader.load();
-        UserPageController upc = loader.getController();
-        upc.setUm(um);
-        upc.setUserName(userId);
-        Scene scene = new Scene(root);
-        GUImain guiMain = new GUImain();
-        guiMain.addScene(scene);
+        Stage stage = (Stage) BackButton.getScene().getWindow();
+        stage.setScene(previousScene);
     }
 
     public void createCategoryButton(){
@@ -93,6 +93,7 @@ public class CategoryPageController {
         tpc.setTm(new TaskManager());
         tpc.setC(cm.getCategoryByName(um.getUserById(userId), CategoryId));
         tpc.setUserId(userId);
+        tpc.setPreviousScene(CategoryPane.getScene());
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);

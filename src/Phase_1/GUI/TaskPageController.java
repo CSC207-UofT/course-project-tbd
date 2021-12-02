@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -23,6 +24,7 @@ public class TaskPageController {
     TaskManager tm;
     UserManager um;
     String userId;
+    Scene previousScene;
 
     @FXML
     Button addtask;
@@ -42,6 +44,9 @@ public class TaskPageController {
     public void setC(Category c){this.c = c;}
     public void setT(Task t) {
         this.t = t;
+    }
+    public void setPreviousScene(Scene scene){
+        this.previousScene = scene;
     }
 
     public void addTask() throws IOException {
@@ -98,16 +103,8 @@ public class TaskPageController {
     }
 
     public void backPushed() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("CategoryPage.fxml"));
-        Parent root = loader.load();
-        CategoryPageController cpc = loader.getController();
-        cpc.setUm(um);
-        cpc.setCm(new CategoryManager());
-        cpc.setUserId(userId);
-        cpc.loadCategoryPane();
-        Scene scene = new Scene(root);
-        GUImain guiMain = new GUImain();
-        guiMain.addScene(scene);
+        Stage stage = (Stage) back.getScene().getWindow();
+        stage.setScene(previousScene);
     }
 
 }
