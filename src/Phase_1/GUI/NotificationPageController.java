@@ -56,7 +56,7 @@ public class NotificationPageController implements Initializable{
     HashMap<String, String> temp = new HashMap<>();
     //
 
-    public void setNotificationManager(NotificationManager notificationManager){
+    NotificationPageController(NotificationManager notificationManager){
         this.notificationManager = notificationManager;
     }
 
@@ -67,11 +67,11 @@ public class NotificationPageController implements Initializable{
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         // uncomment this
-        /*ArrayList<String> currentNotification = notificationManager.getMailbox();*/
+        ArrayList<String> currentNotification = notificationManager.getMailboxTaskName();
 
         // comment out this
-        currentNotification.add("hello world");
-        currentNotification.add("shit bro");
+        /*currentNotification.add("hello world");
+        currentNotification.add("shit bro");*/
         // comment out this
 
         notificationListView.getItems().addAll(currentNotification);
@@ -83,14 +83,14 @@ public class NotificationPageController implements Initializable{
                 String currentString = current.toString().substring(1, current.toString().length() - 1);
 
                 // for testing, comment out this
-                temp.put("hello world", "yolo");
+                /*temp.put("hello world", "yolo");
                 temp.put("shit bro", "yeah bro");
                 notificationDetail.setText(temp.get(currentString));
-                notificationManager = new NotificationManager();
+                notificationManager = new NotificationManager();*/
                 //
 
                 // uncomment this
-                /*notificationDetail.setText(notificationManager.getMailDetail().get(currentString));*/
+                notificationDetail.setText(notificationManager.getMailDetail().get(currentString));
             }
         });
 
@@ -102,8 +102,8 @@ public class NotificationPageController implements Initializable{
     }
 
     public void refreshNotification(){
-        notificationListView.getItems().removeAll(currentNotification);
-        notificationListView.getItems().addAll(currentNotification);
+        notificationListView.getItems().removeAll(notificationManager.getMailboxTaskName());
+        notificationListView.getItems().addAll(notificationManager.getMailboxTaskName());
     }
 
     public void deleteNotification(MouseEvent mouseEvent) throws Exception{
@@ -127,12 +127,12 @@ public class NotificationPageController implements Initializable{
             String currentString = current.toString().substring(1, current.toString().length() - 1);
 
             // uncomment this
-            /*notificationManager.getMailboxTaskName().remove(currentString);
-            notificationManager.getMailDetail().remove(currentString);*/
+            notificationManager.getMailboxTaskName().remove(currentString);
+            notificationManager.getMailDetail().remove(currentString);
 
             // comment out this
-            currentNotification.remove(currentString);
-            temp.remove(currentString);
+            /*currentNotification.remove(currentString);
+            temp.remove(currentString);*/
             //
 
             notificationListView.getItems().remove(currentString);
