@@ -20,19 +20,26 @@ public class AnnouncementPageController {
     UserManager um;
     String groupId;
     String userId;
+    NotificationManager nm;
 
-    public void setAll(UserManager um, GroupManager gm, String groupId, String userId){
+    /**
+     * A setter to set all the required parameters.
+     * @param um : Usermanager
+     * @param gm : Group Manager
+     * @param groupId : GroupId of the current logged in group
+     * @param userId : UserId of the user currently logged in
+     * @param nm : Notification manager
+     */
+    public void setAll(UserManager um, GroupManager gm, String groupId, String userId, NotificationManager nm){
         this.um = um;
         this.gm = gm;
         this.groupId = groupId;
         this.userId = userId;
+        this.nm = nm;
     }
 
     @FXML
     VBox leaderControls;
-
-    @FXML
-    Button Refresh;
 
     @FXML
     Label Announcements;
@@ -49,6 +56,9 @@ public class AnnouncementPageController {
     @FXML
     VBox GroupsPane;
 
+    /**
+     * This method checks whether the current logged in user is a leader and if so, enables the leaderControls.
+     */
     public void isLeader(){
         if(gm.checkIfLeader(gm.getGroupById(groupId).getgroupName(), um.getUserById(userId))){
             leaderControls.setVisible(true);
@@ -56,6 +66,9 @@ public class AnnouncementPageController {
         }
     }
 
+    /**
+     * Clicking this refreshes the announcement page. Refresh each time a new announcement is added.
+     */
     public void refreshAnnouncements(){
         isLeader();
         GroupsPane.getChildren().clear();
@@ -67,12 +80,15 @@ public class AnnouncementPageController {
         GroupsPane.getChildren().add(lbl);
     }
 
+    /**
+     * Goes back to the previous page when button is pressed
+     */
     public void goBack() throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupContentController.fxml"));
         Parent root = loader.load();
         GroupContentController gcc = loader.getController();
         TaskManager tm = new TaskManager();
-        gcc.setAll(um, gm, tm, userId, groupId);
+        gcc.setAll(um, gm, tm, userId, groupId, nm);
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
@@ -85,5 +101,6 @@ public class AnnouncementPageController {
         input = input + " - " + dtf.format(current);
         gm.getGroupById(groupId).getAnnouncementPage().addAnnouncement(input);
         announcementInput.clear();
+        refreshAnnouncements();
     }
 }

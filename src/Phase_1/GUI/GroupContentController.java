@@ -53,12 +53,14 @@ public class GroupContentController implements Initializable{
      * String groupId: Represents the id of the current group.
      */
 
-    public void setAll(UserManager um, GroupManager gm, TaskManager tm, String userId, String groupId){
+    public void setAll(UserManager um, GroupManager gm, TaskManager tm, String userId, String groupId,
+                       NotificationManager nm){
         this.um = um;
         this.gm = gm;
         this.tm = tm;
         this.userId = userId;
         this.groupId = groupId;
+        this.nm = nm;
         GroupName.setText(groupId);
     }
 
@@ -66,21 +68,25 @@ public class GroupContentController implements Initializable{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("AnnouncementPagePresenter.fxml"));
         Parent root = loader.load();
         AnnouncementPageController apc = loader.getController();
-        apc.setAll(um, gm, groupId, userId);
+        apc.setAll(um, gm, groupId, userId, nm);
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
+        apc.refreshAnnouncements();
     }
     public void GroupTaskPushed() throws IOException {
-        GUImain guiMain = new GUImain();
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupTaskPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ViewFolderPresenter.fxml"));
         Parent root = loader.load();
-//        GroupTaskPageController gtpc = loader.getController(um, gm, userId);
-//        gtpc.setUm(um);
-//        gtpc.setGm(gm);
-//        gtpc.setUserId(userId);
+        ViewFolderController vfc = loader.getController();
+        vfc.setUserId(userId);
+        vfc.setGroupId(groupId);
+        vfc.setGm(gm);
+        vfc.setUm(um);
+        vfc.setTm(tm);
+        vfc.setNm(nm);
+        vfc.createFolderButton();
         Scene scene = new Scene(root);
+        GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
     }
 
@@ -103,7 +109,7 @@ public class GroupContentController implements Initializable{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ViewGroupController.fxml"));
         Parent root = loader.load();
         ViewGroupController vgc = loader.getController();
-        vgc.setAll(um, gm, userId);
+        vgc.setAll(um, gm, userId, nm);
         vgc.createGroupButton();
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
