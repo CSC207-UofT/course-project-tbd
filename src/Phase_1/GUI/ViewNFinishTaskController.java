@@ -5,6 +5,7 @@ import Phase_1.Entity.Task;
 import Phase_1.Entity.TaskWithDueDate;
 import Phase_1.UseCaseClass.NotificationManager;
 import Phase_1.UseCaseClass.TaskManager;
+import Phase_1.UseCaseClass.UserManager;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
@@ -15,6 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -24,11 +26,13 @@ import java.util.*;
 
 public class ViewNFinishTaskController implements Initializable {
     TaskManager tm;
-
+    UserManager um;
     Category category;
 
+    Scene previousScene;
+
     @FXML
-    public Text taskDetailField;
+    public TextArea taskDetailField;
 
     @FXML
     Hyperlink back;
@@ -47,6 +51,13 @@ public class ViewNFinishTaskController implements Initializable {
 
 
     public void setTm(TaskManager tm) {this.tm = tm;}
+    public void setUm(UserManager um) {this.um = um;}
+    public void setCategory(Category category){
+        this.category = category;
+    }
+    public void setPreviousScene(Scene scene){
+        this.previousScene = scene;
+    }
 
     //    public ListView<String> getList() {
 //        List<String> newlist = new ArrayList<>();
@@ -59,12 +70,26 @@ public class ViewNFinishTaskController implements Initializable {
 //
 //    }
 
-    public void setCategory(Category category){
+    ViewNFinishTaskController(Category category){
         this.category = category;
     }
 
-    public void finishtask(Category category) throws IOException {
+
+    public void finishtaskhelper(Category category) throws IOException {
         GUImain guiMain = new GUImain();
+        String title = name.getText();
+        Task task = tm.getTaskByName(category, title);
+        Status.setText("");
+        if(tm.checkTask(category, task)){  // If task is present in user, mark it finished
+            tm.completeTask(task);
+            Status.setText("Task finished");
+        }
+        else{Status.setText("Task not Present");
+        }
+
+    }
+
+    public void finishTask() throws IOException {
         String title = name.getText();
         Task task = tm.getTaskByName(category, title);
         Status.setText("");
@@ -79,13 +104,8 @@ public class ViewNFinishTaskController implements Initializable {
 
 
     public void backPushed() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("TaskPage.fxml"));
-        Parent root = loader.load();
-        TaskPageController tpc1 = loader.getController();
-        tpc1.setTm(tm);
-        Scene scene = new Scene(root);
-        GUImain guiMain = new GUImain();
-        guiMain.addScene(scene);
+        Stage stage = (Stage) finishTask.getScene().getWindow();
+        stage.setScene(previousScene);
     }
 
 
@@ -94,21 +114,24 @@ public class ViewNFinishTaskController implements Initializable {
         ArrayList<String> taskNames = new ArrayList<>();
         HashMap<String, String> taskDetail = new HashMap<>();
 
-        /*for (Task t: category.getTasks()){
+
+        for (Task t : category.getTasks()) {
             taskNames.add(t.getTaskName());
             taskDetail.put(t.getTaskName(), t.toString());
-        }*/
+        }
 
-        // for testing
-        taskNames.add("1");
-        taskNames.add("2");
-        taskNames.add("3");
-        taskDetail.put("1", "hello");
-        taskDetail.put("2", "world");
-        taskDetail.put("3", "I'm coming");
-        //
+
+            /*// for testing
+            taskNames.add("1");
+            taskNames.add("2");
+            taskNames.add("3");
+            taskDetail.put("1", "hello");
+            taskDetail.put("2", "world");
+            taskDetail.put("3", "I'm coming");
+            //*/
 
         taskListView.getItems().addAll(taskNames);
+
 
         taskListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<>() {
             @Override
@@ -119,6 +142,5 @@ public class ViewNFinishTaskController implements Initializable {
                 taskDetailField.setText(taskDetail.get(currentString));
             }
         });
-
     }
 }

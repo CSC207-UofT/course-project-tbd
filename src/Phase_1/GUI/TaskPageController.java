@@ -11,10 +11,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class TaskPageController {
     Category c;
@@ -24,30 +23,41 @@ public class TaskPageController {
     Task t;
     TaskManager tm;
     UserManager um;
+    String userId;
+    Scene previousScene;
 
     @FXML
     Button addtask;
     @FXML
     Button finishtask;
     @FXML
-    Button viewtask;
+    Button viewTaskButton;
     @FXML
     Hyperlink back;
 
 
     public void setTm(TaskManager tm) {this.tm = tm;}
     public void setUm(UserManager um) {this.um = um;}
-    public void setCm(CategoryManager cm){this.cm = cm;}
+    public void setCm(CategoryManager um) {this.cm = um;}
+    public void setNm(NotificationManager nm) {this.nm = nm;}
+    public void setUserId(String userId){this.userId = userId;}
     public void setC(Category c){this.c = c;}
     public void setT(Task t) {
         this.t = t;
     }
+    public void setPreviousScene(Scene scene){
+        this.previousScene = scene;
+    }
 
-    public void addtask() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("AddTaskController.fxml"));
+    public void addTask() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("AddTask.fxml"));
         Parent root = loader.load();
         AddTaskController apc1 = loader.getController();
         apc1.setTm(tm);
+        apc1.setUm(um);
+        apc1.setC(c);
+        apc1.setNm(nm);
+        apc1.setPreviousScene(addtask.getScene());
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
@@ -56,32 +66,45 @@ public class TaskPageController {
 
     public void finishtask() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("viewNFinishTask.fxml"));
+        // set controller using constructor so that category can be accessed in the initialize method
+        loader.setControllerFactory((controller -> {
+            return new ViewNFinishTaskController(c);
+        }));
+
         Parent root = loader.load();
-        AddTaskController apc1 = loader.getController();
+        ViewNFinishTaskController apc1 = loader.getController();
         apc1.setTm(tm);
+        apc1.setUm(um);
+        apc1.setPreviousScene(viewTaskButton.getScene());
+//        apc1.setCategory(c);
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
     }
 
 
-    public void viewtask() throws IOException {
+    public void viewTask() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("viewNFinishTask.fxml"));
+
+        // set controller using constructor so that category can be accessed in the initialize method
+        loader.setControllerFactory((controller -> {
+            return new ViewNFinishTaskController(c);
+        }));
+
         Parent root = loader.load();
-        AddTaskController apc1 = loader.getController();
+        ViewNFinishTaskController apc1 = loader.getController();
         apc1.setTm(tm);
+        apc1.setUm(um);
+        apc1.setPreviousScene(viewTaskButton.getScene());
+//        apc1.setCategory(c);
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
     }
+
     public void backPushed() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("CategoryPageController.fxml"));
-        Parent root = loader.load();
-        CategoryPageController cpc = loader.getController();
-        cpc.setUm(um);
-        Scene scene = new Scene(root);
-        GUImain guiMain = new GUImain();
-        guiMain.addScene(scene);
+        Stage stage = (Stage) back.getScene().getWindow();
+        stage.setScene(previousScene);
     }
 
 }

@@ -9,6 +9,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
 import java.io.IOException;
 
 
@@ -16,6 +18,8 @@ public class CategoryPageController {
     CategoryManager cm;
     UserManager um;
     String userId;
+    NotificationManager nm;
+    Scene previousScene;
 
     @FXML
     VBox CategoryPane;
@@ -34,16 +38,18 @@ public class CategoryPageController {
         this.um = um;
     }
     public void setUserId(String userId){this.userId = userId;}
+    public void setCm(CategoryManager cm){this.cm = cm;}
+    public void setNm(NotificationManager nm){
+        this.nm = nm;
+    }
+    public void setPreviousScene(Scene scene){
+        this.previousScene = scene;
+    }
 
     public void goBack() throws IOException {
         // Go back to previous page: UserPageController
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("UserPageController.fxml"));
-        Parent root = loader.load();
-        UserPageController upc = loader.getController();
-        upc.setUm(um);
-        Scene scene = new Scene(root);
-        GUImain guiMain = new GUImain();
-        guiMain.addScene(scene);
+        Stage stage = (Stage) BackButton.getScene().getWindow();
+        stage.setScene(previousScene);
     }
 
     public void createCategoryButton(){
@@ -60,6 +66,7 @@ public class CategoryPageController {
     }
 
     public void loadCategoryPane(){
+        WrongNewCategory.setText("");
         CategoryPane.getChildren().clear(); // Removes all the elements of the pane
         for (String CategoryId : um.displayCategories(um.getUserById(userId)).split("\n")) {
             // Creates and adds button for each group to the pane
@@ -78,13 +85,15 @@ public class CategoryPageController {
     }
 
     public void goToTask(String CategoryId) throws IOException{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("TaskPageController.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("TaskPage.fxml"));
         Parent root = loader.load();
         TaskPageController tpc = loader.getController();
+        tpc.setNm(nm);
         tpc.setUm(um);
         tpc.setTm(new TaskManager());
-        tpc.setCm(cm);
         tpc.setC(cm.getCategoryByName(um.getUserById(userId), CategoryId));
+        tpc.setUserId(userId);
+        tpc.setPreviousScene(CategoryPane.getScene());
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
