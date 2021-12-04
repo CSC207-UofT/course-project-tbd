@@ -1,10 +1,6 @@
 package Phase_1.GUI;
 
-import Phase_1.Controllers_Gateways_Presenters.GroupDataGateWay;
-import Phase_1.Controllers_Gateways_Presenters.UserDataGateway;
-import Phase_1.UseCaseClass.GroupManager;
 import Phase_1.UseCaseClass.NotificationManager;
-import Phase_1.UseCaseClass.UserManager;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
@@ -26,7 +22,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class NotificationPageController implements Initializable{
