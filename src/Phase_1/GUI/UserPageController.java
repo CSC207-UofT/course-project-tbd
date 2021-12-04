@@ -76,6 +76,7 @@ public class UserPageController {
         mpc1.setUm(um);
         mpc1.setGm(gm);
         mpc1.setUserId(userName);
+        mpc1.setNm(notificationManager);
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);

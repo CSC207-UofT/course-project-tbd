@@ -87,7 +87,7 @@ public class ViewFolderController {
         Parent root = loader.load();
         GroupContentController gcc = loader.getController();
         TaskManager tm = new TaskManager();
-        gcc.setAll(um, gm, tm, userId, groupId);
+        gcc.setAll(um, gm, tm, userId, groupId, nm);
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);

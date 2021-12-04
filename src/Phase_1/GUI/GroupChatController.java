@@ -1,6 +1,7 @@
 package Phase_1.GUI;
 
 import Phase_1.UseCaseClass.GroupManager;
+import Phase_1.UseCaseClass.NotificationManager;
 import Phase_1.UseCaseClass.TaskManager;
 import Phase_1.UseCaseClass.UserManager;
 import javafx.fxml.FXML;
@@ -16,6 +17,7 @@ public class GroupChatController {
     String userId;
     GroupManager gm;
     UserManager um;
+    NotificationManager nm;
 
     public void setGroupId(String groupId) {
         this.groupId = groupId;
@@ -28,6 +30,9 @@ public class GroupChatController {
     }
     public void setUm(UserManager um) {
         this.um = um;
+    }
+    public void setNm(NotificationManager nm) {
+        this.nm = nm;
     }
 
     @FXML
@@ -53,7 +58,7 @@ public class GroupChatController {
         Parent root = loader.load();
         GroupContentController gcc = loader.getController();
         TaskManager tm = new TaskManager();
-        gcc.setAll(um, gm, tm, userId, groupId);
+        gcc.setAll(um, gm, tm, userId, groupId, nm);
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);

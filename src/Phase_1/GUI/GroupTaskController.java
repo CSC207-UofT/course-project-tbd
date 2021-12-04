@@ -57,16 +57,22 @@ public class GroupTaskController {
         Parent root = loader.load();
         GroupContentController gcc = loader.getController();
         TaskManager tm = new TaskManager();
-        gcc.setAll(um, gm, tm, userId, groupId);
+        gcc.setAll(um, gm, tm, userId, groupId, nm);
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
     }
     public void add() throws IOException  {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupContentPresenter.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupAddTaskPresenter.fxml"));
         Parent root = loader.load();
-        GroupContentController gcc = loader.getController();
-        gcc.setAll(um, gm, tm, userId,groupId);
+        GroupAddTaskController gatc = loader.getController();
+        gatc.setGroupId(groupId);
+        gatc.setUserId(userId);
+        gatc.setCategoryName(categoryName);
+        gatc.setGm(gm);
+        gatc.setTm(tm);
+        gatc.setUm(um);
+        gatc.setNm(nm);
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
@@ -75,7 +81,7 @@ public class GroupTaskController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupContentPresenter.fxml"));
         Parent root = loader.load();
         GroupContentController gcc = loader.getController();
-        gcc.setAll(um, gm, tm, userId,groupId);
+        gcc.setAll(um, gm, tm, userId,groupId, nm);
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
