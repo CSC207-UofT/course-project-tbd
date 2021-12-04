@@ -52,7 +52,7 @@
                 </Label>
                 <TextField fx:id="name" layoutX="164.0" layoutY="336.0" promptText="Task Name" style="-fx-background-color: white;" />
                 <Label fx:id="Status" layoutX="168.0" layoutY="385.0" style="-fx-text-fill: lightblue;" />
-            <Button fx:id="finishTask" layoutX="64.0" layoutY="332.0" mnemonicParsing="false" onMouseClicked="#finishTask" text="Finish Task" />
+            <Button fx:id="finishTask" layoutX="64.0" layoutY="332.0" mnemonicParsing="false" onAction="#finishTask" onMouseClicked="#finishTask" text="Finish Task" />
             </children>
         </AnchorPane>
     </center>
