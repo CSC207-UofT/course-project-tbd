@@ -49,7 +49,11 @@
                </font>
             </Label>
             <TextField fx:id="date" layoutX="189.0" layoutY="231.0" prefHeight="26.0" prefWidth="173.0" promptText="year/mon/day/hour/min" style="-fx-background-color: white;" />
+<<<<<<< HEAD
             <Label fx:id="Success" layoutX="179.0" layoutY="272.0" style="-fx-text-fill: white;" />
+=======
+            <Label fx:id="Success" layoutX="130.0" layoutY="272.0" style="-fx-text-fill: white;" />
+>>>>>>> c51bf9439afe938fa4739cd6db7ef2cc82472986
             <Hyperlink fx:id="goback" layoutX="238.0" layoutY="341.0" onAction="#backPushed" text="Go back to Task page" />
          </children>
       </AnchorPane>

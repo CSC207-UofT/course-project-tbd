@@ -76,10 +76,15 @@ public class AddTaskController implements Initializable {
                 int day = Integer.parseInt(formattedDate.get(2));
                 int hour = Integer.parseInt(formattedDate.get(3));
                 int minute = Integer.parseInt(formattedDate.get(4));
-                TaskWithDueDate task = tm.createTask(name, info, year, month, day, hour, minute);
-                nm.addTaskWithDueDate(task);    // add to notification manager for creating alarm for task
-                tm.addTaskToCategory(c, task);  // add task to user's task collection
-                Success.setText("Task Successfully Created");
+                if(tm.getTaskByName(c, name) != null){
+                    Success.setText("The task already exists, chose another task name");
+                }
+                else{
+                    TaskWithDueDate task = tm.createTask(name, info, year, month, day, hour, minute);
+                    nm.addTaskWithDueDate(task);    // add to notification manager for creating alarm for task
+                    tm.addTaskToCategory(c, task);  // add task to user's task collection
+                    Success.setText("Task Successfully Created");
+                }
             } catch (UnsupportedOperationException e) {     // exception thrown when user schedules a date in the past
                 System.out.println(e.getMessage());
             } catch (IndexOutOfBoundsException e2) {     // when the user's date input does not follow the format
@@ -92,10 +97,15 @@ public class AddTaskController implements Initializable {
             }
         }
         if(ans.equals("No")) {
-            Task task = tm.createTask(name, info); // create a simple task without due date
-            tm.addTaskToCategory(c, task);  // add task to category's task collection
-            Success.setText("Task Successfully Created");
 
+            if(tm.getTaskByName(c, name) != null){
+                Success.setText("The task already exists, chose another task name");
+            }
+            else{
+                Task task = tm.createTask(name, info); // create a simple task without due date
+                tm.addTaskToCategory(c, task);  // add task to category's task collection
+                Success.setText("Task Successfully Created");
+            }
 
         }
     }
