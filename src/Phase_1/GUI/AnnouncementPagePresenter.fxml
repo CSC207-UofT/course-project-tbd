@@ -15,7 +15,6 @@
             <Font size="37.0" />
          </font>
       </Label>
-      <Button id="Refresh" fx:id="Refresh" layoutX="115.0" layoutY="467.0" mnemonicParsing="false" onAction="#refreshAnnouncements" prefHeight="26.0" prefWidth="171.0" text="Click me to refresh" />
       <VBox id="leaderControls" fx:id="leaderControls" alignment="TOP_CENTER" layoutX="63.0" layoutY="506.0" prefHeight="64.0" prefWidth="278.0" spacing="5.0" visible="false">
          <children>
             <TextField id="announcementInput" fx:id="announcementInput" />
