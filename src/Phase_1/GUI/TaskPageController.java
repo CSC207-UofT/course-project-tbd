@@ -76,6 +76,7 @@ public class TaskPageController {
         apc1.setTm(tm);
         apc1.setUm(um);
         apc1.setPreviousScene(viewTaskButton.getScene());
+        apc1.setNotificationManager(nm);
 //        apc1.setCategory(c);
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
@@ -96,6 +97,7 @@ public class TaskPageController {
         apc1.setTm(tm);
         apc1.setUm(um);
         apc1.setPreviousScene(viewTaskButton.getScene());
+        apc1.setNotificationManager(nm);
 //        apc1.setCategory(c);
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
