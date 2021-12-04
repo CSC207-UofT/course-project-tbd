@@ -14,6 +14,7 @@ public class CategoryManagerTest {
     CategoryManager cm;
     Group g;
     User b;
+    Category temp;
 
 
     @Before
@@ -34,9 +35,8 @@ public class CategoryManagerTest {
     }
 
     @Test
-    public void TestgetCategoryByName(){
-        assertEquals(cy, cm.getCategoryByName(a, "Study"));
-    }
+    public void TestgetCategoryByName(){assertEquals(cy, cm.getCategoryByName(a, "Study"));}
+
     @Test
     public void TestcheckCategoryByName(){
         assertTrue(cm.checkCategoryByName(cy, "Study"));

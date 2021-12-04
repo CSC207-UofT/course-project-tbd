@@ -1,6 +1,7 @@
 package Phase_1.GUI;
 import Phase_1.Entity.User;
 import Phase_1.UseCaseClass.GroupManager;
+import Phase_1.UseCaseClass.NotificationManager;
 import Phase_1.UseCaseClass.UserGroupManager;
 import Phase_1.UseCaseClass.UserManager;
 import javafx.fxml.FXML;
@@ -35,6 +36,7 @@ public class GroupPageController implements Initializable{
     UserManager um;
     String userId;
     UserGroupManager ugm;
+    NotificationManager nm;
 
     public void setGm(GroupManager gm) {
         this.gm = gm;
@@ -46,6 +48,10 @@ public class GroupPageController implements Initializable{
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public void setNm(NotificationManager nm) {
+        this.nm = nm;
     }
 
     public void createPushed() throws IOException {
@@ -98,10 +104,12 @@ public class GroupPageController implements Initializable{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("ViewGroupController.fxml"));
             Parent root = loader.load();
             ViewGroupController vgc = loader.getController();
-            vgc.setAll(um, gm, userId);
+            vgc.setAll(um, gm, userId, nm);
+            vgc.createGroupButton();
             Scene scene = new Scene(root);
             GUImain guiMain = new GUImain();
             guiMain.addScene(scene);
+
         }
     }
 
