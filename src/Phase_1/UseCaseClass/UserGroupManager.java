@@ -6,7 +6,6 @@ import java.util.ArrayList;
 
 public class UserGroupManager {
     public UserGroupManager(){
-
     }
 
     /**

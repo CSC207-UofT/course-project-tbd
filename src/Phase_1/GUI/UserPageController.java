@@ -61,6 +61,7 @@ public class UserPageController {
         cpc1.setUserId(userName);
         cpc1.setCm(new CategoryManager());
         cpc1.setNm(notificationManager);
+        cpc1.setPreviousScene(categoryPage.getScene());
         cpc1.loadCategoryPane();
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
@@ -75,6 +76,7 @@ public class UserPageController {
         mpc1.setUm(um);
         mpc1.setGm(gm);
         mpc1.setUserId(userName);
+        mpc1.setNm(notificationManager);
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
@@ -84,10 +86,13 @@ public class UserPageController {
     public void NotificationButtonPushed() throws IOException {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("NotificationPage.fxml"));
+        loader.setControllerFactory((controller -> {
+            return new NotificationPageController(notificationManager);
+        }));
+
         Parent root = loader.load();
         NotificationPageController notificationPageController = loader.getController();
 
-        notificationPageController.setNotificationManager(notificationManager);
         notificationPageController.setPreviousScene(notificationsPage.getScene());
 
         Scene scene = new Scene(root);

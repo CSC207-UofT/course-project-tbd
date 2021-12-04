@@ -104,6 +104,18 @@ public class Group implements Serializable {
     }
 
     /**
+     * Returns all the members' folder names in this group
+     * @return ArrayList containing all the name of the folders
+     */
+    public ArrayList<String> getCategoryNames() {
+        ArrayList<String> result = new ArrayList<>();
+        for (Category c : this.categories) {
+            result.add(c.toString());
+        }
+        return result;
+    }
+
+    /**
      * Returns the AnnouncementPage object in our group
      * @return The announcement object in our group.
      */

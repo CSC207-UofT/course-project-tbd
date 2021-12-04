@@ -1,17 +1,19 @@
 package Phase_1.GUI;
 
-import Phase_1.UseCaseClass.GroupManager;
-import Phase_1.UseCaseClass.NotificationManager;
-import Phase_1.UseCaseClass.TaskManager;
-import Phase_1.UseCaseClass.UserManager;
+import Phase_1.Entity.Task;
+import Phase_1.Entity.TaskWithDueDate;
+import Phase_1.UseCaseClass.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
+import java.time.DateTimeException;
+import java.util.List;
 
 public class GroupAddTaskController {
     String userId;
@@ -60,7 +62,10 @@ public class GroupAddTaskController {
     TextField time;
 
     @FXML
-    Button notification;
+    TextField notification;
+
+    @FXML
+    Label added;
 
     public void backPushed() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupTaskPresenter.fxml"));
@@ -76,5 +81,42 @@ public class GroupAddTaskController {
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
+    }
+
+    public void addTask() throws IOException {
+        CategoryManager cm = new CategoryManager();
+        String name = title.getText();
+        String info = detail.getText();
+        String answer = notification.getText();
+        String due = time.getText();
+        List<String> date = List.of(due.strip().split("/"));
+        if (answer.equals("Yes")) {
+            try {
+                int year = Integer.parseInt(date.get(0));
+                int month = Integer.parseInt(date.get(1));
+                int day = Integer.parseInt(date.get(2));
+                int hour = Integer.parseInt(date.get(3));
+                int minute = Integer.parseInt(date.get(4));
+                TaskWithDueDate task = tm.createTask(name, info, year, month, day, hour, minute);
+                nm.addTaskWithDueDate(task);
+                tm.addTaskToCategory(cm.getCategoryByGroup(categoryName, gm.getGroupById(groupId)), task);
+                added.setText("Task has been added successfully");
+            } catch (UnsupportedOperationException e) {     // exception thrown when user schedules a date in the past
+                System.out.println(e.getMessage());
+            } catch (IndexOutOfBoundsException e2) {     // when the user's date input does not follow the format
+                added.setText("Please enter according to the format: \n" +
+                        "Year/Month/Date/Hour/Minute");
+            } catch (DateTimeException e3) {     // when the date user entered is an invalid date
+                added.setText("You have entered an invalid date");
+            } catch (Exception e) {
+//                added.setText("Invalid input");
+                System.out.println(e);
+            }
+        }
+        if (answer.equals("No")) {
+            Task task = new Task(name, info);
+            tm.addTaskToCategory(cm.getCategoryByGroup(categoryName, gm.getGroupById(groupId)), task);
+            added.setText("Task has been added successfully");
+        }
     }
 }
