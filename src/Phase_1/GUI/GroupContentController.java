@@ -72,6 +72,7 @@ public class GroupContentController implements Initializable{
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
+        apc.refreshAnnouncements();
     }
     public void GroupTaskPushed() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ViewFolderPresenter.fxml"));

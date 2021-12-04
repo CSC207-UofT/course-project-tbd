@@ -17,6 +17,13 @@ public class ViewGroupController {
     String userId;
     NotificationManager nm;
 
+    /**
+     * This is a setter used to set all of the parameters. Note that we are injecting these into our controller.
+     * @param um : The user manager
+     * @param gm : The group manager
+     * @param userId : The user id of current logged in user
+     * @param nm : The notification manager.
+     */
     public void setAll(UserManager um, GroupManager gm, String userId, NotificationManager nm){
         this.um = um;
         this.gm = gm;
@@ -56,6 +63,11 @@ public class ViewGroupController {
         }
     }
 
+    /**
+     * This method is used in the code above. I extracted this code into a new method to make my methods
+     * shorter
+     * @param groupId : Group id of the group of whom you want to view contents.
+     */
     private void goToGroup(String groupId) throws IOException{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupContentController.fxml"));
             Parent root = loader.load();
@@ -66,6 +78,9 @@ public class ViewGroupController {
             guiMain.addScene(scene);
     }
 
+    /**
+     * Goes back to the previous page when the back button is pressed on our gui.
+     */
     public void goBack() throws IOException {
         // Go back to previous page: GroupPageController
         GroupsPane.getChildren().clear();
