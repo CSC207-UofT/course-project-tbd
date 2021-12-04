@@ -20,6 +20,19 @@ public class UserManager {
                 + "Password: " + user.getPassword());
     }
 
+    /**
+     * get the users stored in the um
+     * @Return  ArrayList<String> which represent all the userIds for all user's
+     */
+    public ArrayList<String> getAllNormalUserIds(){
+        ArrayList<String> a = new ArrayList<>();
+        for (User user : allUsers) {
+            if (user instanceof NormalUser) {
+                a.add(user.getUsername());
+            }
+        }
+        return a;
+    }
 
     /**
      * Creates a normal user and add it to the arraylist of all the users.
@@ -93,13 +106,6 @@ public class UserManager {
         }
         return s.toString();
     }
-    /**
-     * A method that returns a list of all the user.
-     */
-    public ArrayList<User> getuser(){
-        return new ArrayList<>(allUsers);
-    }
-
 
     /**
      * get the users stored in the um
