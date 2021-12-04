@@ -20,12 +20,14 @@ public class AnnouncementPageController {
     UserManager um;
     String groupId;
     String userId;
+    NotificationManager nm;
 
-    public void setAll(UserManager um, GroupManager gm, String groupId, String userId){
+    public void setAll(UserManager um, GroupManager gm, String groupId, String userId, NotificationManager nm){
         this.um = um;
         this.gm = gm;
         this.groupId = groupId;
         this.userId = userId;
+        this.nm = nm;
     }
 
     @FXML
@@ -72,7 +74,7 @@ public class AnnouncementPageController {
         Parent root = loader.load();
         GroupContentController gcc = loader.getController();
         TaskManager tm = new TaskManager();
-        gcc.setAll(um, gm, tm, userId, groupId);
+        gcc.setAll(um, gm, tm, userId, groupId, nm);
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);

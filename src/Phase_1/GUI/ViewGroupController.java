@@ -1,9 +1,6 @@
 package Phase_1.GUI;
 
-import Phase_1.UseCaseClass.GroupManager;
-import Phase_1.UseCaseClass.TaskManager;
-import Phase_1.UseCaseClass.UserGroupManager;
-import Phase_1.UseCaseClass.UserManager;
+import Phase_1.UseCaseClass.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -18,12 +15,15 @@ public class ViewGroupController {
     UserGroupManager ugm;
     TaskManager tm;
     String userId;
+    NotificationManager nm;
 
-    public void setAll(UserManager um, GroupManager gm, String userId){
+    public void setAll(UserManager um, GroupManager gm, String userId, NotificationManager nm){
         this.um = um;
         this.gm = gm;
         this.ugm = new UserGroupManager();
         this.userId = userId;
+        this.tm = new TaskManager();
+        this.nm = nm;
     }
 
     @FXML
@@ -60,7 +60,7 @@ public class ViewGroupController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupContentController.fxml"));
             Parent root = loader.load();
             GroupContentController gcc = loader.getController();
-            gcc.setAll(um, gm, tm, userId, groupId);
+            gcc.setAll(um, gm, tm, userId, groupId, nm);
             Scene scene = new Scene(root);
             GUImain guiMain = new GUImain();
             guiMain.addScene(scene);
