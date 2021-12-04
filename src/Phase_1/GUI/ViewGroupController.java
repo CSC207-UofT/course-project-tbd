@@ -19,14 +19,6 @@ public class ViewGroupController {
     TaskManager tm;
     String userId;
 
-
-    public ViewGroupController(GroupManager gm, UserManager um, UserGroupManager ugm, String userId){
-        this.gm = gm;
-        this.um = um;
-        this.ugm = ugm;
-        this.userId = userId;
-    }
-
     public void setAll(UserManager um, GroupManager gm, String userId){
         this.um = um;
         this.gm = gm;
@@ -59,6 +51,7 @@ public class ViewGroupController {
                     e.printStackTrace();
                 }
             });
+            button.setPrefSize(371.0, 25.0);
             GroupsPane.getChildren().add(button);
         }
     }
@@ -75,11 +68,13 @@ public class ViewGroupController {
 
     public void goBack() throws IOException {
         // Go back to previous page: GroupPageController
+        GroupsPane.getChildren().clear();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupPageGUI.fxml"));
         Parent root = loader.load();
         GroupPageController gpc = loader.getController();
         gpc.setGm(gm);
         gpc.setUm(um);
+        gpc.setUserId(userId);
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
