@@ -53,9 +53,14 @@
                     </font>
                 </Label>
                 <TextField fx:id="name" layoutX="164.0" layoutY="336.0" promptText="Task Name" />
-                <Label fx:id="Status" layoutX="168.0" layoutY="385.0" style="-fx-text-fill: lightblue;" />
+                <Label fx:id="Status" layoutX="168.0" layoutY="385.0" style="-fx-text-fill: black;" />
                 <Button fx:id="finishTask" layoutX="65.0" layoutY="336.0" mnemonicParsing="false" onAction="#finishTask" onMouseClicked="#finishTask" text="Finish Task" />
             <Button fx:id="back" layoutX="167.0" layoutY="406.0" mnemonicParsing="false" onAction="#backPushed" text="Back" />
+            <Label fx:id="owner" layoutX="53.0" layoutY="269.0" text="Only the owner of this folder can finish a task">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
             </children>
         </AnchorPane>
     </center>
