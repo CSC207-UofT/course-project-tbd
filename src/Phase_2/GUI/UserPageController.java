@@ -23,6 +23,9 @@ public class UserPageController {
     String userName;
     NotificationManager notificationManager;
 
+    /**
+     * Setter methods
+     */
     public void setGm(GroupManager gm) {
         this.gm = gm;
     }
@@ -48,7 +51,9 @@ public class UserPageController {
     @FXML
     public Button log_out_button;
 
-
+    /**
+     * Go to the category page when button is pushed
+     */
     public void categoryButtonPushed() throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("CategoryPage.fxml"));
         Parent root = loader.load();
@@ -65,6 +70,9 @@ public class UserPageController {
 
     }
 
+    /**
+     * Go to the group page when button is pushed
+     */
     public void groupButtonPushed() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupPageGUI.fxml"));
         Parent root = loader.load();
@@ -79,6 +87,9 @@ public class UserPageController {
 
     }
 
+    /**
+     * Go to the notifications page when button is pushed
+     */
     public void NotificationButtonPushed() throws IOException {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("NotificationPage.fxml"));
@@ -96,6 +107,9 @@ public class UserPageController {
         guiMain.addScene(scene);
     }
 
+    /**
+     * Logs out the user when the button is pushed
+     */
     public void LogoutButtonPushed() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("UserLogin.fxml"));
         Parent root = loader.load();

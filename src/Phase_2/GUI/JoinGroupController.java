@@ -18,6 +18,9 @@ public class JoinGroupController {
     UserManager um;
     String userName;
 
+    /**
+     * Setter methods
+     */
     public void setGm(GroupManager gm) {
         this.gm = gm;
     }
@@ -39,6 +42,9 @@ public class JoinGroupController {
     @FXML
     public Label message;
 
+    /**
+     * Join the group presented by the user
+     */
     @FXML
     public void join_group(ActionEvent event) throws IOException {
         String name = group_name.getText();

@@ -19,6 +19,10 @@ public class GroupTaskController {
     GroupManager gm;
     NotificationManager nm;
 
+
+    /**
+     * Setter methods
+     */
     public void setUserId(String userId) {
         this.userId = userId;
     }
@@ -55,6 +59,9 @@ public class GroupTaskController {
 
     CategoryManager cm = new CategoryManager();
 
+    /**
+     * Go back to the previous page
+     */
     public void back() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupContentController.fxml"));
         Parent root = loader.load();
@@ -66,6 +73,10 @@ public class GroupTaskController {
         guiMain.addScene(scene);
 
     }
+
+    /**
+     * Adds new group task
+     */
     public void add() throws IOException  {
         if (gm.checkIfLeader(gm.getGroupById(groupId).getgroupName(), um.getUserById(userId))) {
             checkLeader.setText("");
@@ -87,6 +98,10 @@ public class GroupTaskController {
         }
 
     }
+
+    /**
+     * Shows all the tasks in the group at this moment
+     */
     public void display() throws IOException  {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupDisplayTaskPresenter.fxml"));
         loader.setControllerFactory((controller -> {

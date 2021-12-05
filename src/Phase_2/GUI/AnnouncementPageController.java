@@ -94,6 +94,9 @@ public class AnnouncementPageController {
         guiMain.addScene(scene);
     }
 
+    /**
+     * Add a new announcement
+     */
     public void addAnnouncement(){
         String input = announcementInput.getText();
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");

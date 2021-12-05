@@ -18,6 +18,9 @@ public class ViewFolderController {
     GroupManager gm;
     NotificationManager nm;
 
+    /**
+     * Setter methods
+     */
     public void setUserId(String userId) {
         this.userId = userId;
     }
@@ -64,6 +67,9 @@ public class ViewFolderController {
         }
     }
 
+    /**
+     * Goes to the category the user requested
+     */
     private void goToCategory(String categoryName) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupTaskPresenter.fxml"));
         Parent root = loader.load();
@@ -82,6 +88,9 @@ public class ViewFolderController {
         guiMain.addScene(scene);
     }
 
+    /**
+     * Go back to the previous page
+     */
     public void goBack() throws IOException {
         // Go back to previous page: GroupPageController
         GroupsPane.getChildren().clear();

@@ -55,6 +55,9 @@ public class NotificationPageController implements Initializable{
         this.notificationManager = notificationManager;
     }
 
+    /**
+     * Setter methods
+     */
     public void setPreviousScene(Scene previousScene){
         this.previousScene = previousScene;
     }
@@ -96,11 +99,17 @@ public class NotificationPageController implements Initializable{
         notificationListView.getItems().add(0, message);
     }
 
+    /**
+     * Refreshes the notifications page
+     */
     public void refreshNotification(){
         notificationListView.getItems().removeAll(notificationManager.getMailboxTaskName());
         notificationListView.getItems().addAll(notificationManager.getMailboxTaskName());
     }
 
+    /**
+     * Deletes the give notification
+     */
     public void deleteNotification(MouseEvent mouseEvent) throws Exception{
 
         // a new window for warning, before the user can delete a notification
@@ -135,6 +144,9 @@ public class NotificationPageController implements Initializable{
 
     }
 
+    /**
+     * Go back to previous page
+     */
     public void backPushed() throws IOException {
         Stage stage = (Stage) refreshButton.getScene().getWindow();
         stage.setScene(previousScene);

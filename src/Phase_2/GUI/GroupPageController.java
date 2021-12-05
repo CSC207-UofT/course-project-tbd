@@ -39,6 +39,10 @@ public class GroupPageController implements Initializable{
     UserGroupManager ugm;
     NotificationManager nm;
 
+
+    /**
+     * Setter methods
+     */
     public void setGm(GroupManager gm) {
         this.gm = gm;
     }
@@ -55,6 +59,9 @@ public class GroupPageController implements Initializable{
         this.nm = nm;
     }
 
+    /**
+     * Go to the create group page
+     */
     public void createPushed() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("CreateGroup.fxml"));
         Parent root = loader.load();
@@ -68,6 +75,9 @@ public class GroupPageController implements Initializable{
         stg.show();
     }
 
+    /**
+     * Go to the join group page
+     */
     public void joinPushed() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("JoinGroup.fxml"));
         Parent root = loader.load();
@@ -81,6 +91,9 @@ public class GroupPageController implements Initializable{
         stg.show();
     }
 
+    /**
+     * Go to the leave group page
+     */
     public void leavePushed() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("LeaveGroupGUI.fxml"));
         Parent root = loader.load();
@@ -95,6 +108,9 @@ public class GroupPageController implements Initializable{
 
     }
 
+    /**
+     * Go to the view group page
+     */
     public void viewPushed() throws IOException {
         UserGroupManager umg = new UserGroupManager();
         if (umg.getMyGroups(um.getUserById(userId)).isEmpty()){
@@ -114,6 +130,9 @@ public class GroupPageController implements Initializable{
         }
     }
 
+    /**
+     * Leaves this page
+     */
     public void exitPushed() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("UserPageController.fxml"));
         Parent root = loader.load();

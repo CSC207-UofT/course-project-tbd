@@ -109,6 +109,9 @@ public class ViewNFinishTaskController implements Initializable {
     }
 
 
+    /**
+     * Go back to previous page
+     */
     public void backPushed() throws IOException {
         Stage stage = (Stage) finishTask.getScene().getWindow();
         stage.setScene(previousScene);
