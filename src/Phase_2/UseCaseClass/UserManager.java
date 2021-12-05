@@ -68,6 +68,10 @@ public class UserManager {
         return false;
     }
 
+    public boolean AdminLogin(String username, String password) {
+        return username.equals("admin") && password.equals("admin");
+    }
+
     /**
      * Returns the user when given its username or null if not found
      */
