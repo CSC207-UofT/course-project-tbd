@@ -1,5 +1,4 @@
 package Phase_1.GUI;
-import Phase_1.Entity.User;
 import Phase_1.UseCaseClass.GroupManager;
 import Phase_1.UseCaseClass.NotificationManager;
 import Phase_1.UseCaseClass.UserGroupManager;
@@ -15,8 +14,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
 public class GroupPageController implements Initializable{
@@ -32,6 +31,8 @@ public class GroupPageController implements Initializable{
     Button exitButton;
     @FXML
     Label remindLabel;
+    @FXML
+    TextArea tut;
     GroupManager gm;
     UserManager um;
     String userId;
@@ -129,5 +130,6 @@ public class GroupPageController implements Initializable{
     public void initialize(URL url, ResourceBundle resourceBundle) {
         remindLabel.setText("");
         ugm = new UserGroupManager();
+        tut.setEditable(false);
     }
 }

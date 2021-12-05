@@ -109,8 +109,7 @@ public class GroupAddTaskController {
             } catch (DateTimeException e3) {     // when the date user entered is an invalid date
                 added.setText("You have entered an invalid date");
             } catch (Exception e) {
-//                added.setText("Invalid input");
-                System.out.println(e);
+                added.setText("Invalid input");
             }
         }
         if (answer.equals("No")) {

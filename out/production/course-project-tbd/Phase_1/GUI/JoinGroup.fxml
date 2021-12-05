@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Phase_1.GUI.JoinGroupController">
+<AnchorPane prefHeight="279.0" prefWidth="540.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Phase_1.GUI.JoinGroupController">
    <children>
       <TextField fx:id="group_name" layoutX="46.0" layoutY="140.0" onAction="#group_name" prefHeight="25.0" prefWidth="310.0" promptText="Please enter the name of the group you want to join:" />
       <Button fx:id="join_group" layoutX="163.0" layoutY="238.0" mnemonicParsing="false" onAction="#join_group" text="Join Group" />

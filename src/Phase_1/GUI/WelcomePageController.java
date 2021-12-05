@@ -1,7 +1,7 @@
 package Phase_1.GUI;
 
-import Phase_1.Controllers_Gateways_Presenters.GroupDataGateWay;
-import Phase_1.Controllers_Gateways_Presenters.UserDataGateway;
+import Phase_1.Gateways.GroupDataGateWay;
+import Phase_1.Gateways.UserDataGateway;
 import Phase_1.Entity.Group;
 import Phase_1.Entity.User;
 import Phase_1.UseCaseClass.GroupManager;
