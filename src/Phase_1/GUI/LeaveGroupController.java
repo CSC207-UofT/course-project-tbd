@@ -1,21 +1,11 @@
 package Phase_1.GUI;
-import Phase_1.Controllers_Gateways_Presenters.LeaveGroupPresenter;
-import Phase_1.Entity.User;
 import Phase_1.UseCaseClass.GroupManager;
 import Phase_1.UseCaseClass.UserGroupManager;
 import Phase_1.UseCaseClass.UserManager;
 import javafx.fxml.FXML;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 
 public class LeaveGroupController implements Initializable{
@@ -48,7 +38,9 @@ public class LeaveGroupController implements Initializable{
 
 
     public void viewInfoPushed(){
-        remindLabel.setText(ugm.getGroupInfo(um.getUserById(userId)));
+        info.setText(ugm.getGroupInfo(um.getUserById(userId)));
+        info.setEditable(false);
+
 
     }
     public void leaveButtonPushed(){
@@ -75,6 +67,10 @@ public class LeaveGroupController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        info.setText(
+                "For hints: click \"view my info \" button \n" +
+                        "to see your joined groups");
+        info.setEditable(false);
 
         remindLabel.setText("");
         ugm = new UserGroupManager();
