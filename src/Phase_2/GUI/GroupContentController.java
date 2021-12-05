@@ -99,6 +99,7 @@ public class GroupContentController implements Initializable{
         gcc.setGm(gm);
         gcc.setUm(um);
         gcc.setUserId(userId);
+        gcc.setNm(nm);
         Scene scene = new Scene(root);
         guiMain.addScene(scene);
 
