@@ -90,7 +90,6 @@ public class GroupContentController implements Initializable{
 
     public void GroupChatPushed() throws IOException {
         GUImain guiMain = new GUImain();
-
         FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupChatPresenter.fxml"));
         Parent root = loader.load();
         GroupChatController gcc = loader.getController();
@@ -100,6 +99,7 @@ public class GroupContentController implements Initializable{
         gcc.setUm(um);
         gcc.setUserId(userId);
         gcc.setNm(nm);
+        gcc.display();
         Scene scene = new Scene(root);
         guiMain.addScene(scene);
 
