@@ -50,20 +50,18 @@ public class CategoryManager {
     public boolean checkCategoryByName(Category category, String categoryName) {
         return category.getCategoryName().equals(categoryName);
     }
+
     /**
      * This method checks whether the category is in the given group.
      * @param categoryName the string representation of the object category.
      * @param groupById the object group.
      * @return true if the category is in the group.
      */
-
-
     public Category getCategoryByGroup(String categoryName, Group groupById) {
         for (Category c: groupById.getCategories()){
             if (this.checkCategoryByName(c, categoryName)){
                 return c;
             }
-
         }
         return null;
     }
