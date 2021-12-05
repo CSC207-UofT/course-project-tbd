@@ -1,7 +1,7 @@
 package Phase_1.Controllers_Gateways_Presenters;
 
-import Phase_1.UseCaseClass.GroupManager;
-import Phase_1.UseCaseClass.UserManager;
+import Phase_2.UseCaseClass.GroupManager;
+import Phase_2.UseCaseClass.UserManager;
 
 /**
  * The presenter for printing information to the user about the announcement page.
