@@ -82,15 +82,19 @@ class is an entity class, and **TaskManager** class manipulates the attributes i
 is used by **TaskPageController** class.  This makes testing the classes easier. 
 
 ## Design Patterns
-In phase 1: We implemented Iterator Design Pattern in Category class, which stores Tasks of users’. In this way, we can
+We implemented Iterator Design Pattern in Category class, which stores Tasks of users’. In this way, we can
 encapsulate the code. And users don’t need to know how Task is stored in Category.
 
-Plan in Phase 2:
-1.We will create another type of User called AdminUser, which will be given more functionalities than NormalUser,
-We will use Factory method to create the instance of them. Then call it in controller
-2.We may implement Observer Design Pattern in GroupManager, in this way, when a group is created, it will notify
-UserGroupManager to add the group to user’s record. And whenever the user leave or delete group, UserGroupManager will
-also be notified to make the change in User's group record.
+We decided not to implement Observer Design Pattern in GroupManager,  because:
+After Phase 1, we changed the Group object stored in User to String, which is the group name. And the only place that 
+stores Group object is GroupManager.
+
+Therefore, the only thing that User class  should care about is whether or not the group name will be added to the 
+ArrayList when the user join the group or will group name removed from the ArrayList as the user left the group.
+
+Hence it is not necessary to make GroupManager Observable and add or change observer to different User so that the group
+name can be added or removed from the record of the User.  And UserGroupManager is still the better than Observer..
+
 
 ## Coding style and documentation
 
