@@ -1,6 +1,7 @@
 package Phase_1.GUI;
 
 import Phase_1.UseCaseClass.GroupManager;
+import Phase_1.UseCaseClass.NotificationManager;
 import Phase_1.UseCaseClass.TaskManager;
 import Phase_1.UseCaseClass.UserManager;
 import javafx.fxml.FXML;
@@ -15,6 +16,7 @@ import java.io.IOException;
 public class AdminAccessController {
     GroupManager gm;
     UserManager um;
+    NotificationManager nm;
 
     @FXML
     Button Back;
@@ -22,10 +24,11 @@ public class AdminAccessController {
     @FXML
     VBox Pane;
 
-    public void setAll(GroupManager gm, UserManager um){
+    public void setAll(GroupManager gm, UserManager um, NotificationManager nm){
         // Sets all the attributes
         this.um = um;
         this.gm = gm;
+        this.nm = nm;
     }
 
     public void goBack() throws IOException {
@@ -40,31 +43,30 @@ public class AdminAccessController {
         guiMain.addScene(scene);
     }
 
-    // TODO: I have not completed this method cuz there is no method to get access to all the users other
-    //  than directly accessing entity and idk how database works.
-//    public void loadUsers(){
+        public void loadUsers(){
 //        // Loads the users into the vertical box so that admin can click and go to them
-//
-//        for(){ // I dont think there is a method to get all the users in the form of their id. I dont wanna directly
-//            // Access user here hence I did not fill the for loop in.
-//            Button button = new Button();
-//            button.setText(username); // User name shud be here
-//            button.setOnAction(actionEvent -> {
-//                try {
-//                    FXMLLoader loader = new FXMLLoader(getClass().getResource("UserPageController.fxml"));
-//                    Parent root = loader.load();
-//                    UserPageController upc = loader.getController();
-//                    upc.setUm(um);
-//                    upc.setGm(gm);
-//                    upc.setUserName(username); // This is the string containing username
-//                    Scene scene = new Scene(root);
-//                    GUImain guiMain = new GUImain();
-//                    guiMain.addScene(scene);
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//            });
-//        }
-//
-//    }
+            Pane.getChildren().clear(); // Removes all the elements of the pane
+            for(String UserId : um.getAllNormalUserIds()){
+                // Creates and adds button for each group to the pane
+                Button button = new Button();
+                button.setText(UserId);
+                button.setOnAction(actionEvent -> {
+                    try {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("UserPageController.fxml"));
+                        Parent root = loader.load();
+                        UserPageController upc = loader.getController();
+                        upc.setUm(um);
+                        upc.setGm(gm);
+                        upc.setUserName(UserId); // This is the string containing username
+                        Scene scene = new Scene(root);
+                        GUImain guiMain = new GUImain();
+                        guiMain.addScene(scene);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                });
+                button.setPrefSize(371.0, 25.0);
+                Pane.getChildren().add(button);
+            }
+    }
 }
