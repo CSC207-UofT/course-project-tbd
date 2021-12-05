@@ -62,6 +62,7 @@ public class UserLoginController implements Initializable{
             Parent root = loader.load();
             AdminAccessController aac = loader.getController();
             aac.setAll(gm, um, notificationManager);
+            aac.loadUsers();
             Scene scene = new Scene(root);
             guiMain.addScene(scene);
         }
