@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 
 import java.io.IOException;
 
@@ -49,6 +50,9 @@ public class GroupTaskController {
     @FXML
     Button displayTask;
 
+    @FXML
+    Label checkLeader;
+
     CategoryManager cm = new CategoryManager();
 
     public void back() throws IOException {
@@ -60,21 +64,28 @@ public class GroupTaskController {
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
+
     }
     public void add() throws IOException  {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupAddTaskPresenter.fxml"));
-        Parent root = loader.load();
-        GroupAddTaskController gatc = loader.getController();
-        gatc.setGroupId(groupId);
-        gatc.setUserId(userId);
-        gatc.setCategoryName(categoryName);
-        gatc.setGm(gm);
-        gatc.setTm(tm);
-        gatc.setUm(um);
-        gatc.setNm(nm);
-        Scene scene = new Scene(root);
-        GUImain guiMain = new GUImain();
-        guiMain.addScene(scene);
+        if (gm.checkIfLeader(gm.getGroupById(groupId).getgroupName(), um.getUserById(userId))) {
+            checkLeader.setText("");
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupAddTaskPresenter.fxml"));
+            Parent root = loader.load();
+            GroupAddTaskController gatc = loader.getController();
+            gatc.setGroupId(groupId);
+            gatc.setUserId(userId);
+            gatc.setCategoryName(categoryName);
+            gatc.setGm(gm);
+            gatc.setTm(tm);
+            gatc.setUm(um);
+            gatc.setNm(nm);
+            Scene scene = new Scene(root);
+            GUImain guiMain = new GUImain();
+            guiMain.addScene(scene);
+        } else {
+            checkLeader.setText("Only leader of the group can assign a task to members");
+        }
+
     }
     public void display() throws IOException  {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupDisplayTaskPresenter.fxml"));
@@ -86,10 +97,10 @@ public class GroupTaskController {
         gdtc.setUm(um);
         gdtc.setTm(tm);
         gdtc.setNm(nm);
+        gdtc.owner.setText("");
         gdtc.setPreviousScene(backPushed.getScene());
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
     }
-
 }

@@ -78,6 +78,7 @@ public class GroupAddTaskController {
         gtc.setGm(gm);
         gtc.setTm(tm);
         gtc.setNm(nm);
+        gtc.checkLeader.setText("");
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);

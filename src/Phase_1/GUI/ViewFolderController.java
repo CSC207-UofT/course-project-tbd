@@ -68,6 +68,7 @@ public class ViewFolderController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupTaskPresenter.fxml"));
         Parent root = loader.load();
         GroupTaskController gtc  = loader.getController();
+        gtc.checkLeader.setText("");
         gtc.setGroupId(groupId);
         gtc.setUserId(userId);
         gtc.setCategoryName(categoryName);
@@ -75,6 +76,7 @@ public class ViewFolderController {
         gtc.setUm(um);
         gtc.setTm(tm);
         gtc.setNm(nm);
+        gtc.checkLeader.setText("");
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
