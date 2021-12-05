@@ -16,6 +16,9 @@ public class WarningWindowController{
 
     boolean yesButtonClicked;
 
+    /**
+     * Creates pop-up for alarm clock
+     */
     public void buttonClicked(MouseEvent mouseEvent){
         yesButtonClicked = mouseEvent.getSource().equals(yesButton);
         Stage stage = (Stage) yesButton.getScene().getWindow();

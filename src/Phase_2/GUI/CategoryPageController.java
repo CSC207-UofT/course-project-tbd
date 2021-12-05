@@ -33,7 +33,9 @@ public class CategoryPageController {
     Label WrongNewCategory;
 
 
-
+    /**
+     * Setter methods
+     */
     public void setUm(UserManager um) {
         this.um = um;
     }
@@ -46,12 +48,18 @@ public class CategoryPageController {
         this.previousScene = scene;
     }
 
+    /**
+     * Goes back to the previous page when button is pressed
+     */
     public void goBack() throws IOException {
         // Go back to previous page: UserPageController
         Stage stage = (Stage) BackButton.getScene().getWindow();
         stage.setScene(previousScene);
     }
 
+    /**
+     * Creates a new category when pressed, with the given name as the name of the category
+     */
     public void createCategoryButton(){
         if (NewCategoryName.getText().isEmpty()){
             WrongNewCategory.setText("Please Enter valid Category Name");
@@ -65,6 +73,9 @@ public class CategoryPageController {
         }
     }
 
+    /**
+     * Loads the category pane
+     */
     public void loadCategoryPane(){
         WrongNewCategory.setText("");
         CategoryPane.getChildren().clear(); // Removes all the elements of the pane
@@ -84,6 +95,9 @@ public class CategoryPageController {
         }
     }
 
+    /**
+     * Goes to the task page that was pressed
+     */
     public void goToTask(String CategoryId) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("TaskPage.fxml"));
         Parent root = loader.load();

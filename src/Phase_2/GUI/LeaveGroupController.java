@@ -22,6 +22,9 @@ public class LeaveGroupController implements Initializable{
     TextArea info;
     @FXML Button viewInfo;
 
+    /**
+     * Setter method
+     */
     public void setUserId(String userId) {
         this.userId = userId;
     }
@@ -36,13 +39,19 @@ public class LeaveGroupController implements Initializable{
 
 
 
-
+    /**
+     * Shows information of the status of the groups
+     */
     public void viewInfoPushed(){
         info.setText(ugm.getGroupInfo(um.getUserById(userId)));
         info.setEditable(false);
 
 
     }
+
+    /**
+     * Go back to the previous page
+     */
     public void leaveButtonPushed(){
         String groupName = userInput.getText();
 
@@ -64,6 +73,7 @@ public class LeaveGroupController implements Initializable{
                 remindLabel.setText("You are not in Group " + groupName);}
 
     }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

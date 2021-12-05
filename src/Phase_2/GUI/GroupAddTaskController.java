@@ -24,6 +24,9 @@ public class GroupAddTaskController {
     GroupManager gm;
     NotificationManager nm;
 
+    /**
+     * Setter methods
+     */
     public void setUserId(String userId) {
         this.userId = userId;
     }
@@ -67,6 +70,9 @@ public class GroupAddTaskController {
     @FXML
     Label added;
 
+    /**
+     * Goes back to the previous page when button is pressed
+     */
     public void backPushed() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupTaskPresenter.fxml"));
         Parent root = loader.load();
@@ -84,6 +90,9 @@ public class GroupAddTaskController {
         guiMain.addScene(scene);
     }
 
+    /**
+     * Add task to group with the given name, content, date and also created alarm clock if user requested it
+     */
     public void addTask() throws IOException {
         CategoryManager cm = new CategoryManager();
         String name = title.getText();
