@@ -69,7 +69,7 @@ public class UserManager {
     }
 
     public boolean AdminLogin(String username, String password) {
-        return Objects.equals("admin", username) && Objects.equals("admin", password);
+        return username.equals("admin") && password.equals("admin");
     }
 
     /**

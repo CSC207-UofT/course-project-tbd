@@ -1,5 +1,6 @@
 package Phase_1.GUI;
 
+import Phase_1.Entity.AdminUser;
 import Phase_1.Gateways.GroupDataGateWay;
 import Phase_1.Gateways.UserDataGateway;
 import Phase_1.Entity.Group;
@@ -82,6 +83,8 @@ public class WelcomePageController implements Initializable {
         groups = new HashMap<>();
         udg = new UserDataGateway("userData.ser");
         gdw = new GroupDataGateWay("groupData.ser");
+        AdminUser a = new AdminUser("admin", "admin");
+        users.add(a);
         try{users = udg.readFromFile();}
         catch (IOException | ClassNotFoundException ioException){
             System.out.println("No User stored in the file");

@@ -58,7 +58,7 @@ public class UserLoginController implements Initializable{
         }
         else if (um.AdminLogin(userId, passwordId)){
             SuccessLogin.setText("Success!");
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminAccessController.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminAccess.fxml"));
             Parent root = loader.load();
             AdminAccessController aac = loader.getController();
             aac.setAll(gm, um, notificationManager);
