@@ -79,12 +79,13 @@ public class GroupTaskController {
     public void display() throws IOException  {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupDisplayTaskPresenter.fxml"));
         loader.setControllerFactory((controller -> {
-            return new GroupDisplayTaskController(cm, gm, userId, groupId);
+            return new GroupDisplayTaskController(categoryName, cm, gm, userId, groupId);
         }));
         Parent root = loader.load();
         GroupDisplayTaskController gdtc = loader.getController();
         gdtc.setUm(um);
         gdtc.setTm(tm);
+        gdtc.setNm(nm);
         gdtc.setPreviousScene(backPushed.getScene());
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();

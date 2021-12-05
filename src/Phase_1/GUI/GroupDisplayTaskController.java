@@ -1,6 +1,7 @@
 package Phase_1.GUI;
 
 import Phase_1.Entity.Task;
+import Phase_1.Entity.TaskWithDueDate;
 import Phase_1.UseCaseClass.*;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -24,6 +25,7 @@ public class GroupDisplayTaskController implements Initializable {
     UserManager um;
     TaskManager tm;
     GroupManager gm;
+    NotificationManager nm;
 
     public void setUserId(String userId) {
         this.userId = userId;
@@ -43,6 +45,10 @@ public class GroupDisplayTaskController implements Initializable {
 
     public void setGm(GroupManager gm) {
         this.gm = gm;
+    }
+
+    public void setNm(NotificationManager nm) {
+        this.nm = nm;
     }
 
     public void setPreviousScene(Scene scene){
@@ -71,8 +77,9 @@ public class GroupDisplayTaskController implements Initializable {
 
     CategoryManager cm = new CategoryManager();
 
-    GroupDisplayTaskController(CategoryManager cm, GroupManager gm, String userId,
+    GroupDisplayTaskController(String categoryName, CategoryManager cm, GroupManager gm, String userId,
                                 String groupId) {
+        this.categoryName = categoryName;
         this.cm = cm;
         this.gm = gm;
         this.userId = userId;
@@ -86,6 +93,15 @@ public class GroupDisplayTaskController implements Initializable {
         if (tm.checkTask(cm.getCategoryByGroup(userId, gm.getGroupById(groupId)),
                 tm.getTaskByName(cm.getCategoryByGroup(userId, gm.getGroupById(groupId)), title))) {
             tm.completeTask(tm.getTaskByName(cm.getCategoryByGroup(userId, gm.getGroupById(groupId)), title));
+            if (tm.getTaskByName(cm.getCategoryByGroup(userId, gm.getGroupById(groupId)), title)
+                    instanceof TaskWithDueDate) {
+                nm.addTaskWithDueDate((TaskWithDueDate)
+                        tm.getTaskByName(cm.getCategoryByGroup(userId, gm.getGroupById(groupId)), title));
+                Status.setText("<" + tm.getTaskByName(cm.getCategoryByGroup(userId, gm.getGroupById(groupId)), title)
+                        .getTaskName() + "> finished, \n alarm turned off");
+            } else {
+                Status.setText("Task finished");
+            }
             Status.setText("Task has been finished");
         } else {
             Status.setText("Invalid Task");
@@ -102,7 +118,7 @@ public class GroupDisplayTaskController implements Initializable {
         ArrayList<String> taskNames = new ArrayList<>();
         HashMap<String, String> tasks = new HashMap<>();
 
-        for (Task t : cm.getCategoryByGroup(userId, gm.getGroupById(groupId)).getTasks()) {
+        for (Task t : cm.getCategoryByGroup(categoryName, gm.getGroupById(groupId)).getTasks()) {
             taskNames.add(t.getTaskName());
             tasks.put(t.getTaskName(), t.toString());
         }
