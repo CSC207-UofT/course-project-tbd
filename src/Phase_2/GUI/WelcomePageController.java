@@ -1,11 +1,12 @@
-package Phase_2.GUI;
+package Phase_1.GUI;
 
-import Phase_2.Gateways.GroupDataGateWay;
-import Phase_2.Gateways.UserDataGateway;
-import Phase_2.Entity.Group;
-import Phase_2.Entity.User;
-import Phase_2.UseCaseClass.GroupManager;
-import Phase_2.UseCaseClass.UserManager;
+import Phase_1.Entity.AdminUser;
+import Phase_1.Gateways.GroupDataGateWay;
+import Phase_1.Gateways.UserDataGateway;
+import Phase_1.Entity.Group;
+import Phase_1.Entity.User;
+import Phase_1.UseCaseClass.GroupManager;
+import Phase_1.UseCaseClass.UserManager;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import java.io.IOException;
@@ -82,6 +83,8 @@ public class WelcomePageController implements Initializable {
         groups = new HashMap<>();
         udg = new UserDataGateway("userData.ser");
         gdw = new GroupDataGateWay("groupData.ser");
+        AdminUser a = new AdminUser("admin", "admin");
+        users.add(a);
         try{users = udg.readFromFile();}
         catch (IOException | ClassNotFoundException ioException){
             System.out.println("No User stored in the file");

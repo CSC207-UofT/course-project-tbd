@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: black; -fx-border-color: grey;               -fx-border-width: 2;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Phase_2.GUI.AddTaskController">
+   <top>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="124.0" fitWidth="391.0" layoutX="3.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Img/addtask.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <AnchorPane prefHeight="500.0" prefWidth="346.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="48.0" style="-fx-text-fill: white;" text="Title: " textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="48.0" layoutY="36.0" style="-fx-text-fill: white;" text="Information: " textFill="#f2eded">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="title" layoutX="193.0" layoutY="2.0" promptText="Name of the task" style="-fx-background-color: white;" />
+            <TextField fx:id="information" layoutX="193.0" layoutY="38.0" promptText="Details of the Task" style="-fx-background-color: white;" />
+            <Button fx:id="addTask" layoutX="154.0" layoutY="287.0" mnemonicParsing="false" onAction="#addTask" text="Add Task" />
+            <Label layoutX="54.0" layoutY="167.0" style="-fx-text-fill: lightblue;" text="Due date format: Year/Month/Date/Hour/Minute" textFill="#2f99ba" />
+            <Label layoutX="40.0" layoutY="118.0" style="-fx-text-fill: white;" text="Do you want to add notification " />
+            <Label layoutX="62.0" layoutY="140.0" style="-fx-text-fill: white;" text="for you Task(Yes or No):" />
+            <TextField fx:id="yes0rNo" layoutX="253.0" layoutY="123.0" prefHeight="26.0" prefWidth="84.0" promptText="Yes or No" style="-fx-background-color: white;" />
+            <Label layoutX="75.0" layoutY="189.0" style="-fx-text-fill: lightblue;" text="Not applicable if above answer is no" textFill="#e6eaeb" />
+            <Label layoutX="39.0" layoutY="231.0" style="-fx-text-fill: white;" text="Enter Due Date:" textFill="#f8f3f3">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <TextField fx:id="date" layoutX="189.0" layoutY="231.0" prefHeight="26.0" prefWidth="173.0" promptText="year/mon/day/hour/min" style="-fx-background-color: white;" />
+            <Label fx:id="Success" layoutX="110.0" layoutY="272.0" style="-fx-text-fill: white;" />
+            <Hyperlink fx:id="goback" layoutX="238.0" layoutY="341.0" onAction="#backPushed" text="Go back to Task page" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

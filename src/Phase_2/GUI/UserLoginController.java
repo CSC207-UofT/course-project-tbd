@@ -56,6 +56,16 @@ public class UserLoginController implements Initializable{
         if (username.getText().isEmpty() && password.getText().isEmpty()) {
             WrongLogin.setText("Please enter your data.");
         }
+        else if (um.AdminLogin(userId, passwordId)){
+            SuccessLogin.setText("Success!");
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminAccess.fxml"));
+            Parent root = loader.load();
+            AdminAccessController aac = loader.getController();
+            aac.setAll(gm, um, notificationManager);
+            aac.loadUsers();
+            Scene scene = new Scene(root);
+            guiMain.addScene(scene);
+        }
         else if (um.login(userId, passwordId)){
             SuccessLogin.setText("Success!");
             FXMLLoader loader = new FXMLLoader(getClass().getResource("UserPageController.fxml"));
