@@ -121,6 +121,7 @@ public class GroupPageController implements Initializable{
         mpc.setUm(um);
         mpc.setGm(gm);
         mpc.setUserName(userId);
+        mpc.setNotificationManager(nm);
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
