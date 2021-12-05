@@ -28,6 +28,7 @@ public class ViewNFinishTaskController implements Initializable {
     TaskManager tm;
     UserManager um;
     Category category;
+    NotificationManager notificationManager;
 
     Scene previousScene;
 
@@ -58,6 +59,9 @@ public class ViewNFinishTaskController implements Initializable {
     public void setPreviousScene(Scene scene){
         this.previousScene = scene;
     }
+    public void setNotificationManager(NotificationManager notificationManager){
+        this.notificationManager = notificationManager;
+    }
 
     //    public ListView<String> getList() {
 //        List<String> newlist = new ArrayList<>();
@@ -75,29 +79,20 @@ public class ViewNFinishTaskController implements Initializable {
     }
 
 
-    public void finishtaskhelper(Category category) throws IOException {
-        GUImain guiMain = new GUImain();
-        String title = name.getText();
-        Task task = tm.getTaskByName(category, title);
-        Status.setText("");
-        if(tm.checkTask(category, task)){  // If task is present in user, mark it finished
-            tm.completeTask(task);
-            Status.setText("Task finished");
-        }
-        else{Status.setText("Task not Present");
-        }
-
-    }
-
     public void finishTask() throws IOException {
         String title = name.getText();
         Task task = tm.getTaskByName(category, title);
         Status.setText("");
-        if(tm.checkTask(category, task)){  // If task is present in user, mark it finished
+        if (tm.checkTask(category, task)) {  // If task is present in user, mark it finished
             tm.completeTask(task);
-            Status.setText("Task finished");
-        }
-        else{Status.setText("Task not Present");
+            if (task instanceof TaskWithDueDate) {
+                notificationManager.addTaskWithDueDate((TaskWithDueDate) task);
+                Status.setText("<" + task.getTaskName() + "> finished, \n alarm turned off");
+            } else {
+                Status.setText("Task finished");
+            }
+        } else {
+            Status.setText("Task not Present");
         }
 
     }

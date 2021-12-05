@@ -1,4 +1,4 @@
-package Phase_1.Controllers_Gateways_Presenters;
+package Phase_1.Gateways;
 
 import Phase_1.Entity.User;
 
