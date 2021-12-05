@@ -2,7 +2,6 @@ package Phase_2.GUI;
 
 import Phase_2.Entity.Category;
 import Phase_2.Entity.Task;
-import Phase_2.UseCaseClass.CategoryManager;
 import Phase_2.UseCaseClass.NotificationManager;
 import Phase_2.UseCaseClass.TaskManager;
 import Phase_2.UseCaseClass.UserManager;
@@ -17,9 +16,7 @@ import java.io.IOException;
 
 public class TaskPageController {
     Category c;
-    TaskManager itm;
     NotificationManager nm;
-    CategoryManager cm;
     Task t;
     TaskManager tm;
     UserManager um;
@@ -35,20 +32,55 @@ public class TaskPageController {
     @FXML
     Hyperlink back;
 
-
+    /**
+     * This is a setter method for the task manager.
+     * @param tm: Task Manager
+     */
     public void setTm(TaskManager tm) {this.tm = tm;}
+
+    /**
+     * This is a setter method for the user manager.
+     * @param um: User Manager
+     */
     public void setUm(UserManager um) {this.um = um;}
-    public void setCm(CategoryManager um) {this.cm = um;}
+
+    /**
+     * This is a setter method for Notification manager.
+     * @param nm: Notification manager.
+     */
     public void setNm(NotificationManager nm) {this.nm = nm;}
+
+    /**
+     * This is a setter method for string userid of the user
+     * @param userId: The string representation of the user ID
+     */
     public void setUserId(String userId){this.userId = userId;}
+
+    /**
+     * This is a setter method for Category.
+     * @param c: Category
+     */
     public void setC(Category c){this.c = c;}
+
+    /**
+     * This is a setter method for Task.
+     * @param t: Task
+     */
     public void setT(Task t) {
         this.t = t;
     }
+
+    /**
+     * This is a setter method for Scene
+     * @param scene: Scene
+     */
     public void setPreviousScene(Scene scene){
         this.previousScene = scene;
     }
 
+    /**
+     * This method takes the user to add task page.
+     */
     public void addTask() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("AddTask.fxml"));
         Parent root = loader.load();
@@ -63,34 +95,32 @@ public class TaskPageController {
         guiMain.addScene(scene);
     }
 
-
+    /**
+     * This method takes the user to Finish task page.
+     */
     public void finishtask() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("viewNFinishTask.fxml"));
         // set controller using constructor so that category can be accessed in the initialize method
-        loader.setControllerFactory((controller -> {
-            return new ViewNFinishTaskController(c);
-        }));
+        loader.setControllerFactory((controller -> new ViewNFinishTaskController(c)));
 
         Parent root = loader.load();
         ViewNFinishTaskController apc1 = loader.getController();
         apc1.setTm(tm);
         apc1.setUm(um);
         apc1.setPreviousScene(viewTaskButton.getScene());
-        apc1.setNotificationManager(nm);
-//        apc1.setCategory(c);
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
     }
 
-
+    /**
+     * This method takes the user to view task page.
+     */
     public void viewTask() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("viewNFinishTask.fxml"));
 
         // set controller using constructor so that category can be accessed in the initialize method
-        loader.setControllerFactory((controller -> {
-            return new ViewNFinishTaskController(c);
-        }));
+        loader.setControllerFactory((controller -> new ViewNFinishTaskController(c)));
 
         Parent root = loader.load();
         ViewNFinishTaskController apc1 = loader.getController();
@@ -98,12 +128,14 @@ public class TaskPageController {
         apc1.setUm(um);
         apc1.setPreviousScene(viewTaskButton.getScene());
         apc1.setNotificationManager(nm);
-//        apc1.setCategory(c);
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
     }
 
+    /**
+     * Goes back to the previous page when the back button is pressed on our gui.
+     */
     public void backPushed() throws IOException {
         Stage stage = (Stage) back.getScene().getWindow();
         stage.setScene(previousScene);

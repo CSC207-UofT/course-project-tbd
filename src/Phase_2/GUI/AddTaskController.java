@@ -7,13 +7,10 @@ import Phase_2.UseCaseClass.NotificationManager;
 import Phase_2.UseCaseClass.TaskManager;
 import Phase_2.UseCaseClass.UserManager;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -26,7 +23,6 @@ public class AddTaskController implements Initializable {
     UserManager um;
     Category c;
     NotificationManager nm;
-
     Scene previousScene;
 
     @FXML
@@ -45,23 +41,48 @@ public class AddTaskController implements Initializable {
     @FXML
     Hyperlink goback;
 
+    /**
+     * This is a setter method for the task manager.
+     * @param tm: Task Manager
+     */
     public void setTm(TaskManager tm) {this.tm = tm;}
-    public void setUm(UserManager um) {
-        this.um = um;
-    }
-    public void setT(Task t) {
-        this.t = t;
-    }
+
+    /**
+     * This is a setter method for the user manager.
+     * @param um: User Manager
+     */
+    public void setUm(UserManager um) {this.um = um;}
+
+    /**
+     * This is a setter method for Task.
+     * @param t: Task
+     */
+    public void setT(Task t) {this.t = t;}
+
+    /**
+     * This is a setter method for Category.
+     * @param c: Category
+     */
     public void setC(Category c){this.c = c;}
-    public void setNm(NotificationManager nm){
-        this.nm = nm;
-    }
-    public void setPreviousScene(Scene scene){
-        this.previousScene = scene;
-    }
+
+    /**
+     * This is a setter method for Notification manager.
+     * @param nm: Notification manager.
+     */
+    public void setNm(NotificationManager nm){this.nm = nm;}
+
+    /**
+     * This is a setter method for Scene
+     * @param scene: Scene
+     */
+    public void setPreviousScene(Scene scene){this.previousScene = scene;}
+
+    /**
+     * This method used to add task in the category when the button is pressed.
+     * We can create with due date or without due date.
+     */
 
     public void addTask() throws IOException {
-        GUImain guiMain = new GUImain();
         String name = title.getText();
         Success.setText("");
         String info = information.getText();
@@ -110,6 +131,9 @@ public class AddTaskController implements Initializable {
         }
     }
 
+    /**
+     * Goes back to the previous page when the back button is pressed on our gui.
+     */
     public void backPushed() throws IOException {
         Stage stage = (Stage) addTask.getScene().getWindow();
         stage.setScene(previousScene);

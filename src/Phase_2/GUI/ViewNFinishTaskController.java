@@ -10,14 +10,10 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -49,35 +45,51 @@ public class ViewNFinishTaskController implements Initializable {
     @FXML
     Button finishTask;
 
-
+    /**
+     * This is a setter method for the task manager.
+     * @param tm: Task Manager
+     */
     public void setTm(TaskManager tm) {this.tm = tm;}
+
+    /**
+     * This is a setter method for the user manager.
+     * @param um: User Manager
+     */
     public void setUm(UserManager um) {this.um = um;}
+
+    /**
+     * This is a setter method for Category.
+     * @param category: Category
+     */
     public void setCategory(Category category){
         this.category = category;
     }
+
+    /**
+     * This is a setter method for Scene
+     * @param scene: Scene
+     */
     public void setPreviousScene(Scene scene){
         this.previousScene = scene;
     }
+
+    /**
+     * This is a setter method for Notification manager.
+     * @param notificationManager: Notification manager.
+     */
     public void setNotificationManager(NotificationManager notificationManager){
         this.notificationManager = notificationManager;
     }
 
-    //    public ListView<String> getList() {
-//        List<String> newlist = new ArrayList<>();
-//        for(Task t: tm.displayTask()){
-//            newlist.add(t.toString());
-//        }
-//        ArrayAdapter<String> itemsAdapter =
-//                new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
-//        return newlist;
-//
-//    }
 
     ViewNFinishTaskController(Category category){
         this.category = category;
     }
 
-
+    /**
+     *This method finishes the task which is provided by the user. The user provides the string
+     * representation of the task.
+     */
     public void finishTask() throws IOException {
         String title = name.getText();
         Task task = tm.getTaskByName(category, title);
@@ -115,14 +127,7 @@ public class ViewNFinishTaskController implements Initializable {
         }
 
 
-            /*// for testing
-            taskNames.add("1");
-            taskNames.add("2");
-            taskNames.add("3");
-            taskDetail.put("1", "hello");
-            taskDetail.put("2", "world");
-            taskDetail.put("3", "I'm coming");
-            //*/
+
 
         taskListView.getItems().addAll(taskNames);
 
