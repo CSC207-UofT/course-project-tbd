@@ -1,7 +1,7 @@
 package Phase_1.Controllers_Gateways_Presenters;
 
-import Phase_1.Entity.Category;
-import Phase_1.UseCaseClass.GroupManager;
+import Phase_2.Entity.Category;
+import Phase_2.UseCaseClass.GroupManager;
 
 public class ViewFoldersPresenter {
     private final String groupId;

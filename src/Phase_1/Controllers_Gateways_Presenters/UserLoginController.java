@@ -1,8 +1,8 @@
 package Phase_1.Controllers_Gateways_Presenters;
 
-import Phase_1.Entity.NormalUser;
-import Phase_1.UseCaseClass.GroupManager;
-import Phase_1.UseCaseClass.UserManager;
+import Phase_2.Entity.NormalUser;
+import Phase_2.UseCaseClass.GroupManager;
+import Phase_2.UseCaseClass.UserManager;
 
 import java.io.BufferedReader;
 

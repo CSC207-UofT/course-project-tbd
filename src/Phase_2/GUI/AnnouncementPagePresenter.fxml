@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Phase_2.GUI.AnnouncementPageController">
+   <children>
+      <Label alignment="CENTER" layoutX="61.0" layoutY="45.0" prefHeight="46.0" prefWidth="278.0" text="Announcements!">
+         <font>
+            <Font size="37.0" />
+         </font>
+      </Label>
+      <VBox id="leaderControls" fx:id="leaderControls" alignment="TOP_CENTER" layoutX="63.0" layoutY="506.0" prefHeight="64.0" prefWidth="278.0" spacing="5.0" visible="false">
+         <children>
+            <TextField id="announcementInput" fx:id="announcementInput" />
+            <Button fx:id="SendAnnouncement" mnemonicParsing="false" onAction="#addAnnouncement" text="Send announcement" />
+         </children>
+      </VBox>
+      <Button fx:id="Back" layoutX="346.0" layoutY="573.0" mnemonicParsing="false" onAction="#goBack" text="Back" />
+      <ScrollPane layoutX="68.0" layoutY="100.0" prefHeight="336.0" prefWidth="278.0">
+         <content>
+            <VBox fx:id="GroupsPane" prefHeight="336.0" prefWidth="281.0" />
+         </content>
+      </ScrollPane>
+   </children>
+</Pane>
