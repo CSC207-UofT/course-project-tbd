@@ -1,16 +1,12 @@
 package Phase_2.GUI;
 
 import Phase_2.UseCaseClass.NotificationManager;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.text.Text;
 
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -21,7 +17,6 @@ import javafx.fxml.FXMLLoader;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.ResourceBundle;
 
 public class NotificationPageController implements Initializable{
@@ -96,14 +91,11 @@ public class NotificationPageController implements Initializable{
         notificationListView.getItems().addAll(currentNotification);
 
         // if user clicks on an item in list view, update the TextArea field to display the notification detail
-        notificationListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
-                ObservableList<String> current = notificationListView.getSelectionModel().getSelectedItems();
-                String currentString = current.toString().substring(1, current.toString().length() - 1);
+        notificationListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
+            ObservableList<String> current = notificationListView.getSelectionModel().getSelectedItems();
+            String currentString = current.toString().substring(1, current.toString().length() - 1);
 
-                notificationDetail.setText(notificationManager.getMailDetail().get(currentString));
-            }
+            notificationDetail.setText(notificationManager.getMailDetail().get(currentString));
         });
 
 

@@ -7,13 +7,10 @@ import Phase_2.UseCaseClass.NotificationManager;
 import Phase_2.UseCaseClass.TaskManager;
 import Phase_2.UseCaseClass.UserManager;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 import java.time.DateTimeException;
 import java.util.*;
 
@@ -29,7 +26,7 @@ public class AddTaskController{
     TaskManager tm;
 
     /**
-     * Responsible for managing, changing and accessing usering inforamtion
+     * Responsible for managing, changing and accessing user information
      */
     UserManager um;
 
@@ -88,7 +85,7 @@ public class AddTaskController{
      * click to go back to the previous page
      */
     @FXML
-    Hyperlink goback;
+    Hyperlink goBack;
 
     /**
      * This is a setter method for the task manager.
