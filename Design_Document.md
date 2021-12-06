@@ -32,6 +32,12 @@ regarding a group such as the group leader, the members and other features of ou
 does not do any other task that is not directly related to a group. Similarly, our use-case class - **GroupManager**
 is responsible for only manipulating things related to a group. All the methods in **GroupManager** does
 something that is related to the group such as creating group, joining group and so on.
+
+For our phase 2, we have added a new entity called admin and controllers/presenters for GUI. We still have not violated 
+the single responsibility principle. Like our previous controllers (Which are no longer in use) we could easily change 
+from the user interface in the terminal to that of scenebuilder without changing any of our use cases or entities. 
+Hence, our code still follows the SRP.
+
 ### O - Open-closed Principle
 The open-closed principle states that a class must be open for extension but closed for modification. This means
 that our classes must be able to be extended without changing/modifying how it currently looks like. If you look at how
@@ -42,13 +48,24 @@ UserManager. This means that in the future if we wish to add more User types lik
 extend our abstract class User and just create our new class. We would not need to edit all of our pre-existing code to
 manipulate our new user.
 
+[img.png](src/DesignDoc-images/img.png)
+
+For our phase 2, we still follow the open closed principle. So for phase 2, we added a new admin user class which is
+extends our abstract class User. So we were able to extend the functionality of our code without change any of our old 
+code (Such as the NormalUser class or our abstract User class). This indicates that we were able to extend code without
+modifying any of our old works.
+
 ### L - Liskov Substitution Principle
 The Liskov's substitution principle states that if a class is a subclass of another class, then the program obtained by
 replacing all occurrences of the parent class with the child class should still work.
 Our User class is an abstract class and NormalUser extends this class. Similar to the previous example for the
 Open Closed principle, we can see that throughout most of our program we have called the abstract class User rather than
 NormalUser. Hence, by replacing the User with NormalUser will still run our code. This is because our User class follows
-the open closed principle which enables our class to be interchanged without any issues.
+the open closed principle which enables our class to be interchanged without any issues. 
+
+Similar to the open closed principle, we were able to add a new adminUser class. Wherever user is kept, an admin user 
+can replace it as well. In the future if we plan on giving the admin user the ability to add tasks for themselves, 
+the flexibility of our code will help us do that.
 
 ### I - Interface Segregation Principle
 The interface segregation principle states that the client of our software must not be forced to implement
@@ -63,9 +80,14 @@ The dependency inversion principle states that the high level code (Such as the 
 depend on the lower level code (Such as our Use-case classes) rather if it is required, they must depend on an
 interface or an abstraction. Currently, in our program, our entity classes do not depend on the use
 case classes at all. None of our entity classes are importing our use cases or even the controllers
-(In which case clean architecture would be) violated. The one issue we have with this principle is that right now our
-controllers and presenters are directly working with the System.out and System.in. We will be changing this once we
-finish up our GUI, and we will either Inject the Input/Output through an interface or do some other change to it.
+(In which case clean architecture would be) violated. Previously we had an issue with the System.in and System.out
+but this has been resolved. As we moved to scenebuilder, all of our inputs and outputs are communicating to the rest of
+our program through the new GUI controllers and presenters we have made.
+
+For phase 2, we have added a bunch of new controllers and presenters as part of our GUI. Due to us following the DIP
+for phase 1, we were easily able to move from an interface in the terminal to that of scenebuilder with ease without 
+affecting our use cases or entities. Flow of control still follows the DIP and our high level code does not skip layers
+and if communicating with our lower level code in one layer above, it uses dependency injection design.
 
 ## Code organisation
 We used packages to organise our codes by layer. Doing so makes the code easily understandable to everyone working with
