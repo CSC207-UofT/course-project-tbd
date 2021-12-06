@@ -115,7 +115,11 @@ Therefore, the only thing that User class  should care about is whether or not t
 ArrayList when the user join the group or will group name removed from the ArrayList as the user left the group.
 
 Hence it is not necessary to make GroupManager Observable and add or change observer to different User so that the group
-name can be added or removed from the record of the User.  And UserGroupManager is still the better than Observer..
+name can be added or removed from the record of the User.  And UserGroupManager is still the better than Observer.
+
+We have also utilized dependency injection in our code to further adhere with the clean architecture. So instead of 
+directly initializing usecases inside our controller. We pass it in as an argument allowing us to make changes to the
+controllers without it actually affecting our use cases.
 
 
 ## Coding style and documentation
