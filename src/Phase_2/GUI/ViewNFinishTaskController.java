@@ -140,11 +140,34 @@ public class ViewNFinishTaskController implements Initializable {
                 Status.setText("<" + task.getTaskName() + "> finished, \n alarm turned off");
             } else {
                 Status.setText("Task finished");
+                refresh();
             }
         } else {
             Status.setText("Task not Present");
         }
 
+    }
+
+    /**
+     *This method finishes the refreshes task bar once a task is completed
+     */
+    public void refresh(){
+        ArrayList<String> taskNames = new ArrayList<>();
+        HashMap<String, String> taskDetail = new HashMap<>();
+
+        for (Task t : category.getTasks()) {
+            taskNames.add(t.getTaskName());
+            taskDetail.put(t.getTaskName(), t.toString());
+        }
+        taskListView.getItems().clear();
+        taskListView.getItems().addAll(taskNames);
+
+        taskListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
+            ObservableList<String> current = taskListView.getSelectionModel().getSelectedItems();
+            String currentString = current.toString().substring(1, current.toString().length() - 1);
+
+            taskDetailField.setText(taskDetail.get(currentString));
+        });
     }
 
     /**
