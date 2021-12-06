@@ -120,6 +120,7 @@ name can be added or removed from the record of the User.  And UserGroupManager 
 We have also utilized dependency injection in our code to further adhere with the clean architecture. So instead of 
 directly initializing usecases inside our controller. We pass it in as an argument allowing us to make changes to the
 controllers without it actually affecting our use cases.
+![img.png](src/DesignDoc-images/DIP.png)
 
 
 ## Coding style and documentation
