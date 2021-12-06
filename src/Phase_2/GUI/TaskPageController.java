@@ -24,9 +24,9 @@ public class TaskPageController {
     Scene previousScene;
 
     @FXML
-    Button addtask;
+    Button addTask;
     @FXML
-    Button finishtask;
+    Button finishTask;
     @FXML
     Button viewTaskButton;
     @FXML
@@ -89,7 +89,7 @@ public class TaskPageController {
         apc1.setUm(um);
         apc1.setC(c);
         apc1.setNm(nm);
-        apc1.setPreviousScene(addtask.getScene());
+        apc1.setPreviousScene(addTask.getScene());
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
@@ -98,7 +98,7 @@ public class TaskPageController {
     /**
      * This method takes the user to Finish task page.
      */
-    public void finishtask() throws IOException {
+    public void finishTask() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("viewNFinishTask.fxml"));
         // set controller using constructor so that category can be accessed in the initialize method
         loader.setControllerFactory((controller -> new ViewNFinishTaskController(c)));

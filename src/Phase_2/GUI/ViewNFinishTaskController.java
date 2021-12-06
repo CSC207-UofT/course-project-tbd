@@ -6,8 +6,7 @@ import Phase_2.Entity.TaskWithDueDate;
 import Phase_2.UseCaseClass.NotificationManager;
 import Phase_2.UseCaseClass.TaskManager;
 import Phase_2.UseCaseClass.UserManager;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
+
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -26,7 +25,7 @@ public class ViewNFinishTaskController implements Initializable {
     TaskManager tm;
 
     /**
-     * Responsible for managing, changing and accessing usering inforamtion
+     * Responsible for managing, changing and accessing user information
      */
     UserManager um;
 
@@ -130,7 +129,7 @@ public class ViewNFinishTaskController implements Initializable {
      *This method finishes the task which is provided by the user. The user provides the string
      * representation of the task.
      */
-    public void finishTask() throws IOException {
+    public void finishTask(){
         String title = name.getText();
         Task task = tm.getTaskByName(category, title);
         Status.setText("");
@@ -174,14 +173,11 @@ public class ViewNFinishTaskController implements Initializable {
 
         taskListView.getItems().addAll(taskNames);
 
-        taskListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
-                ObservableList<String> current = taskListView.getSelectionModel().getSelectedItems();
-                String currentString = current.toString().substring(1, current.toString().length() - 1);
+        taskListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
+            ObservableList<String> current = taskListView.getSelectionModel().getSelectedItems();
+            String currentString = current.toString().substring(1, current.toString().length() - 1);
 
-                taskDetailField.setText(taskDetail.get(currentString));
-            }
+            taskDetailField.setText(taskDetail.get(currentString));
         });
     }
 }
