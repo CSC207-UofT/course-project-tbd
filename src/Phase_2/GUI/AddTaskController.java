@@ -17,27 +17,76 @@ import java.util.ResourceBundle;
 import java.time.DateTimeException;
 import java.util.*;
 
-public class AddTaskController implements Initializable {
+public class AddTaskController{
+    /**
+     * A task object that user wants to add
+     */
     Task t;
+
+    /**
+     * Use case for all operations we are performing on Tasks (e.g. add task, delete task)
+     */
     TaskManager tm;
+
+    /**
+     * Responsible for managing, changing and accessing usering inforamtion
+     */
     UserManager um;
+
+    /**
+     * Category is responsible for storing all the tasks
+     */
     Category c;
+
+    /**
+     * Used to start alarm for task with a due date, and send notification to user mailbox
+     */
     NotificationManager nm;
+
+    /**
+     * This remembers the previous scene before ViewNFinishTask Page FXML, which should be the task page
+     */
     Scene previousScene;
 
+    /**
+     * The text area where user inputs name of task
+     */
     @FXML
     TextField title;
+
+    /**
+     * The text field where user inputs the task detail
+     */
     @FXML
     TextField information;
+
+    /**
+     * the text field for inputting date info
+     */
     @FXML
     TextField date;
+
+    /**
+     * button to add task
+     */
     @FXML
     Button addTask;
+
+    /**
+     * A label to indicate whether task is being created or not
+     */
     @FXML
     Label Success;
+
+    /**
+     * text field to indicate whether user want it to be a task with due date
+     */
     @FXML
     TextField yes0rNo ;
 
+    /**
+     * click to go back to the previous page
+     */
     @FXML
     Hyperlink goback;
 
@@ -81,7 +130,6 @@ public class AddTaskController implements Initializable {
      * This method used to add task in the category when the button is pressed.
      * We can create with due date or without due date.
      */
-
     public void addTask() throws IOException {
         String name = title.getText();
         Success.setText("");
@@ -137,12 +185,5 @@ public class AddTaskController implements Initializable {
     public void backPushed() throws IOException {
         Stage stage = (Stage) addTask.getScene().getWindow();
         stage.setScene(previousScene);
-    }
-
-
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
     }
 }
