@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Phase_2.GUI.GroupControls.GroupContentController">
+<AnchorPane prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Phase_2.GUI.GroupContentController">
    <children>
       <Button fx:id="HomePage" layoutX="235.0" layoutY="137.0" mnemonicParsing="false" onAction="#HomePagePushed" prefHeight="46.0" prefWidth="135.0" text="Home Page" />
       <Button fx:id="GroupTaskPage" layoutX="235.0" layoutY="208.0" mnemonicParsing="false" onAction="#GroupTaskPushed" prefHeight="46.0" prefWidth="135.0" text="Group Task Page" />
