@@ -35,6 +35,28 @@ Owen: - Writer of the Code Style and Documentation explanation
       Help finish the GUI for some of the controllers
       Fix bugs
 
+      Phase 2:
+      - Was responsible for implementing part of the GUI for our program
+        - Notification Page
+        - Warning pop up window
+        - Add, view, and finish task controller
+        - connected task and notification page to make sure everything is in sync and works as intended
+      - took a lot of time to fix bugs in GUI such as how to make data preserved going from stages to stages, and
+        scene to scenes. NullPointerException was the most common bug to fix and the most annoying
+      - added test for Alarms system and notification page
+
+      Github Pull request:
+      - Implemented the Alarm and notification system, first time working with threads and Time and timer packages
+        in java, did a lot of research and spent a lot of time, but it worked at last and it was worth it. The alarm
+        system became one of the signature feature in our program.
+        - https://github.com/CSC207-UofT/course-project-tbd/pull/30
+
+      - Helped implementing add, view, and finish task controller to work with the alarm and notification system. It was
+        during this pull request I got a deep and clear understanding of how javafx works and utilized debugging
+        features to figure out how to keep data preserved throughout different scenes. This is important because it
+        completes one of the essential features in our productivity app.
+        - https://github.com/CSC207-UofT/course-project-tbd/pull/131
+
 Sana: - Writer of the Use of GitHub features explanation.
       - Co-implemented IndividualTaskManager, Task and implemented CategoryPagePresenter, CategoryPageController.
       - Implemented GUI Demo and the related fxml files for the implementation of the GUI
