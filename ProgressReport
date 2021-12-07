@@ -18,6 +18,32 @@ Kevin: - Writer of SOLID principles explanation .
        Help finish the GUI of all the group related controllers
        Fix bugs
 
+       Phase 2:
+       - Was responsible for working on GUI for task management
+            - Created several controllers and presenters for the GUI such as the AnnouncementPage, ViewGroups and
+            other controllers related to group.
+            - Fixed up old bugs and code smells.
+
+
+       - Developed and worked on Admin system with Aryan
+            - Implemented the AdminAccess controller.
+            - Fixed bugs that arose when trying to access other accounts and a bug that prevented buttons from loading.
+
+       - Improved the design document by adding new stuff for SOLID and design patterns.
+
+       Github Pull requests -
+       - Worked on the announcement page controller and ViewGroupController. Learnt a lot about SceneBuilder and
+       creating GUI. Learnt how JavaFX and xml works. Also learnt about dynamically creating elements during runtime
+       instead of statically programming buttons etc.
+            - https://github.com/CSC207-UofT/course-project-tbd/pull/101
+
+       - Merged the main branch with ours to keep everything up to date and resolved conflicts when they arose. Worked
+       and implemented the admin feature to our account which allows access to all other user accounts in our system.
+       Enabled us to test and work on issues easily.
+       (Note that admin access was worked directly on main hence the merge)
+            - https://github.com/CSC207-UofT/course-project-tbd/pull/123/commits
+
+
 Peter: - Refactored some classes, i.e. merged CreateGroupController, JoinGroupController, and LeaveGroupController.
        - Made changes to User class and UserGroupManager class.
        - Added docstrings to all the presenter classes.
