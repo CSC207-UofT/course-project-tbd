@@ -17,6 +17,14 @@ public class NormalUser extends User implements Serializable {
     private final ArrayList<Category> myCategories = new ArrayList<>();
     private final ArrayList<Task> myTasks = new ArrayList<>();
 
+    /**
+     * Constructs a simplified version of task with only a task name, this constructor is for testing purposes
+     * only, and should not be called inside the main program
+     *
+     * @param username the name of the user
+     * @param password the password of the user
+     */
+
     public NormalUser(String username, String password, String sq, String sq_ans) {
         this.username = username;
         this.password = password;
@@ -26,6 +34,14 @@ public class NormalUser extends User implements Serializable {
         this.addNewCategory(all);
 
     }
+
+    /**
+     * Constructs a simplified version of task with only a task name, this constructor is for testing purposes
+     * only, and should not be called inside the main program
+     *
+     * @param username the name of the user
+     * @param password the password of the user
+     */
 
     public NormalUser(String username, String password) {
         this.username = username;
@@ -129,6 +145,11 @@ public class NormalUser extends User implements Serializable {
     public ArrayList<Category> getMyCategories() {
         return myCategories;
     }
+    /**
+     *
+     * @param nu the other user
+     * @return true if two user is the same
+     */
 
     @Override
     public boolean equals(User nu){

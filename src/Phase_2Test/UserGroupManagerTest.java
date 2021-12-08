@@ -65,7 +65,7 @@ public class UserGroupManagerTest {
     @Test
     public void Test_getGroupIds() {
         UG_manager.addGroup(user, group.getgroupName());
-        ArrayList<String> arlist = new ArrayList<String>();
+        ArrayList<String> arlist = new ArrayList<>();
         arlist.add("Disaster");
         assertEquals(arlist, UG_manager.getGroupIds(user));
     }
@@ -73,7 +73,7 @@ public class UserGroupManagerTest {
     @Test
     public void Test_getMyGroups() {
         UG_manager.addGroup(user, group.getgroupName());
-        ArrayList<String> arlist = new ArrayList<String>();
+        ArrayList<String> arlist = new ArrayList<>();
         arlist.add("Disaster");
         assertEquals(arlist, UG_manager.getMyGroups(user));
     }

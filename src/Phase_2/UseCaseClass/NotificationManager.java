@@ -6,8 +6,7 @@ import java.util.*;
 import Phase_2.Entity.Alarm;
 import Phase_2.Entity.TaskWithDueDate;
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -120,57 +119,40 @@ public class NotificationManager implements Runnable {
             mailDetail.put(task.getTaskName(), note);
             //==================
 
-            /*final JFrame alert = new JFrame();      // Frame
-            JButton button = new JButton();         // button
+            new Thread(() -> Platform.runLater(() -> {
 
-            button.setText(note);           // button text
-            alert.add(button);
-            alert.pack();
-            alert.setSize(500,500);     // size: 500 x 500
-            alert.setVisible(true);
+                Label secondLabel = new Label(note);
+                secondLabel.setLayoutX(90);
+                secondLabel.setLayoutY(50);
+                Button button = new Button();
+                button.setText("OK");
+                button.setLayoutX(125);
+                button.setLayoutY(150);
 
-            button.addActionListener(evt -> alert.dispose());   // close window when button is pressed*/
-
-            new Thread(() -> {
-                Platform.runLater(() -> {
-
-                    Label secondLabel = new Label(note);
-                    secondLabel.setLayoutX(90);
-                    secondLabel.setLayoutY(50);
-                    Button button = new Button();
-                    button.setText("OK");
-                    button.setLayoutX(125);
-                    button.setLayoutY(150);
-
-                    button.setOnAction(new EventHandler<ActionEvent>() {
-
-                        @Override
-                        public void handle(ActionEvent event) {
-                            Stage stage = (Stage) button.getScene().getWindow();
-                            stage.close();
-                        }
-                    });
-
-                    Group root = new Group();
-                    root.getChildren().add(secondLabel);
-                    root.getChildren().add(button);
-
-                    Scene secondScene = new Scene(root, 275, 200);
-
-                    Stage newWindow = new Stage();
-                    newWindow.setResizable(false);
-                    newWindow.setTitle("ALERT!!!");
-                    newWindow.setScene(secondScene);
-
-                    newWindow.setX(250);
-                    newWindow.setY(150);
-
-
-                    newWindow.initModality(Modality.APPLICATION_MODAL);
-                    newWindow.showAndWait();
-
+                button.setOnAction(event -> {
+                    Stage stage = (Stage) button.getScene().getWindow();
+                    stage.close();
                 });
-            }).start();
+
+                Group root = new Group();
+                root.getChildren().add(secondLabel);
+                root.getChildren().add(button);
+
+                Scene secondScene = new Scene(root, 275, 200);
+
+                Stage newWindow = new Stage();
+                newWindow.setResizable(false);
+                newWindow.setTitle("ALERT!!!");
+                newWindow.setScene(secondScene);
+
+                newWindow.setX(250);
+                newWindow.setY(150);
+
+
+                newWindow.initModality(Modality.APPLICATION_MODAL);
+                newWindow.showAndWait();
+
+            })).start();
 
         }
     }
