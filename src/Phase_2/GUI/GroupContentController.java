@@ -31,8 +31,7 @@ public class GroupContentController implements Initializable{
     private String userId;
     private String groupId;
     NotificationManager nm;
-    GroupContentPresenter gcp = new GroupContentPresenter();
-    UserGroupManager ugm = new UserGroupManager();
+
 
     @FXML
     Button HomePage;

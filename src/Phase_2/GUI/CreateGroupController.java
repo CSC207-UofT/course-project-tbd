@@ -2,15 +2,10 @@ package Phase_2.GUI;
 
 import Phase_2.UseCaseClass.GroupManager;
 import Phase_2.UseCaseClass.UserManager;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.stage.Stage;
 
-import java.io.IOException;
+import javafx.scene.control.*;
+
 
 public class CreateGroupController {
     GroupManager gm;
@@ -45,7 +40,7 @@ public class CreateGroupController {
     /**
      * Creates a group when pressed. Updates text accordingly when the name of the group is unavailable
      */
-    public void create_group_button(ActionEvent actionEvent) throws IOException {
+    public void create_group_button() {
 
         String name = group_name.getText();
 

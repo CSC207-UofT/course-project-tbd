@@ -105,9 +105,8 @@ public class GroupTaskController {
      */
     public void display() throws IOException  {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxmlFiles/GroupDisplayTaskPresenter.fxml"));
-        loader.setControllerFactory((controller -> {
-            return new GroupDisplayTaskController(categoryName, cm, gm, userId, groupId);
-        }));
+        loader.setControllerFactory((controller -> new
+                GroupDisplayTaskController(categoryName, cm, gm, userId, groupId)));
         Parent root = loader.load();
         GroupDisplayTaskController gdtc = loader.getController();
         gdtc.setUm(um);

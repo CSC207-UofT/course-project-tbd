@@ -88,9 +88,7 @@ public class UserPageController {
     public void NotificationButtonPushed() throws IOException {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxmlFiles/NotificationPage.fxml"));
-        loader.setControllerFactory((controller -> {
-            return new NotificationPageController(notificationManager);
-        }));
+        loader.setControllerFactory((controller -> new NotificationPageController(notificationManager)));
 
         Parent root = loader.load();
         NotificationPageController notificationPageController = loader.getController();
@@ -106,7 +104,7 @@ public class UserPageController {
      * Logs out the user when the button is pushed
      */
     public void LogoutButtonPushed() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("UserLogin.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxmlFiles/UserLogin.fxml"));
         Parent root = loader.load();
         UserLoginController mpc = loader.getController();
         mpc.setUm(um);
