@@ -117,6 +117,9 @@ ArrayList when the user join the group or will group name removed from the Array
 Hence it is not necessary to make GroupManager Observable and add or change observer to different User so that the group
 name can be added or removed from the record of the User.  And UserGroupManager is still the better than Observer.
 
+Instead of implementing Observer design pattern, we implemented builder design pattern to build NormalUser so that 
+our program would be more open for extension if we want to add another type of user in the future.
+
 We have also utilized dependency injection in our code to further adhere with the clean architecture. So instead of 
 directly initializing usecases inside our controller. We pass it in as an argument allowing us to make changes to the
 controllers without it actually affecting our use cases.

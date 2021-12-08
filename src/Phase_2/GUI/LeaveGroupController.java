@@ -68,6 +68,8 @@ public class LeaveGroupController implements Initializable{
                     gm.removeMember(groupName, this.um.getUserById(userId));
                     remindLabel.setText("You successfully left Group " + groupName);
                 }
+                info.setText(ugm.getGroupInfo(um.getUserById(userId)));
+                info.setEditable(false);
             }
             else {
                 remindLabel.setText("You are not in Group " + groupName);}

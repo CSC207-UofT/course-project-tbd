@@ -1,5 +1,6 @@
 package Phase_2.GUI;
 
+import Phase_2.GUImain;
 import Phase_2.UseCaseClass.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -67,7 +68,7 @@ public class ViewGroupController {
      * @param groupId : Group id of the group of whom you want to view contents.
      */
     private void goToGroup(String groupId) throws IOException{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupContentController.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxmlFiles/GroupContentController.fxml"));
             Parent root = loader.load();
             GroupContentController gcc = loader.getController();
             gcc.setAll(um, gm, tm, userId, groupId, nm);
@@ -82,7 +83,7 @@ public class ViewGroupController {
     public void goBack() throws IOException {
         // Go back to previous page: GroupPageController
         GroupsPane.getChildren().clear();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupPageGUI.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxmlFiles/GroupPageGUI.fxml"));
         Parent root = loader.load();
         GroupPageController gpc = loader.getController();
         gpc.setGm(gm);

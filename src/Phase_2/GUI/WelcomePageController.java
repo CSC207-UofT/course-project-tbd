@@ -1,6 +1,7 @@
 package Phase_2.GUI;
 
 import Phase_2.Entity.AdminUser;
+import Phase_2.GUImain;
 import Phase_2.Gateways.GroupDataGateWay;
 import Phase_2.Gateways.UserDataGateway;
 import Phase_2.Entity.Group;
@@ -72,7 +73,7 @@ public class WelcomePageController implements Initializable {
      * Goes to the main page
      */
     public void buttonPushed() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("MainPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxmlFiles/MainPage.fxml"));
         Parent root = loader.load();
         MainPageController mpc1 = loader.getController();
         mpc1.setUm(um);

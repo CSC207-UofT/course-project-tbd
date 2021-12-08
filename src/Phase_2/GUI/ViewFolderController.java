@@ -1,5 +1,6 @@
 package Phase_2.GUI;
 
+import Phase_2.GUImain;
 import Phase_2.UseCaseClass.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -125,7 +126,7 @@ public class ViewFolderController {
      * @throws IOException any exceptions that could occur when running this method
      */
     private void goToCategory(String categoryName) throws IOException{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupTaskPresenter.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxmlFiles/GroupTaskPresenter.fxml"));
         Parent root = loader.load();
         GroupTaskController gtc  = loader.getController();
         gtc.checkLeader.setText("");
@@ -149,7 +150,7 @@ public class ViewFolderController {
     public void goBack() throws IOException {
         // Go back to previous page: GroupPageController
         GroupsPane.getChildren().clear();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupContentController.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxmlFiles/GroupContentController.fxml"));
         Parent root = loader.load();
         GroupContentController gcc = loader.getController();
         TaskManager tm = new TaskManager();

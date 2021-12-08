@@ -16,7 +16,7 @@
          <children>
             <ImageView fitHeight="124.0" fitWidth="391.0" layoutX="3.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@Img/addtask.png" />
+                  <Image url="@../Img/addtask.png" />
                </image>
             </ImageView>
          </children>

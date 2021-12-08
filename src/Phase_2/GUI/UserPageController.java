@@ -1,20 +1,15 @@
 package Phase_2.GUI;
 
+import Phase_2.GUImain;
 import Phase_2.UseCaseClass.*;
 import javafx.fxml.FXML;
 
 import java.io.IOException;
 
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 public class UserPageController {
 
@@ -55,7 +50,7 @@ public class UserPageController {
      * Go to the category page when button is pushed
      */
     public void categoryButtonPushed() throws IOException{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("CategoryPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxmlFiles/CategoryPage.fxml"));
         Parent root = loader.load();
         CategoryPageController cpc1 = loader.getController();
         cpc1.setUm(um);
@@ -74,7 +69,7 @@ public class UserPageController {
      * Go to the group page when button is pushed
      */
     public void groupButtonPushed() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupPageGUI.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxmlFiles/GroupPageGUI.fxml"));
         Parent root = loader.load();
         GroupPageController mpc1 = loader.getController();
         mpc1.setUm(um);
@@ -92,10 +87,8 @@ public class UserPageController {
      */
     public void NotificationButtonPushed() throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("NotificationPage.fxml"));
-        loader.setControllerFactory((controller -> {
-            return new NotificationPageController(notificationManager);
-        }));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxmlFiles/NotificationPage.fxml"));
+        loader.setControllerFactory((controller -> new NotificationPageController(notificationManager)));
 
         Parent root = loader.load();
         NotificationPageController notificationPageController = loader.getController();
@@ -111,7 +104,7 @@ public class UserPageController {
      * Logs out the user when the button is pushed
      */
     public void LogoutButtonPushed() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("UserLogin.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxmlFiles/UserLogin.fxml"));
         Parent root = loader.load();
         UserLoginController mpc = loader.getController();
         mpc.setUm(um);

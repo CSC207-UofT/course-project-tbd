@@ -1,6 +1,7 @@
 package Phase_2.GUI;
 
 import Phase_2.Entity.NormalUser;
+import Phase_2.GUImain;
 import Phase_2.UseCaseClass.AlarmStarter;
 import Phase_2.UseCaseClass.GroupManager;
 import Phase_2.UseCaseClass.NotificationManager;
@@ -61,7 +62,7 @@ public class UserLoginController implements Initializable{
         }
         else if (um.AdminLogin(userId, passwordId)){
             SuccessLogin.setText("Success!");
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminAccess.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxmlFiles/AdminAccess.fxml"));
             Parent root = loader.load();
             AdminAccessController aac = loader.getController();
             aac.setAll(gm, um, notificationManager);
@@ -71,7 +72,7 @@ public class UserLoginController implements Initializable{
         }
         else if (um.login(userId, passwordId)){
             SuccessLogin.setText("Success!");
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("UserPageController.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxmlFiles/UserPageController.fxml"));
             Parent root = loader.load();
             UserPageController mpc = loader.getController();
             mpc.setUm(um);
@@ -87,7 +88,7 @@ public class UserLoginController implements Initializable{
     }
 
     public void backPushed() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("MainPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxmlFiles/MainPage.fxml"));
         Parent root = loader.load();
         MainPageController mpc = loader.getController();
         mpc.setUm(um);
@@ -105,7 +106,7 @@ public class UserLoginController implements Initializable{
         if (userId.isEmpty()){
             WrongLogin.setText("Enter username before resetting password");
         } else {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("ResetPassword.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxmlFiles/ResetPassword.fxml"));
             Parent root = loader.load();
             ResetPasswordController rpc = loader.getController();
             rpc.setUm(um);

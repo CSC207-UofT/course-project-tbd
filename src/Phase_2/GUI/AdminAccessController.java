@@ -1,5 +1,6 @@
 package Phase_2.GUI;
 
+import Phase_2.GUImain;
 import Phase_2.UseCaseClass.GroupManager;
 import Phase_2.UseCaseClass.NotificationManager;
 import Phase_2.UseCaseClass.UserManager;
@@ -23,6 +24,13 @@ public class AdminAccessController {
     @FXML
     VBox Pane;
 
+    /**
+     * setter for the controller
+     * @param gm group manager
+     * @param um user manager
+     * @param nm notification manager
+     */
+
     public void setAll(GroupManager gm, UserManager um, NotificationManager nm){
         // Sets all the attributes
         this.um = um;
@@ -32,7 +40,7 @@ public class AdminAccessController {
 
     public void goBack() throws IOException {
         // Goes back to login page when back is pressed
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("UserLogin.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxmlFiles/UserLogin.fxml"));
         Parent root = loader.load();
         UserLoginController ucc = loader.getController();
         ucc.setGm(gm);
@@ -51,7 +59,8 @@ public class AdminAccessController {
                 button.setText(UserId);
                 button.setOnAction(actionEvent -> {
                     try {
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("UserPageController.fxml"));
+                        FXMLLoader loader = new FXMLLoader(getClass().
+                                getResource("fxmlFiles/UserPageController.fxml"));
                         Parent root = loader.load();
                         UserPageController upc = loader.getController();
                         upc.setUm(um);

@@ -2,6 +2,7 @@ package Phase_2.GUI;
 
 import Phase_2.Entity.Task;
 import Phase_2.Entity.TaskWithDueDate;
+import Phase_2.GUImain;
 import Phase_2.UseCaseClass.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -134,7 +135,7 @@ public class GroupAddTaskController {
      * @throws IOException any exception that could occur when running this method
      */
     public void backPushed() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupTaskPresenter.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxmlFiles/GroupTaskPresenter.fxml"));
         Parent root = loader.load();
         GroupTaskController gtc = loader.getController();
         gtc.setUserId(userId);

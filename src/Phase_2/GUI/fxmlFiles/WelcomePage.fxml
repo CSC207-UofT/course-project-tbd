@@ -9,7 +9,7 @@
       <Button fx:id="welcomeButton" layoutX="103.0" layoutY="268.0" mnemonicParsing="false" onAction="#buttonPushed" prefHeight="65.0" prefWidth="194.0" text="Click here to begin" />
       <ImageView fitHeight="200.0" layoutX="12.0" layoutY="14.0">
          <image>
-            <Image url="@Img/Welcome logo.png" />
+            <Image url="@../Img/Welcome logo.png" />
          </image>
       </ImageView>
       <Button fx:id="saveButton" layoutX="103.0" layoutY="382.0" mnemonicParsing="false" onAction="#saveButtonPushed" prefHeight="65.0" prefWidth="194.0" text="Save the data" />

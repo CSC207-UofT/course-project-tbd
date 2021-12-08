@@ -2,6 +2,7 @@ package Phase_2.GUI;
 
 import Phase_2.Entity.Category;
 import Phase_2.Entity.Task;
+import Phase_2.GUImain;
 import Phase_2.UseCaseClass.NotificationManager;
 import Phase_2.UseCaseClass.TaskManager;
 import Phase_2.UseCaseClass.UserManager;
@@ -90,7 +91,7 @@ public class TaskPageController {
      * This method takes the user to add task page.
      */
     public void addTask() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("AddTask.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxmlFiles/AddTask.fxml"));
         Parent root = loader.load();
         AddTaskController apc1 = loader.getController();
         apc1.setTm(tm);
@@ -107,7 +108,7 @@ public class TaskPageController {
      * This method takes the user to Finish task page.
      */
     public void finishTask() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("viewNFinishTask.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxmlFiles/viewNFinishTask.fxml"));
         // set controller using constructor so that category can be accessed in the initialize method
         loader.setControllerFactory((controller -> new ViewNFinishTaskController(c)));
 
@@ -125,7 +126,7 @@ public class TaskPageController {
      * This method takes the user to view task page.
      */
     public void viewTask() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("viewNFinishTask.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxmlFiles/viewNFinishTask.fxml"));
 
         // set controller using constructor so that category can be accessed in the initialize method
         loader.setControllerFactory((controller -> new ViewNFinishTaskController(c)));

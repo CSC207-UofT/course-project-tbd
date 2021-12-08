@@ -3,8 +3,7 @@ package Phase_2.GUI;
 import Phase_2.Entity.Task;
 import Phase_2.Entity.TaskWithDueDate;
 import Phase_2.UseCaseClass.*;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
+
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -133,7 +132,8 @@ public class GroupDisplayTaskController implements Initializable {
                         instanceof TaskWithDueDate) {
                     nm.addTaskWithDueDate((TaskWithDueDate)
                             tm.getTaskByName(cm.getCategoryByGroup(userId, gm.getGroupById(groupId)), title));
-                    Status.setText("<" + tm.getTaskByName(cm.getCategoryByGroup(userId, gm.getGroupById(groupId)), title)
+                    Status.setText("<" + tm.getTaskByName(
+                            cm.getCategoryByGroup(userId, gm.getGroupById(groupId)), title)
                             .getTaskName() + "> finished, \n alarm turned off");
                 } else {
                     Status.setText("Task finished");
@@ -162,14 +162,11 @@ public class GroupDisplayTaskController implements Initializable {
             tasks.put(t.getTaskName(), t.toString());
         }
         taskListView.getItems().addAll(taskNames);
-        taskListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
-                ObservableList<String> current = taskListView.getSelectionModel().getSelectedItems();
-                String currentString = current.toString().substring(1, current.toString().length() - 1);
+        taskListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
+            ObservableList<String> current = taskListView.getSelectionModel().getSelectedItems();
+            String currentString = current.toString().substring(1, current.toString().length() - 1);
 
-                taskDetail.setText(tasks.get(currentString));
-            }
+            taskDetail.setText(tasks.get(currentString));
         });
     }
 }

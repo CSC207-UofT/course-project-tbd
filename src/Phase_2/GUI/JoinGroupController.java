@@ -2,15 +2,11 @@ package Phase_2.GUI;
 
 import Phase_2.UseCaseClass.GroupManager;
 import Phase_2.UseCaseClass.UserManager;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.stage.Stage;
 
-import java.io.IOException;
+import javafx.fxml.FXML;
+
+import javafx.scene.control.*;
+
 
 public class JoinGroupController {
 
@@ -46,11 +42,11 @@ public class JoinGroupController {
      * Join the group presented by the user
      */
     @FXML
-    public void join_group(ActionEvent event) throws IOException {
+    public void join_group(){
         String name = group_name.getText();
         if(!gm.checkGroupExists(name)){
             message.setText("Group doesn't exist!");
-        } else if (gm.checkIfIn(name, um.getUserById(userName))) {Alert alert = new Alert((Alert.AlertType.WARNING));
+        } else if (gm.checkIfIn(name, um.getUserById(userName))) {
             message.setText("You're already in this group!");
         } else {
             gm.addUserToGroup(name, um.getUserById(userName));
@@ -58,6 +54,6 @@ public class JoinGroupController {
         }
     }
 
-    public void group_name(ActionEvent actionEvent) {
+    public void group_name() {
     }
 }
