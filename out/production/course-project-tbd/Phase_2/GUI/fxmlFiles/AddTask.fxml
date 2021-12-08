@@ -16,7 +16,7 @@
          <children>
             <ImageView fitHeight="124.0" fitWidth="391.0" layoutX="3.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@Img/addtask.png" />
+                  <Image url="@../Img/addtask.png" />
                </image>
             </ImageView>
          </children>
@@ -50,7 +50,7 @@
             </Label>
             <TextField fx:id="date" layoutX="189.0" layoutY="231.0" prefHeight="26.0" prefWidth="173.0" promptText="year/mon/day/hour/min" style="-fx-background-color: white;" />
             <Label fx:id="Success" layoutX="110.0" layoutY="272.0" style="-fx-text-fill: white;" />
-            <Hyperlink fx:id="goback" layoutX="238.0" layoutY="341.0" onAction="#backPushed" text="Go back to Task page" />
+            <Hyperlink fx:id="goBack" layoutX="238.0" layoutY="341.0" onAction="#backPushed" text="Go back to Task page" />
          </children>
       </AnchorPane>
    </center>
