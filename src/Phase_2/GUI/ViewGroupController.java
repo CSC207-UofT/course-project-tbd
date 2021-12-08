@@ -36,8 +36,6 @@ public class ViewGroupController {
     @FXML
     VBox GroupsPane;
 
-    @FXML
-    Button refreshButton;
 
     @FXML
     Button BackButton;

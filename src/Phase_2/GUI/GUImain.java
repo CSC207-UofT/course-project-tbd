@@ -12,6 +12,12 @@ import java.util.Objects;
 public class GUImain extends Application {
     private static Stage stage;
 
+    /**
+     *
+     * @param primaryStage the main window
+     * @throws Exception when error occurs
+     */
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         stage = primaryStage;
@@ -23,14 +29,30 @@ public class GUImain extends Application {
 
     }
 
+    /**
+     *
+     * @param fxml fxml file
+     * @throws IOException if errors occur
+     */
+
     public void changeScene(String fxml) throws IOException {
         Parent pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(fxml)));
         stage.getScene().setRoot(pane);
     }
 
+    /**
+     * running method
+     * @param args args
+     */
+
     public static void main(String[] args){
         launch(args);
     }
+
+    /**
+     * add scene to the window
+     * @param scene the new scene needed to be added
+     */
 
     public void addScene(Scene scene) {
         stage.setScene(scene);

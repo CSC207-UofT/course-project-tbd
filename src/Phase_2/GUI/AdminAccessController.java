@@ -23,6 +23,13 @@ public class AdminAccessController {
     @FXML
     VBox Pane;
 
+    /**
+     * setter for the controller
+     * @param gm group manager
+     * @param um user manager
+     * @param nm notification manager
+     */
+
     public void setAll(GroupManager gm, UserManager um, NotificationManager nm){
         // Sets all the attributes
         this.um = um;

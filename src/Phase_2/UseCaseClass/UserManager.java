@@ -1,12 +1,15 @@
 package Phase_2.UseCaseClass;
 
 import Phase_2.Entity.*;
+import Phase_2.UseCaseClass.Builder.BuilderDirector;
 
 import java.util.ArrayList;
 import java.util.Objects;
 
 public class UserManager {
     private final ArrayList<User> allUsers;
+    BuilderDirector bd = new BuilderDirector();
+
 
     public UserManager(ArrayList<User> user_list) {
         this.allUsers = user_list;
@@ -38,7 +41,8 @@ public class UserManager {
      * Creates a normal user and add it to the arraylist of all the users.
      */
     public void createNormalUser(String username, String password, String sq, String sq_ans) {
-        this.allUsers.add(new NormalUser(username, password, sq, sq_ans));
+    bd.setInfo(username, password, sq, sq_ans);
+    this.allUsers.add(bd.buildNormalUser());
     }
 
 
