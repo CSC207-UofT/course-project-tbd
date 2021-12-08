@@ -97,14 +97,19 @@ Owen: - Writer of the Code Style and Documentation explanation
         completes one of the essential features in our productivity app.
         - https://github.com/CSC207-UofT/course-project-tbd/pull/131
 
-Sana: - Writer of the Use of GitHub features explanation.
-      - Co-implemented IndividualTaskManager, Task and implemented CategoryPagePresenter, CategoryPageController.
-      - Implemented GUI Demo and the related fxml files for the implementation of the GUI
-       -fixed some of the bugs related to GUI and JavaFX demo
+Sanjana: - Writer of the Use of GitHub features explanation.
+         - implemented ResetPasswordController and CategoryPageController and helped make changes to UserPageController, UserLoginController, TaskPageController.
+         - Implemented GUI Demo and the related fxml files for the implementation of the GUI
+         - fixed some of the bugs related to GUI
 
       Phase 2 expectation:
-      Help finish the GUI for some of the controllers
+      Help finish the GUI for some of the individual controllers
       Fix bugs
+      
+       Github commits -
+       - Worked on the individual, category and task page controller, ResetPasswordController and CategoryPageController. 
+       Learnt about Javafx, Scenebuilder and their features
+            - https://github.com/CSC207-UofT/course-project-tbd/commits?author=SanjanaGirish
 
 Fariha: - Writer of the Test Report and Code Organization explanation.
         - Co-implemented IndividualTaskManager, Task and made the entity class category iterable.
@@ -139,7 +144,7 @@ Aryan: - Writer of the updated specification from Phase 0 and put together/made 
 
        Github Commits -
        - Worked on the announcement page controller, ViewGroupController GroupContentController. Learnt a lot about SceneBuilder and
-       creating GUI. Learnt how JavaFX and xml works. Also learnt about dynamically creating elements during runtime
+       creating GUI. Learnt how JavaFX and fxml works. Also learnt about dynamically creating elements during runtime
        instead of statically programming buttons etc.
             https://github.com/CSC207-UofT/course-project-tbd/commits?author=aryanbagga
        
