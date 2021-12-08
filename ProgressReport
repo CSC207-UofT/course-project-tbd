@@ -47,10 +47,24 @@ Kevin: - Writer of SOLID principles explanation .
 Peter: - Refactored some classes, i.e. merged CreateGroupController, JoinGroupController, and LeaveGroupController.
        - Made changes to User class and UserGroupManager class.
        - Added docstrings to all the presenter classes.
-
+       - Added docstrings to all of the GUI controller classes.
+       - Created tests for class UserGroupManager
+       - Helped in finishing the CRC cards.
+       - Removed and cleaned up warnings in the classes
+       - Finished UserPageController Gui. JoinGroupControllerGUI, CreateGroupControllerGui
+       -
        Phase 2 expectation:
        Finish GUI for UserPage, JoinGroupPage, CreateGroupPage controllers
        Fix bugs
+
+       Github Pull requests -
+       - Finished the CreateGroupController + presenter, JoinGroupController + presenter, UserPage Controller
+         presenter. This pull request is significant because these controllers and presenters laid the foundations
+         for the CreateGroupControllerGUI and the JoinGroupControllerGUI; these controllers and their presenters helped
+         give us an idea on how the finished GUI would function. Basically, these controllers are the precursors of
+         their respective GUIs in the final project.
+
+            -https://github.com/CSC207-UofT/course-project-tbd/commit/d40ad8f4ee2ba207a7553b40a25504b0c4a5e312
 
 Owen: - Writer of the Code Style and Documentation explanation
       - Implemented Alarm, AlarmMenu, AlarmStarter, TaskWithDueDate to implement an Alarm Clock feature
