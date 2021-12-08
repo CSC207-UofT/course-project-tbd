@@ -52,7 +52,7 @@ Peter: - Refactored some classes, i.e. merged CreateGroupController, JoinGroupCo
        - Helped in finishing the CRC cards.
        - Removed and cleaned up warnings in the classes
        - Finished UserPageController Gui. JoinGroupControllerGUI, CreateGroupControllerGui
-       -
+       
        Phase 2 expectation:
        Finish GUI for UserPage, JoinGroupPage, CreateGroupPage controllers
        Fix bugs
@@ -123,6 +123,27 @@ Aryan: - Writer of the updated specification from Phase 0 and put together/made 
        Phase 2 expectation:
        Help finish the GUI for group related controllers
        Fix bugs and any GUI related errors that arise during implementation
+       
+       Phase 2:
+       - Created the GUI GroupContentcontroller that connects all the controllers for the group features
+            - Was responsible for working on controllers and presenters for the GUI such as the AnnouncementPage, ViewGroups and
+            other controllers related to group.
+            - Fixed up old bugs and code smells in some of the entity and usecase classes.
+
+
+       - Developed and worked on Admin system with Kevin
+            - Implemented the AdminAccess controller.
+            - Fixed bugs that arose when trying to access other accounts and a bug that prevented buttons from loading.
+
+       - Writer of the updated specification from Phase 1.
+
+       Github Commits -
+       - Worked on the announcement page controller, ViewGroupController GroupContentController. Learnt a lot about SceneBuilder and
+       creating GUI. Learnt how JavaFX and xml works. Also learnt about dynamically creating elements during runtime
+       instead of statically programming buttons etc.
+            https://github.com/CSC207-UofT/course-project-tbd/commits?author=aryanbagga
+       
+       
 
 Harry: - Worked on the CRC card. Writer of the Clean Architecture explanation.
        - Implemented GroupChat, GroupChatController, GroupChatPresenter, GroupAddTaskController, GroupAddTaskPresenter.
