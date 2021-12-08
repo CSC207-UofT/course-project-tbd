@@ -183,6 +183,5 @@ public class NotificationManager implements Runnable {
      */
     @Override
     public void run() {
-        System.out.println("...System Running...");
     }
 }
