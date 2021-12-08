@@ -1,5 +1,6 @@
 package Phase_2.GUI;
 
+import Phase_2.GUImain;
 import Phase_2.UseCaseClass.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -99,7 +100,7 @@ public class CategoryPageController {
      * Goes to the task page that was pressed
      */
     public void goToTask(String CategoryId) throws IOException{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("TaskPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxmlFiles/TaskPage.fxml"));
         Parent root = loader.load();
         TaskPageController tpc = loader.getController();
         tpc.setNm(nm);

@@ -1,4 +1,5 @@
 package Phase_2.GUI;
+import Phase_2.GUImain;
 import Phase_2.UseCaseClass.GroupManager;
 import Phase_2.UseCaseClass.NotificationManager;
 import Phase_2.UseCaseClass.UserGroupManager;
@@ -63,7 +64,7 @@ public class GroupPageController implements Initializable{
      * Go to the create group page
      */
     public void createPushed() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("CreateGroup.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxmlFiles/CreateGroup.fxml"));
         Parent root = loader.load();
         CreateGroupController mpc1 = loader.getController();
         mpc1.setUm(um);
@@ -79,7 +80,7 @@ public class GroupPageController implements Initializable{
      * Go to the join group page
      */
     public void joinPushed() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("JoinGroup.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxmlFiles/JoinGroup.fxml"));
         Parent root = loader.load();
         JoinGroupController mpc1 = loader.getController();
         mpc1.setUm(um);
@@ -95,7 +96,7 @@ public class GroupPageController implements Initializable{
      * Go to the leave group page
      */
     public void leavePushed() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("LeaveGroupGUI.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxmlFiles/LeaveGroupGUI.fxml"));
         Parent root = loader.load();
         LeaveGroupController mpc1 = loader.getController();
         mpc1.setUm(um);
@@ -118,7 +119,7 @@ public class GroupPageController implements Initializable{
         }
         else {
             remindLabel.setText("you currently joined " + umg.getMyGroups(um.getUserById(userId)).size() + " group(s)");
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("ViewGroupController.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxmlFiles/ViewGroupController.fxml"));
             Parent root = loader.load();
             ViewGroupController vgc = loader.getController();
             vgc.setAll(um, gm, userId, nm);
@@ -134,7 +135,7 @@ public class GroupPageController implements Initializable{
      * Leaves this page
      */
     public void exitPushed() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("UserPageController.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxmlFiles/UserPageController.fxml"));
         Parent root = loader.load();
         UserPageController mpc = loader.getController();
         mpc.setUm(um);

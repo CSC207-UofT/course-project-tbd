@@ -1,4 +1,4 @@
-package Phase_2.GUI;
+package Phase_2;
 
 import javafx.application.Application;
 import javafx.scene.Parent;
@@ -22,7 +22,8 @@ public class GUImain extends Application {
     public void start(Stage primaryStage) throws Exception {
         stage = primaryStage;
         primaryStage.setResizable(false);
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("WelcomePage.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(
+                "GUI/fxmlFiles/WelcomePage.fxml")));
         primaryStage.setTitle("Group TBD");
         primaryStage.setScene(new Scene(root, 400, 600));
         primaryStage.show();
