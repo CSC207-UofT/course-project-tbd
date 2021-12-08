@@ -5,6 +5,14 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
+/**
+ * This is the controller for the warning pop up window fxml, this window pops up when user tries to delete
+ * a notification in the notification page, and it asks the user to confirm that they are sure they want to
+ * delete the notification. While this window is active, all the windows in the application is locked and
+ * user cannot access them until they have confirmed or denied they action.
+ *
+ * @author  Owen Huang
+ */
 public class WarningWindowController{
 
     /**
