@@ -145,6 +145,11 @@ Fariha: - Writer of the Test Report and Code Organization explanation.
         Help finish the GUI for some of the controllers
         Add test files for controllers and presenters
 
+        Phase 2
+        - Worked on task page, add task and Finish and view task controller. Worked on test report and code
+        organization. Learned about scenebuilder and javafx, while creating task page and add task.
+        - https://github.com/CSC207-UofT/course-project-tbd/commits?author=oishi37
+
 Aryan: - Writer of the updated specification from Phase 0 and put together/made edits throughout the design document.
        - Implemented GroupContentController, GroupContentPresenter and made changes to other group related controllers.
        - Modified NormalUser, UserLoginController, UserLoginPresenter, AnnouncePageController to add features
