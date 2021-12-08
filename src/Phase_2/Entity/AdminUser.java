@@ -9,7 +9,6 @@ public class AdminUser extends User{
     private final String password;
     private final ArrayList<String> myGroups = new ArrayList<>();
     private final ArrayList<Category> myCategories = new ArrayList<>();
-    private final ArrayList<Task> myTasks = new ArrayList<>();
 
     public AdminUser(String username, String password){
         this.username = username;

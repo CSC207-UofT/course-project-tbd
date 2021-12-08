@@ -14,6 +14,15 @@ import java.io.IOException;
 import java.time.DateTimeException;
 import java.util.*;
 
+/**
+ * This is the controller for the Add Task Page fxml. There the user can add tasks to their data, and they can create
+ * 2 types of tasks: a normal task with a title and its information, and a task with due date which will include
+ * an additional input field that prompt the user to input when they would like to be notified and an alarm will be
+ * set up to remind them on the date.
+ *
+ * @author  Owen Huang
+ * @author  Sanjana Girish
+ */
 public class AddTaskController{
     /**
      * A task object that user wants to add

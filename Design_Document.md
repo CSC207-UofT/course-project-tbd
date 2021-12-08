@@ -125,7 +125,7 @@ controllers without it actually affecting our use cases.
 
 ## Coding style and documentation
 
-To make sure we strictly follow the coding style and documentation guidelines of java, we consulted existing
+In phase 1, to make sure we strictly follow the coding style and documentation guidelines of java, we consulted existing
 documentations and coding style within the java library. For example, while we were documenting our code,
 we opened ArrayList class in java and mimic the documentations they have used in their code. We also consulted
 the tutrialspoint.com website (https://www.tutorialspoint.com/java/java_documentation.htm) for many other Javadoc
@@ -137,7 +137,16 @@ As for the coding style, since each of us have different writing habits when it 
 using spaces instead of tabs, adding spaces between operators, and the placement of brackets. We utilized the
 IntelliJ re-factor feature: reformat code (Ctrl + Alt + L). We do this every time before we commit and push onto
 GitHub to make sure people who are reviewing the code don’t have a hard time reading the code. We also cleared all
-the warnings, which made our code cleaner. So overall, in terms of coding style and documentation, our code looks
+the warnings, which made our code cleaner. 
+
+In phase 2, we used javafx and scene builder to build our GUI. As for documentation the problem is that javafx library 
+does not have any documentations and comments. It makes it impossible for us to mimic the documentations like we did in 
+phase 1. So, we continued to mimic coding style in the built-in java library like we did in phase 1. Which is a good 
+practice to keep the coding style and documentation uniformed throughout the whole program.
+
+Moreover, we would add comments to our code as we program, so it is easier for not just others to understand our code, 
+but also ourselves to understand, because in a large program, it is hard to recall what we have done, and sometimes we 
+get loss working from file to file. So overall, in terms of coding style and documentation, our code looks
 standardized and uniform across all files, regardless of who wrote them.
 
 ## Refactoring:

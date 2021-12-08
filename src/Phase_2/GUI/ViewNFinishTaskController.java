@@ -18,6 +18,12 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.*;
 
+/**
+ * This is the controller for the viewNFinishTaskPage fxml. In this page, user have to option to view all the tasks
+ * they currently have, and choose to finish a task if they want to.
+ *
+ * @author  Owen Huang
+ */
 public class ViewNFinishTaskController implements Initializable {
     /**
      * Use case for all operations we are performing on Tasks (e.g. add task, delete task)
