@@ -10,6 +10,30 @@ Qiyi Zhang(AKA Leo): - Worked on the CRC-card and writer of the design pattern e
                      help design Admin User
                      Fix bugs
 
+                     Phase2: accessibility report
+                     -refactor fxml files into one package
+                     -leaveGroupController & GroupPageController in GUI
+                     - updated CRC card
+                     -clear warning
+                     -add documentation
+                     -debug the program
+                     -added builder design pattern
+
+                     Github Pull requests link:
+                              1. https://github.com/CSC207-UofT/course-project-tbd/pull/154/commits
+
+                              Pulled GUImain out then refactored .fxml files into one fold in GUI package.
+                              Then I manually changed .fxml address in controllers that didn't get refactored
+                              Cleared all warning in controllers
+
+                              2. https://github.com/CSC207-UofT/course-project-tbd/pull/152/commits
+
+                              Added builder of NormalUser
+                              Pushed accessibility report done by myself
+
+
+
+
 Kevin: - Writer of SOLID principles explanation .
        - Implemented AnnouncementPageController, ViewFolderController, other controllers etc.
        - Worked on our controllers to meet the changes suggested by TA including any coding principle violations.
