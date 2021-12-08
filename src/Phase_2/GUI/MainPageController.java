@@ -6,18 +6,17 @@ import Phase_2.UseCaseClass.UserManager;
 import javafx.fxml.FXML;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
+
 
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
+
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 
 
-public class MainPageController implements Initializable {
+public class MainPageController {
     UserManager um;
     GroupManager gm;
 
@@ -96,9 +95,5 @@ public class MainPageController implements Initializable {
         guiMain.addScene(scene);
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
 
-
-    }
 }

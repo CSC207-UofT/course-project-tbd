@@ -1,6 +1,6 @@
 package Phase_2.GUI;
 
-import Phase_1.Controllers_Gateways_Presenters.GroupContentPresenter;
+
 import Phase_2.GUImain;
 import Phase_2.UseCaseClass.*;
 import javafx.fxml.FXML;
