@@ -39,6 +39,9 @@ public class NewUserController implements Initializable {
 
 
 
+    /**
+     * Setter methods
+     */
     public void setGm(GroupManager gm) {
         this.gm = gm;
     }
@@ -47,6 +50,9 @@ public class NewUserController implements Initializable {
         this.um = um;
     }
 
+    /**
+     * Creates a user with the given username and password
+     */
     public void signUpButtonPushed(){
         takenUserName.setText("");
         success.setText("");
@@ -66,6 +72,9 @@ public class NewUserController implements Initializable {
         }
     }
 
+    /**
+     * Goes back to the previous page
+     */
     public void backPushed() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("MainPage.fxml"));
         Parent root = loader.load();

@@ -36,6 +36,9 @@ public class UserLoginController implements Initializable{
     Hyperlink ResetPassword;
 
 
+    /**
+     * Setter methods
+     */
     public void setGm(GroupManager gm) {
         this.gm = gm;
     }

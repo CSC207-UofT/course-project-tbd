@@ -6,79 +6,136 @@ import Phase_2.Entity.TaskWithDueDate;
 import Phase_2.UseCaseClass.NotificationManager;
 import Phase_2.UseCaseClass.TaskManager;
 import Phase_2.UseCaseClass.UserManager;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
+
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.*;
 
+/**
+ * This is the controller for the viewNFinishTaskPage fxml. In this page, user have to option to view all the tasks
+ * they currently have, and choose to finish a task if they want to.
+ *
+ * @author  Owen Huang
+ */
 public class ViewNFinishTaskController implements Initializable {
+    /**
+     * Use case for all operations we are performing on Tasks (e.g. add task, delete task)
+     */
     TaskManager tm;
+
+    /**
+     * Responsible for managing, changing and accessing user information
+     */
     UserManager um;
+
+    /**
+     * Category is responsible for storing all the tasks
+     */
     Category category;
+
+    /**
+     * Used to start alarm for task with a due date, and send notification to user mailbox
+     */
     NotificationManager notificationManager;
 
+    /**
+     * This remembers the previous scene before ViewNFinishTask Page FXML, which should be the task page
+     */
     Scene previousScene;
 
+    /**
+     * A text area that will display the task's detail information
+     */
     @FXML
     public TextArea taskDetailField;
 
+    /**
+     * This will set the scene to the previous page when being clicked
+     */
     @FXML
     Hyperlink back;
 
+    /**
+     * ListView is used to display all tasks in a list fashion in scene builder
+     */
     @FXML
     ListView<String> taskListView;
 
+    /**
+     * Name of the task that user wants to finish
+     */
     @FXML
     TextField name;
 
+    /**
+     * The complete/in progress status of the task
+     */
     @FXML
     Label Status;
 
+    /**
+     * The button to finish task by name
+     */
     @FXML
     Button finishTask;
 
-
+    /**
+     * This is a setter method for the task manager.
+     * @param tm: Task Manager
+     */
     public void setTm(TaskManager tm) {this.tm = tm;}
+
+    /**
+     * This is a setter method for the user manager.
+     * @param um: User Manager
+     */
     public void setUm(UserManager um) {this.um = um;}
+
+    /**
+     * This is a setter method for Category.
+     * @param category: Category
+     */
     public void setCategory(Category category){
         this.category = category;
     }
+
+    /**
+     * This is a setter method for Scene
+     * @param scene: Scene
+     */
     public void setPreviousScene(Scene scene){
         this.previousScene = scene;
     }
+
+    /**
+     * This is a setter method for Notification manager.
+     * @param notificationManager: Notification manager.
+     */
     public void setNotificationManager(NotificationManager notificationManager){
         this.notificationManager = notificationManager;
     }
 
-    //    public ListView<String> getList() {
-//        List<String> newlist = new ArrayList<>();
-//        for(Task t: tm.displayTask()){
-//            newlist.add(t.toString());
-//        }
-//        ArrayAdapter<String> itemsAdapter =
-//                new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
-//        return newlist;
-//
-//    }
-
+    /**
+     * This is a setter method for Category
+     *
+     * @param category: the category which include its tasks
+     */
     ViewNFinishTaskController(Category category){
         this.category = category;
     }
 
-
-    public void finishTask() throws IOException {
+    /**
+     *This method finishes the task which is provided by the user. The user provides the string
+     * representation of the task.
+     */
+    public void finishTask(){
         String title = name.getText();
         Task task = tm.getTaskByName(category, title);
         Status.setText("");
@@ -89,6 +146,7 @@ public class ViewNFinishTaskController implements Initializable {
                 Status.setText("<" + task.getTaskName() + "> finished, \n alarm turned off");
             } else {
                 Status.setText("Task finished");
+                refresh();
             }
         } else {
             Status.setText("Task not Present");
@@ -96,45 +154,59 @@ public class ViewNFinishTaskController implements Initializable {
 
     }
 
+    /**
+     *This method finishes the refreshes task bar once a task is completed
+     */
+    public void refresh(){
+        ArrayList<String> taskNames = new ArrayList<>();
+        HashMap<String, String> taskDetail = new HashMap<>();
 
+        for (Task t : category.getTasks()) {
+            taskNames.add(t.getTaskName());
+            taskDetail.put(t.getTaskName(), t.toString());
+        }
+        taskListView.getItems().clear();
+        taskListView.getItems().addAll(taskNames);
+
+        taskListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
+            ObservableList<String> current = taskListView.getSelectionModel().getSelectedItems();
+            String currentString = current.toString().substring(1, current.toString().length() - 1);
+
+            taskDetailField.setText(taskDetail.get(currentString));
+        });
+    }
+
+    /**
+     * Go back to previous page
+     */
     public void backPushed() throws IOException {
         Stage stage = (Stage) finishTask.getScene().getWindow();
         stage.setScene(previousScene);
     }
 
-
+    /**
+     * This initializes the page when user enters the page, it should display all the tasks if there is any
+     *
+     * @param url inherited from the interface
+     * @param resourceBundle inherited from the interface
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ArrayList<String> taskNames = new ArrayList<>();
         HashMap<String, String> taskDetail = new HashMap<>();
-
 
         for (Task t : category.getTasks()) {
             taskNames.add(t.getTaskName());
             taskDetail.put(t.getTaskName(), t.toString());
         }
 
-
-            /*// for testing
-            taskNames.add("1");
-            taskNames.add("2");
-            taskNames.add("3");
-            taskDetail.put("1", "hello");
-            taskDetail.put("2", "world");
-            taskDetail.put("3", "I'm coming");
-            //*/
-
         taskListView.getItems().addAll(taskNames);
 
+        taskListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
+            ObservableList<String> current = taskListView.getSelectionModel().getSelectedItems();
+            String currentString = current.toString().substring(1, current.toString().length() - 1);
 
-        taskListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
-                ObservableList<String> current = taskListView.getSelectionModel().getSelectedItems();
-                String currentString = current.toString().substring(1, current.toString().length() - 1);
-
-                taskDetailField.setText(taskDetail.get(currentString));
-            }
+            taskDetailField.setText(taskDetail.get(currentString));
         });
     }
 }

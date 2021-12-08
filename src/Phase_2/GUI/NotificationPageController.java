@@ -1,16 +1,12 @@
 package Phase_2.GUI;
 
 import Phase_2.UseCaseClass.NotificationManager;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.text.Text;
 
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -21,87 +17,109 @@ import javafx.fxml.FXMLLoader;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.ResourceBundle;
 
+/**
+ * This is the controller for the Notification Page fxml. This is where user can view their notifications. Notifications
+ * such as the alarm clock message is sent and displayed here. User can choose to view the notifications, or delete a
+ * notification if they wish to do so.
+ *
+ * @author  Owen Huang
+ */
 public class NotificationPageController implements Initializable{
 
+    /**
+     * Used to start alarm for task with a due date, and send notification to user mailbox
+     */
     NotificationManager notificationManager;
 
+    /**
+     * This remembers the previous scene before ViewNFinishTask Page FXML, which should be the task page
+     */
     Scene previousScene;
 
+    /**
+     * ListView is used to display all notification in a list fashion in scene builder
+     */
     @FXML
     public ListView<String> notificationListView;
 
+    /**
+     * used to display the notification detail
+     */
     @FXML
     public TextArea notificationDetail;
 
+    /**
+     * used to delete a notification
+     */
     @FXML
     public Button deleteNotificationButton;
 
+    /**
+     * click button to refresh for new notifications
+     */
     @FXML
     public Button refreshButton;
 
+    /**
+     * goes back to the previous page
+     */
     @FXML
     public Button backButton;
 
-
-    // for testing
-    ArrayList<String> currentNotification = new ArrayList<>();
-    HashMap<String, String> temp = new HashMap<>();
-    //
-
+    /**
+     * constructor is used to load in data used in initialized method
+     *
+     * @param notificationManager manages the notifications
+     */
     NotificationPageController(NotificationManager notificationManager){
         this.notificationManager = notificationManager;
     }
 
+    /**
+     * Setter methods to set the previous page
+     */
     public void setPreviousScene(Scene previousScene){
         this.previousScene = previousScene;
     }
 
+    /**
+     * This initializes the page when user enters the page, it should display all the notifications if there is any
+     *
+     * @param url inherited from the interface
+     * @param resourceBundle inherited from the interface
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // uncomment this
         ArrayList<String> currentNotification = notificationManager.getMailboxTaskName();
 
-        // comment out this
-        /*currentNotification.add("hello world");
-        currentNotification.add("shit bro");*/
-        // comment out this
-
+        // updates the list view with all current notifications
         notificationListView.getItems().addAll(currentNotification);
 
-        notificationListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
-                ObservableList<String> current = notificationListView.getSelectionModel().getSelectedItems();
-                String currentString = current.toString().substring(1, current.toString().length() - 1);
+        // if user clicks on an item in list view, update the TextArea field to display the notification detail
+        notificationListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
+            ObservableList<String> current = notificationListView.getSelectionModel().getSelectedItems();
+            String currentString = current.toString().substring(1, current.toString().length() - 1);
 
-                // for testing, comment out this
-                /*temp.put("hello world", "yolo");
-                temp.put("shit bro", "yeah bro");
-                notificationDetail.setText(temp.get(currentString));
-                notificationManager = new NotificationManager();*/
-                //
-
-                // uncomment this
-                notificationDetail.setText(notificationManager.getMailDetail().get(currentString));
-            }
+            notificationDetail.setText(notificationManager.getMailDetail().get(currentString));
         });
 
 
     }
 
-    public void addToMailbox(String message){
-        notificationListView.getItems().add(0, message);
-    }
-
+    /**
+     * Refreshes the notifications page
+     */
     public void refreshNotification(){
         notificationListView.getItems().removeAll(notificationManager.getMailboxTaskName());
         notificationListView.getItems().addAll(notificationManager.getMailboxTaskName());
     }
 
-    public void deleteNotification(MouseEvent mouseEvent) throws Exception{
+    /**
+     * Deletes the give notification
+     */
+    public void deleteNotification() throws Exception{
 
         // a new window for warning, before the user can delete a notification
         Stage warningWindow = new Stage();
@@ -121,20 +139,17 @@ public class NotificationPageController implements Initializable{
             ObservableList<String> current = notificationListView.getSelectionModel().getSelectedItems();
             String currentString = current.toString().substring(1, current.toString().length() - 1);
 
-            // uncomment this
             notificationManager.getMailboxTaskName().remove(currentString);
             notificationManager.getMailDetail().remove(currentString);
-
-            // comment out this
-            /*currentNotification.remove(currentString);
-            temp.remove(currentString);*/
-            //
 
             notificationListView.getItems().remove(currentString);
         }
 
     }
 
+    /**
+     * Go back to previous page
+     */
     public void backPushed() throws IOException {
         Stage stage = (Stage) refreshButton.getScene().getWindow();
         stage.setScene(previousScene);

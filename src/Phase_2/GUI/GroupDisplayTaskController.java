@@ -49,6 +49,10 @@ public class GroupDisplayTaskController implements Initializable {
      */
     NotificationManager nm;
 
+
+    /**
+     * Setter methods
+     */
     public void setUserId(String userId) {
         this.userId = userId;
     }
@@ -102,6 +106,9 @@ public class GroupDisplayTaskController implements Initializable {
 
     CategoryManager cm;
 
+    /**
+     *
+     */
     GroupDisplayTaskController(String categoryName, CategoryManager cm, GroupManager gm, String userId,
                                 String groupId) {
         this.categoryName = categoryName;
@@ -111,6 +118,10 @@ public class GroupDisplayTaskController implements Initializable {
         this.groupId = groupId;
     }
 
+
+    /**
+     * Finishes the task and remove it from the group page display when requested.
+     */
     public void finishTask() {
         if (userId.equals(categoryName)) {
             String title = name.getText();
