@@ -19,12 +19,34 @@ import java.util.HashMap;
 import java.util.ResourceBundle;
 
 public class GroupDisplayTaskController implements Initializable {
+    /**
+     * The userId is given beforehand from the previous controller
+     */
     String userId;
+    /**
+     * The groupId is given beforehand from the previous controller
+     */
     String groupId;
+    /**
+     * The categoryName is given beforehand from the previous controller
+     */
     String categoryName;
+    /**
+     * Use case for all operations we perform on Users
+     */
     UserManager um;
+    /**
+     * Use case for all operations we perform on Tasks
+     */
     TaskManager tm;
+    /**
+     * Use case for all operations on Groups
+     */
     GroupManager gm;
+    /**
+     * Used to start alarm for task with a due date, and send notification to
+     * user's notification center
+     */
     NotificationManager nm;
 
     public void setUserId(String userId) {
