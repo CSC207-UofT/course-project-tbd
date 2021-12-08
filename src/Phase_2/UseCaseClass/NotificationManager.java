@@ -49,6 +49,15 @@ public class NotificationManager implements Runnable {
      */
     public NotificationManager(){
         taskWithDueDates  = new PriorityQueue<>();
+        String greetingName = "Greetings";
+        String greetingMessage = "Greetings!\n"
+                + "\nThis is a productivity app in which you can "
+                + "\ncreate tasks that you want to work on, work \n in groups and chat with you group members. \n"
+                + "You even have the option to set an alarm for \nyour task if you want to get reminded! "
+                + "\nEnjoy your adventure with our app!\n\n"
+                + "Group TBD";
+        mailboxTaskName.add(greetingName);
+        mailDetail.put(greetingName, greetingMessage);
     }
 
     /**
