@@ -14,6 +14,14 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * This is the controller for the Task Page fxml. User have three options (buttons to click): add task, which adds a
+ * task/task with due date to the user's data. View tasks, which views the tasks they currently have. And finish task,
+ * which allows the user to finish an existing task.
+ *
+ * @author  Owen Huang
+ * @author  Sanjana Girish
+ */
 public class TaskPageController {
     Category c;
     NotificationManager nm;

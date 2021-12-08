@@ -19,6 +19,13 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * This is the controller for the Notification Page fxml. This is where user can view their notifications. Notifications
+ * such as the alarm clock message is sent and displayed here. User can choose to view the notifications, or delete a
+ * notification if they wish to do so.
+ *
+ * @author  Owen Huang
+ */
 public class NotificationPageController implements Initializable{
 
     /**
