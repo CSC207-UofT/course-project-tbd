@@ -18,13 +18,53 @@ Kevin: - Writer of SOLID principles explanation .
        Help finish the GUI of all the group related controllers
        Fix bugs
 
+       Phase 2:
+       - Was responsible for working on GUI for task management
+            - Created several controllers and presenters for the GUI such as the AnnouncementPage, ViewGroups and
+            other controllers related to group.
+            - Fixed up old bugs and code smells.
+
+
+       - Developed and worked on Admin system with Aryan
+            - Implemented the AdminAccess controller.
+            - Fixed bugs that arose when trying to access other accounts and a bug that prevented buttons from loading.
+
+       - Improved the design document by adding new stuff for SOLID and design patterns.
+
+       Github Pull requests -
+       - Worked on the announcement page controller and ViewGroupController. Learnt a lot about SceneBuilder and
+       creating GUI. Learnt how JavaFX and xml works. Also learnt about dynamically creating elements during runtime
+       instead of statically programming buttons etc.
+            - https://github.com/CSC207-UofT/course-project-tbd/pull/101
+
+       - Merged the main branch with ours to keep everything up to date and resolved conflicts when they arose. Worked
+       and implemented the admin feature to our account which allows access to all other user accounts in our system.
+       Enabled us to test and work on issues easily.
+       (Note that admin access was worked directly on main hence the merge)
+            - https://github.com/CSC207-UofT/course-project-tbd/pull/123/commits
+
+
 Peter: - Refactored some classes, i.e. merged CreateGroupController, JoinGroupController, and LeaveGroupController.
        - Made changes to User class and UserGroupManager class.
        - Added docstrings to all the presenter classes.
-
+       - Added docstrings to all of the GUI controller classes.
+       - Created tests for class UserGroupManager
+       - Helped in finishing the CRC cards.
+       - Removed and cleaned up warnings in the classes
+       - Finished UserPageController Gui. JoinGroupControllerGUI, CreateGroupControllerGui
+       
        Phase 2 expectation:
        Finish GUI for UserPage, JoinGroupPage, CreateGroupPage controllers
        Fix bugs
+
+       Github Pull requests -
+       - Finished the CreateGroupController + presenter, JoinGroupController + presenter, UserPage Controller
+         presenter. This pull request is significant because these controllers and presenters laid the foundations
+         for the CreateGroupControllerGUI and the JoinGroupControllerGUI; these controllers and their presenters helped
+         give us an idea on how the finished GUI would function. Basically, these controllers are the precursors of
+         their respective GUIs in the final project.
+
+            -https://github.com/CSC207-UofT/course-project-tbd/commit/d40ad8f4ee2ba207a7553b40a25504b0c4a5e312
 
 Owen: - Writer of the Code Style and Documentation explanation
       - Implemented Alarm, AlarmMenu, AlarmStarter, TaskWithDueDate to implement an Alarm Clock feature
@@ -35,14 +75,41 @@ Owen: - Writer of the Code Style and Documentation explanation
       Help finish the GUI for some of the controllers
       Fix bugs
 
-Sana: - Writer of the Use of GitHub features explanation.
-      - Co-implemented IndividualTaskManager, Task and implemented CategoryPagePresenter, CategoryPageController.
-      - Implemented GUI Demo and the related fxml files for the implementation of the GUI
-       -fixed some of the bugs related to GUI and JavaFX demo
+      Phase 2:
+      - Was responsible for implementing part of the GUI for our program
+        - Notification Page
+        - Warning pop up window
+        - Add, view, and finish task controller
+        - connected task and notification page to make sure everything is in sync and works as intended
+      - took a lot of time to fix bugs in GUI such as how to make data preserved going from stages to stages, and
+        scene to scenes. NullPointerException was the most common bug to fix and the most annoying
+      - added test for Alarms system and notification page
+
+      Github Pull request:
+      - Implemented the Alarm and notification system, first time working with threads and Time and timer packages
+        in java, did a lot of research and spent a lot of time, but it worked at last and it was worth it. The alarm
+        system became one of the signature feature in our program.
+        - https://github.com/CSC207-UofT/course-project-tbd/pull/30
+
+      - Helped implementing add, view, and finish task controller to work with the alarm and notification system. It was
+        during this pull request I got a deep and clear understanding of how javafx works and utilized debugging
+        features to figure out how to keep data preserved throughout different scenes. This is important because it
+        completes one of the essential features in our productivity app.
+        - https://github.com/CSC207-UofT/course-project-tbd/pull/131
+
+Sanjana: - Writer of the Use of GitHub features explanation.
+         - implemented ResetPasswordController and CategoryPageController and helped make changes to UserPageController, UserLoginController, TaskPageController.
+         - Implemented GUI Demo and the related fxml files for the implementation of the GUI
+         - fixed some of the bugs related to GUI
 
       Phase 2 expectation:
-      Help finish the GUI for some of the controllers
+      Help finish the GUI for some of the individual controllers
       Fix bugs
+      
+       Github commits -
+       - Worked on the individual, category and task page controller, ResetPasswordController and CategoryPageController. 
+       Learnt about Javafx, Scenebuilder and their features
+            - https://github.com/CSC207-UofT/course-project-tbd/commits?author=SanjanaGirish
 
 Fariha: - Writer of the Test Report and Code Organization explanation.
         - Co-implemented IndividualTaskManager, Task and made the entity class category iterable.
@@ -53,6 +120,11 @@ Fariha: - Writer of the Test Report and Code Organization explanation.
         Help finish the GUI for some of the controllers
         Add test files for controllers and presenters
 
+        Phase 2
+        - Worked on task page, add task and Finish and view task controller. Worked on test report and code
+        organization. Learned about scenebuilder and javafx, while creating task page and add task.
+        - https://github.com/CSC207-UofT/course-project-tbd/commits?author=oishi37
+
 Aryan: - Writer of the updated specification from Phase 0 and put together/made edits throughout the design document.
        - Implemented GroupContentController, GroupContentPresenter and made changes to other group related controllers.
        - Modified NormalUser, UserLoginController, UserLoginPresenter, AnnouncePageController to add features
@@ -61,6 +133,27 @@ Aryan: - Writer of the updated specification from Phase 0 and put together/made 
        Phase 2 expectation:
        Help finish the GUI for group related controllers
        Fix bugs and any GUI related errors that arise during implementation
+       
+       Phase 2:
+       - Created the GUI GroupContentcontroller that connects all the controllers for the group features
+            - Was responsible for working on controllers and presenters for the GUI such as the AnnouncementPage, ViewGroups and
+            other controllers related to group.
+            - Fixed up old bugs and code smells in some of the entity and usecase classes.
+
+
+       - Developed and worked on Admin system with Kevin
+            - Implemented the AdminAccess controller.
+            - Fixed bugs that arose when trying to access other accounts and a bug that prevented buttons from loading.
+
+       - Writer of the updated specification from Phase 1.
+
+       Github Commits -
+       - Worked on the announcement page controller, ViewGroupController GroupContentController. Learnt a lot about SceneBuilder and
+       creating GUI. Learnt how JavaFX and fxml works. Also learnt about dynamically creating elements during runtime
+       instead of statically programming buttons etc.
+            https://github.com/CSC207-UofT/course-project-tbd/commits?author=aryanbagga
+       
+       
 
 Harry: - Worked on the CRC card. Writer of the Clean Architecture explanation.
        - Implemented GroupChat, GroupChatController, GroupChatPresenter, GroupAddTaskController, GroupAddTaskPresenter.

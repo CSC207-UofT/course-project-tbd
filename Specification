@@ -27,3 +27,7 @@ Updates from Phase 0 to Phase 1: There has been a forget password feature added 
  that are assigned to them by the group leader. The group page now also has a group chat system that is implemented,
  which allows more affective communication between all members of the group. The group page also additionally has an
  announcement page where the group leader can make group related announcements.
+ 
+ Updates from Phase 1 to Phase 2: Replaced our controllers used in phase 1 by the newly implemented GUIcontrollers for our 
+ whole program. Additionally, we also added another type of user known as the admin user that has the functionality of being 
+ able to monitor and regulated all the normal user accounts stored in the database of the program.

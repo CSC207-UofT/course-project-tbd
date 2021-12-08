@@ -1,5 +1,5 @@
 package Phase_1.Controllers_Gateways_Presenters;
-import Phase_1.UseCaseClass.NotificationManager;
+import Phase_2.UseCaseClass.NotificationManager;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
