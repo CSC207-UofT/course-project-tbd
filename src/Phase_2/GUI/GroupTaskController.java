@@ -1,5 +1,6 @@
 package Phase_2.GUI;
 
+import Phase_2.GUImain;
 import Phase_2.UseCaseClass.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -63,7 +64,7 @@ public class GroupTaskController {
      * Go back to the previous page
      */
     public void back() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupContentController.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxmlFiles/GroupContentController.fxml"));
         Parent root = loader.load();
         GroupContentController gcc = loader.getController();
         TaskManager tm = new TaskManager();
@@ -80,7 +81,7 @@ public class GroupTaskController {
     public void add() throws IOException  {
         if (gm.checkIfLeader(gm.getGroupById(groupId).getgroupName(), um.getUserById(userId))) {
             checkLeader.setText("");
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupAddTaskPresenter.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxmlFiles/GroupAddTaskPresenter.fxml"));
             Parent root = loader.load();
             GroupAddTaskController gatc = loader.getController();
             gatc.setGroupId(groupId);
@@ -103,7 +104,7 @@ public class GroupTaskController {
      * Shows all the tasks in the group at this moment
      */
     public void display() throws IOException  {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupDisplayTaskPresenter.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxmlFiles/GroupDisplayTaskPresenter.fxml"));
         loader.setControllerFactory((controller -> {
             return new GroupDisplayTaskController(categoryName, cm, gm, userId, groupId);
         }));

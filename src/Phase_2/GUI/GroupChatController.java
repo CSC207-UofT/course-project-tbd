@@ -1,5 +1,6 @@
 package Phase_2.GUI;
 
+import Phase_2.GUImain;
 import Phase_2.UseCaseClass.GroupManager;
 import Phase_2.UseCaseClass.NotificationManager;
 import Phase_2.UseCaseClass.TaskManager;
@@ -57,7 +58,7 @@ public class GroupChatController {
      * This is a method to go back to the previous page
      */
     public void backPush() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupContentController.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxmlFiles/GroupContentController.fxml"));
         Parent root = loader.load();
         GroupContentController gcc = loader.getController();
         TaskManager tm = new TaskManager();

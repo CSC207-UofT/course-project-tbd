@@ -1,5 +1,6 @@
 package Phase_2.GUI;
 
+import Phase_2.GUImain;
 import Phase_2.UseCaseClass.GroupManager;
 import Phase_2.UseCaseClass.UserManager;
 import javafx.fxml.FXML;
@@ -57,7 +58,7 @@ public class MainPageController implements Initializable {
      * Go to create new user page
      */
     public void newUserButtonPushed() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("NewUser.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxmlFiles/NewUser.fxml"));
         Parent root = loader.load();
         NewUserController mpc1 = loader.getController();
         mpc1.setUm(um);
@@ -71,7 +72,7 @@ public class MainPageController implements Initializable {
      * Go back to previous page
      */
     public void backPushed() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("WelcomePage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxmlFiles/WelcomePage.fxml"));
         Parent root = loader.load();
         WelcomePageController mpc1 = loader.getController();
         mpc1.setUm(um);
@@ -85,7 +86,7 @@ public class MainPageController implements Initializable {
      * Go to user sign in page
      */
     public void signInButtonPushed() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("UserLogin.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxmlFiles/UserLogin.fxml"));
         Parent root = loader.load();
         UserLoginController mpc1 = loader.getController();
         mpc1.setUm(um);

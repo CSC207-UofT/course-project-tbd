@@ -1,6 +1,7 @@
 package Phase_2.GUI;
 
 import Phase_1.Controllers_Gateways_Presenters.GroupContentPresenter;
+import Phase_2.GUImain;
 import Phase_2.UseCaseClass.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -66,7 +67,7 @@ public class GroupContentController implements Initializable{
      * Goes to the home page from page group contents
      */
     public void HomePagePushed() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("AnnouncementPagePresenter.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxmlFiles/AnnouncementPagePresenter.fxml"));
         Parent root = loader.load();
         AnnouncementPageController apc = loader.getController();
         apc.setAll(um, gm, groupId, userId, nm);
@@ -80,7 +81,7 @@ public class GroupContentController implements Initializable{
      * Go to the group tasks when pressed
      */
     public void GroupTaskPushed() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("ViewFolderPresenter.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxmlFiles/ViewFolderPresenter.fxml"));
         Parent root = loader.load();
         ViewFolderController vfc = loader.getController();
         vfc.setUserId(userId);
@@ -100,7 +101,7 @@ public class GroupContentController implements Initializable{
      */
     public void GroupChatPushed() throws IOException {
         GUImain guiMain = new GUImain();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupChatPresenter.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxmlFiles/GroupChatPresenter.fxml"));
         Parent root = loader.load();
         GroupChatController gcc = loader.getController();
         gcc.setGroupId(groupId);
@@ -119,7 +120,7 @@ public class GroupContentController implements Initializable{
      * Go to the previous page when presssed
      */
     public void backPushed() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("ViewGroupController.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxmlFiles/ViewGroupController.fxml"));
         Parent root = loader.load();
         ViewGroupController vgc = loader.getController();
         vgc.setAll(um, gm, userId, nm);

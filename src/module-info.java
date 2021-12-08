@@ -9,5 +9,8 @@ module course.project.tbd {
     exports Phase_2Test;
     exports Phase_2.UseCaseClass;
     exports Phase_2.Entity;
+    exports Phase_2;
+    opens Phase_2 to javafx.fxml;
+
 
 }

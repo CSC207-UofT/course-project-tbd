@@ -123,7 +123,7 @@ public class NotificationPageController implements Initializable{
 
         // a new window for warning, before the user can delete a notification
         Stage warningWindow = new Stage();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("WarningWindow.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxmlFiles/WarningWindow.fxml"));
         Parent root = loader.load();
         warningWindow.setResizable(false);
         warningWindow.setTitle("WARNING");

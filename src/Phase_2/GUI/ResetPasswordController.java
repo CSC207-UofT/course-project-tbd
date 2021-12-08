@@ -1,6 +1,7 @@
 package Phase_2.GUI;
 
 import Phase_2.Entity.NormalUser;
+import Phase_2.GUImain;
 import Phase_2.UseCaseClass.GroupManager;
 import Phase_2.UseCaseClass.UserManager;
 import javafx.fxml.FXML;
@@ -71,7 +72,7 @@ public class ResetPasswordController implements Initializable {
      * Go back to the previous page
      */
     public void backPushed() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("UserLogin.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxmlFiles/UserLogin.fxml"));
         Parent root = loader.load();
         UserLoginController upc = loader.getController();
         upc.setUm(um);
