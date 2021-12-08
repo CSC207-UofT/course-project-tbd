@@ -27,6 +27,9 @@ public class CreateGroupController {
     public Label message;
 
 
+    /**
+     * Setter methods
+     */
     public void setGm(GroupManager gm) {
         this.gm = gm;
     }
@@ -39,6 +42,9 @@ public class CreateGroupController {
         this.userName = userName;
     }
 
+    /**
+     * Creates a group when pressed. Updates text accordingly when the name of the group is unavailable
+     */
     public void create_group_button(ActionEvent actionEvent) throws IOException {
 
         String name = group_name.getText();

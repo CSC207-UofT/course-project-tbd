@@ -27,6 +27,10 @@ public class GroupDisplayTaskController implements Initializable {
     GroupManager gm;
     NotificationManager nm;
 
+
+    /**
+     * Setter methods
+     */
     public void setUserId(String userId) {
         this.userId = userId;
     }
@@ -75,8 +79,14 @@ public class GroupDisplayTaskController implements Initializable {
     @FXML
     Button finishTask;
 
-    CategoryManager cm = new CategoryManager();
+    @FXML
+    Label owner;
 
+    CategoryManager cm;
+
+    /**
+     *
+     */
     GroupDisplayTaskController(String categoryName, CategoryManager cm, GroupManager gm, String userId,
                                 String groupId) {
         this.categoryName = categoryName;
@@ -86,25 +96,32 @@ public class GroupDisplayTaskController implements Initializable {
         this.groupId = groupId;
     }
 
-    public void finishTask() {
 
-        String title = name.getText();
-        Status.setText("");
-        if (tm.checkTask(cm.getCategoryByGroup(userId, gm.getGroupById(groupId)),
-                tm.getTaskByName(cm.getCategoryByGroup(userId, gm.getGroupById(groupId)), title))) {
-            tm.completeTask(tm.getTaskByName(cm.getCategoryByGroup(userId, gm.getGroupById(groupId)), title));
-            if (tm.getTaskByName(cm.getCategoryByGroup(userId, gm.getGroupById(groupId)), title)
-                    instanceof TaskWithDueDate) {
-                nm.addTaskWithDueDate((TaskWithDueDate)
-                        tm.getTaskByName(cm.getCategoryByGroup(userId, gm.getGroupById(groupId)), title));
-                Status.setText("<" + tm.getTaskByName(cm.getCategoryByGroup(userId, gm.getGroupById(groupId)), title)
-                        .getTaskName() + "> finished, \n alarm turned off");
+    /**
+     * Finishes the task and remove it from the group page display when requested.
+     */
+    public void finishTask() {
+        if (userId.equals(categoryName)) {
+            String title = name.getText();
+            Status.setText("");
+            if (tm.checkTask(cm.getCategoryByGroup(userId, gm.getGroupById(groupId)),
+                    tm.getTaskByName(cm.getCategoryByGroup(userId, gm.getGroupById(groupId)), title))) {
+                tm.completeTask(tm.getTaskByName(cm.getCategoryByGroup(userId, gm.getGroupById(groupId)), title));
+                if (tm.getTaskByName(cm.getCategoryByGroup(userId, gm.getGroupById(groupId)), title)
+                        instanceof TaskWithDueDate) {
+                    nm.addTaskWithDueDate((TaskWithDueDate)
+                            tm.getTaskByName(cm.getCategoryByGroup(userId, gm.getGroupById(groupId)), title));
+                    Status.setText("<" + tm.getTaskByName(cm.getCategoryByGroup(userId, gm.getGroupById(groupId)), title)
+                            .getTaskName() + "> finished, \n alarm turned off");
+                } else {
+                    Status.setText("Task finished");
+                }
+                Status.setText("Task has been finished");
             } else {
-                Status.setText("Task finished");
+                Status.setText("Invalid Task");
             }
-            Status.setText("Task has been finished");
         } else {
-            Status.setText("Invalid Task");
+            owner.setText("Only the owner of this folder can finish a task");
         }
     }
 

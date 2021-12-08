@@ -1,5 +1,6 @@
 package Phase_2.GUI;
 
+import Phase_2.Entity.AdminUser;
 import Phase_2.Gateways.GroupDataGateWay;
 import Phase_2.Gateways.UserDataGateway;
 import Phase_2.Entity.Group;
@@ -41,6 +42,9 @@ public class WelcomePageController implements Initializable {
     @FXML Button saveButton;
 
 
+    /**
+     * Setter methods
+     */
     public void setUm(UserManager um) {
         this.um = um;
     }
@@ -49,6 +53,9 @@ public class WelcomePageController implements Initializable {
         this.gm = gm;
     }
 
+    /**
+     * Saves user and group data into database when pressed
+     */
     public void saveButtonPushed(){
 
         try{udg.saveToFile(um.getAllUsers());}
@@ -61,6 +68,9 @@ public class WelcomePageController implements Initializable {
         tbd.setText("Data saved, we hope to see you again!");
     }
 
+    /**
+     * Goes to the main page
+     */
     public void buttonPushed() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("MainPage.fxml"));
         Parent root = loader.load();
@@ -82,6 +92,8 @@ public class WelcomePageController implements Initializable {
         groups = new HashMap<>();
         udg = new UserDataGateway("userData.ser");
         gdw = new GroupDataGateWay("groupData.ser");
+        AdminUser a = new AdminUser("admin", "admin");
+        users.add(a);
         try{users = udg.readFromFile();}
         catch (IOException | ClassNotFoundException ioException){
             System.out.println("No User stored in the file");

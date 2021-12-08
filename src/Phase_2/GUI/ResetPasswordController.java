@@ -18,7 +18,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ResetPasswordController implements Initializable {
-
     GroupManager gm;
     UserManager um;
     String userId;
@@ -36,6 +35,9 @@ public class ResetPasswordController implements Initializable {
     @FXML
     PasswordField NewPassword;
 
+    /**
+     * Setter methods
+     */
     public void setGm(GroupManager gm) {
         this.gm = gm;
     }
@@ -48,6 +50,9 @@ public class ResetPasswordController implements Initializable {
         this.userId = userId;
     }
 
+    /**
+     * Resets the security answers and questions
+     */
     public void ResetButtonPushed() {
         SuccessReset.setText("");
         WrongSA.setText("");
@@ -62,6 +67,9 @@ public class ResetPasswordController implements Initializable {
         }
     }
 
+    /**
+     * Go back to the previous page
+     */
     public void backPushed() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("UserLogin.fxml"));
         Parent root = loader.load();

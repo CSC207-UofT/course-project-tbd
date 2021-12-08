@@ -62,6 +62,9 @@ public class GroupContentController implements Initializable{
         GroupName.setText(groupId);
     }
 
+    /**
+     * Goes to the home page from page group contents
+     */
     public void HomePagePushed() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("AnnouncementPagePresenter.fxml"));
         Parent root = loader.load();
@@ -72,6 +75,10 @@ public class GroupContentController implements Initializable{
         guiMain.addScene(scene);
         apc.refreshAnnouncements();
     }
+
+    /**
+     * Go to the group tasks when pressed
+     */
     public void GroupTaskPushed() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ViewFolderPresenter.fxml"));
         Parent root = loader.load();
@@ -88,9 +95,11 @@ public class GroupContentController implements Initializable{
         guiMain.addScene(scene);
     }
 
+    /**
+     * Go to the page group chat when pressed
+     */
     public void GroupChatPushed() throws IOException {
         GUImain guiMain = new GUImain();
-
         FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupChatPresenter.fxml"));
         Parent root = loader.load();
         GroupChatController gcc = loader.getController();
@@ -99,10 +108,16 @@ public class GroupContentController implements Initializable{
         gcc.setGm(gm);
         gcc.setUm(um);
         gcc.setUserId(userId);
+        gcc.setNm(nm);
+        gcc.display();
         Scene scene = new Scene(root);
         guiMain.addScene(scene);
 
     }
+
+    /**
+     * Go to the previous page when presssed
+     */
     public void backPushed() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ViewGroupController.fxml"));
         Parent root = loader.load();

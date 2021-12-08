@@ -7,7 +7,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 
@@ -40,9 +39,6 @@ public class AnnouncementPageController {
 
     @FXML
     VBox leaderControls;
-
-    @FXML
-    Label Announcements;
 
     @FXML
     Button Back;
@@ -94,6 +90,9 @@ public class AnnouncementPageController {
         guiMain.addScene(scene);
     }
 
+    /**
+     * Add a new announcement
+     */
     public void addAnnouncement(){
         String input = announcementInput.getText();
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");

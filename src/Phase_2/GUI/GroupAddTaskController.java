@@ -24,6 +24,9 @@ public class GroupAddTaskController {
     GroupManager gm;
     NotificationManager nm;
 
+    /**
+     * Setter methods
+     */
     public void setUserId(String userId) {
         this.userId = userId;
     }
@@ -67,6 +70,9 @@ public class GroupAddTaskController {
     @FXML
     Label added;
 
+    /**
+     * Goes back to the previous page when button is pressed
+     */
     public void backPushed() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("GroupTaskPresenter.fxml"));
         Parent root = loader.load();
@@ -78,11 +84,15 @@ public class GroupAddTaskController {
         gtc.setGm(gm);
         gtc.setTm(tm);
         gtc.setNm(nm);
+        gtc.checkLeader.setText("");
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);
     }
 
+    /**
+     * Add task to group with the given name, content, date and also created alarm clock if user requested it
+     */
     public void addTask() throws IOException {
         CategoryManager cm = new CategoryManager();
         String name = title.getText();
@@ -97,10 +107,15 @@ public class GroupAddTaskController {
                 int day = Integer.parseInt(date.get(2));
                 int hour = Integer.parseInt(date.get(3));
                 int minute = Integer.parseInt(date.get(4));
-                TaskWithDueDate task = tm.createTask(name, info, year, month, day, hour, minute);
-                nm.addTaskWithDueDate(task);
-                tm.addTaskToCategory(cm.getCategoryByGroup(categoryName, gm.getGroupById(groupId)), task);
-                added.setText("Task has been added successfully");
+                if(tm.getTaskByName(cm.getCategoryByGroup(categoryName, gm.getGroupById(groupId)), name) != null){
+                    added.setText("The task already exists, chose another task name");
+                }
+                else {
+                    TaskWithDueDate task = tm.createTask(name, info, year, month, day, hour, minute);
+                    nm.addTaskWithDueDate(task);
+                    tm.addTaskToCategory(cm.getCategoryByGroup(categoryName, gm.getGroupById(groupId)), task);
+                    added.setText("Task has been added successfully");
+                }
             } catch (UnsupportedOperationException e) {     // exception thrown when user schedules a date in the past
                 System.out.println(e.getMessage());
             } catch (IndexOutOfBoundsException e2) {     // when the user's date input does not follow the format
@@ -113,9 +128,14 @@ public class GroupAddTaskController {
             }
         }
         if (answer.equals("No")) {
-            Task task = new Task(name, info);
-            tm.addTaskToCategory(cm.getCategoryByGroup(categoryName, gm.getGroupById(groupId)), task);
-            added.setText("Task has been added successfully");
+            if(tm.getTaskByName(cm.getCategoryByGroup(categoryName, gm.getGroupById(groupId)), name) != null){
+                added.setText("The task already exists, chose another task name");
+            }
+            else {
+                Task task = new Task(name, info);
+                tm.addTaskToCategory(cm.getCategoryByGroup(categoryName, gm.getGroupById(groupId)), task);
+                added.setText("Task has been added successfully");
+            }
         }
     }
 }

@@ -7,61 +7,136 @@ import Phase_2.UseCaseClass.NotificationManager;
 import Phase_2.UseCaseClass.TaskManager;
 import Phase_2.UseCaseClass.UserManager;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 import java.time.DateTimeException;
 import java.util.*;
 
-public class AddTaskController implements Initializable {
+/**
+ * This is the controller for the Add Task Page fxml. There the user can add tasks to their data, and they can create
+ * 2 types of tasks: a normal task with a title and its information, and a task with due date which will include
+ * an additional input field that prompt the user to input when they would like to be notified and an alarm will be
+ * set up to remind them on the date.
+ *
+ * @author  Owen Huang
+ * @author  Sanjana Girish
+ */
+public class AddTaskController{
+    /**
+     * A task object that user wants to add
+     */
     Task t;
+
+    /**
+     * Use case for all operations we are performing on Tasks (e.g. add task, delete task)
+     */
     TaskManager tm;
+
+    /**
+     * Responsible for managing, changing and accessing user information
+     */
     UserManager um;
+
+    /**
+     * Category is responsible for storing all the tasks
+     */
     Category c;
+
+    /**
+     * Used to start alarm for task with a due date, and send notification to user mailbox
+     */
     NotificationManager nm;
 
+    /**
+     * This remembers the previous scene before ViewNFinishTask Page FXML, which should be the task page
+     */
     Scene previousScene;
 
+    /**
+     * The text area where user inputs name of task
+     */
     @FXML
     TextField title;
+
+    /**
+     * The text field where user inputs the task detail
+     */
     @FXML
     TextField information;
+
+    /**
+     * the text field for inputting date info
+     */
     @FXML
     TextField date;
+
+    /**
+     * button to add task
+     */
     @FXML
     Button addTask;
+
+    /**
+     * A label to indicate whether task is being created or not
+     */
     @FXML
     Label Success;
+
+    /**
+     * text field to indicate whether user want it to be a task with due date
+     */
     @FXML
     TextField yes0rNo ;
 
+    /**
+     * click to go back to the previous page
+     */
     @FXML
-    Hyperlink goback;
+    Hyperlink goBack;
 
+    /**
+     * This is a setter method for the task manager.
+     * @param tm: Task Manager
+     */
     public void setTm(TaskManager tm) {this.tm = tm;}
-    public void setUm(UserManager um) {
-        this.um = um;
-    }
-    public void setT(Task t) {
-        this.t = t;
-    }
-    public void setC(Category c){this.c = c;}
-    public void setNm(NotificationManager nm){
-        this.nm = nm;
-    }
-    public void setPreviousScene(Scene scene){
-        this.previousScene = scene;
-    }
 
+    /**
+     * This is a setter method for the user manager.
+     * @param um: User Manager
+     */
+    public void setUm(UserManager um) {this.um = um;}
+
+    /**
+     * This is a setter method for Task.
+     * @param t: Task
+     */
+    public void setT(Task t) {this.t = t;}
+
+    /**
+     * This is a setter method for Category.
+     * @param c: Category
+     */
+    public void setC(Category c){this.c = c;}
+
+    /**
+     * This is a setter method for Notification manager.
+     * @param nm: Notification manager.
+     */
+    public void setNm(NotificationManager nm){this.nm = nm;}
+
+    /**
+     * This is a setter method for Scene
+     * @param scene: Scene
+     */
+    public void setPreviousScene(Scene scene){this.previousScene = scene;}
+
+    /**
+     * This method used to add task in the category when the button is pressed.
+     * We can create with due date or without due date.
+     */
     public void addTask() throws IOException {
-        GUImain guiMain = new GUImain();
         String name = title.getText();
         Success.setText("");
         String info = information.getText();
@@ -110,15 +185,11 @@ public class AddTaskController implements Initializable {
         }
     }
 
+    /**
+     * Goes back to the previous page when the back button is pressed on our gui.
+     */
     public void backPushed() throws IOException {
         Stage stage = (Stage) addTask.getScene().getWindow();
         stage.setScene(previousScene);
-    }
-
-
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
     }
 }

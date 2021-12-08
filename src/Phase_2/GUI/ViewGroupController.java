@@ -36,8 +36,6 @@ public class ViewGroupController {
     @FXML
     VBox GroupsPane;
 
-    @FXML
-    Button refreshButton;
 
     @FXML
     Button BackButton;
@@ -90,6 +88,7 @@ public class ViewGroupController {
         gpc.setGm(gm);
         gpc.setUm(um);
         gpc.setUserId(userId);
+        gpc.setNm(nm);
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
         guiMain.addScene(scene);

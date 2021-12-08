@@ -36,9 +36,13 @@ public class NotificationManager implements Runnable {
     private AlarmMenu alarmMenu;
 
     /**
-     * mailbox is an array list of strings that keeps track off all the notifications.
+     * mailboxTaskName is an array list of strings that keeps track off all the notifications' task names.
      */
     public ArrayList<String> mailboxTaskName = new ArrayList<>();
+
+    /**
+     * mailDetail is a hash map that maps a task name to its detail info
+     */
     public HashMap<String, String> mailDetail = new HashMap<>();
 
     /**

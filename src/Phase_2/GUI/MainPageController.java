@@ -31,6 +31,9 @@ public class MainPageController implements Initializable {
     public MainPageController(){
     }
 
+    /**
+     * Setter methods
+     */
     public void setGm(GroupManager gm) {
         this.gm = gm;
     }
@@ -42,11 +45,17 @@ public class MainPageController implements Initializable {
 
 
 
+    /**
+     * Shows the main page
+     */
     public void display() throws IOException {
         GUImain m = new GUImain();
         m.changeScene("Main.fxml");
     }
 
+    /**
+     * Go to create new user page
+     */
     public void newUserButtonPushed() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("NewUser.fxml"));
         Parent root = loader.load();
@@ -58,6 +67,9 @@ public class MainPageController implements Initializable {
         guiMain.addScene(scene);
     }
 
+    /**
+     * Go back to previous page
+     */
     public void backPushed() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("WelcomePage.fxml"));
         Parent root = loader.load();
@@ -69,6 +81,9 @@ public class MainPageController implements Initializable {
         guiMain.addScene(scene);
     }
 
+    /**
+     * Go to user sign in page
+     */
     public void signInButtonPushed() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("UserLogin.fxml"));
         Parent root = loader.load();

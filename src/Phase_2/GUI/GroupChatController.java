@@ -19,6 +19,9 @@ public class GroupChatController {
     UserManager um;
     NotificationManager nm;
 
+    /**
+     * Setter methods
+     */
     public void setGroupId(String groupId) {
         this.groupId = groupId;
     }
