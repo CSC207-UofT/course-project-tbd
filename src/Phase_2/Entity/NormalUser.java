@@ -51,6 +51,14 @@ public class NormalUser extends User implements Serializable {
     }
 
     /**
+     * A method that returns username and password. PS someone please change the format to make it look better
+     */
+    public String displayUserDetail() {
+        return ("Username: " + this.username + "\n"
+                + "Password: " + this.password);
+    }
+
+    /**
      * Add group to this normal user
      */
     public void addGroup(String groupId) {
@@ -137,7 +145,6 @@ public class NormalUser extends User implements Serializable {
     public ArrayList<Category> getMyCategories() {
         return myCategories;
     }
-
     /**
      *
      * @param nu the other user

@@ -14,7 +14,7 @@ public class CategoryManagerTest {
     CategoryManager cm;
     Group g;
     User b;
-    Category temp;
+
 
 
     @Before
