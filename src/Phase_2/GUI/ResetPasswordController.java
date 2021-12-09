@@ -6,7 +6,7 @@ import Phase_2.UseCaseClass.GroupManager;
 import Phase_2.UseCaseClass.UserManager;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
+
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -15,10 +15,9 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
-public class ResetPasswordController implements Initializable {
+
+public class ResetPasswordController{
     GroupManager gm;
     UserManager um;
     String userId;
@@ -82,8 +81,5 @@ public class ResetPasswordController implements Initializable {
         guiMain.addScene(scene);
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
 
-    }
 }

@@ -4,10 +4,14 @@ import Phase_2.UseCaseClass.GroupManager;
 import Phase_2.UseCaseClass.UserManager;
 import javafx.fxml.FXML;
 
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class CreateGroupController {
+
+public class CreateGroupController implements Initializable {
     GroupManager gm;
     UserManager um;
     String userName;
@@ -20,6 +24,9 @@ public class CreateGroupController {
 
     @FXML
     public Label message;
+
+    @FXML
+    TextArea info;
 
 
     /**
@@ -53,5 +60,8 @@ public class CreateGroupController {
     }
 
 
-
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        info.setEditable(false);
+    }
 }

@@ -90,18 +90,15 @@ affecting our use cases or entities. Flow of control still follows the DIP and o
 and if communicating with our lower level code in one layer above, it uses dependency injection design.
 
 ## Code organisation
-We used packages to organise our codes by layer. Doing so makes the code easily understandable to everyone working with
-the code. At the top we have Database, user interface followed by controllers and presenters followed  by Use Case
-classes followed by entity classes.
-This follows the dependency inversion principle, where the flow control is always from the higher-level modules to
-lower level modules. The use case classes depend on the entity classes, and the controllers depend on the use case
-classes. But there is no direct dependence between the controllers and entity class in our project.
-Our organisation structure also follows the open/closed principle, where to add new features or functionality we do not
-have to modify our entity classes, but we can extend it.
-In our project, entities are the highest-level policies  (core of the program), which follows the clean architecture.
-The use cases can manipulate the entity classes, without changing anything inside the entity classes. Like **Task**
-class is an entity class, and **TaskManager** class manipulates the attributes in task to create methods, which in turn
-is used by **TaskPageController** class.  This makes testing the classes easier. 
+We used packages to organise our code by layer. This follows the dependency inversion principle, where the flow control 
+is always from high level module to lower level modules.
+The use case classes depend on the entity classes, the controllers do not directly access the entity classes and 
+our Gui only interacts with controllers and gateways. In our project, entities are the highest-level policies  
+(core of the program), which follows the clean architecture. But there is no direct dependence between the controllers 
+and entity class in our project. Our organisation structure also follows the open/closed principle, where to add new 
+features or functionality we do not have to modify our entity classes, but we can extend it by using our use case 
+classes.
+
 
 ## Design Patterns
 We implemented Iterator Design Pattern in Category class, which stores Tasks of users’. In this way, we can
@@ -161,8 +158,7 @@ functionality presented as methods instead. Now, each time we want to use functi
 will be calling on the method CreateGroup in the GroupFunctionsController instead.
 
 ## Test Report
-We tested most of our classes, including the use case classes and entity classes. We could not test the controller and
-presenters as in order to test them we would have to make a file system, and we would have to change a bunch of things.
+We tested most of our classes, including the use case classes and entity classes. 
 
 ## Use of GitHub Features
 **Branches**: We created separate local branches, one for each member in the group. Each member committed their changes
