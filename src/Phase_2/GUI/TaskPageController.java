@@ -116,6 +116,7 @@ public class TaskPageController {
         ViewNFinishTaskController apc1 = loader.getController();
         apc1.setTm(tm);
         apc1.setUm(um);
+        apc1.setNotificationManager(nm);
         apc1.setPreviousScene(viewTaskButton.getScene());
         Scene scene = new Scene(root);
         GUImain guiMain = new GUImain();
