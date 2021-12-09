@@ -33,7 +33,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Button fx:id="cancel" layoutX="17.0" layoutY="443.0" mnemonicParsing="false" onAction="#backPushed" text="Cancel" />
+      <Button fx:id="cancel" layoutX="17.0" layoutY="443.0" mnemonicParsing="false" onAction="#backPushed" text="Back" />
       <Button fx:id="done" layoutX="338.0" layoutY="443.0" mnemonicParsing="false" onAction="#addTask" text="Done" />
       <Label fx:id="added" layoutX="97.0" layoutY="498.0" textAlignment="CENTER">
          <font>
