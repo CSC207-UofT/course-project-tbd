@@ -49,6 +49,7 @@ public class JoinGroupController {
         } else if (gm.checkIfIn(name, um.getUserById(userName))) {
             message.setText("You're already in this group!");
         } else {
+            message.setText("You successfully joined this group!");
             gm.addUserToGroup(name, um.getUserById(userName));
 
         }
