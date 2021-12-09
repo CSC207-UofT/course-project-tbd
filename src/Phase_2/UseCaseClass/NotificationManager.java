@@ -73,7 +73,7 @@ public class NotificationManager implements Runnable {
      *
      * @param t is an instance of TaskWithDueDate
      */
-    public void addTaskWithDueDate(TaskWithDueDate t){
+    public void addTaskWithDueDate(TaskWithDueDate t) throws Exception {
         this.taskWithDueDates.add(t);
         runTask();
     }
@@ -170,19 +170,16 @@ public class NotificationManager implements Runnable {
      * polls the task with the highest priority from queue (aka the task with the earliest due date)
      * and set up and start an alarm for this task
      */
-    private void runTask(){
+    private void runTask() throws Exception {
         if(!taskWithDueDates.isEmpty()){    // if there is a task in the queue
             TaskWithDueDate t =  this.taskWithDueDates.poll();      // dequeue
             Alarm alarm = this.alarmMenu.createAlarm(t.getDueDate());       // create the alarm using due date
-            try {
-                if (!t.getStatus()){        // if task is incomplete, start the alarm
-                    // may catch unsupported operation exception if try to schedule alarm into the past
-                    this.alarmMenu.startAlarm(alarm, new NotificationBox(t));
-                } else {                    // task is mark complete, cancel the alarm
-                    this.alarmMenu.cancelAlarm(alarm);
-                }
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
+
+            if (!t.getStatus()) {        // if task is incomplete, start the alarm
+                // may catch unsupported operation exception if try to schedule alarm into the past
+                this.alarmMenu.startAlarm(alarm, new NotificationBox(t));
+            } else {                    // task is mark complete, cancel the alarm
+                this.alarmMenu.cancelAlarm(alarm);
             }
         }
     }

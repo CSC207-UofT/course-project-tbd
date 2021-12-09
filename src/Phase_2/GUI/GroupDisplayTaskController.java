@@ -150,7 +150,7 @@ public class GroupDisplayTaskController implements Initializable {
      * This method allows the user to finish the task and remove it from the group page
      * display when requested.
      */
-    public void finishTask() {
+    public void finishTask() throws Exception {
         if (userId.equals(categoryName)) {
             String title = name.getText();
             Status.setText("");
