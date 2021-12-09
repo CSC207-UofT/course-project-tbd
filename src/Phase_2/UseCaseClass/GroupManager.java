@@ -33,9 +33,15 @@ public class GroupManager{
     public void createGroup(User user, String name) {
         int count = 0;
         for (Group g: maps.values()) {
-           String a = g.getgroupName().substring(g.getgroupName().indexOf('#')+1);
-            if (count <= Integer.parseInt(a)){
-                count = Integer.parseInt(a) + 1;
+           String b = g.getgroupName();
+           int c = b.length() - 1;
+           while (c != -1) {
+           if (b.charAt(c) == '#'){
+               b = b.substring(c+1);
+               c = 0;}
+           c -= 1;}
+            if (count <= Integer.parseInt(b)){
+                count = Integer.parseInt(b) + 1;
             }}
         String groupId =  "#" + count;
         Group group = new Group(user, name + groupId);
