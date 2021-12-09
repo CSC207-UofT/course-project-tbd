@@ -50,36 +50,63 @@ public class GroupDisplayTaskController implements Initializable {
 
 
     /**
-     * Setter methods
+     * Setter method for userId
+     * @param userId the name of the user who is accessing this controller
      */
     public void setUserId(String userId) {
         this.userId = userId;
     }
 
+    /**
+     * Setter method for groupId
+     * @param groupId the name of the group that the current user is accessing
+     */
     public void setGroupId(String groupId) {
         this.groupId = groupId;
     }
 
+    /**
+     * Setter method for um
+     * @param um use case for all operations on Users
+     */
     public void setUm(UserManager um) {
         this.um = um;
     }
 
+    /**
+     * Setter method for tm
+     * @param tm use case for all operations on Tasks
+     */
     public void setTm(TaskManager tm) {
         this.tm = tm;
     }
 
+    /**
+     * Setter method for gm
+     * @param gm use case for all operations on Groups
+     */
     public void setGm(GroupManager gm) {
         this.gm = gm;
     }
 
+    /**
+     * Setter method for nm
+     * @param nm used to start alarm for task with a due date, and send notification to
+     *           the user's notification center
+     */
     public void setNm(NotificationManager nm) {
         this.nm = nm;
     }
 
+    /**
+     * Setter for Scene
+     * @param scene Initiate the previous scene for the user to go back to the previous controller
+     */
     public void setPreviousScene(Scene scene){
         this.previousScene = scene;
     }
 
+    @FXML
     Scene previousScene;
 
     @FXML
@@ -106,7 +133,8 @@ public class GroupDisplayTaskController implements Initializable {
     CategoryManager cm;
 
     /**
-     *
+     * This method is to initiate all the required parameters for the GroupDisplayTaskController
+     * and for the use of "Initializable"
      */
     GroupDisplayTaskController(String categoryName, CategoryManager cm, GroupManager gm, String userId,
                                 String groupId) {
@@ -119,7 +147,8 @@ public class GroupDisplayTaskController implements Initializable {
 
 
     /**
-     * Finishes the task and remove it from the group page display when requested.
+     * This method allows the user to finish the task and remove it from the group page
+     * display when requested.
      */
     public void finishTask() {
         if (userId.equals(categoryName)) {
@@ -147,11 +176,21 @@ public class GroupDisplayTaskController implements Initializable {
         }
     }
 
+    /**
+     * This method allows the user to go back to the previous controller (GroupTaskController)
+     * @throws IOException any exception that could occur when running this method
+     */
     public void backPushed() throws IOException {
         Stage stage = (Stage) finishTask.getScene().getWindow();
         stage.setScene(previousScene);
     }
 
+    /**
+     * This initializes the page when user enters the page, it should display all the tasks
+     * if there is any
+     * @param url inherited from the interface
+     * @param resourceBundle inherited from the interface
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ArrayList<String> taskNames = new ArrayList<>();

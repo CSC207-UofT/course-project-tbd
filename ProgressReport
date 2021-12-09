@@ -189,6 +189,16 @@ Harry: - Worked on the CRC card. Writer of the Clean Architecture explanation.
        Help to finish all the controllers of GUI
        Fix any unexpected bugs
 
+       Phase 2:
+       - Created the GUI for GroupChat and GroupTask features and connect them to the other part of the group features
+                   - Was responsible for working on controllers and presenters for the GUI of ViewFolderController,
+                   GroupTaskController, GroupAddTaskController, GroupDisplayTaskController and GroupChatController and
+                   connect them to the other controllers of Group.
+                   - Fixed up old bugs and code smells in some the use case classes.
+
+       - Wrote and updated the Clean Architecture from Phase 1.
+
+       - Github Commits: https://github.com/CSC207-UofT/course-project-tbd/commits?author=harry-30
 
 
 
