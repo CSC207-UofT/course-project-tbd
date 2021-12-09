@@ -8,6 +8,7 @@ package Phase_2.UseCaseClass;
 
 import Phase_2.Entity.Alarm;
 
+import java.time.DateTimeException;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.*;
@@ -60,7 +61,7 @@ public class AlarmStarter implements AlarmMenu {
     public void startAlarm(Alarm alarm, Runnable whenFired) throws UnsupportedOperationException {
         // if there is  already an alarm set at this time,throw UnsupportedOperationException
         if (unfinishedScheduledTasks.containsKey(alarm)){
-            throw new UnsupportedOperationException(" There is already an task due at this time\n" +
+            throw new UnsupportedOperationException("WARNING! \n\n\nThere is already an task due at this time\n" +
                     "Task is added without alarm notification");
         }
         //get number of millisecond into the future of the scheduled time
@@ -68,10 +69,10 @@ public class AlarmStarter implements AlarmMenu {
         long ms = duration.toMillis();  // save the difference from now to the alarm time in milliseconds
         if (ms < 0){        // if the alarm time is in the past compared to now
             // throw UnsupportedOperationException and tell the user scheduling into the past is not allowed
-            throw new UnsupportedOperationException("WARNING!\nPrevious task is scheduling " +
+            throw new UnsupportedOperationException("WARNING!\n\n\nPrevious task is scheduling " +
                     ms +
-                    " milliseconds into the past\n" +
-                    "Task is added without alarm notification");
+                    " milliseconds\n" +
+                    " into the past task is added without alarm notification");
         }
 
         //creating TimerTask to be executed by the timer

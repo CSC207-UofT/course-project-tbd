@@ -161,7 +161,7 @@ public class AddTaskController{
                     Success.setText("Task Successfully Created");
                 }
             } catch (UnsupportedOperationException e) {     // exception thrown when user schedules a date in the past
-                Success.setText("WARNING! \n\n\nThe date is in the past, task is added without alarm.");
+                Success.setText(e.getMessage());
             } catch (IndexOutOfBoundsException e2) {     // when the user's date input does not follow the format
                 Success.setText("Please enter according to the format: \n" +
                         "Year/Month/Date/Hour/Minute");
