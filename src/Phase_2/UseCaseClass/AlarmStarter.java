@@ -62,7 +62,7 @@ public class AlarmStarter implements AlarmMenu {
         // if there is  already an alarm set at this time,throw UnsupportedOperationException
         if (unfinishedScheduledTasks.containsKey(alarm)){
             throw new UnsupportedOperationException("WARNING! \n\n\nThere is already an task due at this time\n" +
-                    "Task is added without alarm notification");
+                    "Task is not added");
         }
         //get number of millisecond into the future of the scheduled time
         Duration duration = Duration.between(LocalDateTime.now(), alarm.getTime());

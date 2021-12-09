@@ -156,8 +156,8 @@ public class AddTaskController{
                 }
                 else{
                     TaskWithDueDate task = tm.createTask(name, info, year, month, day, hour, minute);
-                    tm.addTaskToCategory(c, task);  // add task to user's task collection
                     nm.addTaskWithDueDate(task);    // add to notification manager for creating alarm for task
+                    tm.addTaskToCategory(c, task);  // add task to user's task collection
                     Success.setText("Task Successfully Created");
                 }
             } catch (UnsupportedOperationException e) {     // exception thrown when user schedules a date in the past
