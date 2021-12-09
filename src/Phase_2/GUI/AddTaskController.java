@@ -156,12 +156,12 @@ public class AddTaskController{
                 }
                 else{
                     TaskWithDueDate task = tm.createTask(name, info, year, month, day, hour, minute);
-                    nm.addTaskWithDueDate(task);    // add to notification manager for creating alarm for task
                     tm.addTaskToCategory(c, task);  // add task to user's task collection
+                    nm.addTaskWithDueDate(task);    // add to notification manager for creating alarm for task
                     Success.setText("Task Successfully Created");
                 }
             } catch (UnsupportedOperationException e) {     // exception thrown when user schedules a date in the past
-                System.out.println(e.getMessage());
+                Success.setText("WARNING! \n\n\nThe date is in the past, task is added without alarm.");
             } catch (IndexOutOfBoundsException e2) {     // when the user's date input does not follow the format
                 Success.setText("Please enter according to the format: \n" +
                         "Year/Month/Date/Hour/Minute");
