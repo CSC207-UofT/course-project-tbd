@@ -135,7 +135,7 @@ public class ViewNFinishTaskController implements Initializable {
      *This method finishes the task which is provided by the user. The user provides the string
      * representation of the task.
      */
-    public void finishTask(){
+    public void finishTask() throws Exception {
         String title = name.getText();
         Task task = tm.getTaskByName(category, title);
         Status.setText("");
