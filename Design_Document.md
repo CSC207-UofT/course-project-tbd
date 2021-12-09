@@ -158,7 +158,7 @@ functionality presented as methods instead. Now, each time we want to use functi
 will be calling on the method CreateGroup in the GroupFunctionsController instead.
 
 ## Test Report
-We tested most of our classes, including the use case classes and entity classes. 
+We tested most of our classes, including all of our use case classes and entity classes. 
 
 ## Use of GitHub Features
 **Branches**: We created separate local branches, one for each member in the group. Each member committed their changes
